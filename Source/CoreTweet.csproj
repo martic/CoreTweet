@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B8237636-EC72-47BD-887B-E66D4123F422}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CoreTweet</RootNamespace>
+    <AssemblyName>CoreTweet</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Ex\Extend.cs" />
+    <Compile Include="Api\Account.cs" />
+    <Compile Include="Api\DirectMessages.cs" />
+    <Compile Include="Api\Followers.cs" />
+    <Compile Include="Api\Friends.cs" />
+    <Compile Include="Api\Friendships.cs" />
+    <Compile Include="Api\Search.cs" />
+    <Compile Include="Api\Statuses.cs" />
+    <Compile Include="Api\Blocks.cs" />
+    <Compile Include="Api\Favorites.cs" />
+    <Compile Include="Api\Lists.cs" />
+    <Compile Include="Api\SavedSearches.cs" />
+    <Compile Include="Api\Geo.cs" />
+    <Compile Include="Api\Trends.cs" />
+    <Compile Include="Api\Help.cs" />
+    <Compile Include="Api\Application.cs" />
+    <Compile Include="Api\Users.cs" />
+    <Compile Include="Objects\CoreBase.cs" />
+    <Compile Include="Objects\Entity.cs" />
+    <Compile Include="Objects\Places.cs" />
+    <Compile Include="Objects\Status.cs" />
+    <Compile Include="Objects\User.cs" />
+    <Compile Include="Objects\Tokens.cs" />
+    <Compile Include="Property.cs" />
+    <Compile Include="Api\OAuth.cs" />
+    <Compile Include="Request.cs" />
+    <Compile Include="Lib\DynamicJson.cs" />
+    <Compile Include="Standalone.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Ex\" />
+    <Folder Include="Api\" />
+    <Folder Include="Objects\" />
+  </ItemGroup>
+</Project>
