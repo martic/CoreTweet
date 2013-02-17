@@ -89,7 +89,7 @@ csx
 AppPackages/
 
 # Others
-Test.cs
+Test/
 [Bb]in
 [Oo]bj
 sql

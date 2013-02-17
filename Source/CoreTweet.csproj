@@ -9,6 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>CoreTweet</RootNamespace>
     <AssemblyName>CoreTweet</AssemblyName>
+    <StartupObject>CoreTweet.Test</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -68,7 +69,6 @@
     <Compile Include="Request.cs" />
     <Compile Include="Lib\DynamicJson.cs" />
     <Compile Include="Standalone.cs" />
-    <Compile Include="Test.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
