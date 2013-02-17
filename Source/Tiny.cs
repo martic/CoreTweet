@@ -10,7 +10,7 @@ using System.Text;
 /// <summary>
 /// Standalone OAuth Twitter Module.
 /// </summary>
-namespace ModernOAuthTwitter
+namespace TinyTwitter
 {
     public class Tokens
     {
