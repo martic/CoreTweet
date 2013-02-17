@@ -1,4 +1,5 @@
 using System;
+using Codeplex.Data;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -6,6 +7,9 @@ namespace CoreTweet.Api
 {
     public static class Account
     {
+        
+        //GET Methods
+        
         /// <summary>
         ///     <para>
         ///     Returns an HTTP 200 OK response code and a representation of the requesting user if authentication was successful; returns a 401 status code and an error message if not. Use this method to test if supplied user credentials are valid.
@@ -24,15 +28,22 @@ namespace CoreTweet.Api
         /// The user data of you.
         /// </returns>
         /// <param name='tokens'>
-        /// OAuth Tokens.
+        /// OAuth tokens.
         /// </param>
         /// <param name='Parameters'>
         /// Parameters.
         /// </param>
-        public static User VerifyCredentials(Tokens tokens, params Expression<Func<string,bool>>[] Parameters)
+        public static User VerifyCredentials(Tokens tokens, params Expression<Func<string,object>>[] Parameters)
         {
-            Request.Send(tokens, MethodType.GET, "https://api.twitter.com/1.1/account/verify_credentials.json", Parameters);
+            return CoreBase.Convert<User>(
+                DynamicJson.Parse(
+                    Request.Send(tokens, MethodType.GET, 
+                         ApiList.Account.verify_credentials, Parameters)));
         }
+        
+        //POST Methods
+        
+        
         
     }
 }
