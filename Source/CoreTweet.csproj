@@ -68,6 +68,7 @@
     <Compile Include="Request.cs" />
     <Compile Include="Lib\DynamicJson.cs" />
     <Compile Include="Standalone.cs" />
+    <Compile Include="Test.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
