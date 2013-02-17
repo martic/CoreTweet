@@ -21,6 +21,6 @@ Global
 		{B8237636-EC72-47BD-887B-E66D4123F422}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = CoreTweet.csproj
+		StartupItem = Test\Test.csproj
 	EndGlobalSection
 EndGlobal

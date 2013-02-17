@@ -9,7 +9,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>CoreTweet</RootNamespace>
     <AssemblyName>CoreTweet</AssemblyName>
-    <StartupObject>CoreTweet.Test</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

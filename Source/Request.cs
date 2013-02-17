@@ -41,11 +41,11 @@ namespace CoreTweet
         /// <returns>
         /// Response.
         /// </returns>
-        public static string Send(Tokens tokens, MethodType type, string url, params Expression<Func<string,string>>[] prms)
+        public static string Send(Tokens tokens, MethodType type, string url, params Expression<Func<string,object>>[] prms)
         {
             var prm = GenerateParameters(tokens.ConsumerKey, tokens.AccessToken);	
             foreach(var expr in prms)
-                prm.Add(expr.Parameters[0].Name, UrlEncode(expr.Compile()("")));
+                prm.Add(expr.Parameters[0].Name, UrlEncode(expr.Compile()("").ToString()));
             var sgn = GenerateSignature(tokens, 
                 type == MethodType.GET ? "GET" : "POST", url, prm);
             prm.Add("oauth_signature", UrlEncode(sgn));
