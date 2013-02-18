@@ -67,10 +67,15 @@ namespace CoreTweet.Api
                 {"EndTime", e.sleet_time.end_time},
                 {"StartTime", e.sleet_time.start_time},
             };
-            TimeZone = new Dictionary<string, object>()
+            SleepTime = new Dictionary<string, object>()
             {
                 {"Name", e.time_zone.name},
-                
+                {"TzinfoName", e.time_zone.tzinfo_name},
+                {"UtcOffset", e.utc_offset}
+            };
+            TimeZone = new Dictionary<string, object>()
+            {
+
             };
         }
     }
