@@ -7,13 +7,11 @@ namespace CoreTweet
         public static readonly string API_Version = "1.1";
     }
 
-    public static class ApiList
+    public static class TwiTool
     {
-        public static class Account
+        public static string GetAPIURL(string ApiName)
         {
-            public static string
-                verify_credentials = "https://api.twitter.com/1.1/account/verify_credentials.json",
-                settings = "https://api.twitter.com/1.1/account/settings.json";
+            return string.Format("https://api.twitter.com/1.1/{0}.json", ApiName);
         }
     }
 }

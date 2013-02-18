@@ -10,7 +10,7 @@ using System.Text;
 /// <summary>
 /// Standalone OAuth Twitter Module.
 /// </summary>
-namespace TinyTwitter
+namespace TinyTweet
 {
     public class Tokens
     {
@@ -268,7 +268,7 @@ namespace TinyTwitter
             cnt.GetTokens(Console.ReadLine());
             // Get your Timeline. You can use a JSON library such as DynamicJson to parse this.
             Console.WriteLine(cnt.Request(MethodType.GET, "https://api.twitter.com/1.1/statuses/home_timeline.json", count => "20", page => "1"));
-            // Your first tweet from ModernOAuthTwitter!
+            // Your first tweet from TinyTweet!
             cnt.Request(MethodType.POST, "https://api.twitter.com/1.1/statuses/update.json", status => "Hello,Twitter!");
         }
     }
