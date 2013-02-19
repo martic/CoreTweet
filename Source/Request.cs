@@ -12,7 +12,8 @@ namespace CoreTweet
     public enum MethodType
     {
         GET,
-        POST
+        POST,
+        POST_NORESPONSE
     }
     
     public static class Request
@@ -49,7 +50,7 @@ namespace CoreTweet
             var sgn = GenerateSignature(tokens, 
                 type == MethodType.GET ? "GET" : "POST", url, prm);
             prm.Add("oauth_signature", UrlEncode(sgn));
-            return type == MethodType.GET ? HttpGet(url, prm) : HttpPost(url, prm);
+            return type == MethodType.GET ? HttpGet(url, prm) : (type == MethodType.POST ? HttpPost(url, prm, false) : HttpPost(url, prm, true));
         }
         
         internal static string HttpGet(string url, IDictionary<string, string> prm)
@@ -65,7 +66,7 @@ namespace CoreTweet
                 return reader.ReadToEnd();
         }
 
-        internal static string HttpPost(string url, IDictionary<string, string> prm)
+        internal static string HttpPost(string url, IDictionary<string, string> prm, bool ignore_response)
         {
             var data = Encoding.UTF8.GetBytes(
                 string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value))));
@@ -78,12 +79,15 @@ namespace CoreTweet
             req.ContentLength = data.Length;
             using(var reqstr = req.GetRequestStream())
                 reqstr.Write(data, 0, data.Length);
-            using(var resstr = req.GetResponse().GetResponseStream())
-            using(var reader = new StreamReader(resstr, Encoding.UTF8))
-                return reader.ReadToEnd();
+            if(!ignore_response)
+                using(var resstr = req.GetResponse().GetResponseStream())
+                using(var reader = new StreamReader(resstr, Encoding.UTF8))
+                    return reader.ReadToEnd();
+            else
+                return "";
 
         }
-    
+        
         internal static string GenerateSignature(Tokens t, string httpMethod, string url, SortedDictionary<string, string> prm)
         {
             var hs1 = new HMACSHA1();

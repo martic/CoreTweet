@@ -9,6 +9,8 @@ namespace CoreTweet
     {
         public static class Statuses
         {
+            //UNDONE:update_with_media haven't been implemented.
+            //FIXME:filter shouldn't works well.It needs some tests.
             
             //GET Methods
 
@@ -93,6 +95,33 @@ namespace CoreTweet
                 return CoreBase.ConvertArray<Status>(DynamicJson.Parse(
                          Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/retweets_of_me"), Parameters)));
             }
+            
+            
+            /// <summary>
+            /// <para>Returns information allowing the creation of an embedded representation of a Tweet on third party sites. See the oEmbed specification for information about the response format.</para>
+            /// <para>While this endpoint allows a bit of customization for the final appearance of the embedded Tweet, be aware that the appearance of the rendered Tweet may change over time to be consistent with Twitter's Display Requirements. Do not rely on any class or id parameters to stay constant in the returned markup.</para>
+            /// <para>Avaliable parameters: </para><para> </para>
+            /// </summary>
+            /// <para><paramref name="long id (required)"/> : The Tweet/status ID to return embed code for.</para>
+            /// <para><paramref name="int maxwidth (optional)"/> : The maximum width in pixels that the embed should be rendered at. This value is constrained to be between 250 and 550 pixels. Note that Twitter does not support the oEmbed maxheight parameter. Tweets are fundamentally text, and are therefore of unpredictable height that cannot be scaled like an image or video. Relatedly, the oEmbed response will not provide a value for height. Implementations that need consistent heights for Tweets should refer to the hide_thread and hide_media parameters below.</para>
+            /// <para><paramref name="bool hide_media (optional)"/> : Specifies whether the embedded Tweet should automatically expand images which were uploaded via POST statuses/update_with_media. When set to either true, t or 1 images will not be expanded. Defaults to false.</para>
+            /// <para><paramref name="bool hide_thread (optional)"/> : Specifies whether the embedded Tweet should automatically show the original message in the case that the embedded Tweet is a reply. When set to either true, t or 1 the original Tweet will not be shown. Defaults to false.</para>
+            /// <para><paramref name="bool omit_script (optional)"/> : Specifies whether the embedded Tweet HTML should include a <script> element pointing to widgets.js. In cases where a page already includes widgets.js, setting this value to true will prevent a redundant script element from being included. When set to either true, t or 1 the <script> element will not be included in the embed HTML, meaning that pages must include a reference to widgets.js manually. Defaults to false.</para>
+            /// <para><paramref name="string align (optional)"/> : Specifies whether the embedded Tweet should be left aligned, right aligned, or centered in the page. Valid values are left, right, center, and none. Defaults to none, meaning no alignment styles are specified for the Tweet.</para>
+            /// <para><paramref name="string related (optional)"/> : A value for the TWT related parameter, as described in Web Intents. This value will be forwarded to all Web Intents calls.</para>
+            /// <para><paramref name="string lang (optional)"/> : Language code for the rendered embed. This will affect the text and localization of the rendered HTML.</para>
+            /// <returns>The HTML code and more.</returns>
+            /// <param name='Tokens'>
+            /// Tokens.
+            /// </param>
+            /// <param name='Parameters'>
+            /// Parameters.
+            /// </param> 
+            public static Embed Oembed(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+            {
+                return CoreBase.Convert<Embed>(DynamicJson.Parse(
+                    Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/oembed"), Parameters)));
+            }
 
             //POST Methods
 
@@ -108,7 +137,7 @@ namespace CoreTweet
             /// <para><paramref name="double long (optional)"/> : The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</para>
             /// <para><paramref name="string place_id (optional)"/> : A place in the world. These IDs can be retrieved from GET geo/reverse_geocode.</para>
             /// <para><paramref name="bool display_coordinates (optional)"/> : Whether or not to put a pin on the exact coordinates a tweet has been sent from.</para>
-            /// <para><paramref name="bool trim_user (optional)"/> : When set to true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
+            /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
             /// </summary>
             /// <returns>The updated status.</returns>
             /// <param name='Tokens'>
@@ -122,6 +151,73 @@ namespace CoreTweet
                 
                 return CoreBase.Convert<Status>(DynamicJson.Parse(
                          Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("statuses/update"), Parameters)));
+            }
+            
+            
+            /// <summary>
+            /// <para>Returns public statuses that match one or more filter predicates. Multiple parameters may be specified which allows most clients to use a single connection to the Streaming API. Both GET and POST requests are supported, but GET requests with too many parameters may cause the request to be rejected for excessive URL length. Use a POST request to avoid long URLs.</para>
+            /// <see cref="https://dev.twitter.com/docs/streaming-apis/parameters"/>
+            /// <para>Note: At least one predicate parameter (follow, locations, or track) must be specified.</para>
+            /// <para>Avaliable parameters: </para><para> </para>
+            /// </summary>
+            /// <para><paramref name="string follow (see note)"/> : A comma separated list of user IDs, indicating the users to return statuses for in the stream. See the follow parameter documentation for more information.</para>
+            /// <para><paramref name="string track (see note)"/> : Keywords to track. Phrases of keywords are specified by a comma-separated list. See the track parameter documentation for more information.</para>
+            /// <para><paramref name="string locations (see note)"/> : Specifies a set of bounding boxes to track. See the locations parameter documentation for more information.</para>
+            /// <para><paramref name="string delimited (optional)"/> : Specifies whether messages should be length-delimited. See the delimited parameter documentation for more information.</para>
+            /// <para><paramref name="string stall_warnings (optional)"/> : Specifies whether stall warnings should be delivered. See the stall_warnings parameter documentation for more information.</para>
+            /// <returns></returns>
+            /// <param name='Tokens'>
+            /// Tokens.
+            /// </param>
+            /// <param name='Parameters'>
+            /// Parameters.
+            /// </param>
+            public static Status[] Filter(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+            {
+                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(
+                         Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/filter"), Parameters)));
+            }
+            
+            /// <summary>
+            /// <para>Destroys the status specified by the required ID parameter. The authenticating user must be the author of the specified status. Returns the destroyed status if successful.</para>
+            /// <para>Avaliable parameters: </para><para> </para>
+            /// </summary>
+            /// <para><paramref name="long id (required)"/> : The numerical ID of the desired status.</para>
+            /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
+            /// <returns>The destroied status.</returns>
+            /// <param name='Tokens'>
+            /// Tokens.
+            /// </param>
+            /// <param name='Parameters'>
+            /// Parameters.
+            /// </param>
+            public static Status Destroy(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+            {
+                return CoreBase.Convert<Status>(DynamicJson.Parse(
+                         Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL(
+                    string.Format("statuses/destroy/{0}", 
+                         Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
+            }
+            
+            /// <summary>
+            /// <para>Retweets a tweet. Returns the original tweet with retweet details embedded.</para>
+            /// <para>Avaliable parameters: </para><para> </para>
+            /// </summary>
+            /// <para><paramref name="long id (required)"/> : The numerical ID of the desired status.</para>
+            /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
+            /// <returns>The retweeted status.</returns>
+            /// <param name='Tokens'>
+            /// Tokens.
+            /// </param>
+            /// <param name='Parameters'>
+            /// Parameters.
+            /// </param>
+            public static Status Retweet(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+            {
+                return CoreBase.Convert<Status>(DynamicJson.Parse(
+                         Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL(
+                    string.Format("statuses/retweet/{0}", 
+                         Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
             }
         }
     }

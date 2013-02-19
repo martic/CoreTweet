@@ -69,6 +69,8 @@
     <Compile Include="Request.cs" />
     <Compile Include="Lib\DynamicJson.cs" />
     <Compile Include="Tiny.cs" />
+    <Compile Include="Objects\Setting.cs" />
+    <Compile Include="Objects\Embed.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
