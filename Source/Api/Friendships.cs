@@ -1,8 +1,8 @@
 using System;
 
-namespace CoreTweet.Api
+namespace CoreTweet
 {
-	public static class Friendships
-	{
-	}
+    public static class Friendships
+    {
+    }
 }

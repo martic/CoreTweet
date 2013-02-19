@@ -9,7 +9,7 @@ namespace CoreTweet
         /// <summary>
         ///     この子を呼べばTに対応するConvert()を呼んでdynamic objectをstatic objectに変換してくれます
         /// </summary>
-        internal static T Convert<T>(dynamic e)
+        public static T Convert<T>(dynamic e)
             where T : CoreBase
         {
             var i = Activator.CreateInstance<T>();
@@ -20,14 +20,15 @@ namespace CoreTweet
         /// <summary>
         ///     ( ,,Ծ ‸ Ծ ).｡ｏO( 説明いるのかな )
         /// </summary>
-        internal static T[] ConvertArray<T>(dynamic e)
+        public static T[] ConvertArray<T>(dynamic e)
 			where T : CoreBase
         {
-            var l = new List<T>();
-            foreach(dynamic x in e) {
-                l.Add(Convert<T>(x));
-            }
-            return l.ToArray();
+            if(e == null || !e.IsArray)
+                return null;
+            T[] ts = new T[((dynamic[])e).Length];
+            for (int i = 0; i < ((dynamic[])e).Length; i++)
+                ts[i] = Convert<T>(((dynamic[])e)[i]);
+            return ts;
         }
 
         /// <summary>

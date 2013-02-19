@@ -43,7 +43,7 @@ namespace CoreTweet
         /// <summary>
         ///     Nullable. Perspectival. Indicates whether this Tweet has been favorited by the authenticating user.
         /// </summary>
-        public bool IsFavorited { get; set; }
+        public bool? IsFavorited { get; set; }
 
         /// <summary>
         ///     Nullable. If the represented Tweet is a reply, this field will contain the screen name of the original Tweet's author.
@@ -86,7 +86,7 @@ namespace CoreTweet
         /// <summary>
         ///     Perspectival. Indicates whether this Tweet has been retweeted by the authenticating user.
         /// </summary>
-        public bool IsRetweeted { get; set; }
+        public bool? IsRetweeted { get; set; }
 
         /// <summary>
         ///     Utility used to post the Tweet, as an HTML-formatted string. Tweets from the Twitter website have a source value of web.
@@ -112,13 +112,13 @@ namespace CoreTweet
         ///     The user who posted this Tweet. Perspectival attributes embedded within this object are unreliable.
         /// </summary>
         /// <seealso cref="https://dev.twitter.com/docs/platform-objects/users" />
-        public User User { get; set;  }
+        public User User { get; set; }
 
         /// <summary>
         ///     When present and set to "true", it indicates that this piece of content has been withheld due to a DMCA complaint.
         /// </summary>
         /// <seealso cref="http://en.wikipedia.org/wiki/Digital_Millennium_Copyright_Act" />
-        public bool WithheldCopyright { get; set; }
+        public bool? WithheldCopyright { get; set; }
 
         /// <summary>
         ///     When present, indicates a list of uppercase two-letter country codes this content is withheld from.
@@ -134,29 +134,31 @@ namespace CoreTweet
 
         internal override void ConvertBase(dynamic e)
         {
-			Id=e.id;
-			Contributors = CoreBase.ConvertArray<Contributors>(e.contributors);
-			Coordinates = CoreBase.Convert<Coordinates>(e.coordinates);
-			CreatedAt = DateTimeOffset.Parse(e.created_at);
-			CurrentUserRetweet = e.current_user_retweet.id;
-			Entities = CoreBase.ConvertArray<Entity>(e.extities);
-			IsFavorited = e.is_favorited;
-			InReplyToScreenName = e.in_reply_to_screen_name;
-			InReplyToStatusId = e.in_reply_to_status_id;
-			InReplyToUserId = e.in_reply_to_user_id;
-			Place = CoreBase.Convert<Place>(e.place);
-			PossiblySensitive = e.possibly_sensitive;
-			//UNDONE:Scopes
-			RetweetCount = e.retweet_count;
-			IsRetweeted = e.is_retweeted;
-			Source = e.source;
-			Text = e.text;
-			Truncated = e.truncated;
-			User = CoreBase.Convert<User>(e.user);
-			WithheldCopyright = e.withheld_copyright;
-			WithheldInCountries = e.withheld_in_countries;
-			WithheldScope = e.withheld_scope;
-		}
+            Id = (long)e.id;
+            Contributors = e.IsDefined("contributors") ? CoreBase.ConvertArray<Contributors>(e.contributors) : null;
+            Coordinates = e.IsDefined("coordinates") ? CoreBase.Convert<Coordinates>(e.coordinates) : null;
+            //FIXME: DateTimeOffset.ParseExact Doesn't work.
+            //CreatedAt = DateTimeOffset.ParseExact(e.created_at, "ddd MMM dd HH:mm:ss K yyyy",
+            //                                      System.Globalization.DateTimeFormatInfo.InvariantInfo);
+            CurrentUserRetweet = e.IsDefined("current_user_retweet") ? e.current_user_retweet.id : -1;
+            Entities = e.IsDefined("entities") ? CoreBase.ConvertArray<Entity>(e.entities) : null;
+            IsFavorited = e.IsDefined("favorited") ? e.favorited : null;
+            InReplyToScreenName = e.in_reply_to_screen_name;
+            InReplyToStatusId = (long?)e.in_reply_to_status_id;
+            InReplyToUserId = (long?)e.in_reply_to_user_id;
+            Place = CoreBase.Convert<Place>(e.place);
+            PossiblySensitive = e.IsDefined("possibly_sensitive") ? e.possibly_sensitive : null;
+            //UNDONE:Scopes
+            RetweetCount = (int)e.retweet_count;
+            IsRetweeted = e.retweeted;
+            Source = e.source;
+            Text = e.text;
+            Truncated = e.truncated;
+            User = e.IsDefined("user") ? CoreBase.Convert<User>(e.user) : null;
+            WithheldCopyright = e.IsDefined("withheld_copyright") ? (bool?)e.withheld_copyright : null;
+            WithheldInCountries = e.IsDefined("withheld_in_countries") ? e.withheld_in_countries : null;
+            WithheldScope = e.IsDefined("withheld_scope") ? e.withheld_scope : null;
+        }
     }
 
     public class Contributors : CoreBase
@@ -173,7 +175,7 @@ namespace CoreTweet
 
         internal override void ConvertBase(dynamic e)
         {
-            Id = e.id;
+            Id = (long)e.id;
             ScreenName = e.screen_name;
         }
     }
@@ -197,9 +199,12 @@ namespace CoreTweet
 
         internal override void ConvertBase(dynamic e)
         {
-            Longtitude = e.coordinates[0];
-            Latitude = e.coordinates[1];
-            Type = e.type;
+            if(e != null)
+            {
+                Longtitude = e.coordinates[0];
+                Latitude = e.coordinates[1];
+                Type = e.type;
+            }
         }
     }
 }

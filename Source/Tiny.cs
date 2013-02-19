@@ -79,9 +79,9 @@ namespace TinyTweet
 
     public class OAuthClient
     {
-        const string REQUEST_TOKEN_URL = "https://twitter.com/oauth/request_token";
-        const string ACCESS_TOKEN_URL = "https://twitter.com/oauth/access_token";
-        const string AUTHORIZE_URL = "https://twitter.com/oauth/authorize";
+        static readonly string REQUEST_TOKEN_URL = "https://twitter.com/oauth/request_token";
+        static readonly string ACCESS_TOKEN_URL = "https://twitter.com/oauth/access_token";
+        static readonly string AUTHORIZE_URL = "https://twitter.com/oauth/authorize";
         string req_token, req_secret;
         Tokens Token;
         

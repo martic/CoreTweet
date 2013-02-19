@@ -1,12 +1,9 @@
 using System;
 
-namespace CoreTweet.Api
+namespace CoreTweet
 {
-	public class Help
-	{
-		public Help ()
-		{
-		}
-	}
+    public static class Help
+    {
+    }
 }
 

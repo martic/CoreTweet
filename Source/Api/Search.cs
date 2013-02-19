@@ -1,8 +1,8 @@
 using System;
 
-namespace CoreTweet.Api
+namespace CoreTweet
 {
-	public static class Search
-	{
-	}
+    public static class Search
+    {
+    }
 }

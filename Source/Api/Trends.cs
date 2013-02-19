@@ -1,9 +1,9 @@
 using System;
 
-namespace CoreTweet.Api
+namespace CoreTweet
 {
-	public static class Trends
-	{
-	}
+    public static class Trends
+    {
+    }
 }
 

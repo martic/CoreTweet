@@ -12,7 +12,7 @@ namespace CoreTweet
         /// <summary>
         ///     The UTC datetime that the user account was created on Twitter.
         /// </summary>
-        public DateTime CreatedAt { get; set; }
+        public DateTimeOffset CreatedAt { get; set; }
 
         /// <summary>
         ///     When true, indicates that the user has not altered the theme or background of their user profile.
@@ -162,7 +162,7 @@ namespace CoreTweet
         /// <summary>
         ///     Indicates that the user would like to see media inline. Somewhat disused.
         /// </summary>
-        public bool IsShowAllInlineMedia { get; set; }
+        public bool? IsShowAllInlineMedia { get; set; }
 
         /// <summary>
         ///     Nullable. If possible, the user's most recent tweet or retweet. In some circumstances, this data cannot be provided and this field will be omitted, null, or empty. Perspectival attributes within tweets embedded within users cannot always be relied upon.
@@ -177,7 +177,7 @@ namespace CoreTweet
         /// <summary>
         ///     Nullable. A string describing the Time Zone this user declares themselves within.
         /// </summary>
-        public TimeZoneInfo TimeZone { get; set; }
+        public string TimeZone { get; set; }
 
         /// <summary>
         ///     Nullable. A URL provided by the user in association with their profile.
@@ -203,32 +203,34 @@ namespace CoreTweet
         ///     When present, indicates whether the content being withheld is the "status" or a "user."
         /// </summary>
         public string WithheldScope { get; set; }
-
+        
         internal override void ConvertBase(dynamic e)
         {
             IsContributorsEnabled = (bool)e.contributors_enabled;
-            CreatedAt = DateTime.Parse(e.created_at);
+            //FIXME: DateTimeOffset.ParseExact Doesn't work.
+            //CreatedAt = DateTimeOffset.ParseExact(e.created_at, "ddd MMM dd HH:mm:ss K yyyy",
+            //                                      System.Globalization.DateTimeFormatInfo.InvariantInfo);
             IsDefaultProfile = (bool)e.default_profile;
             IsDefaultProfileImage = (bool)e.default_profile_image;
             Description = (string)e.description;
-            Entities = CoreBase.Convert<Entity>(e.entities);
-            FavouritesCount = (int)e.favorurites_count;
+            Entities = e.IsDefined("entities") ? CoreBase.Convert<Entity>(e.entities) : null;
+            FavouritesCount = (int)e.favourites_count;
             IsFollowRequestSent = (bool?)e.follow_request_sent;
             FollowersCount = (int)e.followers_count;
             FriendsCount = (int)e.friends_count;
             IsGeoEnabled = (bool)e.geo_enabled;
             Id = (long)e.id;
             IsTranslator = (bool)e.is_translator;
-            Language = (string)e.language;
+            Language = (string)e.lang;
             ListedCount = (int)e.listed_count;
             Location = (string)e.location;
             Name = (string)e.name;
             ProfileBackgroundImageUrl = new Uri((string)e.profile_background_image_url);
             ProfileBackgroundImageUrlHttps = new Uri((string)e.profile_background_image_url_https);
             IsProfileBackgroundTile = (bool)e.profile_background_tile;
-            ProfileBannerUrl = new Uri((string)e.profile_banner_url);
+            ProfileBannerUrl = e.IsDefined("profile_banner_url") ? new Uri((string)e.profile_banner_url) : null;
             ProfileImageUrl = new Uri((string)e.profile_image_url);
-            ProfileImageUrlHttps = new Uri((string)e.profile_image_https);
+            ProfileImageUrlHttps = new Uri((string)e.profile_image_url_https);
             ProfileLinkColor = (string)e.profile_link_color;
             ProfileSidebarBorderColor = (string)e.profile_sidebar_border_color;
             ProfileSidebarFillColor = (string)e.profile_sidebar_fill_color;
@@ -236,16 +238,15 @@ namespace CoreTweet
             IsProfileUseBackgroundImage = (bool)e.profile_use_background_image;
             IsProtected = (bool)e.@protected;
             ScreenNane = (string)e.screen_name;
-            IsShowAllInlineMedia = (bool)e.show_all_inline_media;
-            Status = CoreBase.Convert<Status>(e.status);
+            IsShowAllInlineMedia = e.IsDefined("show_all_inline_media") ? (bool?)e.show_all_inline_media : null;
+            Status = e.IsDefined("status") ? CoreBase.Convert<Status>(e.status) : null;
             StatusesCount = (int)e.statuses_count;
-            TimeZone = TimeZoneInfo.FindSystemTimeZoneById((string)e.time_zone);
-            Url = new Uri((string)e.url);
-            UtcOffset = DateTimeOffset.FromFileTime((long)e.utc_offset);
+            TimeZone = (string)e.time_zone;
+            Url =e.url == null ? null :  new Uri((string)e.url);
+            //UtcOffset = DateTimeOffset.FromFileTime((long)e.utc_offset);
             IsVerified = (bool)e.verified;
-            WithheldInCountries = (string)e.withheld_in_countries;
-            WithheldScope = (string)e.withheld_scope;
-            //FIXME: Maybe it doesn't work. It needs some tests.
+            WithheldInCountries = e.IsDefined("withheld_in_countries") ? e.withheld_in_countries : null;
+            WithheldScope = e.IsDefined("withheld_scope") ? e.withheld_scope : null;
         }
     }
 }

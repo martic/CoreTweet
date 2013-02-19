@@ -51,7 +51,7 @@ namespace CoreTweet
             prm.Add("oauth_signature", UrlEncode(sgn));
             return type == MethodType.GET ? HttpGet(url, prm) : HttpPost(url, prm);
         }
-
+        
         internal static string HttpGet(string url, IDictionary<string, string> prm)
         {
             ServicePointManager.Expect100Continue = false;
@@ -63,7 +63,6 @@ namespace CoreTweet
             using(var stream = res.GetResponseStream())
             using(var reader = new StreamReader(stream))
                 return reader.ReadToEnd();
-
         }
 
         internal static string HttpPost(string url, IDictionary<string, string> prm)

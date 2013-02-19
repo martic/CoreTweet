@@ -27,10 +27,10 @@ namespace CoreTweet
 
         internal override void ConvertBase(dynamic e)
         {
-			HashTags = CoreBase.ConvertArray<HashTag>(e.hash_tags);
-			Media = CoreBase.Convert<Media>(e.media);
-			Urls = CoreBase.ConvertArray<Url>(e.urls);
-			UserMentions = CoreBase.ConvertArray<UserMention>(e.user_mention);
+            HashTags = e.IsDefined("hashtags") ? CoreBase.ConvertArray<HashTag>(e.hashtags) : null;
+            Media = e.IsDefined("media") ? CoreBase.Convert<Media>(e.media) : null;
+            Urls = e.IsDefined("urls") ? CoreBase.ConvertArray<Url>(e.urls) : null;
+            UserMentions = e.IsDefined("user_memtions") ? CoreBase.ConvertArray<UserMention>(e.user_mentions) : null;
         }
     }
 
@@ -107,16 +107,16 @@ namespace CoreTweet
 
         internal override void ConvertBase(dynamic e)
         {
-			DisplayUrl = e.display_url;
-			ExpandedUrl = e.expanded_url;
-			Id = e.id;
-			Indices = new int[]{e.indices[0],e.indices[1]};
-			MediaUrl = new Uri(e.media_url);
-			MediaUrlHttps = new Uri(e.media_url_https);
-			Sizes = CoreBase.Convert<Sizes>(e.sizes);
-			SourceStatusId = e.source_status_id;
-			Type = e.type;
-			Url = new Uri(e.url);
+            DisplayUrl = e.display_url;
+            ExpandedUrl = e.expanded_url;
+            Id = e.id;
+            Indices = new int[]{e.indices[0],e.indices[1]};
+            MediaUrl = new Uri(e.media_url);
+            MediaUrlHttps = new Uri(e.media_url_https);
+            Sizes = CoreBase.Convert<Sizes>(e.sizes);
+            SourceStatusId = e.source_status_id;
+            Type = e.type;
+            Url = new Uri(e.url);
         }
     }
 
@@ -139,9 +139,9 @@ namespace CoreTweet
 
         internal override void ConvertBase(dynamic e)
         {
-			Height = e.height;
-			Resize = e.resize;
-			Width = e.width;
+            Height = e.height;
+            Resize = e.resize;
+            Width = e.width;
         }
     }
 
@@ -168,11 +168,11 @@ namespace CoreTweet
         public Size Thumb;
 
         internal override void ConvertBase(dynamic e)
-		{
-			Large  = CoreBase.Convert<Size>(e.large);
-			Medium = CoreBase.Convert<Size>(e.medium);
-			Small = CoreBase.Convert<Size>(e.small);
-			Thumb = CoreBase.Convert<Size>(e.thumb);
+        {
+            Large = CoreBase.Convert<Size>(e.large);
+            Medium = CoreBase.Convert<Size>(e.medium);
+            Small = CoreBase.Convert<Size>(e.small);
+            Thumb = CoreBase.Convert<Size>(e.thumb);
         }
     }
 
@@ -200,10 +200,10 @@ namespace CoreTweet
 
         internal override void ConvertBase(dynamic e)
         {
-			DisplayUrl = e.display_url;
-			ExpandedUrl = e.expanded_url;
-			Indices = new int[]{e.indices[0],e.indices[1]};
-			Uri = new Uri(e.uri);
+            DisplayUrl = e.display_url;
+            ExpandedUrl = e.expanded_url;
+            Indices = new int[]{e.indices[0],e.indices[1]};
+            Uri = new Uri(e.uri);
         }
     }
 
@@ -231,10 +231,10 @@ namespace CoreTweet
 
         internal override void ConvertBase(dynamic e)
         {
-			Id = e.id;
-			Indices = new int[]{e.indices[0],e.indices[1]};
-			Name = e.name;
-			ScreenName = e.screen_name;
+            Id = e.id;
+            Indices = new int[]{e.indices[0],e.indices[1]};
+            Name = e.name;
+            ScreenName = e.screen_name;
         }
     }
 }
