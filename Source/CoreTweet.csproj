@@ -71,6 +71,7 @@
     <Compile Include="Tiny.cs" />
     <Compile Include="Objects\Setting.cs" />
     <Compile Include="Objects\Embed.cs" />
+    <Compile Include="Objects\IDs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

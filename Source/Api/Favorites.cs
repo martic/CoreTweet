@@ -15,8 +15,8 @@ namespace CoreTweet
             
             /// <summary>
             /// <para>Returns the 20 most recent Tweets favorited by the authenticating or specified user.</para>
-            /// <para>Avaliable parameters: </para><para> </para>
             /// </summary>
+            /// <para>Avaliable parameters: </para><para> </para>
             /// <para><paramref name="long id (optional)"/> : The ID of the user for whom to return results for.</para>
             /// <para><paramref name="string screen_name (optonal)"/> : The screen name of the user for whom to return results for.</para>
             /// <para><paramref name="int count (optional)"/> : Specifies the number of records to retrieve. Must be less than or equal to 200. Defaults to 20.</para>
@@ -40,8 +40,8 @@ namespace CoreTweet
             
             /// <summary>
             /// <para>Favorites the status specified in the ID parameter as the authenticating user. Returns the favorite status when successful.</para>
-            /// <para>Avaliable parameters: </para><para> </para>
             /// </summary>
+            /// <para>Avaliable parameters: </para><para> </para>
             /// <para><paramref name="long id (required)"/> : The numerical ID of the desired status.</para>
             /// <para><paramref name="bool include_entities (ooptional)"/> : The entities node will be omitted when set to false.</para>
             /// <returns>The favorited status.</returns>
@@ -60,8 +60,8 @@ namespace CoreTweet
             /// <summary>
             /// <para>Un-favorites the status specified in the ID parameter as the authenticating user. Returns the un-favorited status in the requested format when successful.</para>
             /// <para>This process invoked by this method is asynchronous. The immediately returned status may not indicate the resultant favorited status of the tweet. A 200 OK response from this method will indicate whether the intended action was successful or not.</para>
-            /// <para>Avaliable parameters: </para><para> </para>
             /// </summary>
+            /// <para>Avaliable parameters: </para><para> </para>
             /// <para><paramref name="long id (required)"/> : The numerical ID of the desired status.</para>
             /// <para><paramref name="bool include_entities (ooptional)"/> : The entities node will be omitted when set to false.</para>
             /// <returns>The destroied status.</returns>
