@@ -3,7 +3,6 @@ using CoreTweet.Core;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Codeplex.Data;
-using CoreTweet.Core;
 
 namespace CoreTweet
 {
@@ -35,11 +34,7 @@ namespace CoreTweet
             public static IEnumerable<Status> List(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.ConvertArray<Status>(DynamicJson.Parse(
-<<<<<<< HEAD:Source/Apis/Rest/Favorites.cs
                          Request.Send(Tokens, MethodType.GET, Rest.Url("favorites/list"), Parameters))
-=======
-                         Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("favorites/list"), Parameters))
->>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0:Source/Apis/Rest/Favorites.cs
                 );
             }  
             
@@ -61,11 +56,7 @@ namespace CoreTweet
             public static Status Create(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.Convert<Status>(DynamicJson.Parse(
-<<<<<<< HEAD:Source/Apis/Rest/Favorites.cs
                     Request.Send(Tokens, MethodType.POST, Rest.Url("favorites/create"), Parameters))
-=======
-                    Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("favorites/create"), Parameters))
->>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0:Source/Apis/Rest/Favorites.cs
                 );
             }
             
@@ -86,11 +77,7 @@ namespace CoreTweet
             public static Status Destroy(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.Convert<Status>(DynamicJson.Parse(
-<<<<<<< HEAD:Source/Apis/Rest/Favorites.cs
                     Request.Send(Tokens, MethodType.POST, Rest.Url("favorites/destroy"), Parameters))
-=======
-                    Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("favorites/destroy"), Parameters))
->>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0:Source/Apis/Rest/Favorites.cs
                 );
             }
         }

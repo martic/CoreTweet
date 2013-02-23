@@ -31,11 +31,7 @@ namespace CoreTweet
             /// <see cref="https://dev.twitter.com/docs/misc/cursoring"/>
             public static Cursored<long> Ids(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-<<<<<<< HEAD
                 return CoreBase.Convert<Cursored<long>>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, Rest.Url("followers/ids"), Parameters)));
-=======
-                return CoreBase.Convert<Cursored<long>>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("followers/ids"), Parameters)));
->>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
 
             /// <summary>
@@ -59,11 +55,7 @@ namespace CoreTweet
             /// <see cref="https://dev.twitter.com/docs/misc/cursoring"/>
             public static Cursored<User> List(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-<<<<<<< HEAD
                 return CoreBase.Convert<Cursored<User>>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, Rest.Url("followers/list"), Parameters)));
-=======
-                return CoreBase.Convert<Cursored<User>>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("followers/list"), Parameters)));
->>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
         }
     }

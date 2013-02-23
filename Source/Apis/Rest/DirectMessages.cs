@@ -1,9 +1,6 @@
 using System;
 using CoreTweet.Core;
-<<<<<<< HEAD
 using System.Collections.Generic;
-=======
->>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
 using System.Linq.Expressions;
 using Codeplex.Data;
 
@@ -34,17 +31,10 @@ namespace CoreTweet
             /// <param name='Parameters'>
             /// Parameters.
             /// </param>
-<<<<<<< HEAD
             public static IEnumerable<DirectMessage> Sent(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.ConvertArray<DirectMessage>(DynamicJson.Parse(
                     Request.Send(Tokens, MethodType.GET, Rest.Url("direct_messages/sent"), Parameters)));
-=======
-            public static DirectMessage[] Sent(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
-            {
-                return CoreBase.ConvertArray<DirectMessage>(DynamicJson.Parse(
-                    Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("direct_messages/sent"), Parameters)));
->>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
             
             /// <summary>
@@ -60,17 +50,10 @@ namespace CoreTweet
             /// <param name='Parameters'>
             /// Parameters.
             /// </param>
-<<<<<<< HEAD
             public static IEnumerable<DirectMessage> Show(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.ConvertArray<DirectMessage>(DynamicJson.Parse(
                     Request.Send(Tokens, MethodType.GET, Rest.Url("direct_messages/show"), Parameters)));
-=======
-            public static DirectMessage[] Show(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
-            {
-                return CoreBase.ConvertArray<DirectMessage>(DynamicJson.Parse(
-                    Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("direct_messages/show"), Parameters)));
->>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
             
             //POST Methods
@@ -94,11 +77,7 @@ namespace CoreTweet
             public static DirectMessage New(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.Convert<DirectMessage>(DynamicJson.Parse(
-<<<<<<< HEAD
                     Request.Send(Tokens, MethodType.POST, Rest.Url("direct_messages/new"), Parameters)));
-=======
-                    Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("direct_messages/new"), Parameters)));
->>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
             
             /// <summary>
@@ -118,11 +97,7 @@ namespace CoreTweet
             public static DirectMessage Destroy(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.Convert<DirectMessage>(DynamicJson.Parse(
-<<<<<<< HEAD
                     Request.Send(Tokens, MethodType.POST, Rest.Url("direct_messages/destroy"), Parameters)));
-=======
-                    Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("direct_messages/destroy"), Parameters)));
->>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
         }
     }
