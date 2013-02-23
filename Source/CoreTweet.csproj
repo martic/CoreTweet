@@ -55,7 +55,6 @@
     <Compile Include="Apis\Lists.cs" />
     <Compile Include="Apis\SavedSearches.cs" />
     <Compile Include="Apis\Trends.cs" />
-    <Compile Include="OAuth.cs" />
     <Compile Include="Apis\Users.cs" />
     <Compile Include="Objects\Cursored.cs" />
     <Compile Include="Apis\Rest\Account.cs" />
