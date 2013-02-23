@@ -39,7 +39,7 @@ namespace CoreTweet
             /// </param>
             public static User VerifyCredentials(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, Rest.Url("account/verify_credentials"), Parameters)));
+                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("account/verify_credentials"), Parameters)));
             }
         
             //GET & POST Methods
@@ -62,7 +62,7 @@ namespace CoreTweet
             /// </param>
             public static Setting Settings(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<Setting>(DynamicJson.Parse(Request.Send(Tokens, (Parameters.Length == 0 ? MethodType.GET : MethodType.POST), Rest.Url("account/settings"), Parameters)));
+                return CoreBase.Convert<Setting>(DynamicJson.Parse(Request.Send(Tokens, (Parameters.Length == 0 ? MethodType.GET : MethodType.POST), TwiTool.GetAPIURL("account/settings"), Parameters)));
             }
         
             //POST Methods
@@ -81,7 +81,7 @@ namespace CoreTweet
             /// </param>
             public static void UpdateDeliveryService(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                Request.Send(Tokens, MethodType.POST_NORESPONSE, Rest.Url("account/update_delivery_service"), Parameters);
+                Request.Send(Tokens, MethodType.POST_NORESPONSE, TwiTool.GetAPIURL("account/update_delivery_service"), Parameters);
             }
         
             /// <summary>
@@ -105,7 +105,7 @@ namespace CoreTweet
             /// </param>
             public static User UpdateProfile(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, Rest.Url("account/update_profile"), Parameters)));
+                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("account/update_profile"), Parameters)));
             }
         
             /// <summary>
@@ -127,7 +127,7 @@ namespace CoreTweet
             /// </param>
             public static User UpdateProfileBackgroundImage(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, Rest.Url("account/update_profile_background_image"), Parameters)));
+                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("account/update_profile_background_image"), Parameters)));
             }
         
             /// <summary>
@@ -148,7 +148,7 @@ namespace CoreTweet
             /// </param>
             public static void UpdateProfileBanner(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                Request.Send(Tokens, MethodType.POST_NORESPONSE, Rest.Url("account/update_profile_banner"), Parameters);
+                Request.Send(Tokens, MethodType.POST_NORESPONSE, TwiTool.GetAPIURL("account/update_profile_banner"), Parameters);
             }
         
             /// <summary>
@@ -171,7 +171,7 @@ namespace CoreTweet
             /// </param>
             public static User UpdateProfileColors(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, Rest.Url("account/update_profile_colors"), Parameters)));
+                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("account/update_profile_colors"), Parameters)));
             }
         
             /// <summary>
@@ -191,7 +191,7 @@ namespace CoreTweet
             /// </param>
             public static User UpdateProfileImage(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, Rest.Url("account/update_profile_image"), Parameters)));
+                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("account/update_profile_image"), Parameters)));
             }
         }
         

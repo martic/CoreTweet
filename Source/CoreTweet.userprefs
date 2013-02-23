@@ -2,21 +2,17 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Apis/SavedSearches.cs">
     <Files>
-      <File FileName="Objects/Status.cs" Line="242" Column="6" />
-      <File FileName="Apis/SavedSearches.cs" Line="1" Column="1" />
+      <File FileName="Apis/SavedSearches.cs" Line="11" Column="2" />
+      <File FileName="Apis/Rest/Statuses.cs" Line="54" Column="103" />
+      <File FileName="Objects/CoreBase.cs" Line="2" Column="24" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="CoreTweet" expanded="True">
-            <Node name="References" expanded="True" />
-            <Node name="Apis" expanded="True">
-              <Node name="Rest" expanded="True" />
-              <Node name="SavedSearches.cs" selected="True" />
+          <Node name="CoreTweet" expanded="True" selected="True">
+            <Node name="a name did not start with a legal character 60 (&amp;lt;)  Line 51, position 2.">
+              <Option id="ShowAllFiles" value="True" />
             </Node>
-            <Node name="Ex" expanded="True" />
-            <Node name="Lib" expanded="True" />
-            <Node name="Objects" expanded="True" />
           </Node>
           <Node name="Test" expanded="True" />
         </State>

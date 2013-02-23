@@ -29,7 +29,11 @@ namespace CoreTweet
             public static Cursored<long> Ids(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.Convert<Cursored<long>>(DynamicJson.Parse(
+<<<<<<< HEAD
                     Request.Send(Tokens, MethodType.GET, Rest.Url("blocks/ids"), Parameters)));
+=======
+                    Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("blocks/ids"), Parameters)));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
             
             /// <summary>
@@ -50,7 +54,11 @@ namespace CoreTweet
             public static Cursored<User> List(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.Convert<Cursored<User>>(DynamicJson.Parse(
+<<<<<<< HEAD
                     Request.Send(Tokens, MethodType.GET, Rest.Url("blocks/list"), Parameters)));
+=======
+                    Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("blocks/list"), Parameters)));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
             
             //POST Methods
@@ -74,7 +82,11 @@ namespace CoreTweet
             public static User Create(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.Convert<User>(DynamicJson.Parse(
+<<<<<<< HEAD
                     Request.Send(Tokens, MethodType.POST, Rest.Url("blocks/create"), Parameters)));
+=======
+                    Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("blocks/create"), Parameters)));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
             
             /// <summary>
@@ -96,7 +108,11 @@ namespace CoreTweet
             public static User Destroy(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.Convert<User>(DynamicJson.Parse(
+<<<<<<< HEAD
                     Request.Send(Tokens, MethodType.POST, Rest.Url("blocks/destroy"), Parameters)));
+=======
+                    Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("blocks/destroy"), Parameters)));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
         }
     }

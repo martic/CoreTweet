@@ -55,6 +55,7 @@
     <Compile Include="Apis\Lists.cs" />
     <Compile Include="Apis\SavedSearches.cs" />
     <Compile Include="Apis\Trends.cs" />
+    <Compile Include="OAuth.cs" />
     <Compile Include="Apis\Users.cs" />
     <Compile Include="Objects\Cursored.cs" />
     <Compile Include="Apis\Rest\Account.cs" />
@@ -70,13 +71,5 @@
     <Compile Include="Apis\Rest\Help.cs" />
     <Compile Include="Core.cs" />
     <Compile Include="Apis\Rest\Search.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Ex\" />
-    <Folder Include="Objects\" />
-    <Folder Include="Apis\" />
-    <Folder Include="Apis\Rest\" />
-    <Folder Include="Apis\Streaming\" />
   </ItemGroup>
 </Project>

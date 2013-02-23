@@ -1,8 +1,14 @@
 using System;
+<<<<<<< HEAD
 using CoreTweet.Core;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Codeplex.Data;
+=======
+using System.Linq.Expressions;
+using Codeplex.Data;
+using CoreTweet.Core;
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
 
 namespace CoreTweet
 {
@@ -18,7 +24,11 @@ namespace CoreTweet
             /// <para>Returns a collection of user_ids that the currently authenticated user does not want to receive retweets from.</para>
             /// <para>Use POST friendships/update to set the "no retweets" status for a given user account on behalf of the current user.</para>
             /// </summary>
+<<<<<<< HEAD
             /// <para>Avaliable parameters: Nothing.</para>
+=======
+            /// <para>Avaliable parameters: None.</para>
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             /// <returns>
             /// Ids.
             /// </returns>
@@ -28,9 +38,15 @@ namespace CoreTweet
             /// <param name='Parameters'>
             /// Parameters.
             /// </param>
+<<<<<<< HEAD
             public static IEnumerable<long> NoRetweetsIds(Tokens Tokens)
             {
                 return ((long[])DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, Rest.Url("friendships/no_retweets/ids"), new Expression<Func<string,object>>[0])));
+=======
+            public static long[] NoRetweetsIds(Tokens Tokens)
+            {
+                return ((long[])DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("friendships/no_retweets/ids"), new Expression<Func<string,object>>[0])));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
 
             /// <summary>
@@ -48,7 +64,11 @@ namespace CoreTweet
             /// <see cref="https://dev.twitter.com/docs/misc/cursoring"/>
             public static Cursored<long> Incoming(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
+<<<<<<< HEAD
                 return CoreBase.Convert<Cursored<long>>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, Rest.Url("friendships/incoming"), Parameters)));
+=======
+                return CoreBase.Convert<Cursored<long>>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("friendships/incoming"), Parameters)));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
 
             /// <summary>
@@ -66,7 +86,11 @@ namespace CoreTweet
             /// <see cref="https://dev.twitter.com/docs/misc/cursoring"/>
             public static Cursored<long> Outgoing(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
+<<<<<<< HEAD
                 return CoreBase.Convert<Cursored<long>>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, Rest.Url("friendships/outgoing"), Parameters)));
+=======
+                return CoreBase.Convert<Cursored<long>>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("friendships/outgoing"), Parameters)));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
    
             /// <summary>
@@ -82,9 +106,15 @@ namespace CoreTweet
             /// <param name='Parameters'>
             /// Parameters.
             /// </param>
+<<<<<<< HEAD
             public static IEnumerable<Friendship> Lookup(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.ConvertArray<Friendship>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, Rest.Url("friendships/lookup"), Parameters)));
+=======
+            public static Friendship[] Lookup(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+            {
+                return CoreBase.ConvertArray<Friendship>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("friendships/lookup"), Parameters)));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
             
             /// <summary>
@@ -105,7 +135,11 @@ namespace CoreTweet
             /// </param>
             public static RelationShip Show(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
+<<<<<<< HEAD
                 return CoreBase.Convert<RelationShip>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, Rest.Url("friendships/show"), Parameters)));
+=======
+                return CoreBase.Convert<RelationShip>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("friendships/show"), Parameters)));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
             
             //POST Methods
@@ -129,7 +163,11 @@ namespace CoreTweet
             /// </param>
             public static User Create(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
+<<<<<<< HEAD
                 return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, Rest.Url("friendships/create"), Parameters)));
+=======
+                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("friendships/create"), Parameters)));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
             
             /// <summary>
@@ -150,7 +188,11 @@ namespace CoreTweet
             /// </param>
             public static User Destroy(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
+<<<<<<< HEAD
                 return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, Rest.Url("friendships/destroy"), Parameters)));
+=======
+                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("friendships/destroy"), Parameters)));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
             
             
@@ -172,7 +214,11 @@ namespace CoreTweet
             /// </param>
             public static RelationShip Update(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
+<<<<<<< HEAD
                 return CoreBase.Convert<RelationShip>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, Rest.Url("friendships/update"), Parameters)));
+=======
+                return CoreBase.Convert<RelationShip>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("friendships/update"), Parameters)));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0
             }
 
         }

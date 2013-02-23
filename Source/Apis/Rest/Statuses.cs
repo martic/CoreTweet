@@ -137,7 +137,11 @@ namespace CoreTweet
             /// </param>
             public static Status Show(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
+<<<<<<< HEAD:Source/Apis/Rest/Statuses.cs
                 return CoreBase.Convert<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, Rest.Url(string.Format("statuses/show/{0}", Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
+=======
+                return CoreBase.Convert<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL(string.Format("statuses/show/{0}", Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0:Source/Apis/Rest/Statuses.cs
             }
             
             /// <summary>
@@ -156,7 +160,11 @@ namespace CoreTweet
             /// </param>
             public static IEnumerable<Status> Retweets(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
+<<<<<<< HEAD:Source/Apis/Rest/Statuses.cs
                 return CoreBase.ConvertArray<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, Rest.Url(string.Format("statuses/retweets/{0}", Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
+=======
+                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL(string.Format("statuses/retweets/{0}", Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0:Source/Apis/Rest/Statuses.cs
             }
             
             /// <summary>
@@ -177,7 +185,11 @@ namespace CoreTweet
             [Obsolete("This endpoint requires special permission to access. But not be obsolete :)")]
             public static IEnumerable<Status> Firehose(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
+<<<<<<< HEAD:Source/Apis/Rest/Statuses.cs
                 return CoreBase.ConvertArray<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, Rest.Url("statuses/firehose"), Parameters)));
+=======
+                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/firehose"), Parameters)));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0:Source/Apis/Rest/Statuses.cs
             }
 
             //POST Methods
@@ -204,7 +216,11 @@ namespace CoreTweet
             /// </param>
             public static IEnumerable<Status> Update(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
+<<<<<<< HEAD:Source/Apis/Rest/Statuses.cs
                 return CoreBase.Convert<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, Rest.Url("statuses/update"), Parameters)));
+=======
+                return CoreBase.Convert<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("statuses/update"), Parameters)));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0:Source/Apis/Rest/Statuses.cs
             }
             
             
@@ -228,7 +244,11 @@ namespace CoreTweet
             /// </param>
             public static IEnumerable<Status> Filter(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
+<<<<<<< HEAD:Source/Apis/Rest/Statuses.cs
                 return CoreBase.ConvertArray<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, Rest.Url("statuses/filter"), Parameters)));
+=======
+                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/filter"), Parameters)));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0:Source/Apis/Rest/Statuses.cs
             }
             
             /// <summary>
@@ -246,7 +266,11 @@ namespace CoreTweet
             /// </param>
             public static Status Destroy(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
+<<<<<<< HEAD:Source/Apis/Rest/Statuses.cs
                 return CoreBase.Convert<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, Rest.Url(string.Format("statuses/destroy/{0}", Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
+=======
+                return CoreBase.Convert<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL(string.Format("statuses/destroy/{0}", Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0:Source/Apis/Rest/Statuses.cs
             }
             
             /// <summary>
@@ -264,7 +288,11 @@ namespace CoreTweet
             /// </param>
             public static Status Retweet(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
+<<<<<<< HEAD:Source/Apis/Rest/Statuses.cs
                 return CoreBase.Convert<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, Rest.Url(string.Format("statuses/retweet/{0}", Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
+=======
+                return CoreBase.Convert<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL(string.Format("statuses/retweet/{0}", Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
+>>>>>>> 3dea60089054de7b357a6dbc20cdc397dbe901e0:Source/Apis/Rest/Statuses.cs
             }
         }
     }
