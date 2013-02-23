@@ -146,7 +146,8 @@ namespace TinyTweet
             prm.Add("oauth_verifier", pin);
             prm.Add("oauth_signature", GenerateSignature(new Tokens()
                 {ConsumerSecret = req_secret, AccessTokenSecret = null}, 
-                    "GET", ACCESS_TOKEN_URL, prm));
+                    "GET", ACCESS_TOKEN_URL, prm)
+			);
             var dic = HttpGet(ACCESS_TOKEN_URL, prm).Split('&').Where(x => x.Contains('='))
                 .ToDictionary(x => x.Substring(0, x.IndexOf('=')), y => y.Substring(y.IndexOf('=') + 1));
             Token = Tokens.Create(Token.ConsumerKey, Token.ConsumerSecret, dic["oauth_token"], dic["oauth_token_secret"]);
@@ -192,7 +193,8 @@ namespace TinyTweet
             ServicePointManager.ServerCertificateValidationCallback
                   = (_, __, ___, ____) => true;
             var req = WebRequest.Create(url + '?' + 
-                string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value))));
+				string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value)))
+			);
             var res = req.GetResponse();
             using(var stream = res.GetResponseStream())
             using(var reader = new StreamReader(stream))
@@ -224,11 +226,14 @@ namespace TinyTweet
             var hs1 = new HMACSHA1();
             hs1.Key = Encoding.UTF8.GetBytes(
                 string.Format("{0}&{1}", UrlEncode(t.ConsumerSecret), 
-                    t.AccessTokenSecret == null ? "" : UrlEncode(t.AccessTokenSecret)));
+                    t.AccessTokenSecret == null ? "" : UrlEncode(t.AccessTokenSecret))
+			);
             var hash = hs1.ComputeHash(
                 System.Text.Encoding.UTF8.GetBytes(
                     string.Format("{0}&{1}&{2}", httpMethod, UrlEncode(url),
-                        UrlEncode(string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value)))))));
+                        UrlEncode(string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value)))))
+			)
+			);
             return Convert.ToBase64String(hash);
         }
         
@@ -254,7 +259,22 @@ namespace TinyTweet
                 return String.Empty;
             return string.Join("", Encoding.UTF8.GetBytes(text)
              .Select(x => x < 0x80 && "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~".Contains((char)x) ?
-                     ((char)x).ToString() : ('%' + x.ToString("X2"))));
+                     ((char)x).ToString() : ('%' + x.ToString("X2"))
+			)
+			);
+        }
+    }
+
+    public class Property
+    {
+        public static readonly string API_Version = "1.1";
+    }
+
+    public static class Api
+    {
+        public static string Url(string ApiName)
+        {
+            return string.Format("https://api.twitter.com/{0}/{1}.json", Property.API_Version, ApiName);
         }
     }
     
@@ -267,9 +287,9 @@ namespace TinyTweet
             Console.Write("Input PIN: ");
             cnt.GetTokens(Console.ReadLine());
             // Get your Timeline. You can use a JSON library such as DynamicJson to parse this.
-            Console.WriteLine(cnt.Request(MethodType.GET, "https://api.twitter.com/1.1/statuses/home_timeline.json", count => "20", page => "1"));
+            Console.WriteLine(cnt.Request(MethodType.GET, Api.Url("statuses/home_timeline"), count => "20", page => "1"));
             // Your first tweet from TinyTweet!
-            cnt.Request(MethodType.POST, "https://api.twitter.com/1.1/statuses/update.json", status => "Hello,Twitter!");
+            cnt.Request(MethodType.POST, Api.Url("statuses/update"), status => "Hello,Twitter!");
         }
     }
     

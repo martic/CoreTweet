@@ -3,10 +3,11 @@ using Codeplex.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using CoreTweet.Core;
 
 namespace CoreTweet
 {       
-    public static partial class Api
+    public static partial class Rest
     {
         public static class Account
         {
@@ -38,10 +39,7 @@ namespace CoreTweet
             /// </param>
             public static User VerifyCredentials(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<User>(
-                DynamicJson.Parse(
-                    Request.Send(Tokens, MethodType.GET, 
-                         TwiTool.GetAPIURL("account/verify_credentials"), Parameters)));
+                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, Rest.Url("account/verify_credentials"), Parameters)));
             }
         
             //GET & POST Methods
@@ -64,10 +62,7 @@ namespace CoreTweet
             /// </param>
             public static Setting Settings(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<Setting>(
-                DynamicJson.Parse(
-                    Request.Send(Tokens, (Parameters.Length == 0 ? MethodType.GET : MethodType.POST),
-                             TwiTool.GetAPIURL("account/settings"), Parameters)));
+                return CoreBase.Convert<Setting>(DynamicJson.Parse(Request.Send(Tokens, (Parameters.Length == 0 ? MethodType.GET : MethodType.POST), Rest.Url("account/settings"), Parameters)));
             }
         
             //POST Methods
@@ -86,7 +81,7 @@ namespace CoreTweet
             /// </param>
             public static void UpdateDeliveryService(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                Console.WriteLine(Request.Send(Tokens, MethodType.POST_NORESPONSE, TwiTool.GetAPIURL("account/update_delivery_service"), Parameters));
+                Request.Send(Tokens, MethodType.POST_NORESPONSE, Rest.Url("account/update_delivery_service"), Parameters);
             }
         
             /// <summary>
@@ -110,9 +105,7 @@ namespace CoreTweet
             /// </param>
             public static User UpdateProfile(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<User>(
-                    DynamicJson.Parse(
-                        Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("account/update_profile"), Parameters)));
+                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, Rest.Url("account/update_profile"), Parameters)));
             }
         
             /// <summary>
@@ -120,7 +113,7 @@ namespace CoreTweet
             /// <para>Although each parameter is marked as optional, at least one of image, tile or use must be provided when making this request.</para>
             /// </summary>
             /// <para>Avaliable parameters: </para><para> </para>
-            /// <para><paramref name="object image (optional)"/> : The background image for the profile, base64-encoded. Must be a valid GIF, JPG, or PNG image of less than 800 kilobytes in size. Images with width larger than 2048 pixels will be forcibly scaled down. The image must be provided as raw multipart data, not a URL.</para>
+            /// <para><paramref name="string image (optional)"/> : The background image for the profile, base64-encoded. Must be a valid GIF, JPG, or PNG image of less than 800 kilobytes in size. Images with width larger than 2048 pixels will be forcibly scaled down. The image must be provided as raw multipart data, not a URL.</para>
             /// <para><paramref name="bool tile (optional)"/> : Whether or not to tile the background image. If set to true, t or 1 the background image will be displayed tiled. The image will not be tiled otherwise.</para>
             /// <para><paramref name="bool include_entities (optional)"/> : The entities node will not be included when set to false.</para>
             /// <para><paramref name="bool skip_status (optional)"/> : When set to true, statuses will not be included in the returned user objects.</para>
@@ -134,9 +127,7 @@ namespace CoreTweet
             /// </param>
             public static User UpdateProfileBackgroundImage(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<User>(
-                DynamicJson.Parse(
-            Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("account/update_profile_background_image"), Parameters)));
+                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, Rest.Url("account/update_profile_background_image"), Parameters)));
             }
         
             /// <summary>
@@ -144,7 +135,7 @@ namespace CoreTweet
             /// <para>Profile banner images are processed asynchronously. The profile_banner_url and its variant sizes will not necessary be available directly after upload.</para>
             /// </summary>
             /// <para>Avaliable parameters: </para><para> </para>
-            /// <para><paramref name="object banner (required)"/> : The Base64-encoded or raw image data being uploaded as the user's new profile banner.</para>
+            /// <para><paramref name="string banner (required)"/> : The Base64-encoded or raw image data being uploaded as the user's new profile banner.</para>
             /// <para><paramref name="string width (optional)"/> : The width of the preferred section of the image being uploaded in pixels. Use with height, offset_left, and offset_top to select the desired region of the image to use.</para>
             /// <para><paramref name="string height (optional)"/> : The height of the preferred section of the image being uploaded in pixels. Use with width, offset_left, and offset_top to select the desired region of the image to use.</para>
             /// <para><paramref name="string offset_left (optional)"/> : The number of pixels by which to offset the uploaded image from the left. Use with height, width, and offset_top to select the desired region of the image to use.</para>
@@ -157,7 +148,7 @@ namespace CoreTweet
             /// </param>
             public static void UpdateProfileBanner(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                Request.Send(Tokens, MethodType.POST_NORESPONSE, TwiTool.GetAPIURL("account/update_profile_banner"), Parameters);
+                Request.Send(Tokens, MethodType.POST_NORESPONSE, Rest.Url("account/update_profile_banner"), Parameters);
             }
         
             /// <summary>
@@ -180,9 +171,7 @@ namespace CoreTweet
             /// </param>
             public static User UpdateProfileColors(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<User>(
-                DynamicJson.Parse(
-            Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("account/update_profile_colors"), Parameters))); 
+                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, Rest.Url("account/update_profile_colors"), Parameters)));
             }
         
             /// <summary>
@@ -190,7 +179,7 @@ namespace CoreTweet
             /// <para>This method asynchronously processes the uploaded file before updating the user's profile image URL. You can either update your local cache the next time you request the user's information, or, at least 5 seconds after uploading the image, ask for the updated URL using GET users/show.</para>
             /// </summary>
             /// <para>Avaliable parameters: </para><para> </para> 
-            /// <para><paramref name="object image (required)"/> : The avatar image for the profile, base64-encoded. Must be a valid GIF, JPG, or PNG image of less than 700 kilobytes in size. Images with width larger than 500 pixels will be scaled down. Animated GIFs will be converted to a static GIF of the first frame, removing the animation.</para>
+            /// <para><paramref name="string image (required)"/> : The avatar image for the profile, base64-encoded. Must be a valid GIF, JPG, or PNG image of less than 700 kilobytes in size. Images with width larger than 500 pixels will be scaled down. Animated GIFs will be converted to a static GIF of the first frame, removing the animation.</para>
             /// <para><paramref name="bool include_entities (optional)"/> : The entities node will not be included when set to false.</para>
             /// <para><paramref name="bool skip_status (optional)"/> : When set to true, statuses will not be included in the returned user objects.</para>
             /// <returns>The profile.</returns>
@@ -202,9 +191,7 @@ namespace CoreTweet
             /// </param>
             public static User UpdateProfileImage(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<User>(
-                DynamicJson.Parse(
-                     Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("account/update_profile_image"), Parameters)));
+                return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, Rest.Url("account/update_profile_image"), Parameters)));
             }
         }
         

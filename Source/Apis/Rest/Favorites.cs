@@ -1,11 +1,12 @@
 using System;
-using System.Linq;
+using CoreTweet.Core;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using Codeplex.Data;
 
 namespace CoreTweet
 {
-    public static partial class Api
+    public static partial class Rest
     {
         public static class Favorites
         {
@@ -30,10 +31,11 @@ namespace CoreTweet
             /// <param name='Parameters'>
             /// Parameters.
             /// </param>
-            public static Status[] List(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+            public static IEnumerable<Status> List(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.ConvertArray<Status>(DynamicJson.Parse(
-                         Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("favorites/list"), Parameters)));
+                         Request.Send(Tokens, MethodType.GET, Rest.Url("favorites/list"), Parameters))
+                );
             }  
             
             //POST Methods
@@ -43,7 +45,7 @@ namespace CoreTweet
             /// </summary>
             /// <para>Avaliable parameters: </para><para> </para>
             /// <para><paramref name="long id (required)"/> : The numerical ID of the desired status.</para>
-            /// <para><paramref name="bool include_entities (ooptional)"/> : The entities node will be omitted when set to false.</para>
+            /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
             /// <returns>The favorited status.</returns>
             /// <param name='Tokens'>
             /// Tokens.
@@ -54,7 +56,8 @@ namespace CoreTweet
             public static Status Create(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.Convert<Status>(DynamicJson.Parse(
-                    Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("favorites/create"), Parameters)));
+                    Request.Send(Tokens, MethodType.POST, Rest.Url("favorites/create"), Parameters))
+                );
             }
             
             /// <summary>
@@ -74,7 +77,8 @@ namespace CoreTweet
             public static Status Destroy(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.Convert<Status>(DynamicJson.Parse(
-                    Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("favorites/destroy"), Parameters)));
+                    Request.Send(Tokens, MethodType.POST, Rest.Url("favorites/destroy"), Parameters))
+                );
             }
         }
     }
