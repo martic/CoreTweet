@@ -42,22 +42,6 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Ex\Extend.cs" />
-    <Compile Include="Api\Account.cs" />
-    <Compile Include="Api\DirectMessages.cs" />
-    <Compile Include="Api\Followers.cs" />
-    <Compile Include="Api\Friends.cs" />
-    <Compile Include="Api\Friendships.cs" />
-    <Compile Include="Api\Search.cs" />
-    <Compile Include="Api\Statuses.cs" />
-    <Compile Include="Api\Blocks.cs" />
-    <Compile Include="Api\Favorites.cs" />
-    <Compile Include="Api\Lists.cs" />
-    <Compile Include="Api\SavedSearches.cs" />
-    <Compile Include="Api\Geo.cs" />
-    <Compile Include="Api\Trends.cs" />
-    <Compile Include="Api\Help.cs" />
-    <Compile Include="Api\Application.cs" />
-    <Compile Include="Api\Users.cs" />
     <Compile Include="Objects\CoreBase.cs" />
     <Compile Include="Objects\Entity.cs" />
     <Compile Include="Objects\Places.cs" />
@@ -65,18 +49,34 @@
     <Compile Include="Objects\User.cs" />
     <Compile Include="Objects\Tokens.cs" />
     <Compile Include="Property.cs" />
-    <Compile Include="Api\OAuth.cs" />
     <Compile Include="Request.cs" />
     <Compile Include="Lib\DynamicJson.cs" />
     <Compile Include="Tiny.cs" />
     <Compile Include="Objects\Setting.cs" />
     <Compile Include="Objects\Embed.cs" />
-    <Compile Include="Objects\IDs.cs" />
+    <Compile Include="OAuth.cs" />
+    <Compile Include="Apis\Search.cs" />
+    <Compile Include="Apis\Lists.cs" />
+    <Compile Include="Apis\SavedSearches.cs" />
+    <Compile Include="Apis\Geo.cs" />
+    <Compile Include="Apis\Trends.cs" />
+    <Compile Include="Apis\Help.cs" />
+    <Compile Include="Apis\Users.cs" />
+    <Compile Include="Objects\Cursored.cs" />
+    <Compile Include="Apis\Rest\Account.cs" />
+    <Compile Include="Apis\Rest\Blocks.cs" />
+    <Compile Include="Apis\Rest\DirectMessages.cs" />
+    <Compile Include="Apis\Rest\Favorites.cs" />
+    <Compile Include="Apis\Rest\Followers.cs" />
+    <Compile Include="Apis\Rest\Friends.cs" />
+    <Compile Include="Apis\Rest\Friendships.cs" />
+    <Compile Include="Apis\Rest\Statuses.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Ex\" />
-    <Folder Include="Api\" />
     <Folder Include="Objects\" />
+    <Folder Include="Apis\" />
+    <Folder Include="Apis\Rest\" />
   </ItemGroup>
 </Project>

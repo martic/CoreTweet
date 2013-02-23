@@ -5,11 +5,11 @@ using System.Runtime.CompilerServices;
 // Change them to the values specific to your project.
 
 [assembly: AssemblyTitle("CoreTweet")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("The .NET Twitter Library supporting API 1.1")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("alice")]
+[assembly: AssemblyCopyright("(c) Canno 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

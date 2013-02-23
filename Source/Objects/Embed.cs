@@ -1,5 +1,6 @@
 using System;
 using System.Net;
+using CoreTweet.Core;
 
 namespace CoreTweet
 {

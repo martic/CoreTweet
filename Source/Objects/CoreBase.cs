@@ -2,7 +2,7 @@ using System;
 using System.Data.Linq;
 using System.Collections.Generic;
 
-namespace CoreTweet
+namespace CoreTweet.Core
 {
     public abstract class CoreBase
     {
@@ -26,7 +26,7 @@ namespace CoreTweet
             if(e == null || !e.IsArray)
                 return null;
             T[] ts = new T[((dynamic[])e).Length];
-            for (int i = 0; i < ((dynamic[])e).Length; i++)
+            for(int i = 0; i < ((dynamic[])e).Length; i++)
                 ts[i] = Convert<T>(((dynamic[])e)[i]);
             return ts;
         }

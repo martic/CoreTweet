@@ -2,15 +2,16 @@
 using Codeplex.Data;
 using System.Linq;
 using System.Linq.Expressions;
+using CoreTweet.Core;
 
 namespace CoreTweet
 {
-    public static partial class Api
+    public static partial class Rest
     {
         public static class Statuses
         {
-            //UNDONE:update_with_media haven't been implemented.
-            //FIXME:filter shouldn't works well.It needs some tests.
+            //UNDONE: update_with_media haven't been implemented.
+            //FIXME: filter shouldn't works well.It needs some tests.
             
             //GET Methods
 
@@ -30,8 +31,7 @@ namespace CoreTweet
             /// <returns>The statuses.</returns>
             public static Status[] MentionsTimeline(Tokens Tokens, params Expression<Func<string, object>>[] Parameters)
             {
-                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(
-                         Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/mentions_timeline"), Parameters)));
+                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/mentions_timeline"), Parameters)));
             }
 
             /// <summary>
@@ -52,8 +52,7 @@ namespace CoreTweet
             /// <returns>The statuses.</returns>
             public static Status[] UserTimeline(Tokens Tokens, params Expression<Func<string, object>>[] Parameters)
             {
-                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(
-                         Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/user_timeline"), Parameters)));
+                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/user_timeline"), Parameters)));
             }
 
             /// <summary>
@@ -73,8 +72,7 @@ namespace CoreTweet
             /// <returns>The statuses.</returns>
             public static Status[] HomeTimeline(Tokens Tokens, params Expression<Func<string, object>>[] Parameters)
             {
-                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(
-                         Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/home_timeline"), Parameters)));
+                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/home_timeline"), Parameters)));
             }
 
             /// <summary>
@@ -93,8 +91,7 @@ namespace CoreTweet
             /// <returns>The statuses.</returns>
             public static Status[] RetweetsOfMe(Tokens Tokens, params Expression<Func<string, object>>[] Parameters)
             {
-                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(
-                         Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/retweets_of_me"), Parameters)));
+                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/retweets_of_me"), Parameters)));
             }
             
             
@@ -107,7 +104,7 @@ namespace CoreTweet
             /// <para><paramref name="int maxwidth (optional)"/> : The maximum width in pixels that the embed should be rendered at. This value is constrained to be between 250 and 550 pixels. Note that Twitter does not support the oEmbed maxheight parameter. Tweets are fundamentally text, and are therefore of unpredictable height that cannot be scaled like an image or video. Relatedly, the oEmbed response will not provide a value for height. Implementations that need consistent heights for Tweets should refer to the hide_thread and hide_media parameters below.</para>
             /// <para><paramref name="bool hide_media (optional)"/> : Specifies whether the embedded Tweet should automatically expand images which were uploaded via POST statuses/update_with_media. When set to either true, t or 1 images will not be expanded. Defaults to false.</para>
             /// <para><paramref name="bool hide_thread (optional)"/> : Specifies whether the embedded Tweet should automatically show the original message in the case that the embedded Tweet is a reply. When set to either true, t or 1 the original Tweet will not be shown. Defaults to false.</para>
-            /// <para><paramref name="bool omit_script (optional)"/> : Specifies whether the embedded Tweet HTML should include a <script> element pointing to widgets.js. In cases where a page already includes widgets.js, setting this value to true will prevent a redundant script element from being included. When set to either true, t or 1 the <script> element will not be included in the embed HTML, meaning that pages must include a reference to widgets.js manually. Defaults to false.</para>
+            /// <para><paramref name="bool omit_script (optional)"/> : Specifies whether the embedded Tweet HTML should include a "script" element pointing to widgets.js. In cases where a page already includes widgets.js, setting this value to true will prevent a redundant script element from being included. When set to either true, t or 1 the "script" element will not be included in the embed HTML, meaning that pages must include a reference to widgets.js manually. Defaults to false.</para>
             /// <para><paramref name="string align (optional)"/> : Specifies whether the embedded Tweet should be left aligned, right aligned, or centered in the page. Valid values are left, right, center, and none. Defaults to none, meaning no alignment styles are specified for the Tweet.</para>
             /// <para><paramref name="string related (optional)"/> : A value for the TWT related parameter, as described in Web Intents. This value will be forwarded to all Web Intents calls.</para>
             /// <para><paramref name="string lang (optional)"/> : Language code for the rendered embed. This will affect the text and localization of the rendered HTML.</para>
@@ -120,8 +117,7 @@ namespace CoreTweet
             /// </param> 
             public static Embed Oembed(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<Embed>(DynamicJson.Parse(
-                    Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/oembed"), Parameters)));
+                return CoreBase.Convert<Embed>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/oembed"), Parameters)));
             }
             
             /// <summary>
@@ -140,11 +136,7 @@ namespace CoreTweet
             /// </param>
             public static Status Show(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<Status>(DynamicJson.Parse(
-                         Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL(
-                    string.Format("statuses/show/{0}", 
-                         Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), 
-                             Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
+                return CoreBase.Convert<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL(string.Format("statuses/show/{0}", Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
             }
             
             /// <summary>
@@ -163,11 +155,7 @@ namespace CoreTweet
             /// </param>
             public static Status[] Retweets(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(
-                         Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL(
-                    string.Format("statuses/retweets/{0}", 
-                         Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), 
-                             Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
+                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL(string.Format("statuses/retweets/{0}", Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
             }
             
             /// <summary>
@@ -188,8 +176,7 @@ namespace CoreTweet
             [Obsolete("This endpoint requires special permission to access. But not be obsolete :)")]
             public static Status[] Firehose(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(
-                         Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/firehose"), Parameters)));
+                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/firehose"), Parameters)));
             }
 
             //POST Methods
@@ -216,9 +203,7 @@ namespace CoreTweet
             /// </param>
             public static Status Update(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                
-                return CoreBase.Convert<Status>(DynamicJson.Parse(
-                         Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("statuses/update"), Parameters)));
+                return CoreBase.Convert<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL("statuses/update"), Parameters)));
             }
             
             
@@ -242,8 +227,7 @@ namespace CoreTweet
             /// </param>
             public static Status[] Filter(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(
-                         Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/filter"), Parameters)));
+                return CoreBase.ConvertArray<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.GET, TwiTool.GetAPIURL("statuses/filter"), Parameters)));
             }
             
             /// <summary>
@@ -261,11 +245,7 @@ namespace CoreTweet
             /// </param>
             public static Status Destroy(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<Status>(DynamicJson.Parse(
-                         Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL(
-                    string.Format("statuses/destroy/{0}", 
-                         Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), 
-                             Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
+                return CoreBase.Convert<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL(string.Format("statuses/destroy/{0}", Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
             }
             
             /// <summary>
@@ -283,11 +263,7 @@ namespace CoreTweet
             /// </param>
             public static Status Retweet(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
-                return CoreBase.Convert<Status>(DynamicJson.Parse(
-                         Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL(
-                    string.Format("statuses/retweet/{0}", 
-                         Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), 
-                             Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
+                return CoreBase.Convert<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, TwiTool.GetAPIURL(string.Format("statuses/retweet/{0}", Parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
             }
         }
     }

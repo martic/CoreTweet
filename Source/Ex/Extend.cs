@@ -1,10 +1,17 @@
 using System;
+using System.Linq.Expressions;
+using CoreTweet.Core;
 
 namespace CoreTweet.Ex
 {
-	public class CoreTweetExtension
-	{
+    public class UserExtension
+    {
 		
-	}
+    }
+
+    internal class DeveloperExtention
+    {
+       
+    }
 }
 

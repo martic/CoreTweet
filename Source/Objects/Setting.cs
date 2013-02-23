@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CoreTweet.Core;
 
 namespace CoreTweet
 {

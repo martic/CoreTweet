@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using CoreTweet.Core;
 
 namespace CoreTweet
 {
@@ -8,22 +9,22 @@ namespace CoreTweet
         /// <summary>
         ///     Represents hashtags which have been parsed out of the Tweet text.
         /// </summary>
-        public HashTag[] HashTags;
+        public HashTag[] HashTags { get; set; }
 
         /// <summary>
         ///     Represents media elements uploaded with the Tweet.
         /// </summary>
-        public Media Media;
+        public Media Media { get; set; }
 
         /// <summary>
         ///     Represents URLs included in the text of a Tweet or within textual fields of a user object.
         /// </summary>
-        public Url[] Urls;
+        public Url[] Urls { get; set; }
 
         /// <summary>
         ///     Represents other Twitter users mentioned in the text of the Tweet.
         /// </summary>
-        public UserMention[] UserMentions;
+        public UserMention[] UserMentions { get; set; }
 
         internal override void ConvertBase(dynamic e)
         {
@@ -39,7 +40,7 @@ namespace CoreTweet
         /// <summary>
         ///     Name of the hashtag, minus the leading '#' character.
         /// </summary>
-        public string Text;
+        public string Text { get; set; }
 
         /// <summary>
         ///     An array of integers indicating the offsets within the Tweet text where the hashtag begins and ends. The first integer represents the location of the # character in the Tweet text string. The second integer represents the location of the first character after the hashtag. Therefore the difference between the two numbers will be the length of the hashtag name plus one (for the '#' character).
@@ -58,52 +59,52 @@ namespace CoreTweet
         /// <summary>
         ///     URL of the media to display to clients.
         /// </summary>
-        public string DisplayUrl;
+        public string DisplayUrl { get; set; }
 
         /// <summary>
         ///     An expanded version of display_url. Links to the media display page.
         /// </summary>
-        public string ExpandedUrl;
+        public string ExpandedUrl { get; set; }
 
         /// <summary>
         ///     ID of the media expressed as a 64-bit integer.
         /// </summary>
-        public long Id;
+        public long Id { get; set; }
 
         /// <summary>
         ///     An array of integers indicating the offsets within the Tweet text where the URL begins and ends. The first integer represents the location of the first character of the URL in the Tweet text. The second integer represents the location of the first non-URL character occurring after the URL (or the end of the string if the URL is the last part of the Tweet text).
         /// </summary>
-        public int[] Indices;
+        public int[] Indices { get; set; }
 
         /// <summary>
         ///     An http:// URL pointing directly to the uploaded media file.
         /// </summary>
-        public Uri MediaUrl;
+        public Uri MediaUrl { get; set; }
 
         /// <summary>
         ///     An https:// URL pointing directly to the uploaded media file, for embedding on https pages.
         /// </summary>
-        public Uri MediaUrlHttps;
+        public Uri MediaUrlHttps { get; set; }
 
         /// <summary>
         ///     An object showing available sizes for the media file.
         /// </summary>
-        public Sizes Sizes;
+        public Sizes Sizes { get; set; }
 
         /// <summary>
         ///     For Tweets containing media that was originally associated with a different tweet, this ID points to the original Tweet.
         /// </summary>
-        public long SourceStatusId;
+        public long SourceStatusId { get; set; }
 
         /// <summary>
         ///     Type of uploaded media.
         /// </summary>
-        public string Type;
+        public string Type { get; set; }
 
         /// <summary>
         ///     Wrapped URL for the media link. This corresponds with the URL embedded directly into the raw Tweet text, and the values for the indices parameter.
         /// </summary>
-        public Uri Url;
+        public Uri Url { get; set; }
 
         internal override void ConvertBase(dynamic e)
         {
@@ -125,17 +126,17 @@ namespace CoreTweet
         /// <summary>
         ///     Height in pixels of this size.
         /// </summary>
-        public int Height;
+        public int Height { get; set; }
 
         /// <summary>
         ///     Resizing method used to obtain this size. A value of fit means that the media was resized to fit one dimension, keeping its native aspect ratio. A value of crop means that the media was cropped in order to fit a specific resolution.
         /// </summary>
-        public string Resize;
+        public string Resize { get; set; }
 
         /// <summary>
         ///     Width in pixels of this size.
         /// </summary>
-        public int Width;
+        public int Width { get; set; }
 
         internal override void ConvertBase(dynamic e)
         {
@@ -150,22 +151,22 @@ namespace CoreTweet
         /// <summary>
         ///     Information for a large-sized version of the media.
         /// </summary>
-        public Size Large;
+        public Size Large { get; set; }
 
         /// <summary>
         ///     Information for a medium-sized version of the media.
         /// </summary>
-        public Size Medium;
+        public Size Medium { get; set; }
 
         /// <summary>
         ///     Information for a small-sized version of the media.
         /// </summary>
-        public Size Small;
+        public Size Small { get; set; }
 
         /// <summary>
         ///     Information for a thumbnail-sized version of the media.
         /// </summary>
-        public Size Thumb;
+        public Size Thumb { get; set; }
 
         internal override void ConvertBase(dynamic e)
         {
@@ -181,22 +182,22 @@ namespace CoreTweet
         /// <summary>
         ///     Version of the URL to display to clients.
         /// </summary>
-        public string DisplayUrl;
+        public string DisplayUrl { get; set; }
 
         /// <summary>
         ///     Expanded version of display_url.
         /// </summary>
-        public string ExpandedUrl;
+        public string ExpandedUrl { get; set; }
 
         /// <summary>
         ///     An array of integers representing offsets within the Tweet text where the URL begins and ends. The first integer represents the location of the first character of the URL in the Tweet text. The second integer represents the location of the first non-URL character after the end of the URL.
         /// </summary>
-        public int[] Indices;
+        public int[] Indices { get; set; }
 
         /// <summary>
         ///     Wrapped URL, corresponding to the value embedded directly into the raw Tweet text, and the values for the indices parameter.
         /// </summary>
-        public Uri Uri;
+        public Uri Uri { get; set; }
 
         internal override void ConvertBase(dynamic e)
         {
@@ -212,22 +213,22 @@ namespace CoreTweet
         /// <summary>
         ///     ID of the mentioned user, as an integer.
         /// </summary>
-        public long Id;
+        public long Id { get; set; }
 
         /// <summary>
         ///     An array of integers representing the offsets within the Tweet text where the user reference begins and ends. The first integer represents the location of the '@' character of the user mention. The second integer represents the location of the first non-screenname character following the user mention.
         /// </summary>
-        public int[] Indices;
+        public int[] Indices { get; set; }
 
         /// <summary>
         ///     Display name of the referenced user.
         /// </summary>
-        public string Name;
+        public string Name { get; set; }
 
         /// <summary>
         ///     Screen name of the referenced user.
         /// </summary>
-        public string ScreenName;
+        public string ScreenName { get; set; }
 
         internal override void ConvertBase(dynamic e)
         {

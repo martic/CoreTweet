@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Linq;
+using CoreTweet.Core;
 
 namespace CoreTweet
 {
@@ -148,7 +149,7 @@ namespace CoreTweet
             InReplyToUserId = (long?)e.in_reply_to_user_id;
             Place = CoreBase.Convert<Place>(e.place);
             PossiblySensitive = e.IsDefined("possibly_sensitive") ? e.possibly_sensitive : null;
-            //UNDONE:Scopes
+            //UNDONE: Scopes.
             RetweetCount = (int)e.retweet_count;
             IsRetweeted = e.retweeted;
             Source = e.source;
@@ -207,4 +208,38 @@ namespace CoreTweet
             }
         }
     }
+
+    public class DirectMessage : CoreBase
+    {
+        /// <summary>
+        /// The sender of this Direct message.
+        /// </summary>
+        public User Sender{ get; set; }
+
+        /// <summary>
+        /// The Recipient of this Direct message.
+        /// </summary>
+        public User Recipient{ get; set; }
+        
+        /// <summary>
+        ///     Time when this Direct message was created.
+        /// </summary>
+        public DateTimeOffset CreatedAt{ get; set; }
+  
+        /// <summary>
+        ///     Entities which have been parsed out of the text of the Direct message.
+        /// </summary>
+        public Entity Entities{ get; set; }
+        
+        internal override void ConvertBase(dynamic e)
+        {
+            Sender = CoreBase.Convert<User>(e.sender);
+            Recipient = CoreBase.Convert<User>(e.recipient);
+            //FIXME: DateTimeOffset.ParseExact Doesn't work.
+            //CreatedAt = DateTimeOffset.ParseExact(e.created_at, "ddd MMM dd HH:mm:ss K yyyy",
+            //                                      System.Globalization.DateTimeFormatInfo.InvariantInfo);
+            Entities = CoreBase.Convert<Entity>(e.entities);
+        }
+    }
+    
 }

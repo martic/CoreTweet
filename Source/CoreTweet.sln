@@ -22,5 +22,43 @@ Global
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Test\Test.csproj
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.FileWidth = 999
+		$1.inheritsSet = VisualStudio
+		$1.inheritsScope = text/plain
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.IndentSwitchBody = True
+		$2.AnonymousMethodBraceStyle = NextLine
+		$2.PropertyBraceStyle = NextLine
+		$2.PropertyGetBraceStyle = NextLine
+		$2.PropertySetBraceStyle = NextLine
+		$2.EventBraceStyle = NextLine
+		$2.EventAddBraceStyle = NextLine
+		$2.EventRemoveBraceStyle = NextLine
+		$2.StatementBraceStyle = NextLine
+		$2.IfElseBraceForcement = RemoveBraces
+		$2.ForBraceForcement = RemoveBraces
+		$2.WhileBraceForcement = RemoveBraces
+		$2.UsingBraceForcement = RemoveBraces
+		$2.FixedBraceForcement = RemoveBraces
+		$2.BeforeMethodDeclarationParentheses = False
+		$2.BeforeMethodCallParentheses = False
+		$2.BeforeConstructorDeclarationParentheses = False
+		$2.BeforeDelegateDeclarationParentheses = False
+		$2.NewParentheses = False
+		$2.IfParentheses = False
+		$2.WhileParentheses = False
+		$2.ForParentheses = False
+		$2.ForeachParentheses = False
+		$2.CatchParentheses = False
+		$2.SwitchParentheses = False
+		$2.LockParentheses = False
+		$2.UsingParentheses = False
+		$2.SpacesBeforeBrackets = False
+		$2.inheritsSet = Mono
+		$2.inheritsScope = text/x-csharp
+		$2.scope = text/x-csharp
 	EndGlobalSection
 EndGlobal

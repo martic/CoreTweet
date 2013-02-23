@@ -50,7 +50,8 @@ namespace CoreTweet
             var sgn = GenerateSignature(tokens, 
                 type == MethodType.GET ? "GET" : "POST", url, prm);
             prm.Add("oauth_signature", UrlEncode(sgn));
-            return type == MethodType.GET ? HttpGet(url, prm) : (type == MethodType.POST ? HttpPost(url, prm, false) : HttpPost(url, prm, true));
+            return type == MethodType.GET ? HttpGet(url, prm) : 
+                (type == MethodType.POST ? HttpPost(url, prm, false) : HttpPost(url, prm, true));
         }
         
         internal static string HttpGet(string url, IDictionary<string, string> prm)

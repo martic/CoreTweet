@@ -7,15 +7,17 @@ namespace CoreTweet
 {
     public class Property
     {
-        public static readonly string API_Version = "1.1";
+        public static readonly string APIVersion = "1.1";
+        public static readonly string CoreTweetVersion = "0.1";
     }
 
     public static class TwiTool
     {
         public static string GetAPIURL(string ApiName)
         {
-            return string.Format("https://api.twitter.com/1.1/{0}.json", ApiName);
+            return string.Format("https://api.twitter.com/{0}/{1}.json", Property.APIVersion, ApiName);
         }
+        
     }
 }
 

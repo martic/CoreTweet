@@ -1,4 +1,5 @@
 using System;
+using CoreTweet.Core;
 
 namespace CoreTweet
 {
@@ -242,11 +243,67 @@ namespace CoreTweet
             Status = e.IsDefined("status") ? CoreBase.Convert<Status>(e.status) : null;
             StatusesCount = (int)e.statuses_count;
             TimeZone = (string)e.time_zone;
-            Url =e.url == null ? null :  new Uri((string)e.url);
+            Url = e.url == null ? null : new Uri((string)e.url);
             //UtcOffset = DateTimeOffset.FromFileTime((long)e.utc_offset);
             IsVerified = (bool)e.verified;
             WithheldInCountries = e.IsDefined("withheld_in_countries") ? e.withheld_in_countries : null;
             WithheldScope = e.IsDefined("withheld_scope") ? e.withheld_scope : null;
         }
+    }
+    
+    public class RelationShip : CoreBase
+    {
+        public Friendship Target{ get; set; }
+
+        public Friendship Source{ get; set; }
+
+        internal override void ConvertBase(dynamic e)
+        {
+            Target = CoreBase.Convert<Friendship>(e.target);
+            Source = CoreBase.Convert<Friendship>(e.source);
+        }
+    }
+    
+    public class Friendship : CoreBase
+    {
+        public long Id{ get; set; }
+
+        public string ScreenName{ get; set; }
+
+        public bool? Following{ get; set; }
+
+        public bool? FollowedBy{ get; set; }
+
+        public bool? CanDm { get; set; }
+
+        public bool? AllReplies{ get; set; }
+
+        public bool? WantRetweets{ get; set; }
+
+        public bool? Blocking{ get; set; }
+
+        public bool? MarkedSpam{ get; set; }
+
+        public bool? NotificationsEnabled{ get; set; }
+        
+        public string[] Connections{ get; set; }
+        
+        internal override void ConvertBase(dynamic e)
+        {
+            Id = (long)e.id;
+            ScreenName = e.screen_name;
+            Following = (bool?)e.following;
+            FollowedBy = (bool?)e.followed_by;
+            
+            CanDm = e.IsDefined("can_dm") ? (bool?)e.can_dm : null;
+            AllReplies = e.IsDefined("all_replies") ? (bool?)e.all_replies : null;
+            WantRetweets = e.IsDefined("want_retweets") ? (bool?)e.want_retweets : null;
+            Blocking = e.IsDefined("blocking") ? (bool?)e.blocking : null;
+            MarkedSpam = e.IsDefined("marked_spam") ? (bool?)e.marked_spam : null;
+            NotificationsEnabled = e.IsDefined("notifications_enabled") ? (bool?)e.notifications_enabled : null;
+            
+            Connections = e.IsDefined("connections") ? (string[])e.connections : null;
+        }
+        
     }
 }
