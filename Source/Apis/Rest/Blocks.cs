@@ -18,7 +18,7 @@ namespace CoreTweet
             /// </summary>
             /// <para>Avaliable parameters: </para><para> </para>
             /// <para><paramref name="long cursor (semi-optional)"/> : Causes the list of IDs to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first "page." The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</para>
-            /// <returns></returns>
+            /// <returns>IDs.</returns>
             /// <param name='Tokens'>
             /// Tokens.
             /// </param>

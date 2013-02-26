@@ -107,7 +107,7 @@ namespace CoreTweet
         [Obsolete(
             "Existed, but no longer used.(Since Twitter now rejects long Tweets vs truncating them, the large majority of Tweets will have this set to false.)"
             )]
-        public bool Truncated { get; set; }
+        public bool? Truncated { get; set; }
 
         /// <summary>
         ///     The user who posted this Tweet. Perspectival attributes embedded within this object are unreliable.
@@ -154,7 +154,7 @@ namespace CoreTweet
             IsRetweeted = e.retweeted;
             Source = e.source;
             Text = e.text;
-            Truncated = e.truncated;
+            Truncated = e.IsDefined("truncated") ? e.truncated : null;
             User = e.IsDefined("user") ? CoreBase.Convert<User>(e.user) : null;
             WithheldCopyright = e.IsDefined("withheld_copyright") ? (bool?)e.withheld_copyright : null;
             WithheldInCountries = e.IsDefined("withheld_in_countries") ? e.withheld_in_countries : null;

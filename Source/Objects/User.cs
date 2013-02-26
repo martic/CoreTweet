@@ -306,4 +306,20 @@ namespace CoreTweet
         }
         
     }
+    
+    public class Category : CoreBase
+    {
+        public string Name { get; set; }
+
+        public string Slug{ get; set; }
+
+        public int Size{ get; set; }
+        
+        internal override void ConvertBase(dynamic e)
+        {
+            Name = e.name;
+            Slug = e.slug;
+            Size = e.size;
+        }
+    }
 }

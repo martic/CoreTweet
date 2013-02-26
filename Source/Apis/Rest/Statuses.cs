@@ -167,7 +167,7 @@ namespace CoreTweet
             /// <para><paramref name="int count (optional)"/> : The number of messages to backfill. See the count parameter documentation for more information.</para>
             /// <para><paramref name="stringg delimited (optional)"/> : Specifies whether messages should be length-delimited. See the delimited parameter documentation for more information.</para>
             /// <para><paramref name="string stall_warnings (optional)"/> : Specifies whether stall warnings should be delivered. See the stall_warnings parameter documentation for more information.</para>
-            /// <returns></returns>
+            /// <returns>Statuses.</returns>
             /// <param name='Tokens'>
             /// Tokens.
             /// </param>
@@ -202,7 +202,7 @@ namespace CoreTweet
             /// <param name='Parameters'>
             /// Parameters.
             /// </param>
-            public static IEnumerable<Status> Update(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+            public static Status Update(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.Convert<Status>(DynamicJson.Parse(Request.Send(Tokens, MethodType.POST, Rest.Url("statuses/update"), Parameters)));
             }
@@ -219,7 +219,7 @@ namespace CoreTweet
             /// <para><paramref name="string locations (see note)"/> : Specifies a set of bounding boxes to track. See the locations parameter documentation for more information.</para>
             /// <para><paramref name="string delimited (optional)"/> : Specifies whether messages should be length-delimited. See the delimited parameter documentation for more information.</para>
             /// <para><paramref name="string stall_warnings (optional)"/> : Specifies whether stall warnings should be delivered. See the stall_warnings parameter documentation for more information.</para>
-            /// <returns></returns>
+            /// <returns>Statuses.</returns>
             /// <param name='Tokens'>
             /// Tokens.
             /// </param>

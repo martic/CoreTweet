@@ -53,9 +53,7 @@
     <Compile Include="Objects\Setting.cs" />
     <Compile Include="Objects\Embed.cs" />
     <Compile Include="Apis\Lists.cs" />
-    <Compile Include="Apis\SavedSearches.cs" />
     <Compile Include="Apis\Trends.cs" />
-    <Compile Include="Apis\Users.cs" />
     <Compile Include="Objects\Cursored.cs" />
     <Compile Include="Apis\Rest\Account.cs" />
     <Compile Include="Apis\Rest\Blocks.cs" />
@@ -70,5 +68,8 @@
     <Compile Include="Apis\Rest\Help.cs" />
     <Compile Include="Core.cs" />
     <Compile Include="Apis\Rest\Search.cs" />
+    <Compile Include="Objects\SavedSearch.cs" />
+    <Compile Include="Apis\Rest\SavedSearches.cs" />
+    <Compile Include="Apis\Rest\Users.cs" />
   </ItemGroup>
 </Project>

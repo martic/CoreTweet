@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 [assembly: AssemblyTitle("CoreTweet")]
 [assembly: AssemblyDescription("The .NET Twitter Library supporting API 1.1")]
-[assembly: AssemblyConfiguration("Any CPUs")]
+[assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("716 squad")]
 [assembly: AssemblyProduct("")]
 [assembly: AssemblyCopyright("(c) Canno, Karno 2013")]

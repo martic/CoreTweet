@@ -1,5 +1,6 @@
 using System;
 using System.Linq.Expressions;
+using System.Collections.Generic;
 using Codeplex.Data;
 using CoreTweet.Core;
 
@@ -42,7 +43,7 @@ namespace CoreTweet
             /// <param name='Parameters'>
             /// Parameters.
             /// </param>
-            public static Language[] Languages(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+            public static IEnumerable<Language> Languages(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.ConvertArray<Language>(DynamicJson.Parse(
                     Request.Send(Tokens, MethodType.GET, Rest.Url("help/languages"), Parameters)));
