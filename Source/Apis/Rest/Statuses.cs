@@ -13,7 +13,7 @@ namespace CoreTweet
         {
             //UNDONE: update_with_media haven't been implemented.
             //FIXME: filter shouldn't works well.It needs some tests.
-            
+                
             //GET Methods
 
             /// <summary>
@@ -27,8 +27,8 @@ namespace CoreTweet
             /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
             /// <para><paramref name="bool contributor_details (optional)"/> : This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included.</para>
             /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be disincluded when set to false.</para>
-            /// <param name="Tokens">OAuth Tokens.</param>
-            /// <param name="Parameters">Parameters.</param>
+            /// <param name='Tokens'>OAuth Tokens.</param>
+            /// <param name='Parameters'>Parameters.</param>
             /// <returns>The statuses.</returns>
             public static IEnumerable<Status> MentionsTimeline(Tokens Tokens, params Expression<Func<string, object>>[] Parameters)
             {
@@ -48,8 +48,8 @@ namespace CoreTweet
             /// <para><paramref name="bool contributor_details (optional)"/> : This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included.</para>
             /// <para><paramref name="bool include_rts (optional)"/> : When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you're using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object.</para>
             /// <para><paramref name="bool exclude_replies (optional)"/> : This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies. This parameter is only supported for JSON and XML responses.</para>
-            /// <param name="Tokens">OAuth Tokens.</param>
-            /// <param name="Parameters">Parameters.</param>
+            /// <param name='Tokens'>OAuth Tokens.</param>
+            /// <param name='Parameters'>Parameters.</param>
             /// <returns>The statuses.</returns>
             public static IEnumerable<Status> UserTimeline(Tokens Tokens, params Expression<Func<string, object>>[] Parameters)
             {
@@ -67,9 +67,8 @@ namespace CoreTweet
             /// <para><paramref name="bool contributor_details (optional)"/> : This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included.</para>
             /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be disincluded when set to false.</para>
             /// <para><paramref name="bool exclude_replies (optional)"/> : This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies. This parameter is only supported for JSON and XML responses.</para>
-            /// </summary>
-            /// <param name="Tokens">OAuth Tokens.</param>
-            /// <param name="Parameters">Parameters.</param>
+            /// <param name='Tokens'>OAuth Tokens.</param>
+            /// <param name='Parameters'>Parameters.</param>
             /// <returns>The statuses.</returns>
             public static IEnumerable<Status> HomeTimeline(Tokens Tokens, params Expression<Func<string, object>>[] Parameters)
             {
@@ -87,8 +86,8 @@ namespace CoreTweet
             /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
             /// <para><paramref name="bool include_entities (optional)"/> : The tweet entities node will be disincluded when set to false.</para>
             /// <para><paramref name="bool include_user_entities (optional)"/> :The user entities node will be disincluded when set to false..</para>
-            /// <param name="Tokens">OAuth Tokens.</param>
-            /// <param name="Parameters">Parameters.</param>
+            /// <param name='Tokens'>OAuth Tokens.</param>
+            /// <param name='Parameters'>Parameters.</param>
             /// <returns>The statuses.</returns>
             public static IEnumerable<Status> RetweetsOfMe(Tokens Tokens, params Expression<Func<string, object>>[] Parameters)
             {

@@ -5,10 +5,64 @@ using System.Linq;
 using System.Linq.Expressions;
 using CoreTweet.Core;
 
+/// <summary>
+/// The powerful extensions for CoreTweet.
+/// </summary>
 namespace CoreTweet.Ex
 {
+    public static class OthersExtension
+    {
+        /// <summary>
+        /// Tweet this text.
+        /// </summary>
+        /// <param name='Tokens'>
+        /// Tokens.
+        /// </param>
+        /// <param name='Parameters'>
+        /// Parameters.
+        /// </param>
+        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para><paramref name="long in_reply_to_status_id (optional)"/> : The ID of an existing status that the update is in reply to.</para>
+        /// <para><paramref name="double lat (optional)"/> : The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</para>
+        /// <para><paramref name="double long (optional)"/> : The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</para>
+        /// <para><paramref name="string place_id (optional)"/> : A place in the world. These IDs can be retrieved from GET geo/reverse_geocode.</para>
+        /// <para><paramref name="bool display_coordinates (optional)"/> : Whether or not to put a pin on the exact coordinates a tweet has been sent from.</para>
+        /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
+        public static Status Tweet(this string e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        {
+            return Rest.Statuses.Update(Tokens,
+                               (Parameters as IEnumerable<Expression<Func<string,object>>>)
+                                   .Union(new Expression<Func<string,object>>[] {status => e})
+                                       .ToArray());
+        }
+    }
+    
     public static class StatusExtension
     {
+        /// <summary>
+        /// Reply to this tweet.
+        /// </summary>
+        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para><paramref name="double lat (optional)"/> : The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</para>
+        /// <para><paramref name="double long (optional)"/> : The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</para>
+        /// <para><paramref name="string place_id (optional)"/> : A place in the world. These IDs can be retrieved from GET geo/reverse_geocode.</para>
+        /// <para><paramref name="bool display_coordinates (optional)"/> : Whether or not to put a pin on the exact coordinates a tweet has been sent from.</para>
+        /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
+        /// <param name='Tokens'>
+        /// Tokens.
+        /// </param>
+        /// <param name='Parameters'>
+        /// Parameters.
+        /// </param>
+        public static Status ReplyToThis(this Status e, Tokens Tokens, Func<Status,string> Text, params Expression<Func<string,object>>[] Parameters)
+        {
+            return Rest.Statuses.Update(Tokens,
+                               (Parameters as IEnumerable<Expression<Func<string,object>>>)
+                                   .Union(new Expression<Func<string,object>>[]
+                                       {status => Text(e), in_reply_to_status_id => e.InReplyToStatusId})
+                                           .ToArray());
+        }
+        
         /// <summary>
         /// Retweet this tweet.
         /// </summary>
@@ -23,8 +77,9 @@ namespace CoreTweet.Ex
         public static Status Retweet(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
             return Rest.Statuses.Retweet(Tokens, 
-                       (Expression<Func<string,object>>[])Parameters.Concat(
-                           new Expression<Func<string,object>>[]{id => e.Id}));
+                       (Parameters as IEnumerable<Expression<Func<string,object>>>)
+                           .Union(new Expression<Func<string,object>>[]{id => e.Id})
+                               .ToArray());
         }
         
         /// <summary>
@@ -41,8 +96,9 @@ namespace CoreTweet.Ex
         public static Status Destroy(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
             return Rest.Statuses.Destroy(Tokens, 
-                       (Expression<Func<string,object>>[])Parameters.Concat(
-                           new Expression<Func<string,object>>[]{id => e.Id}));
+                       (Parameters as IEnumerable<Expression<Func<string,object>>>)
+                           .Union(new Expression<Func<string,object>>[]{id => e.Id})
+                               .ToArray());
         }
         
         /// <summary>
@@ -56,11 +112,13 @@ namespace CoreTweet.Ex
         /// </param>
         /// <para>Avaliable parameters: </para><para> </para>
         /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
-        public static Status Favor(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        public static Status Favorite(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
             return Rest.Favorites.Create(Tokens, 
-                       (Expression<Func<string,object>>[])Parameters.Concat(
-                           new Expression<Func<string,object>>[]{id => e.Id}));
+                       (Parameters as IEnumerable<Expression<Func<string,object>>>)
+                           .Union(new Expression<Func<string,object>>[]{id => e.Id})
+                               .ToArray());
+            
         }
         
         /// <summary>
@@ -74,12 +132,147 @@ namespace CoreTweet.Ex
         /// </param>
         /// <para>Avaliable parameters: </para><para> </para>
         /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
-        public static Status Unfavor(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        public static Status Unfavorite(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
-            return Rest.Favorites.Create(Tokens, 
-                       (Expression<Func<string,object>>[])Parameters.Concat(
-                           new Expression<Func<string,object>>[]{id => e.Id}));
+            return Rest.Favorites.Destroy(Tokens, 
+                       (Parameters as IEnumerable<Expression<Func<string,object>>>)
+                           .Union(new Expression<Func<string,object>>[]{id => e.Id})
+                               .ToArray());
         }
+        
+        /// <summary>
+        /// Reply to all of these tweets.
+        /// </summary>
+        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para><paramref name="double lat (optional)"/> : The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</para>
+        /// <para><paramref name="double long (optional)"/> : The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</para>
+        /// <para><paramref name="string place_id (optional)"/> : A place in the world. These IDs can be retrieved from GET geo/reverse_geocode.</para>
+        /// <para><paramref name="bool display_coordinates (optional)"/> : Whether or not to put a pin on the exact coordinates a tweet has been sent from.</para>
+        /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
+        /// <param name='Tokens'>
+        /// Tokens.
+        /// </param>
+        /// <param name='Parameters'>
+        /// Parameters.
+        /// </param>
+        public static IEnumerable<Status> ReplyToAll(this IEnumerable<Status> e, Tokens Tokens, Func<Status,string> Text, params Expression<Func<string,object>>[] Parameters)
+        {
+            foreach(var x in e)
+                x.ReplyToThis(Tokens, Text(x), Parameters);
+        }
+        
+        /// <summary>
+        /// Retweet all of these tweets.
+        /// </summary>
+        /// <param name='Tokens'>
+        /// Tokens.
+        /// </param>
+        /// <param name='Parameters'>
+        /// Parameters.
+        /// </param>
+        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
+        public static IEnumerable<Status> RetweetAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        {
+            foreach(var x in e)
+                x.Retweet(Tokens, Parameters);
+            return e;
+        }
+        
+        /// <summary>
+        /// Destroy all of these tweets.
+        /// </summary>
+        /// <param name='Tokens'>
+        /// Tokens.
+        /// </param>
+        /// <param name='Parameters'>
+        /// Parameters.
+        /// </param>
+        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
+        public static IEnumerable<Status> DestroyAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        {
+            foreach(var x in e)
+                x.Destroy(Tokens, Parameters);
+            return e;
+        }
+        
+        /// <summary>
+        /// Favorite all of these tweets.
+        /// </summary>
+        /// <param name='Tokens'>
+        /// Tokens.
+        /// </param>
+        /// <param name='Parameters'>
+        /// Parameters.
+        /// </param>
+        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
+        public static IEnumerable<Status> FavoriteAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        {
+            foreach(var x in e)
+                x.Favorite(Tokens, Parameters);
+            return e;
+        }
+        
+        /// <summary>
+        /// Un-favorite all of these tweets.
+        /// </summary>
+        /// <param name='Tokens'>
+        /// Tokens.
+        /// </param>
+        /// <param name='Parameters'>
+        /// Parameters.
+        /// </param>
+        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
+        public static IEnumerable<Status> UnfavoriteAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        {
+            foreach(var x in e)
+                x.Unfavorite(Tokens, Parameters);
+            return e;
+        }
+    }
+    
+    public static class UserExtension
+    {
+        /// <summary>
+        /// Follow this user.
+        /// </summary>
+        /// <param name='Tokens'>
+        /// Tokens.
+        /// </param>
+        /// <param name='Parameters'>
+        /// Parameters.
+        /// </param>
+        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para><paramref name="bool follow (optional)"/> : Enable notifications for the target user.</para>
+        public static User Follow(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        {
+            return Rest.Friendships.Create(Tokens,
+                               (Parameters as IEnumerable<Expression<Func<string,object>>>)
+                                   .Union(new Expression<Func<string,object>>[]{user_id => e.Id})
+                                       .ToArray());
+        }
+        
+        /// <summary>
+        /// Un-follow this user.
+        /// </summary>
+        /// <param name='Tokens'>
+        /// Tokens.
+        /// </param>
+        /// <param name='Parameters'>
+        /// Parameters.
+        /// </param>
+        /// <para>Avaliable parameters: Nothing.</para><para> </para>
+        public static User Unfollow(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        {
+            return Rest.Friendships.Destroy(Tokens,
+                               (Parameters as IEnumerable<Expression<Func<string,object>>>)
+                                   .Union(new Expression<Func<string,object>>[]{user_id => e.Id})
+                                       .ToArray());
+        }
+        
     }
 
     internal class DeveloperExtention

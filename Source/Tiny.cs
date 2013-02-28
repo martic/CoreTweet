@@ -147,7 +147,7 @@ namespace TinyTweet
             prm.Add("oauth_signature", GenerateSignature(new Tokens()
                 {ConsumerSecret = req_secret, AccessTokenSecret = null}, 
                     "GET", ACCESS_TOKEN_URL, prm)
-			);
+            );
             var dic = HttpGet(ACCESS_TOKEN_URL, prm).Split('&').Where(x => x.Contains('='))
                 .ToDictionary(x => x.Substring(0, x.IndexOf('=')), y => y.Substring(y.IndexOf('=') + 1));
             Token = Tokens.Create(Token.ConsumerKey, Token.ConsumerSecret, dic["oauth_token"], dic["oauth_token_secret"]);
@@ -193,8 +193,8 @@ namespace TinyTweet
             ServicePointManager.ServerCertificateValidationCallback
                   = (_, __, ___, ____) => true;
             var req = WebRequest.Create(url + '?' + 
-				string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value)))
-			);
+                string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value)))
+            );
             var res = req.GetResponse();
             using(var stream = res.GetResponseStream())
             using(var reader = new StreamReader(stream))
@@ -227,13 +227,13 @@ namespace TinyTweet
             hs1.Key = Encoding.UTF8.GetBytes(
                 string.Format("{0}&{1}", UrlEncode(t.ConsumerSecret), 
                     t.AccessTokenSecret == null ? "" : UrlEncode(t.AccessTokenSecret))
-			);
+            );
             var hash = hs1.ComputeHash(
                 System.Text.Encoding.UTF8.GetBytes(
                     string.Format("{0}&{1}&{2}", httpMethod, UrlEncode(url),
                         UrlEncode(string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value)))))
-			)
-			);
+            )
+            );
             return Convert.ToBase64String(hash);
         }
         
@@ -259,9 +259,7 @@ namespace TinyTweet
                 return String.Empty;
             return string.Join("", Encoding.UTF8.GetBytes(text)
              .Select(x => x < 0x80 && "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~".Contains((char)x) ?
-                     ((char)x).ToString() : ('%' + x.ToString("X2"))
-			)
-			);
+                     ((char)x).ToString() : ('%' + x.ToString("X2"))));
         }
     }
 

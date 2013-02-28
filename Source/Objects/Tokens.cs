@@ -21,7 +21,7 @@ namespace CoreTweet
         /// The access token secret.
         /// </summary>
         public string AccessTokenSecret { get; set; }
-		
+        
         /// <summary>
         /// An useful method to make an instance of Tokens :)
         /// </summary>
@@ -40,12 +40,12 @@ namespace CoreTweet
         public static Tokens Create(string consumer_key, string consumer_secret, string access_token, string access_secret)
         {
             return new Tokens()
-			{
-				ConsumerKey = consumer_key,
-				ConsumerSecret = consumer_secret,
-				AccessToken = access_token,
-				AccessTokenSecret = access_secret
-			};
+            {
+                ConsumerKey = consumer_key,
+                ConsumerSecret = consumer_secret,
+                AccessToken = access_token,
+                AccessTokenSecret = access_secret
+            };
         }
     }
 }

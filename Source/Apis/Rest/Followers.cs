@@ -26,7 +26,7 @@ namespace CoreTweet
             /// <param name='Tokens'>
             /// Tokens.
             /// </param>
-            /// <param name="Parameters">Parameters.</param>
+            /// <param name='Parameters'>Parameters.</param>
             /// <returns>IDs.</returns>
             /// <see cref="https://dev.twitter.com/docs/misc/cursoring"/>
             public static Cursored<long> Ids(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)

@@ -12,7 +12,7 @@ namespace CoreTweet
         public static class Account
         {
             //DONE!
-        
+       
             //GET Methods
         
             /// <summary>

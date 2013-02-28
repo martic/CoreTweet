@@ -21,7 +21,7 @@ namespace CoreTweet.Core
         ///     ( ,,Ծ ‸ Ծ ).｡ｏO( 説明いるのかな )
         /// </summary>
         public static IEnumerable<T> ConvertArray<T>(dynamic e)
-			where T : CoreBase
+            where T : CoreBase
         {
             if(e == null || !e.IsArray)
                 return null;

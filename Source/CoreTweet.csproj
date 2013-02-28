@@ -71,5 +71,6 @@
     <Compile Include="Objects\SavedSearch.cs" />
     <Compile Include="Apis\Rest\SavedSearches.cs" />
     <Compile Include="Apis\Rest\Users.cs" />
+    <Compile Include="Objects\List.cs" />
   </ItemGroup>
 </Project>
