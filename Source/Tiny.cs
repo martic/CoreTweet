@@ -259,9 +259,7 @@ namespace TinyTweet
                 return String.Empty;
             return string.Join("", Encoding.UTF8.GetBytes(text)
              .Select(x => x < 0x80 && "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~".Contains((char)x) ?
-                     ((char)x).ToString() : ('%' + x.ToString("X2"))
-			)
-			);
+                     ((char)x).ToString() : ('%' + x.ToString("X2"))));
         }
     }
 
