@@ -26,7 +26,12 @@ namespace Codeplex.Data
     {
         private enum JsonType
         {
-            @string, number, boolean, @object, array, @null
+             @string,
+            number,
+            boolean,
+             @object,
+            array,
+             @null
         }
 
         // public static methods
@@ -40,28 +45,22 @@ namespace Codeplex.Data
         /// <summary>from JsonSring to DynamicJson</summary>
         public static dynamic Parse(string json, Encoding encoding)
         {
-            using (var reader = JsonReaderWriterFactory.CreateJsonReader(encoding.GetBytes(json), XmlDictionaryReaderQuotas.Max))
-            {
+            using(var reader = JsonReaderWriterFactory.CreateJsonReader(encoding.GetBytes(json), XmlDictionaryReaderQuotas.Max))
                 return ToValue(XElement.Load(reader));
-            }
         }
 
         /// <summary>from JsonSringStream to DynamicJson</summary>
         public static dynamic Parse(Stream stream)
         {
-            using (var reader = JsonReaderWriterFactory.CreateJsonReader(stream, XmlDictionaryReaderQuotas.Max))
-            {
+            using(var reader = JsonReaderWriterFactory.CreateJsonReader(stream, XmlDictionaryReaderQuotas.Max))
                 return ToValue(XElement.Load(reader));
-            }
         }
 
         /// <summary>from JsonSringStream to DynamicJson</summary>
         public static dynamic Parse(Stream stream, Encoding encoding)
         {
-            using (var reader = JsonReaderWriterFactory.CreateJsonReader(stream, encoding, XmlDictionaryReaderQuotas.Max, _ => { }))
-            {
+            using(var reader = JsonReaderWriterFactory.CreateJsonReader(stream, encoding, XmlDictionaryReaderQuotas.Max, _ => { }))
                 return ToValue(XElement.Load(reader));
-            }
         }
 
         /// <summary>create JsonSring from primitive or IEnumerable or Object({public property name:property value})</summary>
@@ -75,7 +74,7 @@ namespace Codeplex.Data
         private static dynamic ToValue(XElement element)
         {
             var type = (JsonType)Enum.Parse(typeof(JsonType), element.Attribute("type").Value);
-            switch (type)
+            switch(type)
             {
                 case JsonType.boolean:
                     return (bool)element;
@@ -94,9 +93,10 @@ namespace Codeplex.Data
 
         private static JsonType GetJsonType(object obj)
         {
-            if (obj == null) return JsonType.@null;
+            if(obj == null)
+                return JsonType.@null;
 
-            switch (Type.GetTypeCode(obj.GetType()))
+            switch(Type.GetTypeCode(obj.GetType()))
             {
                 case TypeCode.Boolean:
                     return JsonType.boolean;
@@ -133,7 +133,7 @@ namespace Codeplex.Data
         private static object CreateJsonNode(object obj)
         {
             var type = GetJsonType(obj);
-            switch (type)
+            switch(type)
             {
                 case JsonType.@string:
                 case JsonType.number:
@@ -166,8 +166,8 @@ namespace Codeplex.Data
 
         private static string CreateJsonString(XStreamingElement element)
         {
-            using (var ms = new MemoryStream())
-            using (var writer = JsonReaderWriterFactory.CreateJsonWriter(ms, Encoding.Unicode))
+            using(var ms = new MemoryStream())
+            using(var writer = JsonReaderWriterFactory.CreateJsonWriter(ms, Encoding.Unicode))
             {
                 element.WriteTo(writer);
                 writer.Flush();
@@ -215,7 +215,7 @@ namespace Codeplex.Data
         public bool Delete(string name)
         {
             var elem = _xml.Element(name);
-            if (elem != null)
+            if(elem != null)
             {
                 elem.Remove();
                 return true;
@@ -227,7 +227,7 @@ namespace Codeplex.Data
         public bool Delete(int index)
         {
             var elem = _xml.Elements().ElementAtOrDefault(index);
-            if (elem != null)
+            if(elem != null)
             {
                 elem.Remove();
                 return true;
@@ -249,10 +249,8 @@ namespace Codeplex.Data
         private dynamic DeserializeValue(XElement element, Type elementType)
         {
             var value = ToValue(element);
-            if (value is DynamicJson)
-            {
+            if(value is DynamicJson)
                 value = ((DynamicJson)value).Deserialize(elementType);
-            }
             return Convert.ChangeType(value, elementType);
         }
 
@@ -262,10 +260,11 @@ namespace Codeplex.Data
             var dict = targetType.GetProperties(BindingFlags.Public | BindingFlags.Instance)
                 .Where(p => p.CanWrite)
                 .ToDictionary(pi => pi.Name, pi => pi);
-            foreach (var item in _xml.Elements())
+            foreach(var item in _xml.Elements())
             {
                 PropertyInfo propertyInfo;
-                if (!dict.TryGetValue(item.Name.LocalName, out propertyInfo)) continue;
+                if(!dict.TryGetValue(item.Name.LocalName, out propertyInfo))
+                    continue;
                 var value = DeserializeValue(item, propertyInfo.PropertyType);
                 propertyInfo.SetValue(result, value, null);
             }
@@ -274,22 +273,21 @@ namespace Codeplex.Data
 
         private object DeserializeArray(Type targetType)
         {
-            if (targetType.IsArray) // Foo[]
+            if(targetType.IsArray) // Foo[]
             {
                 var elemType = targetType.GetElementType();
                 dynamic array = Array.CreateInstance(elemType, _xml.Elements().Count());
                 var index = 0;
-                foreach (var item in _xml.Elements())
+                foreach(var item in _xml.Elements())
                 {
                     array[index++] = DeserializeValue(item, elemType);
                 }
                 return array;
-            }
-            else // List<Foo>
+            } else // List<Foo>
             {
                 var elemType = targetType.GetGenericArguments()[0];
                 dynamic list = Activator.CreateInstance(targetType);
-                foreach (var item in _xml.Elements())
+                foreach(var item in _xml.Elements())
                 {
                     list.Add(DeserializeValue(item, elemType));
                 }
@@ -309,7 +307,7 @@ namespace Codeplex.Data
         // IsDefined, if has args then TryGetMember
         public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result)
         {
-            if (args.Length > 0)
+            if(args.Length > 0)
             {
                 result = null;
                 return false;
@@ -322,23 +320,20 @@ namespace Codeplex.Data
         // Deserialize or foreach(IEnumerable)
         public override bool TryConvert(ConvertBinder binder, out object result)
         {
-            if (binder.Type == typeof(IEnumerable) || binder.Type == typeof(object[]))
+            if(binder.Type == typeof(IEnumerable) || binder.Type == typeof(object[]))
             {
                 var ie = (IsArray)
                     ? _xml.Elements().Select(x => ToValue(x))
                     : _xml.Elements().Select(x => (dynamic)new KeyValuePair<string, object>(x.Name.LocalName, ToValue(x)));
                 result = (binder.Type == typeof(object[])) ? ie.ToArray() : ie;
-            }
-            else
-            {
+            } else
                 result = Deserialize(binder.Type);
-            }
             return true;
         }
 
         private bool TryGet(XElement element, out object result)
         {
-            if (element == null)
+            if(element == null)
             {
                 result = null;
                 return false;
@@ -361,15 +356,20 @@ namespace Codeplex.Data
                 ? TryGet(_xml.Elements().ElementAtOrDefault(int.Parse(binder.Name)), out result)
                 : TryGet(_xml.Element(binder.Name), out result);
         }
+        
+        public object TryGetMember(string Name, out object result)
+        {
+            return (IsArray)
+                ? TryGet(_xml.Elements().ElementAtOrDefault(int.Parse(Name)), out result)
+                : TryGet(_xml.Element(Name), out result);
+        }
 
         private bool TrySet(string name, object value)
         {
             var type = GetJsonType(value);
             var element = _xml.Element(name);
-            if (element == null)
-            {
+            if(element == null)
                 _xml.Add(new XElement(name, CreateTypeAttr(type), CreateJsonNode(value)));
-            }
             else
             {
                 element.Attribute("type").Value = type.ToString();
@@ -383,10 +383,8 @@ namespace Codeplex.Data
         {
             var type = GetJsonType(value);
             var e = _xml.Elements().ElementAtOrDefault(index);
-            if (e == null)
-            {
+            if(e == null)
                 _xml.Add(new XElement("item", CreateTypeAttr(type), CreateJsonNode(value)));
-            }
             else
             {
                 e.Attribute("type").Value = type.ToString();
@@ -421,7 +419,7 @@ namespace Codeplex.Data
         public override string ToString()
         {
             // <foo type="null"></foo> is can't serialize. replace to <foo type="null" />
-            foreach (var elem in _xml.Descendants().Where(x => x.Attribute("type").Value == "null"))
+            foreach(var elem in _xml.Descendants().Where(x => x.Attribute("type").Value == "null"))
             {
                 elem.RemoveNodes();
             }

@@ -4,11 +4,11 @@ using CoreTweet.Core;
 
 namespace CoreTweet
 {
-    public class SavedSearch : CoreBase
+    public class SearchQuery : CoreBase
     {
         public DateTimeOffset CreatedAt{ get; set; }
 
-        public long Id{ get; set; }
+        public long? Id{ get; set; }
 
         public string Name{ get; set; }
 
@@ -19,7 +19,7 @@ namespace CoreTweet
             //FIXME: DateTimeOffset.ParseExact Doesn't work.
             //CreatedAt = DateTimeOffset.ParseExact(e.created_at, "ddd MMM dd HH:mm:ss K yyyy",
             //                                      System.Globalization.DateTimeFormatInfo.InvariantInfo);
-            Id = (long)e.id;
+            Id = e.IsDefined("id") ? (long?)e.id : null;
             Name = e.name;
             Query = e.query;
         }

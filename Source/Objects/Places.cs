@@ -1,6 +1,8 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using CoreTweet.Core;
+using CoreTweet.Ex.Develop;
 
 namespace CoreTweet
 {
@@ -37,8 +39,11 @@ namespace CoreTweet
         
         /// <summary>
         /// ID representing this place. Note that this is represented as a string, not an integer.
+        /// In trends/avaliable or trends/closest, ID is a Yahoo! Where On Earth ID.
         /// </summary>
         public string Id { get; set; }
+        
+        public string ParentId{ get; set; }
         
         /// <summary>
         /// Short human-readable representation of the place's name.
@@ -50,6 +55,10 @@ namespace CoreTweet
         /// </summary>
         public string PlaceType { get; set; }
         
+        public int? PlaceTypeCode{ get; set; }
+        
+        public string[] Polylines{ get; set; }
+        
         /// <summary>
         /// URL representing the location of additional place metadata for this place.
         /// </summary>
@@ -57,7 +66,19 @@ namespace CoreTweet
         
         internal override void ConvertBase(dynamic e)
         {
-
+            Attributes = e.IsDefined("attributes") ? DevelopersExtention.ToDictionary(e.attributes) : null;
+            BoundingBox = e.IsDefined("bounding_box") ? CoreBase.Convert<BoundingBox>(e.bounding_box) : null;
+            ContainedWithin = e.IsDefined("contained_within") ? CoreBase.ConvertArray<Place>(e.contained_within) : null;
+            Country = e.country;
+            CountryCode = e.IsDefined("countryCode") ? e.countryCode : e.country_code;
+            FullName = e.IsDefined("full_name") ? e.full_name : null;
+            Id = e.IsDefined("woeid") ? e.woeid.ToString() : e.id;
+            ParentId = e.IsDefined("parentid") ? e.parentid.ToString() : null;
+            Name = e.name;
+            PlaceType = e.IsDefines("placeType") ? e.placeType.name : e.place_type;
+            PlaceTypeCode = e.IsDefines("placeType") ? e.placeType.code : null;
+            Polylines = e.IsDefined("polylines") ? e.polylines as string[] : null;
+            Url = new Uri(e.url);
         }
     }
 
@@ -109,5 +130,40 @@ namespace CoreTweet
             return (Places as IEnumerable<Place>).GetEnumerator();
         }
     }
-}
+    
+    public class TrendsResult : CoreBase, IEnumerable<SearchQuery>
+    {
+        public DateTimeOffset AsOf{ get; set; }
 
+        public DateTimeOffset CreatedAt{ get; set; }
+        
+        public string[] Locations{ get; set; }
+        
+        public long[] LocationIds{ get; set; }
+        
+        public SearchQuery[] Trends{ get; set; }
+        
+        internal override void ConvertBase(dynamic e)
+        {
+            //FIXME: DateTimeOffset.ParseExact Doesn't work.
+            //CreatedAt = DateTimeOffset.ParseExact(e.created_at, "yyyy-MM-ddTHH:mm:ss:K",
+            //                                      System.Globalization.DateTimeFormatInfo.InvariantInfo);
+            //FIXME: DateTimeOffset.ParseExact Doesn't work.
+            //CreatedAt = DateTimeOffset.ParseExact(e.AsOf, "yyyy-MM-ddTHH:mm:ss:K",
+            //                                      System.Globalization.DateTimeFormatInfo.InvariantInfo);
+            Locations = (e.locations as dynamic[]).Select(x => (string)x.name).ToArray();
+            LocationIds = (e.locations as dynamic[]).Select(x => (long)x.woeid).ToArray();
+            Trends = CoreBase.ConvertArray<SearchQuery>(e.trends);
+        }
+        
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return Trends.GetEnumerator();
+        }
+        
+        public IEnumerator<SearchQuery> GetEnumerator()
+        {
+            return (Trends as IEnumerable<SearchQuery>).GetEnumerator();
+        } 
+    }
+}

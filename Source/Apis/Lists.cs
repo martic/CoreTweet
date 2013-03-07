@@ -11,10 +11,10 @@ namespace CoreTweet
     {
         public static class Lists
         {
-            public static IEnumerable<CoreTweet.List> List(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
-            {
+            //public static IEnumerable<CoreTweet.List> List(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+            //{
 
-            }
+            //}
         }
     }
 }

@@ -11,10 +11,10 @@ namespace CoreTweet
 {   
     public static class OAuth
     {
-        static readonly string REQUEST_TOKEN_URL = "https://twitter.com/oauth/request_token";
-        static readonly string ACCESS_TOKEN_URL = "https://twitter.com/oauth/access_token";
-        static readonly string AUTHORIZE_URL = "https://twitter.com/oauth/authorize";
-        static string req_token, req_secret, c_key, c_secret;
+        static readonly string RequestTokenUrl = "https://twitter.com/oauth/request_token";
+        static readonly string AccessTokenUrl = "https://twitter.com/oauth/access_token";
+        static readonly string AuthorizeUrl = "https://twitter.com/oauth/authorize";
+        static string reqToken, reqSecret, cKey, cSecret;
         
         /// <summary>
         ///     Generates the authorize URI.
@@ -29,20 +29,25 @@ namespace CoreTweet
         /// <param name='consumer_secret'>
         ///     Consumer secret.
         /// </param>
-        public static string GenerateAuthUri(string consumer_key, string consumer_secret)
+        public static string GenerateAuthUri(string consumerKey, string consumerSecret)
         {
-            var prm = Request.GenerateParameters(consumer_key, null);
+            var prm = Request.GenerateParameters(consumerKey, null);
             var sgn = Request.GenerateSignature(new Tokens()
-                {ConsumerSecret = consumer_secret, AccessTokenSecret = null},
-                    "GET", REQUEST_TOKEN_URL, prm);
+            {
+                ConsumerSecret = consumerSecret,
+                AccessTokenSecret = null
+            }, "GET", RequestTokenUrl, prm);
             prm.Add("oauth_signature", Request.UrlEncode(sgn));
-            var dic = Request.HttpGet(REQUEST_TOKEN_URL, prm).Split('&').Where(x => x.Contains('='))
-                .ToDictionary(x => x.Substring(0, x.IndexOf('=')), y => y.Substring(y.IndexOf('=') + 1));
-            req_token = dic["oauth_token"];
-            req_secret = dic["oauth_token_secret"];
-            c_key = consumer_key; 
-            c_secret = consumer_secret;
-            return AUTHORIZE_URL + "?oauth_token=" + req_token;
+            var dic = Request.HttpGet(RequestTokenUrl, prm)
+                .Split('&')
+                .Where(x => x.Contains('='))
+                .Select(x => x.Split('='))
+                .ToDictionary(x => x[0], y => y[1]);
+            reqToken = dic["oauth_token"];
+            reqSecret = dic["oauth_token_secret"];
+            cKey = consumerKey;
+            cSecret = consumerSecret;
+            return AuthorizeUrl + "?oauth_token=" + reqToken;
         } 
         
         /// <summary>
@@ -57,16 +62,22 @@ namespace CoreTweet
         /// </returns>
         public static Tokens GetTokens(string pin)
         {
-            if(req_token == null)
+            if(reqToken == null)
                 throw new ArgumentNullException("req_token", "\"GenerateAuthUri\" haven't been called.");
-            var prm = Request.GenerateParameters(c_key, req_token);
+            var prm = Request.GenerateParameters(cKey, reqToken);
             prm.Add("oauth_verifier", pin);
             prm.Add("oauth_signature", Request.GenerateSignature(new Tokens()
-                {ConsumerSecret = req_secret, AccessTokenSecret = null}, 
-                    "GET", ACCESS_TOKEN_URL, prm));
-            var dic = Request.HttpGet(ACCESS_TOKEN_URL, prm).Split('&').Where(x => x.Contains('='))
-                .ToDictionary(x => x.Substring(0, x.IndexOf('=')), y => y.Substring(y.IndexOf('=') + 1));
-            return Tokens.Create(c_key, c_secret, dic["oauth_token"], dic["oauth_token_secret"]);
+            {
+                ConsumerSecret = reqSecret,
+                AccessTokenSecret = null
+            }, "GET", AccessTokenUrl, prm));
+            var dic = Request.HttpGet(AccessTokenUrl, prm)
+                .Split('&')
+                .Where(x => x.Contains('='))
+                .Select(x => x.Split('='))
+                .ToDictionary(x => x[0], y => y[1]);
+            reqToken = reqSecret = null;
+            return Tokens.Create(cKey, cSecret, dic["oauth_token"], dic["oauth_token_secret"]);
         }
 
     }
@@ -99,40 +110,46 @@ namespace CoreTweet
         /// See the example.
         /// </param>
         /// <example>
-        /// Send (tokens, MethodType.POST, "https://hoge.com/piyo.xml", prm1 => "hoge", prm2 => "piyo");
+        /// Request (tokens, MethodType.POST, "https://hoge.com/piyo.xml", prm1 => "hoge", prm2 => "piyo");
         /// </example>
         /// <returns>
         /// Response.
         /// </returns>
-        public static string Send(Tokens tokens, MethodType type, string url, params Expression<Func<string,object>>[] prms)
+        public static string Send(Tokens token, MethodType type, string url, params Expression<Func<string, object>>[] prms)
         {
-            var prm = GenerateParameters(tokens.ConsumerKey, tokens.AccessToken);    
-            foreach(var expr in prms)
-                prm.Add(expr.Parameters[0].Name, UrlEncode(expr.Compile()("").ToString()));
-            var sgn = GenerateSignature(tokens, 
+            return Send(token, type, url, prms.ToDictionary(e => e.Parameters[0].Name, e => e.Compile()("")));
+        }
+
+        public static string Send(Tokens token, MethodType type, string url, IDictionary<string, object> prms)
+        {
+            var prm = GenerateParameters(token.ConsumerKey, token.AccessToken);
+            foreach(var p in prms)
+                prm.Add(p.Key, UrlEncode(p.Value.ToString()));
+            var sgn = GenerateSignature(token,
                 type == MethodType.GET ? "GET" : "POST", url, prm);
             prm.Add("oauth_signature", UrlEncode(sgn));
-            return type == MethodType.GET ? HttpGet(url, prm) : 
-                (type == MethodType.POST ? HttpPost(url, prm, false) : HttpPost(url, prm, true));
+            return type == MethodType.GET ? HttpGet(url, prm) : HttpPost(url, prm);
         }
-        
+
         internal static string HttpGet(string url, IDictionary<string, string> prm)
         {
             ServicePointManager.Expect100Continue = false;
             ServicePointManager.ServerCertificateValidationCallback
                   = (_, __, ___, ____) => true;
-            var req = WebRequest.Create(url + '?' + 
-                string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value))));
+            var req = WebRequest.Create(url + '?' +
+                string.Join("&", prm.Select(x => x.Key + "=" + x.Value))
+            );
             var res = req.GetResponse();
             using(var stream = res.GetResponseStream())
             using(var reader = new StreamReader(stream))
                 return reader.ReadToEnd();
+
         }
 
-        internal static string HttpPost(string url, IDictionary<string, string> prm, bool ignore_response)
+        internal static string HttpPost(string url, IDictionary<string, string> prm)
         {
             var data = Encoding.UTF8.GetBytes(
-                string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value))));
+                string.Join("&", prm.Select(x => x.Key + "=" + x.Value)));
             ServicePointManager.Expect100Continue = false;
             ServicePointManager.ServerCertificateValidationCallback
                   = (_, __, ___, ____) => true;
@@ -142,36 +159,37 @@ namespace CoreTweet
             req.ContentLength = data.Length;
             using(var reqstr = req.GetRequestStream())
                 reqstr.Write(data, 0, data.Length);
-            if(!ignore_response)
-                using(var resstr = req.GetResponse().GetResponseStream())
-                using(var reader = new StreamReader(resstr, Encoding.UTF8))
-                    return reader.ReadToEnd();
-            else
-                return "";
-
+            using(var resstr = req.GetResponse().GetResponseStream())
+            using(var reader = new StreamReader(resstr, Encoding.UTF8))
+                return reader.ReadToEnd();
         }
-        
+
         internal static string GenerateSignature(Tokens t, string httpMethod, string url, SortedDictionary<string, string> prm)
         {
-            var hs1 = new HMACSHA1();
-            hs1.Key = Encoding.UTF8.GetBytes(
-                string.Format("{0}&{1}", UrlEncode(t.ConsumerSecret), 
-                    t.AccessTokenSecret == null ? "" : UrlEncode(t.AccessTokenSecret)));
-            var hash = hs1.ComputeHash(
-                System.Text.Encoding.UTF8.GetBytes(
-                    string.Format("{0}&{1}&{2}", httpMethod, UrlEncode(url),
-                        UrlEncode(string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value)))))));
-            return Convert.ToBase64String(hash);
+            using(var hs1 = new HMACSHA1())
+            {
+                hs1.Key = Encoding.UTF8.GetBytes(
+                    string.Format("{0}&{1}", UrlEncode(t.ConsumerSecret),
+                        t.AccessTokenSecret == null ? "" : UrlEncode(t.AccessTokenSecret))
+                );
+                var hash = hs1.ComputeHash(
+                    System.Text.Encoding.UTF8.GetBytes(
+                        string.Format("{0}&{1}&{2}", httpMethod, UrlEncode(url),
+                            UrlEncode(string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value)))))
+                    )
+                );
+                return Convert.ToBase64String(hash);
+            }
         }
-        
+
         internal static SortedDictionary<string, string> GenerateParameters(string ConsumerKey, string token)
         {
             var ret = new SortedDictionary<string, string>()
             {
                 {"oauth_consumer_key", ConsumerKey},
                 {"oauth_signature_method", "HMAC-SHA1"},
-                {"oauth_timestamp", (DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0))
-                    .TotalSeconds.ToString().Split(new []{'.'})[0]},
+                {"oauth_timestamp", ((long)(DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0))
+                    .TotalSeconds).ToString()},
                 {"oauth_nonce", new Random().Next(int.MinValue, int.MaxValue).ToString("X")},
                 {"oauth_version", "1.0"}
             };
@@ -181,11 +199,11 @@ namespace CoreTweet
         }
 
         public static string UrlEncode(string text)
-        {   
+        {
             if(string.IsNullOrEmpty(text))
-                return String.Empty;
-            return string.Join("", Encoding.UTF8.GetBytes(text)
-             .Select(x => x < 0x80 && "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~".Contains((char)x) ?
+                return "";
+            return string.Concat(Encoding.UTF8.GetBytes(text)
+                .Select(x => x < 0x80 && "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~".Contains((char)x) ?
                      ((char)x).ToString() : ('%' + x.ToString("X2"))));
         }
     }
@@ -225,6 +243,7 @@ namespace CoreTweet
         {
             return string.Format("https://api.twitter.com/{0}/{1}.json", Property.ApiVersion, ApiName);
         }
+        
         
     }
 }

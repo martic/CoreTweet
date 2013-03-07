@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 using CoreTweet.Core;
+using CoreTweet.Ex.Develop;
 using Codeplex.Data;
 
 namespace CoreTweet
@@ -31,7 +32,7 @@ namespace CoreTweet
                 return CoreBase.Convert<Place>(DynamicJson.Parse(
                     Request.Send(Tokens, MethodType.POST, Rest.Url(
                     string.Format("geo/id/{0}", Parameters.First(x => x.Parameters[0].Name == "place_id")
-                              .Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "place_id").ToArray())));
+                              .Compile()("").ToString())), Parameters.Where(x => x.Parameters[0].Name != "place_id").ToArray()).ReplaceBadCharactor()));
             }
             
             /// <summary>
@@ -55,7 +56,7 @@ namespace CoreTweet
             public static GeoResult SimilarPlaces(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.Convert<GeoResult>(DynamicJson.Parse(
-                    Request.Send(Tokens, MethodType.GET, Rest.Url("geo/similar_places"), Parameters)).result);
+                    Request.Send(Tokens, MethodType.GET, Rest.Url("geo/similar_places"), Parameters).ReplaceBadCharactor()));
             }
             
             /// <summary>
@@ -84,7 +85,7 @@ namespace CoreTweet
             public static GeoResult Search(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.Convert<GeoResult>(DynamicJson.Parse(
-                    Request.Send(Tokens, MethodType.GET, Rest.Url("geo/search"), Parameters)).result);
+                    Request.Send(Tokens, MethodType.GET, Rest.Url("geo/search"), Parameters).ReplaceBadCharactor()));
             }
             
             /// <summary>
@@ -107,7 +108,7 @@ namespace CoreTweet
             public static GeoResult ReverseGeocode(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.Convert<GeoResult>(DynamicJson.Parse(
-                    Request.Send(Tokens, MethodType.GET, Rest.Url("geo/reverse_geocode"), Parameters)).result);
+                    Request.Send(Tokens, MethodType.GET, Rest.Url("geo/reverse_geocode"), Parameters).ReplaceBadCharactor()));
             }
             
             //POST Method
@@ -135,7 +136,7 @@ namespace CoreTweet
             public static Place Place(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
             {
                 return CoreBase.Convert<Place>(DynamicJson.Parse(
-                    Request.Send(Tokens, MethodType.GET, Rest.Url("geo/reverse_geocode"), Parameters)));
+                    Request.Send(Tokens, MethodType.GET, Rest.Url("geo/reverse_geocode"), Parameters).ReplaceBadCharactor()));
             }
             
             

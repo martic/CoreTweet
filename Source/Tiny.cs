@@ -7,9 +7,6 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 
-/// <summary>
-/// Standalone OAuth Twitter Module.
-/// </summary>
 namespace TinyTweet
 {
     public class Tokens
@@ -21,56 +18,46 @@ namespace TinyTweet
         /// <value>
         /// The consumer key.
         /// </value>
-        public string ConsumerKey { get; set; }
+        public string ConsumerKey
+        {
+            get;
+            set;
+        }
         /// <summary>
         /// Gets or sets the consumer secret.
         /// </summary>
         /// <value>
         /// The consumer secret.
         /// </value>
-        public string ConsumerSecret { get; set; }
+        public string ConsumerSecret
+        {
+            get;
+            set;
+        }
         /// <summary>
         /// Gets or sets the access token.
         /// </summary>
         /// <value>
         /// The access token.
         /// </value>
-        public string AccessToken { get; set; }
+        public string AccessToken
+        {
+            get;
+            set;
+        }
         /// <summary>
         /// Gets or sets the access token secret.
         /// </summary>
         /// <value>
         /// The access token secret.
         /// </value>
-        public string AccessTokenSecret { get; set; }
-        
-        /// <summary>
-        /// An useful method to make an instance of Tokens :)
-        /// </summary>
-        /// <param name='consumer_key'>
-        /// Consumer key.
-        /// </param>
-        /// <param name='consumer_secret'>
-        /// Consumer secret.
-        /// </param>
-        /// <param name='access_token'>
-        /// Access token.
-        /// </param>
-        /// <param name='access_secret'>
-        /// Access secret.
-        /// </param>
-        public static Tokens Create(string consumer_key, string consumer_secret, string access_token, string access_secret)
+        public string AccessTokenSecret
         {
-            return new Tokens()
-            {
-                ConsumerKey = consumer_key,
-                ConsumerSecret = consumer_secret,
-                AccessToken = access_token,
-                AccessTokenSecret = access_secret
-            };
+            get;
+            set;
         }
     }
-    
+
     public enum MethodType
     {
         GET,
@@ -79,24 +66,31 @@ namespace TinyTweet
 
     public class OAuthClient
     {
-        static readonly string REQUEST_TOKEN_URL = "https://twitter.com/oauth/request_token";
-        static readonly string ACCESS_TOKEN_URL = "https://twitter.com/oauth/access_token";
-        static readonly string AUTHORIZE_URL = "https://twitter.com/oauth/authorize";
-        string req_token, req_secret;
-        Tokens Token;
-        
+        static readonly string RequestTokenUrl = "https://twitter.com/oauth/request_token";
+        static readonly string AccessTokenUrl = "https://twitter.com/oauth/access_token";
+        static readonly string AuthorizeUrl = "https://twitter.com/oauth/authorize";
+        string reqToken, reqSecret;
+        Tokens token;
+
         public OAuthClient()
+            : this(null)
         {
         }
-        
-        public OAuthClient(string Consumer_Key, string Consumer_Secret, string Access_Token, string Acccess_Secret)
+
+        public OAuthClient(string consumerKey, string consumerSecret, string accessToken, string accessSecret)
+            : this(new Tokens()
+              {
+                  ConsumerKey = consumerKey,
+                  ConsumerSecret = consumerSecret,
+                  AccessToken = accessToken,
+                  AccessTokenSecret = accessSecret,
+              })
         {
-            Token = Tokens.Create(Consumer_Key, Consumer_Secret, Access_Token, Acccess_Secret);
         }
-        
+
         public OAuthClient(Tokens t)
         {
-            Token = t;
+            token = t;
         }
 
         /// <summary>
@@ -106,28 +100,33 @@ namespace TinyTweet
         /// <returns>
         ///     The authorize URI.
         /// </returns>
-        /// <param name='consumer_key'>
+        /// <param name='consumerKey'>
         ///     Consumer key.
         /// </param>
-        /// <param name='consumer_secret'>
+        /// <param name='consumerSecret'>
         ///     Consumer secret.
         /// </param>
-        public string GenerateAuthUri(string consumer_key, string consumer_secret)
+        public string GenerateAuthUri(string consumerKey, string consumerSecret)
         {
-            var prm = GenerateParameters(consumer_key, null);
+            var prm = GenerateParameters(consumerKey, null);
             var sgn = GenerateSignature(new Tokens()
-                {ConsumerSecret = consumer_secret, AccessTokenSecret = null},
-                    "GET", REQUEST_TOKEN_URL, prm);
+            {
+                ConsumerSecret = consumerSecret,
+                AccessTokenSecret = null
+            }, "GET", RequestTokenUrl, prm);
             prm.Add("oauth_signature", UrlEncode(sgn));
-            var dic = HttpGet(REQUEST_TOKEN_URL, prm).Split('&').Where(x => x.Contains('='))
-                .ToDictionary(x => x.Substring(0, x.IndexOf('=')), y => y.Substring(y.IndexOf('=') + 1));
-            req_token = dic["oauth_token"];
-            req_secret = dic["oauth_token_secret"];
-            Token.ConsumerKey = consumer_key; 
-            Token.ConsumerSecret = consumer_secret;
-            return AUTHORIZE_URL + "?oauth_token=" + req_token;
-        } 
-        
+            var dic = HttpGet(RequestTokenUrl, prm)
+                .Split('&')
+                .Where(x => x.Contains('='))
+                .Select(x => x.Split('='))
+                .ToDictionary(x => x[0], y => y[1]);
+            reqToken = dic["oauth_token"];
+            reqSecret = dic["oauth_token_secret"];
+            token.ConsumerKey = consumerKey;
+            token.ConsumerSecret = consumerSecret;
+            return AuthorizeUrl + "?oauth_token=" + reqToken;
+        }
+
         /// <summary>
         ///     Gets the OAuth tokens.
         ///     Be sure to call GenerateAuthUri(string,string) before call this.
@@ -140,19 +139,29 @@ namespace TinyTweet
         /// </returns>
         public void GetTokens(string pin)
         {
-            if(req_token == null)
+            if(reqToken == null)
                 throw new ArgumentNullException("req_token", "\"GenerateAuthUri\" haven't been called.");
-            var prm = GenerateParameters(Token.ConsumerKey, req_token);
+            var prm = GenerateParameters(token.ConsumerKey, reqToken);
             prm.Add("oauth_verifier", pin);
             prm.Add("oauth_signature", GenerateSignature(new Tokens()
-                {ConsumerSecret = req_secret, AccessTokenSecret = null}, 
-                    "GET", ACCESS_TOKEN_URL, prm)
-            );
-            var dic = HttpGet(ACCESS_TOKEN_URL, prm).Split('&').Where(x => x.Contains('='))
-                .ToDictionary(x => x.Substring(0, x.IndexOf('=')), y => y.Substring(y.IndexOf('=') + 1));
-            Token = Tokens.Create(Token.ConsumerKey, Token.ConsumerSecret, dic["oauth_token"], dic["oauth_token_secret"]);
+            {
+                ConsumerSecret = reqSecret,
+                AccessTokenSecret = null
+            }, "GET", AccessTokenUrl, prm));
+            var dic = HttpGet(AccessTokenUrl, prm)
+                .Split('&')
+                .Where(x => x.Contains('='))
+                .Select(x => x.Split('='))
+                .ToDictionary(x => x[0], y => y[1]);
+            token = new Tokens()
+            {
+                ConsumerKey = token.ConsumerKey,
+                ConsumerSecret = token.ConsumerSecret,
+                AccessToken = dic["oauth_token"],
+                AccessTokenSecret = dic["oauth_token_secret"],
+            };
         }
-        
+
         /// <summary>
         /// Send a request to Twitter.
         /// </summary>
@@ -176,24 +185,29 @@ namespace TinyTweet
         /// <returns>
         /// Response.
         /// </returns>
-        public string Request(MethodType type, string url, params Expression<Func<string,string>>[] prms)
+        public string Request(MethodType type, string url, params Expression<Func<string, string>>[] prms)
         {
-            var prm = GenerateParameters(Token.ConsumerKey, Token.AccessToken);    
-            foreach(var expr in prms)
-                prm.Add(expr.Parameters[0].Name, UrlEncode(expr.Compile()("")));
-            var sgn = GenerateSignature(Token, 
+            return Request(type, url, prms.ToDictionary(e => e.Parameters[0].Name, e => e.Compile()("")));
+        }
+
+        public string Request(MethodType type, string url, IDictionary<string, string> prms)
+        {
+            var prm = GenerateParameters(token.ConsumerKey, token.AccessToken);
+            foreach(var p in prms)
+                prm.Add(p.Key, UrlEncode(p.Value));
+            var sgn = GenerateSignature(token,
                 type == MethodType.GET ? "GET" : "POST", url, prm);
             prm.Add("oauth_signature", UrlEncode(sgn));
             return type == MethodType.GET ? HttpGet(url, prm) : HttpPost(url, prm);
         }
-        
+
         static string HttpGet(string url, IDictionary<string, string> prm)
         {
             ServicePointManager.Expect100Continue = false;
             ServicePointManager.ServerCertificateValidationCallback
                   = (_, __, ___, ____) => true;
-            var req = WebRequest.Create(url + '?' + 
-                string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value)))
+            var req = WebRequest.Create(url + '?' +
+                string.Join("&", prm.Select(x => x.Key + "=" + x.Value))
             );
             var res = req.GetResponse();
             using(var stream = res.GetResponseStream())
@@ -205,7 +219,7 @@ namespace TinyTweet
         static string HttpPost(string url, IDictionary<string, string> prm)
         {
             var data = Encoding.UTF8.GetBytes(
-                string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value))));
+                string.Join("&", prm.Select(x => x.Key + "=" + x.Value)));
             ServicePointManager.Expect100Continue = false;
             ServicePointManager.ServerCertificateValidationCallback
                   = (_, __, ___, ____) => true;
@@ -218,33 +232,34 @@ namespace TinyTweet
             using(var resstr = req.GetResponse().GetResponseStream())
             using(var reader = new StreamReader(resstr, Encoding.UTF8))
                 return reader.ReadToEnd();
-
         }
-    
+
         static string GenerateSignature(Tokens t, string httpMethod, string url, SortedDictionary<string, string> prm)
         {
-            var hs1 = new HMACSHA1();
-            hs1.Key = Encoding.UTF8.GetBytes(
-                string.Format("{0}&{1}", UrlEncode(t.ConsumerSecret), 
-                    t.AccessTokenSecret == null ? "" : UrlEncode(t.AccessTokenSecret))
-            );
-            var hash = hs1.ComputeHash(
-                System.Text.Encoding.UTF8.GetBytes(
-                    string.Format("{0}&{1}&{2}", httpMethod, UrlEncode(url),
-                        UrlEncode(string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value)))))
-            )
-            );
-            return Convert.ToBase64String(hash);
+            using(var hs1 = new HMACSHA1())
+            {
+                hs1.Key = Encoding.UTF8.GetBytes(
+                    string.Format("{0}&{1}", UrlEncode(t.ConsumerSecret),
+                        t.AccessTokenSecret == null ? "" : UrlEncode(t.AccessTokenSecret))
+                );
+                var hash = hs1.ComputeHash(
+                    System.Text.Encoding.UTF8.GetBytes(
+                        string.Format("{0}&{1}&{2}", httpMethod, UrlEncode(url),
+                            UrlEncode(string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value)))))
+                    )
+                );
+                return Convert.ToBase64String(hash);
+            }
         }
-        
+
         static SortedDictionary<string, string> GenerateParameters(string ConsumerKey, string token)
         {
             var ret = new SortedDictionary<string, string>()
             {
                 {"oauth_consumer_key", ConsumerKey},
                 {"oauth_signature_method", "HMAC-SHA1"},
-                {"oauth_timestamp", (DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0))
-                    .TotalSeconds.ToString().Split(new []{'.'})[0]},
+                {"oauth_timestamp", ((long)(DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0))
+                    .TotalSeconds).ToString()},
                 {"oauth_nonce", new Random().Next(int.MinValue, int.MaxValue).ToString("X")},
                 {"oauth_version", "1.0"}
             };
@@ -254,28 +269,28 @@ namespace TinyTweet
         }
 
         static string UrlEncode(string text)
-        {   
+        {
             if(string.IsNullOrEmpty(text))
-                return String.Empty;
-            return string.Join("", Encoding.UTF8.GetBytes(text)
-             .Select(x => x < 0x80 && "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~".Contains((char)x) ?
+                return "";
+            return string.Concat(Encoding.UTF8.GetBytes(text)
+                .Select(x => x < 0x80 && "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~".Contains((char)x) ?
                      ((char)x).ToString() : ('%' + x.ToString("X2"))));
         }
     }
 
     public class Property
     {
-        public static readonly string API_Version = "1.1";
+        public static readonly string ApiVersion = "1.1";
     }
 
     public static class Api
     {
-        public static string Url(string ApiName)
+        public static string Url(string apiName)
         {
-            return string.Format("https://api.twitter.com/{0}/{1}.json", Property.API_Version, ApiName);
+            return string.Format("https://api.twitter.com/{0}/{1}.json", Property.ApiVersion, apiName);
         }
     }
-    
+
     static class TestNow
     {
         static void Main()
@@ -290,6 +305,4 @@ namespace TinyTweet
             cnt.Request(MethodType.POST, Api.Url("statuses/update"), status => "Hello,Twitter!");
         }
     }
-    
 }
-

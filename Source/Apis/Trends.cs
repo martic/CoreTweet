@@ -2,8 +2,11 @@ using System;
 
 namespace CoreTweet
 {
-    public static class Trends
+    public static partial class Rest
     {
+        public static class Trends
+        {
+        }
     }
 }
 
