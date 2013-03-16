@@ -1,10 +1,8 @@
-﻿<Properties>
+﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Lib/AliceDoll.cs">
     <Files>
-      <File FileName="Apis/Lists.cs" Line="244" Column="6" />
       <File FileName="Lib/AliceDoll.cs" Line="32" Column="10" />
-      <File FileName="Test/Main.cs" Line="39" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,6 +17,12 @@
           </Node>
           <Node name="Test" expanded="True" />
         </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

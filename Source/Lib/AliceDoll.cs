@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Alice
 {
+    /// <summary>
+    /// A pair of values.
+    /// </summary>
     public struct Pair<T1,T2>
     {
         public readonly T1 Value1;
@@ -28,12 +31,14 @@ namespace Alice
     
     public static class Extensions
     {
+
         public static void ForEach<T>(this IEnumerable<T> e, Action<T> Action)
         {
             foreach(T item in e)
                 Action(item);
         }
-        
+
+
         public static IEnumerable<Pair<T1,T2>> Conbinate<T1, T2>(this IEnumerable<T1> e, IEnumerable<T2> Target)
         {
             return

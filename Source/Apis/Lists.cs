@@ -226,8 +226,9 @@ namespace CoreTweet
             /// <summary>
             /// <para>Deletes the specified list. The authenticated user must own the list to be able to destroy it.</para>
             /// </summary>
+            /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
             /// <para>Avaliable parameters: </para><para> </para>
-            /// <para><paramref name=""/> :</para>
+            /// <para><paramref name="string owner_screen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
             /// <returns></returns>
             /// <param name='Tokens'>
             /// Tokens.
