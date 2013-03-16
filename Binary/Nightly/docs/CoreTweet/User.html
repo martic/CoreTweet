@@ -1,0 +1,1795 @@
+<html>
+  <head>
+    <title>CoreTweet.User</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">CoreTweet</a> : <a href="index.html">CoreTweet Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:CoreTweet.User">Overview</a>
+      </p>
+      <p>
+        <a href="#T:CoreTweet.User:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:CoreTweet.User:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:CoreTweet.User:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:CoreTweet.User">User  Class</h1>
+    <p class="Summary" id="T:CoreTweet.User:Summary">
+      <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+    </p>
+    <div id="T:CoreTweet.User:Signature">
+      <h2>Syntax</h2>
+      <div class="Signature">public class  <b>User</b> : <a href="../CoreTweet.Core/CoreBase.html">CoreTweet.Core.CoreBase</a></div>
+    </div>
+    <div class="Remarks" id="T:CoreTweet.User:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:CoreTweet.User:Docs:Remarks">
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:CoreTweet.User:Docs:Version Information">
+        <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="../CoreTweet.Core/CoreBase.html">CoreTweet.Core.CoreBase</a>.
+							</p>
+        <h2 class="Section">Public Constructors</h2>
+        <div class="SectionBox" id="Public Constructors">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:CoreTweet.User">User</a>
+                    </b>()</div>
+                </td>
+                <td>
+                  <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Properties</h2>
+        <div class="SectionBox" id="Public Properties">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.CreatedAt">CreatedAt</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.DateTimeOffset">DateTimeOffset</a>
+                  </i>. 
+            The UTC datetime that the user account was created on Twitter.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.Description">Description</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            Nullable. The user-defined UTF-8 string describing their account.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.Entities">Entities</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../CoreTweet/Entity.html">Entity</a>
+                  </i>. 
+            Entities which have been parsed out of the url or description fields defined by the user.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.FavouritesCount">FavouritesCount</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
+                  </i>. 
+            The number of tweets this user has favorited in the account's lifetime. British spelling used in the field name for historical reasons.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.FollowersCount">FollowersCount</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
+                  </i>. 
+            The number of followers this account currently has. Under certain conditions of duress, this field will temporarily indicate "0."
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.FriendsCount">FriendsCount</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
+                  </i>. 
+            The number of users this account is following (AKA their "followings"). Under certain conditions of duress, this field will temporarily indicate "0."
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.Id">Id</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a>
+                  </i>. 
+            The integer representation of the unique identifier for this User. This number is greater than 53 bits and some programming languages may have difficulty/silent defects in interpreting it. Using a signed 64 bit integer for storing this identifier is safe. Use id_str for fetching the identifier to stay on the safe side.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.IsContributorsEnabled">IsContributorsEnabled</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>
+                  </i>. 
+            Indicates that the user has an account with "contributor mode" enabled, allowing for Tweets issued by the user to be co-authored by another account. Rarely true.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.IsDefaultProfile">IsDefaultProfile</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>
+                  </i>. 
+            When true, indicates that the user has not altered the theme or background of their user profile.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.IsDefaultProfileImage">IsDefaultProfileImage</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>
+                  </i>. 
+            When true, indicates that the user has not uploaded their own avatar and a default egg avatar is used instead.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.IsFollowRequestSent">IsFollowRequestSent</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Nullable`1">Nullable&lt;bool&gt;</a>
+                  </i>. 
+            Nullable. Perspectival. When true, indicates that the authenticating user has issued a follow request to this protected user account.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.IsGeoEnabled">IsGeoEnabled</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>
+                  </i>. 
+            When true, indicates that the user has enabled the possibility of geotagging their Tweets. This field must be true for the current user to attach geographic data when using POST statuses/update.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.IsProfileBackgroundTile">IsProfileBackgroundTile</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>
+                  </i>. 
+            When true, indicates that the user's profile_background_image_url should be tiled when displayed.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.IsProfileUseBackgroundImage">IsProfileUseBackgroundImage</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>
+                  </i>. 
+            When true, indicates the user wants their uploaded background image to be used.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.IsProtected">IsProtected</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>
+                  </i>. 
+            When true, indicates that this user has chosen to protect their Tweets.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.IsShowAllInlineMedia">IsShowAllInlineMedia</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Nullable`1">Nullable&lt;bool&gt;</a>
+                  </i>. 
+            Indicates that the user would like to see media inline. Somewhat disused.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.IsTranslator">IsTranslator</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>
+                  </i>. 
+            When true, indicates that the user is a participant in Twitter's translator community.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.IsVerified">IsVerified</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>
+                  </i>. 
+            When true, indicates that the user has a verified account.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.Language">Language</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The BCP 47 code for the user's self-declared user interface language. May or may not have anything to do with the content of their Tweets.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.ListedCount">ListedCount</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
+                  </i>. 
+            The number of public lists that this user is a member of.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.Location">Location</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            Nullable. The user-defined location for this account's profile. Not necessarily a location nor parseable. This field will occasionally be fuzzily interpreted by the Search service.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.Name">Name</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The name of the user, as they've defined it. Not necessarily a person's name. Typically capped at 20 characters, but subject to change.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.ProfileBackgroundColor">ProfileBackgroundColor</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The hexadecimal color chosen by the user for their background.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.ProfileBackgroundImageUrl">ProfileBackgroundImageUrl</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Uri">Uri</a>
+                  </i>. 
+            A HTTP-based URL pointing to the background image the user has uploaded for their profile.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.ProfileBackgroundImageUrlHttps">ProfileBackgroundImageUrlHttps</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Uri">Uri</a>
+                  </i>. 
+            A HTTPS-based URL pointing to the background image the user has uploaded for their profile.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.ProfileBannerUrl">ProfileBannerUrl</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Uri">Uri</a>
+                  </i>. 
+            The HTTPS-based URL pointing to the standard web representation of the user's uploaded profile banner. By adding a final path element of the URL, you can obtain different image sizes optimized for specific displays. In the future, an API method will be provided to serve these URLs so that you need not modify the original URL. For size variations, please see User Profile Images and Banners.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.ProfileImageUrl">ProfileImageUrl</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Uri">Uri</a>
+                  </i>. 
+            A HTTP-based URL pointing to the user's avatar image. See User Profile Images and Banners.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.ProfileImageUrlHttps">ProfileImageUrlHttps</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Uri">Uri</a>
+                  </i>. 
+            A HTTPS-based URL pointing to the user's avatar image.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.ProfileLinkColor">ProfileLinkColor</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The hexadecimal color the user has chosen to display links with in their Twitter UI.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.ProfileSidebarBorderColor">ProfileSidebarBorderColor</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The hexadecimal color the user has chosen to display sidebar borders with in their Twitter UI.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.ProfileSidebarFillColor">ProfileSidebarFillColor</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The hexadecimal color the user has chosen to display sidebar backgrounds with in their Twitter UI.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.ProfileTextColor">ProfileTextColor</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The hexadecimal color the user has chosen to display text with in their Twitter UI.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.ScreenNane">ScreenNane</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The screen name, handle, or alias that this user identifies themselves with. screen_names are unique but subject to change. Use id_str as a user identifier whenever possible. Typically a maximum of 15 characters long, but some historical accounts may exist with longer names.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.Status">Status</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../CoreTweet/Status.html">Status</a>
+                  </i>. 
+            Nullable. If possible, the user's most recent tweet or retweet. In some circumstances, this data cannot be provided and this field will be omitted, null, or empty. Perspectival attributes within tweets embedded within users cannot always be relied upon.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.StatusesCount">StatusesCount</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
+                  </i>. 
+            The number of tweets (including retweets) issued by the user.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.TimeZone">TimeZone</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            Nullable. A string describing the Time Zone this user declares themselves within.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.Url">Url</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Uri">Uri</a>
+                  </i>. 
+            Nullable. A URL provided by the user in association with their profile.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.UtcOffset">UtcOffset</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.DateTimeOffset">DateTimeOffset</a>
+                  </i>. 
+            Nullable. The offset from GMT/UTC in seconds.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.WithheldInCountries">WithheldInCountries</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            When present, indicates a textual representation of the two-letter country codes this user is withheld from.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:CoreTweet.User.WithheldScope">WithheldScope</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            When present, indicates whether the content being withheld is the "status" or a "user."
+            </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Extension Methods</h2>
+        <div class="SectionBox" id="Extension Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../CoreTweet.Ex/UserExtension.html#M:CoreTweet.Ex.UserExtension.Follow(CoreTweet.User,CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Follow</a>
+                  </b>(<i>this</i> <a href="../CoreTweet/User.html">User</a>, <a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/User.html">User</a></nobr><blockquote>
+            Follow this user.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../CoreTweet.Ex/UserExtension.html#M:CoreTweet.Ex.UserExtension.Unfollow(CoreTweet.User,CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Unfollow</a>
+                  </b>(<i>this</i> <a href="../CoreTweet/User.html">User</a>, <a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/User.html">User</a></nobr><blockquote>
+            Un-follow this user.
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:CoreTweet.User:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="C:CoreTweet.User">User Constructor</h3>
+        <blockquote id="C:CoreTweet.User:member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>User</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:CoreTweet.User:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:CoreTweet.User:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.CreatedAt">CreatedAt Property</h3>
+        <blockquote id="P:CoreTweet.User.CreatedAt:member">
+          <p class="Summary">
+            The UTC datetime that the user account was created on Twitter.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.DateTimeOffset">DateTimeOffset</a> <b>CreatedAt</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.CreatedAt:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.CreatedAt:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.CreatedAt:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.Description">Description Property</h3>
+        <blockquote id="P:CoreTweet.User.Description:member">
+          <p class="Summary">
+            Nullable. The user-defined UTF-8 string describing their account.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>Description</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.Description:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Description:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Description:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.Entities">Entities Property</h3>
+        <blockquote id="P:CoreTweet.User.Entities:member">
+          <p class="Summary">
+            Entities which have been parsed out of the url or description fields defined by the user.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../CoreTweet/Entity.html">Entity</a> <b>Entities</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.Entities:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Entities:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Entities:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.FavouritesCount">FavouritesCount Property</h3>
+        <blockquote id="P:CoreTweet.User.FavouritesCount:member">
+          <p class="Summary">
+            The number of tweets this user has favorited in the account's lifetime. British spelling used in the field name for historical reasons.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>FavouritesCount</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.FavouritesCount:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.FavouritesCount:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.FavouritesCount:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.FollowersCount">FollowersCount Property</h3>
+        <blockquote id="P:CoreTweet.User.FollowersCount:member">
+          <p class="Summary">
+            The number of followers this account currently has. Under certain conditions of duress, this field will temporarily indicate "0."
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>FollowersCount</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.FollowersCount:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.FollowersCount:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.FollowersCount:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.FriendsCount">FriendsCount Property</h3>
+        <blockquote id="P:CoreTweet.User.FriendsCount:member">
+          <p class="Summary">
+            The number of users this account is following (AKA their "followings"). Under certain conditions of duress, this field will temporarily indicate "0."
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>FriendsCount</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.FriendsCount:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.FriendsCount:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.FriendsCount:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.Id">Id Property</h3>
+        <blockquote id="P:CoreTweet.User.Id:member">
+          <p class="Summary">
+            The integer representation of the unique identifier for this User. This number is greater than 53 bits and some programming languages may have difficulty/silent defects in interpreting it. Using a signed 64 bit integer for storing this identifier is safe. Use id_str for fetching the identifier to stay on the safe side.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a> <b>Id</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.Id:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Id:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Id:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.IsContributorsEnabled">IsContributorsEnabled Property</h3>
+        <blockquote id="P:CoreTweet.User.IsContributorsEnabled:member">
+          <p class="Summary">
+            Indicates that the user has an account with "contributor mode" enabled, allowing for Tweets issued by the user to be co-authored by another account. Rarely true.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsContributorsEnabled</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.IsContributorsEnabled:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsContributorsEnabled:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsContributorsEnabled:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.IsDefaultProfile">IsDefaultProfile Property</h3>
+        <blockquote id="P:CoreTweet.User.IsDefaultProfile:member">
+          <p class="Summary">
+            When true, indicates that the user has not altered the theme or background of their user profile.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsDefaultProfile</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.IsDefaultProfile:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsDefaultProfile:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsDefaultProfile:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.IsDefaultProfileImage">IsDefaultProfileImage Property</h3>
+        <blockquote id="P:CoreTweet.User.IsDefaultProfileImage:member">
+          <p class="Summary">
+            When true, indicates that the user has not uploaded their own avatar and a default egg avatar is used instead.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsDefaultProfileImage</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.IsDefaultProfileImage:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsDefaultProfileImage:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsDefaultProfileImage:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.IsFollowRequestSent">IsFollowRequestSent Property</h3>
+        <blockquote id="P:CoreTweet.User.IsFollowRequestSent:member">
+          <p class="Summary">
+            Nullable. Perspectival. When true, indicates that the authenticating user has issued a follow request to this protected user account.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Nullable`1">Nullable&lt;bool&gt;</a> <b>IsFollowRequestSent</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.IsFollowRequestSent:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsFollowRequestSent:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsFollowRequestSent:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.IsGeoEnabled">IsGeoEnabled Property</h3>
+        <blockquote id="P:CoreTweet.User.IsGeoEnabled:member">
+          <p class="Summary">
+            When true, indicates that the user has enabled the possibility of geotagging their Tweets. This field must be true for the current user to attach geographic data when using POST statuses/update.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsGeoEnabled</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.IsGeoEnabled:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsGeoEnabled:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsGeoEnabled:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.IsProfileBackgroundTile">IsProfileBackgroundTile Property</h3>
+        <blockquote id="P:CoreTweet.User.IsProfileBackgroundTile:member">
+          <p class="Summary">
+            When true, indicates that the user's profile_background_image_url should be tiled when displayed.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsProfileBackgroundTile</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.IsProfileBackgroundTile:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsProfileBackgroundTile:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsProfileBackgroundTile:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.IsProfileUseBackgroundImage">IsProfileUseBackgroundImage Property</h3>
+        <blockquote id="P:CoreTweet.User.IsProfileUseBackgroundImage:member">
+          <p class="Summary">
+            When true, indicates the user wants their uploaded background image to be used.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsProfileUseBackgroundImage</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.IsProfileUseBackgroundImage:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsProfileUseBackgroundImage:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsProfileUseBackgroundImage:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.IsProtected">IsProtected Property</h3>
+        <blockquote id="P:CoreTweet.User.IsProtected:member">
+          <p class="Summary">
+            When true, indicates that this user has chosen to protect their Tweets.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsProtected</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.IsProtected:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsProtected:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsProtected:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.IsShowAllInlineMedia">IsShowAllInlineMedia Property</h3>
+        <blockquote id="P:CoreTweet.User.IsShowAllInlineMedia:member">
+          <p class="Summary">
+            Indicates that the user would like to see media inline. Somewhat disused.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Nullable`1">Nullable&lt;bool&gt;</a> <b>IsShowAllInlineMedia</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.IsShowAllInlineMedia:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsShowAllInlineMedia:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsShowAllInlineMedia:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.IsTranslator">IsTranslator Property</h3>
+        <blockquote id="P:CoreTweet.User.IsTranslator:member">
+          <p class="Summary">
+            When true, indicates that the user is a participant in Twitter's translator community.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsTranslator</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.IsTranslator:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsTranslator:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsTranslator:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.IsVerified">IsVerified Property</h3>
+        <blockquote id="P:CoreTweet.User.IsVerified:member">
+          <p class="Summary">
+            When true, indicates that the user has a verified account.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsVerified</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.IsVerified:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsVerified:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.IsVerified:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.Language">Language Property</h3>
+        <blockquote id="P:CoreTweet.User.Language:member">
+          <p class="Summary">
+            The BCP 47 code for the user's self-declared user interface language. May or may not have anything to do with the content of their Tweets.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>Language</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.Language:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Language:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Language:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.ListedCount">ListedCount Property</h3>
+        <blockquote id="P:CoreTweet.User.ListedCount:member">
+          <p class="Summary">
+            The number of public lists that this user is a member of.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>ListedCount</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.ListedCount:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ListedCount:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ListedCount:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.Location">Location Property</h3>
+        <blockquote id="P:CoreTweet.User.Location:member">
+          <p class="Summary">
+            Nullable. The user-defined location for this account's profile. Not necessarily a location nor parseable. This field will occasionally be fuzzily interpreted by the Search service.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>Location</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.Location:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Location:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Location:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.Name">Name Property</h3>
+        <blockquote id="P:CoreTweet.User.Name:member">
+          <p class="Summary">
+            The name of the user, as they've defined it. Not necessarily a person's name. Typically capped at 20 characters, but subject to change.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>Name</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.Name:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Name:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Name:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.ProfileBackgroundColor">ProfileBackgroundColor Property</h3>
+        <blockquote id="P:CoreTweet.User.ProfileBackgroundColor:member">
+          <p class="Summary">
+            The hexadecimal color chosen by the user for their background.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>ProfileBackgroundColor</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.ProfileBackgroundColor:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileBackgroundColor:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileBackgroundColor:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.ProfileBackgroundImageUrl">ProfileBackgroundImageUrl Property</h3>
+        <blockquote id="P:CoreTweet.User.ProfileBackgroundImageUrl:member">
+          <p class="Summary">
+            A HTTP-based URL pointing to the background image the user has uploaded for their profile.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Uri">Uri</a> <b>ProfileBackgroundImageUrl</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.ProfileBackgroundImageUrl:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileBackgroundImageUrl:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileBackgroundImageUrl:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.ProfileBackgroundImageUrlHttps">ProfileBackgroundImageUrlHttps Property</h3>
+        <blockquote id="P:CoreTweet.User.ProfileBackgroundImageUrlHttps:member">
+          <p class="Summary">
+            A HTTPS-based URL pointing to the background image the user has uploaded for their profile.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Uri">Uri</a> <b>ProfileBackgroundImageUrlHttps</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.ProfileBackgroundImageUrlHttps:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileBackgroundImageUrlHttps:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileBackgroundImageUrlHttps:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.ProfileBannerUrl">ProfileBannerUrl Property</h3>
+        <blockquote id="P:CoreTweet.User.ProfileBannerUrl:member">
+          <p class="Summary">
+            The HTTPS-based URL pointing to the standard web representation of the user's uploaded profile banner. By adding a final path element of the URL, you can obtain different image sizes optimized for specific displays. In the future, an API method will be provided to serve these URLs so that you need not modify the original URL. For size variations, please see User Profile Images and Banners.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Uri">Uri</a> <b>ProfileBannerUrl</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.ProfileBannerUrl:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileBannerUrl:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileBannerUrl:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.ProfileImageUrl">ProfileImageUrl Property</h3>
+        <blockquote id="P:CoreTweet.User.ProfileImageUrl:member">
+          <p class="Summary">
+            A HTTP-based URL pointing to the user's avatar image. See User Profile Images and Banners.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Uri">Uri</a> <b>ProfileImageUrl</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.ProfileImageUrl:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileImageUrl:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileImageUrl:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.ProfileImageUrlHttps">ProfileImageUrlHttps Property</h3>
+        <blockquote id="P:CoreTweet.User.ProfileImageUrlHttps:member">
+          <p class="Summary">
+            A HTTPS-based URL pointing to the user's avatar image.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Uri">Uri</a> <b>ProfileImageUrlHttps</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.ProfileImageUrlHttps:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileImageUrlHttps:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileImageUrlHttps:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.ProfileLinkColor">ProfileLinkColor Property</h3>
+        <blockquote id="P:CoreTweet.User.ProfileLinkColor:member">
+          <p class="Summary">
+            The hexadecimal color the user has chosen to display links with in their Twitter UI.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>ProfileLinkColor</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.ProfileLinkColor:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileLinkColor:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileLinkColor:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.ProfileSidebarBorderColor">ProfileSidebarBorderColor Property</h3>
+        <blockquote id="P:CoreTweet.User.ProfileSidebarBorderColor:member">
+          <p class="Summary">
+            The hexadecimal color the user has chosen to display sidebar borders with in their Twitter UI.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>ProfileSidebarBorderColor</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.ProfileSidebarBorderColor:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileSidebarBorderColor:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileSidebarBorderColor:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.ProfileSidebarFillColor">ProfileSidebarFillColor Property</h3>
+        <blockquote id="P:CoreTweet.User.ProfileSidebarFillColor:member">
+          <p class="Summary">
+            The hexadecimal color the user has chosen to display sidebar backgrounds with in their Twitter UI.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>ProfileSidebarFillColor</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.ProfileSidebarFillColor:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileSidebarFillColor:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileSidebarFillColor:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.ProfileTextColor">ProfileTextColor Property</h3>
+        <blockquote id="P:CoreTweet.User.ProfileTextColor:member">
+          <p class="Summary">
+            The hexadecimal color the user has chosen to display text with in their Twitter UI.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>ProfileTextColor</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.ProfileTextColor:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileTextColor:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ProfileTextColor:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.ScreenNane">ScreenNane Property</h3>
+        <blockquote id="P:CoreTweet.User.ScreenNane:member">
+          <p class="Summary">
+            The screen name, handle, or alias that this user identifies themselves with. screen_names are unique but subject to change. Use id_str as a user identifier whenever possible. Typically a maximum of 15 characters long, but some historical accounts may exist with longer names.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>ScreenNane</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.ScreenNane:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ScreenNane:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.ScreenNane:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.Status">Status Property</h3>
+        <blockquote id="P:CoreTweet.User.Status:member">
+          <p class="Summary">
+            Nullable. If possible, the user's most recent tweet or retweet. In some circumstances, this data cannot be provided and this field will be omitted, null, or empty. Perspectival attributes within tweets embedded within users cannot always be relied upon.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../CoreTweet/Status.html">Status</a> <b>Status</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.Status:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Status:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Status:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.StatusesCount">StatusesCount Property</h3>
+        <blockquote id="P:CoreTweet.User.StatusesCount:member">
+          <p class="Summary">
+            The number of tweets (including retweets) issued by the user.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>StatusesCount</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.StatusesCount:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.StatusesCount:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.StatusesCount:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.TimeZone">TimeZone Property</h3>
+        <blockquote id="P:CoreTweet.User.TimeZone:member">
+          <p class="Summary">
+            Nullable. A string describing the Time Zone this user declares themselves within.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>TimeZone</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.TimeZone:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.TimeZone:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.TimeZone:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.Url">Url Property</h3>
+        <blockquote id="P:CoreTweet.User.Url:member">
+          <p class="Summary">
+            Nullable. A URL provided by the user in association with their profile.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Uri">Uri</a> <b>Url</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.Url:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Url:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.Url:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.UtcOffset">UtcOffset Property</h3>
+        <blockquote id="P:CoreTweet.User.UtcOffset:member">
+          <p class="Summary">
+            Nullable. The offset from GMT/UTC in seconds.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.DateTimeOffset">DateTimeOffset</a> <b>UtcOffset</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.UtcOffset:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.UtcOffset:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.UtcOffset:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.WithheldInCountries">WithheldInCountries Property</h3>
+        <blockquote id="P:CoreTweet.User.WithheldInCountries:member">
+          <p class="Summary">
+            When present, indicates a textual representation of the two-letter country codes this user is withheld from.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>WithheldInCountries</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.WithheldInCountries:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.WithheldInCountries:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.WithheldInCountries:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:CoreTweet.User.WithheldScope">WithheldScope Property</h3>
+        <blockquote id="P:CoreTweet.User.WithheldScope:member">
+          <p class="Summary">
+            When present, indicates whether the content being withheld is the "status" or a "user."
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>WithheldScope</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.User.WithheldScope:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.WithheldScope:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:CoreTweet.User.WithheldScope:Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4822.3267, 1.0.4822.3504</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

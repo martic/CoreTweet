@@ -1,0 +1,75 @@
+<Type Name="OAuth" FullName="CoreTweet.OAuth">
+  <TypeSignature Language="C#" Value="public static class OAuth" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit OAuth extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>CoreTweet</AssemblyName>
+    <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+    <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="GenerateAuthUri">
+      <MemberSignature Language="C#" Value="public static string GenerateAuthUri (string consumerKey, string consumerSecret);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string GenerateAuthUri(string consumerKey, string consumerSecret) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="consumerKey" Type="System.String" />
+        <Parameter Name="consumerSecret" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="consumerKey">To be added.</param>
+        <param name="consumerSecret">To be added.</param>
+        <summary>
+            Generates the authorize URI.
+            Then call GetTokens(string) after get the pin code.
+            </summary>
+        <returns>
+            The authorize URI.
+            </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTokens">
+      <MemberSignature Language="C#" Value="public static CoreTweet.Tokens GetTokens (string pin);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.Tokens GetTokens(string pin) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.Tokens</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="pin" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="pin">
+            Pin code.
+            </param>
+        <summary>
+            Gets the OAuth tokens.
+            Be sure to call GenerateAuthUri(string,string) before call this.
+            </summary>
+        <returns>
+            The tokens.
+            </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

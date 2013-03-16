@@ -1,0 +1,274 @@
+<Type Name="Place" FullName="CoreTweet.Place">
+  <TypeSignature Language="C#" Value="public class Place : CoreTweet.Core.CoreBase" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Place extends CoreTweet.Core.CoreBase" />
+  <AssemblyInfo>
+    <AssemblyName>CoreTweet</AssemblyName>
+    <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+    <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>CoreTweet.Core.CoreBase</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Place ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Attributes">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.Dictionary&lt;string,object&gt; Attributes { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.Dictionary`2&lt;string, object&gt; Attributes" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.Dictionary&lt;System.String,System.Object&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Contains a hash of variant information about the place.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+        <see cref="!:https://dev.twitter.com/docs/about-geo-place-attributes" />
+      </Docs>
+    </Member>
+    <Member MemberName="BoundingBox">
+      <MemberSignature Language="C#" Value="public CoreTweet.BoundingBox BoundingBox { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class CoreTweet.BoundingBox BoundingBox" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.BoundingBox</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            A bounding box of coordinates which encloses this place.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ContainedWithin">
+      <MemberSignature Language="C#" Value="public CoreTweet.Place[] ContainedWithin { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class CoreTweet.Place[] ContainedWithin" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.Place[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Country">
+      <MemberSignature Language="C#" Value="public string Country { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Country" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Name of the country containing this place.The country.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CountryCode">
+      <MemberSignature Language="C#" Value="public string CountryCode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string CountryCode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Shortened country code representing the country containing this place.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FullName">
+      <MemberSignature Language="C#" Value="public string FullName { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string FullName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Full human-readable representation of the place's name.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Id">
+      <MemberSignature Language="C#" Value="public string Id { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Id" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            ID representing this place. Note that this is represented as a string, not an integer.
+            In trends/avaliable or trends/closest, ID is a Yahoo! Where On Earth ID.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Name">
+      <MemberSignature Language="C#" Value="public string Name { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Name" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Short human-readable representation of the place's name.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ParentId">
+      <MemberSignature Language="C#" Value="public string ParentId { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ParentId" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PlaceType">
+      <MemberSignature Language="C#" Value="public string PlaceType { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string PlaceType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The type of location represented by this place.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="PlaceTypeCode">
+      <MemberSignature Language="C#" Value="public Nullable&lt;int&gt; PlaceTypeCode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype System.Nullable`1&lt;int32&gt; PlaceTypeCode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Nullable&lt;System.Int32&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Polylines">
+      <MemberSignature Language="C#" Value="public string[] Polylines { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string[] Polylines" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Url">
+      <MemberSignature Language="C#" Value="public Uri Url { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Uri Url" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Uri</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            URL representing the location of additional place metadata for this place.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

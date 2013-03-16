@@ -77,7 +77,7 @@ namespace CoreTweet
             Name = e.name;
             PlaceType = e.IsDefines("placeType") ? e.placeType.name : e.place_type;
             PlaceTypeCode = e.IsDefines("placeType") ? e.placeType.code : null;
-            Polylines = e.IsDefined("polylines") ? e.polylines as string[] : null;
+            Polylines = e.IsDefined("polylines") ? (e.polylines as dynamic[]).Select(x => x.ToString()).ToArray() : null;
             Url = new Uri(e.url);
         }
     }
@@ -87,7 +87,7 @@ namespace CoreTweet
         /// <summary>
         /// A series of longitude and latitude points, defining a box which will contain the Place entity this bounding box is related to. Each point is an array in the form of [longitude, latitude]. Points are grouped into an array per bounding box. Bounding box arrays are wrapped in one additional array to be compatible with the polygon notation.
         /// </summary>
-        public float[][][] Coordinates { get; set; }
+        public double[][][] Coordinates { get; set; }
         
         /// <summary>
         /// The type of data encoded in the coordinates property. This will be "Polygon" for bounding boxes.
@@ -96,7 +96,12 @@ namespace CoreTweet
         
         internal override void ConvertBase(dynamic e)
         {
-            Coordinates = e.coordinates as float[][][];
+            Coordinates = (e.coordinates as dynamic[][][]).Select(
+                x => x.Select(
+                y => y.Select(
+                z => ((double)z)).ToArray())
+                .ToArray() as double[][])
+                .ToArray() as double[][][];
             Type = e.type;
         }
         

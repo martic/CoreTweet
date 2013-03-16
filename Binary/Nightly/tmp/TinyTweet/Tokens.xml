@@ -1,0 +1,117 @@
+<Type Name="Tokens" FullName="TinyTweet.Tokens">
+  <TypeSignature Language="C#" Value="public class Tokens" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Tokens extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>CoreTweet</AssemblyName>
+    <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+    <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Tokens ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AccessToken">
+      <MemberSignature Language="C#" Value="public string AccessToken { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string AccessToken" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the access token.
+            </summary>
+        <value>
+            The access token.
+            </value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AccessTokenSecret">
+      <MemberSignature Language="C#" Value="public string AccessTokenSecret { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string AccessTokenSecret" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the access token secret.
+            </summary>
+        <value>
+            The access token secret.
+            </value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ConsumerKey">
+      <MemberSignature Language="C#" Value="public string ConsumerKey { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ConsumerKey" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the consumer key.
+            </summary>
+        <value>
+            The consumer key.
+            </value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ConsumerSecret">
+      <MemberSignature Language="C#" Value="public string ConsumerSecret { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ConsumerSecret" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets or sets the consumer secret.
+            </summary>
+        <value>
+            The consumer secret.
+            </value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

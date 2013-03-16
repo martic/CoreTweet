@@ -23,11 +23,17 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Release</OutputPath>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Binary\Nightly</OutputPath>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <GenerateDocumentation>true</GenerateDocumentation>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="mdoc export-html -o ./docs/ ./tmp/" workingdir="${TargetDir}" />
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -52,7 +58,6 @@
     <Compile Include="Objects\Setting.cs" />
     <Compile Include="Objects\Embed.cs" />
     <Compile Include="Apis\Lists.cs" />
-    <Compile Include="Apis\Trends.cs" />
     <Compile Include="Objects\Cursored.cs" />
     <Compile Include="Apis\Rest\Account.cs" />
     <Compile Include="Apis\Rest\Blocks.cs" />
@@ -74,5 +79,8 @@
     <Compile Include="Ex\StatusExtension.cs" />
     <Compile Include="Ex\UserExtension.cs" />
     <Compile Include="Ex\OtherExtension.cs" />
+    <Compile Include="Apis\Rest\Trends.cs" />
+    <Compile Include="Ex\SearchExtensions.cs" />
+    <Compile Include="Lib\AliceDoll.cs" />
   </ItemGroup>
 </Project>

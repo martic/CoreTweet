@@ -1,0 +1,71 @@
+<Type Name="BoundingBox" FullName="CoreTweet.BoundingBox">
+  <TypeSignature Language="C#" Value="public class BoundingBox : CoreTweet.Core.CoreBase" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit BoundingBox extends CoreTweet.Core.CoreBase" />
+  <AssemblyInfo>
+    <AssemblyName>CoreTweet</AssemblyName>
+    <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+    <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>CoreTweet.Core.CoreBase</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BoundingBox ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Coordinates">
+      <MemberSignature Language="C#" Value="public double[][][] Coordinates { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float64[][][] Coordinates" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Double[][][]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            A series of longitude and latitude points, defining a box which will contain the Place entity this bounding box is related to. Each point is an array in the form of [longitude, latitude]. Points are grouped into an array per bounding box. Bounding box arrays are wrapped in one additional array to be compatible with the polygon notation.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Type">
+      <MemberSignature Language="C#" Value="public string Type { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string Type" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The type of data encoded in the coordinates property. This will be "Polygon" for bounding boxes.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

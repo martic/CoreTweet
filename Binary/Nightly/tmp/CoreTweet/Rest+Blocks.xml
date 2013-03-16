@@ -1,0 +1,207 @@
+<Type Name="Rest+Blocks" FullName="CoreTweet.Rest+Blocks">
+  <TypeSignature Language="C#" Value="public static class Rest.Blocks" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi abstract sealed beforefieldinit Rest/Blocks extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>CoreTweet</AssemblyName>
+    <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+    <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Create">
+      <MemberSignature Language="C#" Value="public static CoreTweet.User Create (CoreTweet.Tokens Tokens, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] Parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.User Create(class CoreTweet.Tokens Tokens, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] Parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.User</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+        <Parameter Name="Parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            Tokens.
+            </param>
+        <param name="Parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Blocks the specified user from following the authenticating user. In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user). If a follow or friend relationship exists it is destroyed.</para>
+        </summary>
+        <returns>The user.</returns>
+        <remarks>To be added.</remarks>
+        <para>Note: Either screen_name or user_id must be provided.</para>
+        <para>Avaliable parameters: </para>
+        <para />
+        <para>
+          <paramref name="string screen_name (optional)" /> : The screen name of the potentially blocked user. Helpful for disambiguating when a valid screen name is also a user ID.</para>
+        <para>
+          <paramref name="long user_id (optional)" /> : The ID of the potentially blocked user. Helpful for disambiguating when a valid user ID is also a valid screen name.</para>
+        <para>
+          <paramref name="bool include_entities (optional)" /> : The entities node will not be included when set to false.</para>
+        <para>
+          <paramref name="bool skip_status (optional)" /> : When set to either true, t or 1 statuses will not be included in the returned user objects.</para>
+        <para />
+        <para />
+        <para />
+      </Docs>
+    </Member>
+    <Member MemberName="Destroy">
+      <MemberSignature Language="C#" Value="public static CoreTweet.User Destroy (CoreTweet.Tokens Tokens, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] Parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.User Destroy(class CoreTweet.Tokens Tokens, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] Parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.User</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+        <Parameter Name="Parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            Tokens.
+            </param>
+        <param name="Parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Un-blocks the user specified in the ID parameter for the authenticating user. Returns the un-blocked user in the requested format when successful. If relationships existed before the block was instated, they will not be restored.</para>
+        </summary>
+        <returns>The user.</returns>
+        <remarks>To be added.</remarks>
+        <para>Note: Either screen_name or user_id must be provided.</para>
+        <para>Avaliable parameters: </para>
+        <para />
+        <para>
+          <paramref name="string screen_name (optional)" /> : The screen name of the potentially blocked user. Helpful for disambiguating when a valid screen name is also a user ID.</para>
+        <para>
+          <paramref name="long user_id (optional)" /> : The ID of the potentially blocked user. Helpful for disambiguating when a valid user ID is also a valid screen name.</para>
+        <para>
+          <paramref name="bool include_entities (optional)" /> : The entities node will not be included when set to false.</para>
+        <para>
+          <paramref name="bool skip_status (optional)" /> : When set to either true, t or 1 statuses will not be included in the returned user objects.</para>
+        <para />
+        <para />
+        <para />
+      </Docs>
+    </Member>
+    <Member MemberName="Ids">
+      <MemberSignature Language="C#" Value="public static CoreTweet.Cursored&lt;long&gt; Ids (CoreTweet.Tokens Tokens, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] Parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.Cursored`1&lt;int64&gt; Ids(class CoreTweet.Tokens Tokens, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] Parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.Cursored&lt;System.Int64&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+        <Parameter Name="Parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            Tokens.
+            </param>
+        <param name="Parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Returns an array of numeric user ids the authenticating user is blocking.</para>
+        </summary>
+        <returns>IDs.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: </para>
+        <para />
+        <para>
+          <paramref name="long cursor (semi-optional)" /> : Causes the list of IDs to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first "page." The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</para>
+        <see cref="!:https://dev.twitter.com/docs/misc/cursoring" />
+        <para />
+        <para />
+        <para />
+      </Docs>
+    </Member>
+    <Member MemberName="List">
+      <MemberSignature Language="C#" Value="public static CoreTweet.Cursored&lt;CoreTweet.User&gt; List (CoreTweet.Tokens Tokens, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] Parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.Cursored`1&lt;class CoreTweet.User&gt; List(class CoreTweet.Tokens Tokens, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] Parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.Cursored&lt;CoreTweet.User&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+        <Parameter Name="Parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            Tokens.
+            </param>
+        <param name="Parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Returns a collection of user objects that the authenticating user is blocking.</para>
+        </summary>
+        <returns>Users.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: </para>
+        <para />
+        <para>
+          <paramref name="bool include_entities (optional)" /> : The entities node will not be included when set to false.</para>
+        <para>
+          <paramref name="bool skip_status (optional)" /> : When set to true, statuses will not be included in the returned user objects.</para>
+        <para>
+          <paramref name="long cursor (semi-optional)" /> : Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first "page." The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</para>
+        <see cref="!:https://dev.twitter.com/docs/misc/cursoring" />
+        <para />
+        <para />
+        <para />
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -7,7 +7,7 @@ namespace CoreTweet
 {
     public class Cursored<T> : CoreBase, IEnumerable<T>
     {
-        public T[] Result{ get; set; }
+        public IEnumerable<T> Result{ get; set; }
 
         public long NextCursor{ get; set; }
 
@@ -23,9 +23,11 @@ namespace CoreTweet
         internal static T2[] ParamByType<T2>(dynamic e)
         {
             if(typeof(T2) == typeof(long))
-                return e.ids as T2[];
+                return e.ids;
             else if(typeof(T2) == typeof(User))
-                return CoreBase.ConvertArray<User>(e.users) as T2[];
+                return CoreBase.ConvertArray<User>(e.users) ;
+            else if(typeof(T2) == typeof(CoreTweet.List))
+                return CoreBase.ConvertArray<CoreTweet.List>(e.lists);
             else
                 throw new InvalidOperationException("This type can't be cursored.");
         }

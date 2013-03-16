@@ -7,9 +7,9 @@ namespace CoreTweet
 {
     public class List : CoreBase
     { 
-        public static string Slug{ get; set; }
+        public string Slug{ get; set; }
 
-        public static string Name{ get; set; }
+        public string Name{ get; set; }
 
         public DateTimeOffset CreatedAt{ get; set; }
 

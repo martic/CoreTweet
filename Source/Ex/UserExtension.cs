@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using CoreTweet.Core;
+using Alice;
 
 namespace CoreTweet.Ex
 {
@@ -42,7 +43,7 @@ namespace CoreTweet.Ex
         {
             return Rest.Friendships.Destroy(Tokens,
                                (Parameters as IEnumerable<Expression<Func<string,object>>>)
-                                   .Union(new Expression<Func<string,object>>[]{user_id => e.Id})
+                                   .Union(new Expression<Func<string,object>>[]{user_id => e .Id})
                                        .ToArray());
         }
         
@@ -58,8 +59,7 @@ namespace CoreTweet.Ex
         /// <para>Avaliable parameters: Nothing.</para><para> </para>
         public static IEnumerable<User> FollowAll(this IEnumerable<User> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
-            foreach(var x in e)
-                Follow(x, Tokens, Parameters);
+            e.ForEach(x => x.Follow(Tokens, Parameters));
             return e;
         }
         
@@ -75,28 +75,8 @@ namespace CoreTweet.Ex
         /// <para>Avaliable parameters: Nothing.</para><para> </para>
         public static IEnumerable<User> UnfollowAll(this IEnumerable<User> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
-            foreach(var x in e)
-                Unfollow(x, Tokens, Parameters);
+            e.ForEach(x => x.Follow(Tokens, Parameters));
             return e;
-        }
-    }
-    
-    public static class SearchExtension
-    {
-        public static IEnumerable<Status> SearchTweets(this SearchQuery e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
-        {
-            return Rest.Search.Tweets(Tokens,
-                               (Parameters as IEnumerable<Expression<Func<string,object>>>)
-                                   .Union(new Expression<Func<string,object>>[]{q => e.Query})
-                                       .ToArray());
-        }
-        
-        public static IEnumerable<User> SearchUsers(this SearchQuery e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
-        {
-            return Rest.Users.Search(Tokens,
-                               (Parameters as IEnumerable<Expression<Func<string,object>>>)
-                                   .Union(new Expression<Func<string,object>>[]{q => e.Query})
-                                       .ToArray());
         }
     }
 }

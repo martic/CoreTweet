@@ -1,0 +1,115 @@
+<Type Name="Request" FullName="CoreTweet.Request">
+  <TypeSignature Language="C#" Value="public static class Request" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit Request extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>CoreTweet</AssemblyName>
+    <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+    <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Send">
+      <MemberSignature Language="C#" Value="public static string Send (CoreTweet.Tokens token, CoreTweet.MethodType type, string url, System.Collections.Generic.IDictionary&lt;string,object&gt; prms);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Send(class CoreTweet.Tokens token, valuetype CoreTweet.MethodType type, string url, class System.Collections.Generic.IDictionary`2&lt;string, object&gt; prms) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="token" Type="CoreTweet.Tokens" />
+        <Parameter Name="type" Type="CoreTweet.MethodType" />
+        <Parameter Name="url" Type="System.String" />
+        <Parameter Name="prms" Type="System.Collections.Generic.IDictionary&lt;System.String,System.Object&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="token">To be added.</param>
+        <param name="type">To be added.</param>
+        <param name="url">To be added.</param>
+        <param name="prms">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Send">
+      <MemberSignature Language="C#" Value="public static string Send (CoreTweet.Tokens token, CoreTweet.MethodType type, string url, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] prms);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Send(class CoreTweet.Tokens token, valuetype CoreTweet.MethodType type, string url, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] prms) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="token" Type="CoreTweet.Tokens" />
+        <Parameter Name="type" Type="CoreTweet.MethodType" />
+        <Parameter Name="url" Type="System.String" />
+        <Parameter Name="prms" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="token">To be added.</param>
+        <param name="type">
+            GET or POST.
+            </param>
+        <param name="url">
+            An URL of API.
+            </param>
+        <param name="prms">
+            Parameters.
+            You can pass the parameters easily by writing lambda expressions.
+            See the example.
+            </param>
+        <summary>
+            Send a request to Twitter.
+            </summary>
+        <returns>
+            Response.
+            </returns>
+        <remarks>To be added.</remarks>
+        <example>
+            Request (tokens, MethodType.POST, "https://hoge.com/piyo.xml", prm1 =&gt; "hoge", prm2 =&gt; "piyo");
+            </example>
+      </Docs>
+    </Member>
+    <Member MemberName="UrlEncode">
+      <MemberSignature Language="C#" Value="public static string UrlEncode (string text);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string UrlEncode(string text) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="text" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="text">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

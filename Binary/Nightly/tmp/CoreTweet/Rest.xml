@@ -1,0 +1,42 @@
+<Type Name="Rest" FullName="CoreTweet.Rest">
+  <TypeSignature Language="C#" Value="public static class Rest" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit Rest extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>CoreTweet</AssemblyName>
+    <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+    <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Url">
+      <MemberSignature Language="C#" Value="public static string Url (string ApiName);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Url(string ApiName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ApiName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="ApiName">To be added.</param>
+        <summary>
+            Gets the url of the specified api's name.
+            </summary>
+        <returns>The url.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

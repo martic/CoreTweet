@@ -1,0 +1,180 @@
+<Type Name="Rest+Help" FullName="CoreTweet.Rest+Help">
+  <TypeSignature Language="C#" Value="public static class Rest.Help" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi abstract sealed beforefieldinit Rest/Help extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>CoreTweet</AssemblyName>
+    <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+    <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Configuration">
+      <MemberSignature Language="C#" Value="public static CoreTweet.Configurations Configuration (CoreTweet.Tokens Tokens, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] Parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.Configurations Configuration(class CoreTweet.Tokens Tokens, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] Parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.Configurations</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+        <Parameter Name="Parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            Tokens.
+            </param>
+        <param name="Parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Returns the current configuration used by Twitter including twitter.com slugs which are not usernames, maximum photo resolutions, and t.co URL lengths.</para>
+          <para>It is recommended applications request this endpoint when they are loaded, but no more than once a day.</para>
+        </summary>
+        <returns>Configurations.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: Nothing</para>
+        <para />
+        <para />
+        <para />
+        <para />
+      </Docs>
+    </Member>
+    <Member MemberName="Languages">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;CoreTweet.Language&gt; Languages (CoreTweet.Tokens Tokens, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] Parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class CoreTweet.Language&gt; Languages(class CoreTweet.Tokens Tokens, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] Parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;CoreTweet.Language&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+        <Parameter Name="Parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            Tokens.
+            </param>
+        <param name="Parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Returns the list of languages supported by Twitter along with their ISO 639-1 code. The ISO 639-1 code is the two letter value to use if you include lang with any of your requests.</para>
+        </summary>
+        <returns>Languages.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: Nothing.</para>
+        <para />
+        <para />
+        <para />
+        <para />
+      </Docs>
+    </Member>
+    <Member MemberName="Privacy">
+      <MemberSignature Language="C#" Value="public static string Privacy (CoreTweet.Tokens Tokens, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] Parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Privacy(class CoreTweet.Tokens Tokens, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] Parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+        <Parameter Name="Parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            Tokens.
+            </param>
+        <param name="Parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Returns Twitter's Privacy Policy.</para>
+        </summary>
+        <returns>The sentense.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: Nothing.</para>
+        <para />
+        <para />
+        <para />
+        <para />
+      </Docs>
+    </Member>
+    <Member MemberName="Tos">
+      <MemberSignature Language="C#" Value="public static string Tos (CoreTweet.Tokens Tokens, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] Parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Tos(class CoreTweet.Tokens Tokens, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] Parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+        <Parameter Name="Parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            Tokens.
+            </param>
+        <param name="Parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Returns the Twitter Terms of Service in the requested format. These are not the same as the Developer Rules of the Road.</para>
+        </summary>
+        <returns>The sentense.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: Nothing.</para>
+        <para />
+        <para />
+        <para />
+        <para />
+      </Docs>
+    </Member>
+  </Members>
+</Type>

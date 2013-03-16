@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using CoreTweet.Core;
+using Alice;
 
 namespace CoreTweet.Ex
 {
@@ -127,8 +128,7 @@ namespace CoreTweet.Ex
         /// </param>
         public static IEnumerable<Status> ReplyToAll(this IEnumerable<Status> e, Tokens Tokens, Func<Status,string> Text, params Expression<Func<string,object>>[] Parameters)
         {
-            foreach(var x in e)
-                ReplyToThis(x, Tokens, Text, Parameters);
+            e.ForEach(x => x.ReplyToThis(Tokens, Text, Parameters));
             return e;
         }
         
@@ -145,8 +145,7 @@ namespace CoreTweet.Ex
         /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
         public static IEnumerable<Status> RetweetAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
-            foreach(var x in e)
-                x.Retweet(Tokens, Parameters);
+            e.ForEach(x => x.Retweet(Tokens, Parameters));
             return e;
         }
         
@@ -163,8 +162,7 @@ namespace CoreTweet.Ex
         /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
         public static IEnumerable<Status> DestroyAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
-            foreach(var x in e)
-                x.Destroy(Tokens, Parameters);
+            e.ForEach(x => x.Destroy(Tokens, Parameters));
             return e;
         }
         
@@ -181,8 +179,7 @@ namespace CoreTweet.Ex
         /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
         public static IEnumerable<Status> FavoriteAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
-            foreach(var x in e)
-                x.Favorite(Tokens, Parameters);
+            e.ForEach(x => x.Favorite(Tokens, Parameters));
             return e;
         }
         
@@ -199,8 +196,7 @@ namespace CoreTweet.Ex
         /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
         public static IEnumerable<Status> UnfavoriteAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
-            foreach(var x in e)
-                x.Unfavorite(Tokens, Parameters);
+            e.ForEach(x => x.Unfavorite(Tokens, Parameters));
             return e;
         }
     }

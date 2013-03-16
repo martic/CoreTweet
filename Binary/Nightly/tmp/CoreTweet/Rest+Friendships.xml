@@ -1,0 +1,366 @@
+<Type Name="Rest+Friendships" FullName="CoreTweet.Rest+Friendships">
+  <TypeSignature Language="C#" Value="public static class Rest.Friendships" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi abstract sealed beforefieldinit Rest/Friendships extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>CoreTweet</AssemblyName>
+    <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+    <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Create">
+      <MemberSignature Language="C#" Value="public static CoreTweet.User Create (CoreTweet.Tokens Tokens, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] Parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.User Create(class CoreTweet.Tokens Tokens, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] Parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.User</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+        <Parameter Name="Parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            Tokens.
+            </param>
+        <param name="Parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Allows the authenticating users to follow the user specified in the ID parameter.</para>
+          <para>Returns the befriended user in the requested format when successful. Returns a string describing the failure condition when unsuccessful. If you are already friends with the user a HTTP 403 may be returned, though for performance reasons you may get a 200 OK message even if the friendship already exists.</para>
+          <para>Actions taken in this method are asynchronous and changes will be eventually consistent.</para>
+        </summary>
+        <returns>The user.</returns>
+        <remarks>To be added.</remarks>
+        <para>Note: Providing either screen_name or user_id is required.</para>
+        <para>Avaliable parameters: </para>
+        <para />
+        <para>
+          <paramref name="string screen_name (optional)" /> : The screen name of the user for whom to befriend.</para>
+        <para>
+          <paramref name="long user_id (optional)" /> : The ID of the user for whom to befriend.</para>
+        <para>
+          <paramref name="bool follow (optional)" /> : Enable notifications for the target user.</para>
+        <para />
+        <para />
+        <para />
+      </Docs>
+    </Member>
+    <Member MemberName="Destroy">
+      <MemberSignature Language="C#" Value="public static CoreTweet.User Destroy (CoreTweet.Tokens Tokens, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] Parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.User Destroy(class CoreTweet.Tokens Tokens, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] Parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.User</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+        <Parameter Name="Parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            Tokens.
+            </param>
+        <param name="Parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Allows the authenticating user to unfollow the user specified in the ID parameter.</para>
+          <para>Returns the unfollowed user in the requested format when successful. Returns a string describing the failure condition when unsuccessful.</para>
+          <para>Actions taken in this method are asynchronous and changes will be eventually consistent.</para>
+        </summary>
+        <returns>The user.</returns>
+        <remarks>To be added.</remarks>
+        <para>Note: Providing either screen_name or user_id is required.</para>
+        <para>Avaliable parameters: </para>
+        <para />
+        <para>
+          <paramref name="string screen_name (optional)" /> : The screen name of the user for whom to unfollow.</para>
+        <para>
+          <paramref name="long user_id (optional)" /> : The ID of the user for whom to unfollow.</para>
+        <para />
+        <para />
+        <para />
+      </Docs>
+    </Member>
+    <Member MemberName="Incoming">
+      <MemberSignature Language="C#" Value="public static CoreTweet.Cursored&lt;long&gt; Incoming (CoreTweet.Tokens Tokens, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] Parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.Cursored`1&lt;int64&gt; Incoming(class CoreTweet.Tokens Tokens, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] Parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.Cursored&lt;System.Int64&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+        <Parameter Name="Parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            Tokens.
+            </param>
+        <param name="Parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Returns a collection of numeric IDs for every user who has a pending request to follow the authenticating user.</para>
+        </summary>
+        <returns>IDs.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: </para>
+        <para>
+          <paramref name="long cursor (semi-optional)" /> : Causes the list of connections to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first "page." The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</para>
+        <see cref="!:https://dev.twitter.com/docs/misc/cursoring" />
+      </Docs>
+    </Member>
+    <Member MemberName="Lookup">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;CoreTweet.Friendship&gt; Lookup (CoreTweet.Tokens Tokens, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] Parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class CoreTweet.Friendship&gt; Lookup(class CoreTweet.Tokens Tokens, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] Parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;CoreTweet.Friendship&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+        <Parameter Name="Parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            Tokens.
+            </param>
+        <param name="Parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or user_ids provided. Values for connections can be: following, following_requested, followed_by, none.</para>
+        </summary>
+        <returns>The Friendships.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: </para>
+        <para />
+        <para>
+          <paramref name="string screen_name (optional)" /> : A comma separated list of screen names, up to 100 are allowed in a single request.</para>
+        <para>
+          <paramref name="string user_id (ooptional)" /> : A comma separated list of user IDs, up to 100 are allowed in a single request.</para>
+        <para />
+        <para />
+        <para />
+      </Docs>
+    </Member>
+    <Member MemberName="NoRetweetsIds">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;long&gt; NoRetweetsIds (CoreTweet.Tokens Tokens);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int64&gt; NoRetweetsIds(class CoreTweet.Tokens Tokens) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Int64&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            OAuth Tokens.
+            </param>
+        <summary>
+          <para>Returns a collection of user_ids that the currently authenticated user does not want to receive retweets from.</para>
+          <para>Use POST friendships/update to set the "no retweets" status for a given user account on behalf of the current user.</para>
+        </summary>
+        <returns>
+            Ids.
+            </returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: Nothing.</para>
+      </Docs>
+    </Member>
+    <Member MemberName="Outgoing">
+      <MemberSignature Language="C#" Value="public static CoreTweet.Cursored&lt;long&gt; Outgoing (CoreTweet.Tokens Tokens, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] Parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.Cursored`1&lt;int64&gt; Outgoing(class CoreTweet.Tokens Tokens, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] Parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.Cursored&lt;System.Int64&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+        <Parameter Name="Parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            Oauth Tokens.
+            </param>
+        <param name="Parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Returns a collection of numeric IDs for every protected user for whom the authenticating user has a pending follow request.</para>
+        </summary>
+        <returns>IDs.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: </para>
+        <para>
+          <paramref name="long cursor (semi-optional)" /> : Causes the list of connections to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first "page."The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</para>
+        <see cref="!:https://dev.twitter.com/docs/misc/cursoring" />
+      </Docs>
+    </Member>
+    <Member MemberName="Show">
+      <MemberSignature Language="C#" Value="public static CoreTweet.RelationShip Show (CoreTweet.Tokens Tokens, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] Parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.RelationShip Show(class CoreTweet.Tokens Tokens, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] Parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.RelationShip</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+        <Parameter Name="Parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            Tokens.
+            </param>
+        <param name="Parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Returns detailed information about the relationship between two arbitrary users.</para>
+        </summary>
+        <returns>The relationship.</returns>
+        <remarks>To be added.</remarks>
+        <para>Note: At least one source and one target, whether specified by IDs or screen_names, should be provided to this method.</para>
+        <para>Avaliable parameters: </para>
+        <para />
+        <para>
+          <paramref name="long source_id (optional)" /> : The user_id of the subject user.</para>
+        <para>
+          <paramref name="string source_screen_name (optional)" /> : The screen_name of the subject user.</para>
+        <para>
+          <paramref name="long target_id (optional)" /> : The user_id of the target user.</para>
+        <para>
+          <paramref name="string target_screen_name (optional)" /> : The screen_name of the target user.</para>
+        <para />
+        <para />
+        <para />
+      </Docs>
+    </Member>
+    <Member MemberName="Update">
+      <MemberSignature Language="C#" Value="public static CoreTweet.RelationShip Update (CoreTweet.Tokens Tokens, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] Parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.RelationShip Update(class CoreTweet.Tokens Tokens, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] Parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.RelationShip</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="Tokens" Type="CoreTweet.Tokens" />
+        <Parameter Name="Parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="Tokens">
+            Tokens.
+            </param>
+        <param name="Parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Allows one to enable or disable retweets and device notifications from the specified user.</para>
+        </summary>
+        <returns>The relationship.</returns>
+        <remarks>To be added.</remarks>
+        <para>Note: Providing either screen_name or user_id is required.</para>
+        <para>Avaliable parameters: </para>
+        <para />
+        <para>
+          <paramref name="string screen_name (optional)" /> : The screen name of the user for whom to befriend.</para>
+        <para>
+          <paramref name="long user_id (optional)" /> : The ID of the user for whom to befriend.</para>
+        <para>
+          <paramref name="" /> :</para>
+        <para>
+          <paramref name="bool device (optional)" /> : Enable/disable device notifications from the target user.</para>
+        <para>
+          <paramref name="bool retweets (optional)" /> : Enable/disable retweets from the target user.</para>
+        <para />
+        <para />
+        <para />
+      </Docs>
+    </Member>
+  </Members>
+</Type>

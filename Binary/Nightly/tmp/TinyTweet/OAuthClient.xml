@@ -1,0 +1,204 @@
+<Type Name="OAuthClient" FullName="TinyTweet.OAuthClient">
+  <TypeSignature Language="C#" Value="public class OAuthClient" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit OAuthClient extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>CoreTweet</AssemblyName>
+    <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+    <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public OAuthClient ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public OAuthClient (TinyTweet.Tokens t);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class TinyTweet.Tokens t) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="t" Type="TinyTweet.Tokens" />
+      </Parameters>
+      <Docs>
+        <param name="t">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public OAuthClient (string consumerKey, string consumerSecret, string accessToken, string accessSecret);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(string consumerKey, string consumerSecret, string accessToken, string accessSecret) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="consumerKey" Type="System.String" />
+        <Parameter Name="consumerSecret" Type="System.String" />
+        <Parameter Name="accessToken" Type="System.String" />
+        <Parameter Name="accessSecret" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="consumerKey">To be added.</param>
+        <param name="consumerSecret">To be added.</param>
+        <param name="accessToken">To be added.</param>
+        <param name="accessSecret">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GenerateAuthUri">
+      <MemberSignature Language="C#" Value="public string GenerateAuthUri (string consumerKey, string consumerSecret);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string GenerateAuthUri(string consumerKey, string consumerSecret) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="consumerKey" Type="System.String" />
+        <Parameter Name="consumerSecret" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="consumerKey">
+            Consumer key.
+            </param>
+        <param name="consumerSecret">
+            Consumer secret.
+            </param>
+        <summary>
+            Generates the authorize URI.
+            Then call GetTokens(string) after get the pin code.
+            </summary>
+        <returns>
+            The authorize URI.
+            </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTokens">
+      <MemberSignature Language="C#" Value="public void GetTokens (string pin);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void GetTokens(string pin) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="pin" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="pin">
+            Pin code.
+            </param>
+        <summary>
+            Gets the OAuth tokens.
+            Be sure to call GenerateAuthUri(string,string) before call this.
+            </summary>
+        <returns>
+            The tokens.
+            </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Request">
+      <MemberSignature Language="C#" Value="public string Request (TinyTweet.MethodType type, string url, System.Collections.Generic.IDictionary&lt;string,string&gt; prms);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string Request(valuetype TinyTweet.MethodType type, string url, class System.Collections.Generic.IDictionary`2&lt;string, string&gt; prms) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="TinyTweet.MethodType" />
+        <Parameter Name="url" Type="System.String" />
+        <Parameter Name="prms" Type="System.Collections.Generic.IDictionary&lt;System.String,System.String&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="type">To be added.</param>
+        <param name="url">To be added.</param>
+        <param name="prms">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Request">
+      <MemberSignature Language="C#" Value="public string Request (TinyTweet.MethodType type, string url, System.Linq.Expressions.Expression&lt;Func&lt;string,string&gt;&gt;[] prms);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string Request(valuetype TinyTweet.MethodType type, string url, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, string&gt;&gt;[] prms) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4822.3267</AssemblyVersion>
+        <AssemblyVersion>1.0.4822.3504</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="TinyTweet.MethodType" />
+        <Parameter Name="url" Type="System.String" />
+        <Parameter Name="prms" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.String&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="type">
+            GET or POST.
+            </param>
+        <param name="url">
+            An URL of API.
+            </param>
+        <param name="prms">
+            Parameters.
+            You can pass the parameters easily by writing lambda expressions.
+            See the example.
+            </param>
+        <summary>
+            Send a request to Twitter.
+            </summary>
+        <returns>
+            Response.
+            </returns>
+        <remarks>To be added.</remarks>
+        <example>
+            Request (tokens, MethodType.POST, "https://hoge.com/piyo.xml", prm1 =&gt; "hoge", prm2 =&gt; "piyo");
+            </example>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
