@@ -833,6 +833,11 @@
                 <para>Dictionary(string,object) PlaceType [ int Code, string Name ]</para>
             </summary>
         </member>
+        <member name="T:CoreTweet.Rest">
+            <summary>
+            Methods for the REST API.
+            </summary>
+        </member>
         <member name="M:CoreTweet.Rest.Lists.List(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
             <summary>
                 <para>Returns all lists the authenticating or specified user subscribes to, including their own. The user is specified using the user_id or screen_name parameters. If no user is given, the authenticating user is used.</para>
@@ -1011,11 +1016,12 @@
             <summary>
                 <para>Deletes the specified list. The authenticated user must own the list to be able to destroy it.</para>
             </summary>
+            <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
             <para>Avaliable parameters: </para>
             <para>
             </para>
             <para>
-                <paramref name="" /> :</para>
+                <paramref name="string owner_screen_name (optional)" /> : The screen name of the user who owns the list being requested by a slug.</para>
             <returns>
             </returns>
             <param name="Tokens">
@@ -1024,6 +1030,9 @@
             <param name="Parameters">
             Parameters.
             </param>
+        </member>
+        <member name="T:CoreTweet.Rest.Account">
+            <summary>GET/POST account</summary>
         </member>
         <member name="M:CoreTweet.Rest.Account.VerifyCredentials(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
             <summary>
@@ -2472,6 +2481,26 @@
             </summary>
             <returns>The url.</returns>
         </member>
+        <member name="F:CoreTweet.OAuth.RequestTokenUrl">
+            <summary>
+            The request token URL.
+            </summary>
+        </member>
+        <member name="F:CoreTweet.OAuth.AccessTokenUrl">
+            <summary>
+            The access token URL.
+            </summary>
+        </member>
+        <member name="F:CoreTweet.OAuth.AuthorizeUrl">
+            <summary>
+            The authorize URL.
+            </summary>
+        </member>
+        <member name="F:CoreTweet.OAuth.reqToken">
+            <summary>
+            The tmp values.
+            </summary>
+        </member>
         <member name="M:CoreTweet.OAuth.GenerateAuthUri(System.String,System.String)">
             <summary>
             Generates the authorize URI.
@@ -2499,6 +2528,31 @@
             The tokens.
             </returns>
         </member>
+        <member name="T:CoreTweet.MethodType">
+            <summary>
+            The type of the HTTP method.
+            </summary>
+        </member>
+        <member name="F:CoreTweet.MethodType.GET">
+            <summary>
+            GET method.
+            </summary>
+        </member>
+        <member name="F:CoreTweet.MethodType.POST">
+            <summary>
+            POST method.
+            </summary>
+        </member>
+        <member name="F:CoreTweet.MethodType.POST_NORESPONSE">
+            <summary>
+            POST method without any response.
+            </summary>
+        </member>
+        <member name="T:CoreTweet.Request">
+            <summary>
+            Sends a request to Twitter and some other web services.
+            </summary>
+        </member>
         <member name="M:CoreTweet.Request.Send(CoreTweet.Tokens,CoreTweet.MethodType,System.String,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
             <summary>
             Send a request to Twitter.
@@ -2524,6 +2578,72 @@
             Response.
             </returns>
         </member>
+        <member name="M:CoreTweet.Request.Send(CoreTweet.Tokens,CoreTweet.MethodType,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Send a request to Twitter.
+            </summary>
+            <param name="tokens">
+            OAuth Tokens.
+            </param>
+            <param name="type">
+            GET or POST.
+            </param>
+            <param name="url">
+            An URL of API.
+            </param>
+            <param name="prms">
+            Parameters.
+            </param>
+            <returns>
+            Response.
+            </returns>
+        </member>
+        <member name="M:CoreTweet.Request.HttpGet(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Sends a GET request.
+            </summary>
+            <returns>The response.</returns>
+            <param name="url">URL.</param>
+            <param name="prm">Parameters.</param>
+        </member>
+        <member name="M:CoreTweet.Request.HttpPost(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Sends a POST request.
+            </summary>
+            <returns>The response.</returns>
+            <param name="url">URL.</param>
+            <param name="prm">Parameters.</param>
+        </member>
+        <member name="M:CoreTweet.Request.GenerateSignature(CoreTweet.Tokens,System.String,System.String,System.Collections.Generic.SortedDictionary{System.String,System.String})">
+            <summary>
+            Generates the signature.
+            </summary>
+            <returns>The signature.</returns>
+            <param name="t">Tokens.</param>
+            <param name="httpMethod">The http method.</param>
+            <param name="url">the URL.</param>
+            <param name="prm">Parameters.</param>
+        </member>
+        <member name="M:CoreTweet.Request.GenerateParameters(System.String,System.String)">
+            <summary>
+            Generates the parameters.
+            </summary>
+            <returns>The parameters.</returns>
+            <param name="ConsumerKey">Consumer key.</param>
+            <param name="token">Token.</param>
+        </member>
+        <member name="M:CoreTweet.Request.UrlEncode(System.String)">
+            <summary>
+            Encodes the specified text.
+            </summary>
+            <returns>The encoded text.</returns>
+            <param name="text">Text.</param>
+        </member>
+        <member name="T:CoreTweet.Property">
+            <summary>
+            Properties of CoreTweet.
+            </summary>
+        </member>
         <member name="F:CoreTweet.Property.ApiVersion">
             <summary>
             The version of the Twitter API.
@@ -2543,6 +2663,11 @@
         <member name="F:CoreTweet.Property.License">
             <summary>
             The license of CoreTweet.
+            </summary>
+        </member>
+        <member name="F:CoreTweet.Property.LicenseText">
+            <summary>
+            The license text.
             </summary>
         </member>
         <member name="F:CoreTweet.Property.HelpUrl">
@@ -2615,6 +2740,11 @@
             <param name="Parameters">
             Parameters.
             </param>
+        </member>
+        <member name="T:CoreTweet.Ex.StatusExtension">
+            <summary>
+            Extensions for Status object.
+            </summary>
         </member>
         <member name="M:CoreTweet.Ex.StatusExtension.ReplyToThis(CoreTweet.Status,CoreTweet.Tokens,System.Func{CoreTweet.Status,System.String},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
             <summary>
@@ -2792,6 +2922,11 @@
             <para>
                 <paramref name="bool include_entities (optional)" /> : The entities node will be omitted when set to false.</para>
         </member>
+        <member name="T:CoreTweet.Ex.UserExtension">
+            <summary>
+            Extensions for User object.
+            </summary>
+        </member>
         <member name="M:CoreTweet.Ex.UserExtension.Follow(CoreTweet.User,CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
             <summary>
             Follow this user.
@@ -2850,6 +2985,11 @@
             <para>
             </para>
         </member>
+        <member name="T:CoreTweet.Ex.OthersExtension">
+            <summary>
+            Extensions for other object.
+            </summary>
+        </member>
         <member name="M:CoreTweet.Ex.OthersExtension.Tweet(System.String,CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
             <summary>
             Tweet this text.
@@ -2875,6 +3015,85 @@
                 <paramref name="bool display_coordinates (optional)" /> : Whether or not to put a pin on the exact coordinates a tweet has been sent from.</para>
             <para>
                 <paramref name="bool trim_user (optional)" /> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
+        </member>
+        <member name="T:CoreTweet.Ex.Develop.DevelopersExtention">
+            <summary>
+            Extentions for developer.
+            </summary>
+        </member>
+        <member name="M:CoreTweet.Ex.Develop.DevelopersExtention.ReplaceBadCharactor(System.String)">
+            <summary>
+            Replaces the bad charactor on the specified JSON.
+            </summary>
+            <returns>The 'good' JSON.</returns>
+            <param name="json">Json.</param>
+        </member>
+        <member name="M:CoreTweet.Ex.Develop.DevelopersExtention.ToDictionary(Codeplex.Data.DynamicJson)">
+            <summary>
+            Converts the specified dynamic object to dictionary.
+            </summary>
+            <returns>The dictionary.</returns>
+            <param name="e">The dynamic object.</param>
+        </member>
+        <member name="T:Alice.Pair`2">
+            <summary>
+            A pair of values.
+            </summary>
+        </member>
+        <member name="M:Alice.Pair`2.#ctor(`0,`1)">
+            <summary>
+            Initializes a new instance of the <see cref="!:Alice.Pair`2" /> struct.
+            </summary>
+            <param name="value1">The first value.</param>
+            <param name="value2">The second value.</param>
+        </member>
+        <member name="F:Alice.Pair`2.Value1">
+            <summary>
+            The first value.
+            </summary>
+        </member>
+        <member name="F:Alice.Pair`2.Value2">
+            <summary>
+            The second value.
+            </summary>
+        </member>
+        <member name="M:Alice.Pair`2.ToKeyValuePair">
+            <summary>
+            Converts this instance to KeyValuePair.
+            </summary>
+            <returns>The key value pair.</returns>
+        </member>
+        <member name="M:Alice.Pair`2.ToKeyValuePair``2(System.Func{Alice.Pair{`0,`1},``0},System.Func{Alice.Pair{`0,`1},``1})">
+            <summary>
+            Converts this instance to KeyValuePair.
+            </summary>
+            <returns>The key value pair.</returns>
+            <param name="KeySelector">Key selector.</param>
+            <param name="ValueSelector">Value selector.</param>
+            <typeparam name="TK">The 1st type parameter.</typeparam>
+            <typeparam name="TV">The 2nd type parameter.</typeparam>
+        </member>
+        <member name="T:Alice.Extensions">
+            <summary>
+            Alice's extension methods.
+            </summary>
+        </member>
+        <member name="M:Alice.Extensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Performs the specified action on each element on the enumerable object.
+            </summary>
+            <param name="e">The enumerable object.</param>
+            <param name="Action">Action.</param>
+            <typeparam name="T">The 1st type parameter.</typeparam>
+        </member>
+        <member name="M:Alice.Extensions.Conbinate``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})">
+            <summary>
+            Gets all combinations of this and specified target.
+            </summary>
+            <param name="e">The enumerable object.</param>
+            <param name="Target">The enumerable object.</param>
+            <typeparam name="T1">The 1st type parameter.</typeparam>
+            <typeparam name="T2">The 2nd type parameter.</typeparam>
         </member>
     </members>
 </doc>

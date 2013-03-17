@@ -9,6 +9,9 @@ namespace CoreTweet
 {       
     public static partial class Rest
     {
+        ///
+        /// <summary>GET/POST account</summary>
+        ///
         public static class Account
         {
             //DONE!

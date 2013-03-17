@@ -11,27 +11,27 @@
     <AssemblyName>CoreTweet</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>True</Optimize>
     <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-    <GenerateDocumentation>true</GenerateDocumentation>
+    <ConsolePause>False</ConsolePause>
+    <GenerateDocumentation>True</GenerateDocumentation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>True</Optimize>
     <OutputPath>..\Binary\Nightly</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-    <GenerateDocumentation>true</GenerateDocumentation>
+    <ConsolePause>False</ConsolePause>
+    <GenerateDocumentation>True</GenerateDocumentation>
     <CustomCommands>
       <CustomCommands>
-        <Command type="AfterBuild" command="mdoc export-html -o ./docs/ ./tmp/" workingdir="${TargetDir}" />
+        <Command type="Build" command="./makedoc" workingdir="${TargetDir}" />
       </CustomCommands>
     </CustomCommands>
   </PropertyGroup>
@@ -83,4 +83,24 @@
     <Compile Include="Ex\SearchExtensions.cs" />
     <Compile Include="Lib\AliceDoll.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="makedoc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <MonoDevelop.Autotools.MakefileInfo IntegrationEnabled="True" RelativeMakefileName="Makefile" RelativeConfigureInPath=".">
+          <BuildFilesVar />
+          <DeployFilesVar />
+          <ResourcesVar />
+          <OthersVar />
+          <GacRefVar />
+          <AsmRefVar />
+          <ProjectRefVar />
+        </MonoDevelop.Autotools.MakefileInfo>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
 </Project>

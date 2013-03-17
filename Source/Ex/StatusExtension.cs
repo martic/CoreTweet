@@ -8,6 +8,9 @@ using Alice;
 
 namespace CoreTweet.Ex
 {
+    /// <summary>
+    /// Extensions for Status object.
+    /// </summary>
     public static class StatusExtension
     {
         /// <summary>

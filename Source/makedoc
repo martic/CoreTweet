@@ -1,0 +1,4 @@
+#!/bin/sh
+mdoc update -i *.xml -o ./tmp/ *.dll
+mdoc export-html -o ./docs/ ./tmp/
+rm -r ./tmp/

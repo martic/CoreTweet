@@ -90,6 +90,7 @@ AppPackages/
 
 # Others
 Test/
+CoreTweet.IncludeTest.*
 [Bb]in
 [Oo]bj
 sql

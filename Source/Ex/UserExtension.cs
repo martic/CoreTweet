@@ -8,6 +8,9 @@ using Alice;
 
 namespace CoreTweet.Ex
 {
+    /// <summary>
+    /// Extensions for User object.
+    /// </summary>
     public static class UserExtension
     {
         /// <summary>
