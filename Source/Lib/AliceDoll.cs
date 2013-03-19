@@ -5,54 +5,6 @@ using System.Collections.Generic;
 namespace Alice
 {
     /// <summary>
-    /// A pair of values.
-    /// </summary>
-    public struct Pair<T1,T2>
-    {
-        /// <summary>
-        /// The first value.
-        /// </summary>
-        public readonly T1 Value1;
-        /// <summary>
-        /// The second value.
-        /// </summary>
-        public readonly T2 Value2;
-
-        /// <summary>
-        /// Initializes a new instance of the Alice.Pair struct.
-        /// </summary>
-        /// <param name="value1">The first value.</param>
-        /// <param name="value2">The second value.</param>
-        public Pair(T1 value1, T2 value2)
-        {
-            Value1 = value1;
-            Value2 = value2;
-        }
-
-        /// <summary>
-        /// Converts this instance to KeyValuePair.
-        /// </summary>
-        /// <returns>The key value pair.</returns>
-        public KeyValuePair<T1,T2> ToKeyValuePair()
-        {
-            return new KeyValuePair<T1, T2>(Value1, Value2);
-        }
-
-        /// <summary>
-        /// Converts this instance to KeyValuePair.
-        /// </summary>
-        /// <returns>The key value pair.</returns>
-        /// <param name="KeySelector">Key selector.</param>
-        /// <param name="ValueSelector">Value selector.</param>
-        /// <typeparam name="TK">The 1st type parameter.</typeparam>
-        /// <typeparam name="TV">The 2nd type parameter.</typeparam>
-        public KeyValuePair<TK,TV> ToKeyValuePair<TK, TV>(Func<Pair<T1,T2>,TK> KeySelector, Func<Pair<T1,T2>,TV> ValueSelector)
-        {
-            return new KeyValuePair<TK, TV>(KeySelector(this), ValueSelector(this));
-        }
-    }
-
-    /// <summary>
     /// Alice's extension methods.
     /// </summary>
     public static class Extensions
@@ -73,16 +25,20 @@ namespace Alice
         /// <summary>
         /// Gets all combinations of this and specified target.
         /// </summary>
+        /// <example>
+        /// new []{0,1,2}.Conbinate(new []{"a","b"}) -> {0,"a"},{0,"b"},{1,"a"},{1,"b"},{2,"a"},{2,"b"}
+        /// </example>
         /// <param name="e">The enumerable object.</param>
         /// <param name="Target">The enumerable object.</param>
         /// <typeparam name="T1">The 1st type parameter.</typeparam>
         /// <typeparam name="T2">The 2nd type parameter.</typeparam>
-        public static IEnumerable<Pair<T1,T2>> Conbinate<T1, T2>(this IEnumerable<T1> e, IEnumerable<T2> Target)
+        /// <returns>Tuples of conbinated objects.</returns>
+        public static IEnumerable<Tuple<T1,T2>> Conbinate<T1, T2>(this IEnumerable<T1> e, IEnumerable<T2> Target)
         {
             return
                 from x in e
                 from y in Target
-                select new Pair<T1,T2>(x, y);
+                select Tuple.Create(x, y);
         }
     }
 }

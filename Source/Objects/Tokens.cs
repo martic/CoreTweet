@@ -8,22 +8,22 @@ namespace CoreTweet
         /// <summary>
         /// The consumer key.
         /// </summary>
-        public string ConsumerKey { get; set; }
+        public string ConsumerKey { get; internal set; }
         /// <summary>
         /// The consumer secret.
         /// </summary>
-        public string ConsumerSecret { get; set; }
+        public string ConsumerSecret { get; internal set; }
         /// <summary>
         /// The access token.
         /// </summary>
-        public string AccessToken { get; set; }
+        public string AccessToken { get; internal set; }
         /// <summary>
         /// The access token secret.
-        /// </summary>
-        public string AccessTokenSecret { get; set; }
+        /// </summary> 
+        public string AccessTokenSecret { get; internal set; }
         
         /// <summary>
-        /// An useful method to make an instance of Tokens :)
+        /// Make an instance of Tokens.
         /// </summary>
         /// <param name='consumer_key'>
         /// Consumer key.

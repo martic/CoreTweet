@@ -22,8 +22,9 @@ namespace CoreTweet.Ex
         /// <param name='Parameters'>
         /// Parameters.
         /// </param>
-        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool follow (optional)"/> : Enable notifications for the target user.</para>
+        /// 
         public static User Follow(this User e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
             return Rest.Friendships.Create(Tokens,
@@ -42,6 +43,7 @@ namespace CoreTweet.Ex
         /// Parameters.
         /// </param>
         /// <para>Avaliable parameters: Nothing.</para><para> </para>
+        /// 
         public static User Unfollow(this User e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
             return Rest.Friendships.Destroy(Tokens,
@@ -59,7 +61,9 @@ namespace CoreTweet.Ex
         /// <param name='Parameters'>
         /// Parameters.
         /// </param>
+        /// 
         /// <para>Avaliable parameters: Nothing.</para><para> </para>
+        /// 
         public static IEnumerable<User> FollowAll(this IEnumerable<User> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
             e.ForEach(x => x.Follow(Tokens, Parameters));

@@ -210,8 +210,8 @@ namespace TinyTweet
                 string.Join("&", prm.Select(x => x.Key + "=" + x.Value))
             );
             var res = req.GetResponse();
-            using(var stream = res.GetResponseStream())
-            using(var reader = new StreamReader(stream))
+            using (var stream = res.GetResponseStream())
+            using (var reader = new StreamReader(stream))
                 return reader.ReadToEnd();
 
         }
@@ -227,16 +227,16 @@ namespace TinyTweet
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded";
             req.ContentLength = data.Length;
-            using(var reqstr = req.GetRequestStream())
+            using (var reqstr = req.GetRequestStream())
                 reqstr.Write(data, 0, data.Length);
-            using(var resstr = req.GetResponse().GetResponseStream())
-            using(var reader = new StreamReader(resstr, Encoding.UTF8))
+            using (var resstr = req.GetResponse().GetResponseStream())
+            using (var reader = new StreamReader(resstr, Encoding.UTF8))
                 return reader.ReadToEnd();
         }
 
         static string GenerateSignature(Tokens t, string httpMethod, string url, SortedDictionary<string, string> prm)
         {
-            using(var hs1 = new HMACSHA1())
+            using (var hs1 = new HMACSHA1())
             {
                 hs1.Key = Encoding.UTF8.GetBytes(
                     string.Format("{0}&{1}", UrlEncode(t.ConsumerSecret),
@@ -246,7 +246,7 @@ namespace TinyTweet
                     System.Text.Encoding.UTF8.GetBytes(
                         string.Format("{0}&{1}&{2}", httpMethod, UrlEncode(url),
                             UrlEncode(string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value)))))
-                    )
+                )
                 );
                 return Convert.ToBase64String(hash);
             }

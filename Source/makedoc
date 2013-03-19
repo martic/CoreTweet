@@ -1,4 +1,4 @@
 #!/bin/sh
-mdoc update -i *.xml -o ./tmp/ *.dll
-mdoc export-html -o ./docs/ ./tmp/
+mdoc update -i *.xml -o ./tmp/ *.dll --fignore-missing-types --delete
+mdoc export-html -o ./docs/ ./tmp/ --force-update 
 rm -r ./tmp/

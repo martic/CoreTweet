@@ -16,7 +16,7 @@ namespace CoreTweet.Ex
         /// <summary>
         /// Reply to this tweet.
         /// </summary>
-        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para>Avaliable parameters: </para>
         /// <para><paramref name="double lat (optional)"/> : The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</para>
         /// <para><paramref name="double long (optional)"/> : The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</para>
         /// <para><paramref name="string place_id (optional)"/> : A place in the world. These IDs can be retrieved from GET geo/reverse_geocode.</para>
@@ -46,7 +46,7 @@ namespace CoreTweet.Ex
         /// <param name='Parameters'>
         /// Parameters.
         /// </param>
-        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
         public static Status Retweet(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
@@ -65,7 +65,7 @@ namespace CoreTweet.Ex
         /// <param name='Parameters'>
         /// Parameters.
         /// </param>
-        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
         public static Status Destroy(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
@@ -84,7 +84,7 @@ namespace CoreTweet.Ex
         /// <param name='Parameters'>
         /// Parameters.
         /// </param>
-        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
         public static Status Favorite(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
@@ -104,7 +104,7 @@ namespace CoreTweet.Ex
         /// <param name='Parameters'>
         /// Parameters.
         /// </param>
-        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
         public static Status Unfavorite(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
@@ -117,7 +117,7 @@ namespace CoreTweet.Ex
         /// <summary>
         /// Reply to all of these tweets.
         /// </summary>
-        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para>Avaliable parameters: </para>
         /// <para><paramref name="double lat (optional)"/> : The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</para>
         /// <para><paramref name="double long (optional)"/> : The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</para>
         /// <para><paramref name="string place_id (optional)"/> : A place in the world. These IDs can be retrieved from GET geo/reverse_geocode.</para>
@@ -144,7 +144,7 @@ namespace CoreTweet.Ex
         /// <param name='Parameters'>
         /// Parameters.
         /// </param>
-        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
         public static IEnumerable<Status> RetweetAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
@@ -161,7 +161,7 @@ namespace CoreTweet.Ex
         /// <param name='Parameters'>
         /// Parameters.
         /// </param>
-        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
         public static IEnumerable<Status> DestroyAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
@@ -178,7 +178,7 @@ namespace CoreTweet.Ex
         /// <param name='Parameters'>
         /// Parameters.
         /// </param>
-        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
         public static IEnumerable<Status> FavoriteAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {
@@ -195,7 +195,7 @@ namespace CoreTweet.Ex
         /// <param name='Parameters'>
         /// Parameters.
         /// </param>
-        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
         public static IEnumerable<Status> UnfavoriteAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
         {

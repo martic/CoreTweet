@@ -31,9 +31,9 @@ namespace CoreTweet
         /// <summary>
         ///     Details the Tweet ID of the user's own retweet (if existent) of this Tweet.
         /// </summary>
-        /// <remarks>
+        /// 
         ///     Only surfaces on methods supporting the include_my_retweet parameter, when set to true.
-        /// </remarks>
+        /// 
         public long CurrentUserRetweet { get; set; }
 
         /// <summary>

@@ -25,7 +25,7 @@ namespace CoreTweet.Ex
         /// <param name='Parameters'>
         /// Parameters.
         /// </param>
-        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para>Avaliable parameters: </para>
         /// <para><paramref name="long in_reply_to_status_id (optional)"/> : The ID of an existing status that the update is in reply to.</para>
         /// <para><paramref name="double lat (optional)"/> : The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</para>
         /// <para><paramref name="double long (optional)"/> : The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</para>
@@ -78,6 +78,16 @@ namespace CoreTweet.Ex.Develop
                 object f;
                 e.TryGetMember(y, out f);
                 return f;});
+        }
+
+        /// <summary>
+        /// Converts camelCase text to snake_case.
+        /// </summary>
+        /// <returns>The snake_case text.</returns>
+        /// <param name="e">The camelCase text.</param>
+        public static string ToSnakeCase(this string e)
+        {
+            return string.Join("", e.Select(x => char.IsUpper(x) ? "_" + x.ToString().ToLower() : x.ToString()));
         }
     }
 }

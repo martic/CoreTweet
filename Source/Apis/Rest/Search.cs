@@ -8,17 +8,17 @@ namespace CoreTweet
 {
     public static partial class Rest
     {
+        ///<summary>GET search</summary>
         public static class Search
         {
             //DONE!
-            //GEO Method
+            //GET Method
             
             /// <summary>
             /// <para>Returns a collection of relevant Tweets matching a specified query.</para>
             /// <para>Please note that Twitter's search service and, by extension, the Search API is not meant to be an exhaustive source of Tweets. Not all Tweets will be indexed or made available via the search interface.</para>
             /// <see cref="https://dev.twitter.com/docs/using-search"/>
-            /// </summary>
-            /// <para>Avaliable parameters: </para><para> </para>
+            /// <para>Avaliable parameters: </para>
             /// <para><paramref name="string q (required)"/> : A UTF-8, URL-encoded search query of 1,000 characters maximum, including operators. Queries may additionally be limited by complexity.</para>
             /// <para><paramref name="string geocode (optional)"/> : Returns tweets by users located within a given radius of the given latitude/longitude. The location is preferentially taking from the Geotagging API, but will fall back to their Twitter profile. The parameter value is specified by "latitude,longitude,radius", where radius units must be specified as either "mi" (miles) or "km" (kilometers). Note that you cannot use the near operator via the API to geocode arbitrary locations; however you can use this geocode parameter to search near geocodes directly. A maximum of 1,000 distinct "sub-regions" will be considered when using the radius modifier.</para>
             /// <para><paramref name="string lang (optional)"/> : Restricts tweets to the given language, given by an ISO 639-1 code. Language detection is best-effort.</para>
@@ -29,17 +29,18 @@ namespace CoreTweet
             /// <para><paramref name="long since_id (optional)"/> : Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</para>
             /// <para><paramref name="long max_id (optional)"/> : Returns results with an ID less than (that is, older than) or equal to the specified ID.</para>
             /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be disincluded when set to false.</para>
+            /// </summary>
             /// <returns>Statuses.</returns>
-            /// <param name='Tokens'>
+            /// <param name='tokens'>
             /// Tokens.
             /// </param>
-            /// <param name='Parameters'>
+            /// <param name='parameters'>
             /// Parameters.
             /// </param>
-            public static IEnumerable<Status> Tweets(Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+            public static IEnumerable<Status> Tweets(Tokens tokens, params Expression<Func<string,object>>[] parameters)
             {
                 return CoreBase.ConvertArray<Status>(DynamicJson.Parse(
-                    Request.Send(Tokens, MethodType.GET, Rest.Url("search/tweets"), Parameters)).statuses);
+                    Request.Send(tokens, MethodType.GET, Rest.Url("search/tweets"), parameters)).statuses);
             }
         }
     }
