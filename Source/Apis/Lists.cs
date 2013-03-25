@@ -243,7 +243,7 @@ namespace CoreTweet
                      Request.Send(tokens, MethodType.POST, Rest.Url("lists/destroy"), parameters)));
             }
 
-            //FIXME: The format is the response is not known.
+            //FIXME: The format of the response is not known.
             /// <summary>
             /// <para></para>
             /// <para>Avaliable parameters: </para>

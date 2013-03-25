@@ -16,10 +16,10 @@ namespace Alice
         /// <param name="e">The enumerable object.</param>
         /// <param name="Action">Action.</param>
         /// <typeparam name="T">The 1st type parameter.</typeparam>
-        public static void ForEach<T>(this IEnumerable<T> e, Action<T> Action)
+        public static void ForEach<T>(this IEnumerable<T> e, Action<T> action)
         {
             foreach(T item in e)
-                Action(item);
+                action(item);
         }
 
         /// <summary>
@@ -33,11 +33,11 @@ namespace Alice
         /// <typeparam name="T1">The 1st type parameter.</typeparam>
         /// <typeparam name="T2">The 2nd type parameter.</typeparam>
         /// <returns>Tuples of conbinated objects.</returns>
-        public static IEnumerable<Tuple<T1,T2>> Conbinate<T1, T2>(this IEnumerable<T1> e, IEnumerable<T2> Target)
+        public static IEnumerable<Tuple<T1,T2>> Conbinate<T1, T2>(this IEnumerable<T1> e, IEnumerable<T2> target)
         {
             return
                 from x in e
-                from y in Target
+                from y in target
                 select Tuple.Create(x, y);
         }
     }

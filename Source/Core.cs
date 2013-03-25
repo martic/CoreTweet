@@ -191,8 +191,8 @@ namespace CoreTweet
                 string.Join("&", prm.Select(x => x.Key + "=" + x.Value))
             );
             var res = req.GetResponse();
-            using(var stream = res.GetResponseStream())
-            using(var reader = new StreamReader(stream))
+            using (var stream = res.GetResponseStream())
+            using (var reader = new StreamReader(stream))
                 return reader.ReadToEnd();
 
         }
@@ -214,10 +214,10 @@ namespace CoreTweet
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded";
             req.ContentLength = data.Length;
-            using(var reqstr = req.GetRequestStream())
+            using (var reqstr = req.GetRequestStream())
                 reqstr.Write(data, 0, data.Length);
-            using(var resstr = req.GetResponse().GetResponseStream())
-            using(var reader = new StreamReader(resstr, Encoding.UTF8))
+            using (var resstr = req.GetResponse().GetResponseStream())
+            using (var reader = new StreamReader(resstr, Encoding.UTF8))
                 return reader.ReadToEnd();
         }
 
@@ -231,7 +231,7 @@ namespace CoreTweet
         /// <param name="prm">Parameters.</param>
         internal static string GenerateSignature(Tokens t, string httpMethod, string url, SortedDictionary<string, string> prm)
         {
-            using(var hs1 = new HMACSHA1())
+            using (var hs1 = new HMACSHA1())
             {
                 hs1.Key = Encoding.UTF8.GetBytes(
                     string.Format("{0}&{1}", UrlEncode(t.ConsumerSecret),
@@ -253,11 +253,11 @@ namespace CoreTweet
         /// <returns>The parameters.</returns>
         /// <param name="ConsumerKey">Consumer key.</param>
         /// <param name="token">Token.</param>
-        internal static SortedDictionary<string, string> GenerateParameters(string ConsumerKey, string token)
+        internal static SortedDictionary<string, string> GenerateParameters(string consumerKey, string token)
         {
             var ret = new SortedDictionary<string, string>()
             {
-                {"oauth_consumer_key", ConsumerKey},
+                {"oauth_consumer_key", consumerKey},
                 {"oauth_signature_method", "HMAC-SHA1"},
                 {"oauth_timestamp", ((long)(DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0))
                     .TotalSeconds).ToString()},
@@ -291,7 +291,7 @@ namespace CoreTweet
     {
         /// <summary>
         /// The version of the Twitter API.
-        /// Changing this value is not recommended. 
+        /// To change this value is not recommended. 
         /// </summary>
         public static string ApiVersion = "1.1";
         /// <summary>
@@ -346,8 +346,6 @@ A “contributor” is any person that distributes its contribution under this l
         {
             return string.Format("https://api.twitter.com/{0}/{1}.json", Property.ApiVersion, ApiName);
         }
-        
-        
     }
 }
 

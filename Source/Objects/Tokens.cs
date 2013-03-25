@@ -37,14 +37,14 @@ namespace CoreTweet
         /// <param name='access_secret'>
         /// Access secret.
         /// </param>
-        public static Tokens Create(string consumer_key, string consumer_secret, string access_token, string access_secret)
+        public static Tokens Create(string consumerKey, string consumerSecret, string accessToken, string accessSecret)
         {
             return new Tokens()
             {
-                ConsumerKey = consumer_key,
-                ConsumerSecret = consumer_secret,
-                AccessToken = access_token,
-                AccessTokenSecret = access_secret
+                ConsumerKey = consumerKey,
+                ConsumerSecret = consumerSecret,
+                AccessToken = accessToken,
+                AccessTokenSecret = accessSecret
             };
         }
     }
