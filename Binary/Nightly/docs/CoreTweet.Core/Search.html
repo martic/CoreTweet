@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>CoreTweet.Core.CoreBase</title>
+    <title>CoreTweet.Core.Search</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
       a { text-decoration: none }
@@ -190,36 +190,34 @@
       <a href="../index.html">CoreTweet</a> : <a href="index.html">CoreTweet.Core Namespace</a></div>
     <div class="SideBar">
       <p>
-        <a href="#T:CoreTweet.Core.CoreBase">Overview</a>
+        <a href="#T:CoreTweet.Core.Search">Overview</a>
       </p>
       <p>
-        <a href="#T:CoreTweet.Core.CoreBase:Signature">Signature</a>
+        <a href="#T:CoreTweet.Core.Search:Signature">Signature</a>
       </p>
       <p>
-        <a href="#T:CoreTweet.Core.CoreBase:Docs">Remarks</a>
+        <a href="#T:CoreTweet.Core.Search:Docs">Remarks</a>
       </p>
       <p>
         <a href="#Members">Members</a>
       </p>
       <p>
-        <a href="#T:CoreTweet.Core.CoreBase:Members">Member Details</a>
+        <a href="#T:CoreTweet.Core.Search:Members">Member Details</a>
       </p>
     </div>
-    <h1 class="PageTitle" id="T:CoreTweet.Core.CoreBase">CoreBase  Class</h1>
-    <p class="Summary" id="T:CoreTweet.Core.CoreBase:Summary">
-      <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-    </p>
-    <div id="T:CoreTweet.Core.CoreBase:Signature">
+    <h1 class="PageTitle" id="T:CoreTweet.Core.Search">Search  Class</h1>
+    <p class="Summary" id="T:CoreTweet.Core.Search:Summary">GET search</p>
+    <div id="T:CoreTweet.Core.Search:Signature">
       <h2>Syntax</h2>
-      <div class="Signature">public abstract class  <b>CoreBase</b> : <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a></div>
+      <div class="Signature">public class  <b>Search</b> : <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a></div>
     </div>
-    <div class="Remarks" id="T:CoreTweet.Core.CoreBase:Docs">
+    <div class="Remarks" id="T:CoreTweet.Core.Search:Docs">
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:CoreTweet.Core.CoreBase:Docs:Remarks">
+      <div class="SectionBox" id="T:CoreTweet.Core.Search:Docs:Remarks">
         <span class="NotEntered">Documentation for this section has not yet been entered.</span>
       </div>
       <h2 class="Section">Requirements</h2>
-      <div class="SectionBox" id="T:CoreTweet.Core.CoreBase:Docs:Version Information">
+      <div class="SectionBox" id="T:CoreTweet.Core.Search:Docs:Version Information">
         <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
@@ -227,28 +225,6 @@
 								See Also: Inherited members from
 								<a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.
 							</p>
-        <h2 class="Section">Protected Constructors</h2>
-        <div class="SectionBox" id="Protected Constructors">
-          <div class="SubsectionBox">
-            <table class="TypeMembers">
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <b>
-                      <a href="#C:CoreTweet.Core.CoreBase">CoreBase</a>
-                    </b>()</div>
-                </td>
-                <td>
-                  <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
         <h2 class="Section">Public Properties</h2>
         <div class="SectionBox" id="Public Properties">
           <div class="SubsectionBox">
@@ -318,131 +294,71 @@
             <table class="TypeMembers">
               <tr valign="top">
                 <td>
-                  <div>static </div>
+                  <div>
+                  </div>
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="#M:CoreTweet.Core.CoreBase.Convert``1(System.Object)">Convert&lt;T&gt;</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>)<nobr> : <i title="To be added.">T</i></nobr><blockquote>
-            この子を呼べばTに対応するConvert()を呼んでdynamic objectをstatic objectに変換してくれます
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>static </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="#M:CoreTweet.Core.CoreBase.ConvertArray``1(System.Object)">ConvertArray&lt;T&gt;</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
-            ( ,,Ծ ‸ Ծ ).｡ｏO( 説明いるのかな )
-            </blockquote></td>
+                    <a href="#M:CoreTweet.Core.Search.Tweets(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Tweets</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a></nobr><blockquote><p>Returns a collection of relevant Tweets matching a specified query.</p><p>Please note that Twitter's search service and, by extension, the Search API is not meant to be an exhaustive source of Tweets. Not all Tweets will be indexed or made available via the search interface.</p><a href="javascript:alert(&quot;Documentation not found.&quot;)">https://dev.twitter.com/docs/using-search</a><p>Avaliable parameters: </p><p><i>string q (required)</i> : A UTF-8, URL-encoded search query of 1,000 characters maximum, including operators. Queries may additionally be limited by complexity.</p><p><i>string geocode (optional)</i> : Returns tweets by users located within a given radius of the given latitude/longitude. The location is preferentially taking from the Geotagging API, but will fall back to their Twitter profile. The parameter value is specified by "latitude,longitude,radius", where radius units must be specified as either "mi" (miles) or "km" (kilometers). Note that you cannot use the near operator via the API to geocode arbitrary locations; however you can use this geocode parameter to search near geocodes directly. A maximum of 1,000 distinct "sub-regions" will be considered when using the radius modifier.</p><p><i>string lang (optional)</i> : Restricts tweets to the given language, given by an ISO 639-1 code. Language detection is best-effort.</p><p><i>string locale (optional)</i> : Specify the language of the query you are sending (only ja is currently effective). This is intended for language-specific consumers and the default should work in the majority of cases.</p><p><i>string result_type (optional)</i> : Optional. Specifies what type of search results you would prefer to receive. The current default is "mixed." Valid values include: * mixed: Include both popular and real time results in the response. * recent: return only the most recent results in the response. * popular: return only the most popular results in the response.</p><p><i>int count (optional)</i> : The number of tweets to return per page, up to a maximum of 100. Defaults to 15.</p><p><i>string until (optional)</i> : Returns tweets generated before the given date. Date should be formatted as YYYY-MM-DD. Keep in mind that the search index may not go back as far as the date you specify here.</p><p><i>long since_id (optional)</i> : Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p><p><i>long max_id (optional)</i> : Returns results with an ID less than (that is, older than) or equal to the specified ID.</p><p><i>bool include_entities (optional)</i> : The entities node will be disincluded when set to false.</p></blockquote></td>
               </tr>
             </table>
           </div>
         </div>
       </div>
     </div>
-    <div class="Members" id="T:CoreTweet.Core.CoreBase:Members">
+    <div class="Members" id="T:CoreTweet.Core.Search:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
-        <h3 id="C:CoreTweet.Core.CoreBase">CoreBase Constructor</h3>
-        <blockquote id="C:CoreTweet.Core.CoreBase:member">
+        <h3 id="M:CoreTweet.Core.Search.Tweets(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Tweets Method</h3>
+        <blockquote id="M:CoreTweet.Core.Search.Tweets(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
           <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>Returns a collection of relevant Tweets matching a specified query.</p>
+            <p>Please note that Twitter's search service and, by extension, the Search API is not meant to be an exhaustive source of Tweets. Not all Tweets will be indexed or made available via the search interface.</p>
+            <a href="javascript:alert(&quot;Documentation not found.&quot;)">https://dev.twitter.com/docs/using-search</a>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string q (required)</i> : A UTF-8, URL-encoded search query of 1,000 characters maximum, including operators. Queries may additionally be limited by complexity.</p>
+            <p>
+              <i>string geocode (optional)</i> : Returns tweets by users located within a given radius of the given latitude/longitude. The location is preferentially taking from the Geotagging API, but will fall back to their Twitter profile. The parameter value is specified by "latitude,longitude,radius", where radius units must be specified as either "mi" (miles) or "km" (kilometers). Note that you cannot use the near operator via the API to geocode arbitrary locations; however you can use this geocode parameter to search near geocodes directly. A maximum of 1,000 distinct "sub-regions" will be considered when using the radius modifier.</p>
+            <p>
+              <i>string lang (optional)</i> : Restricts tweets to the given language, given by an ISO 639-1 code. Language detection is best-effort.</p>
+            <p>
+              <i>string locale (optional)</i> : Specify the language of the query you are sending (only ja is currently effective). This is intended for language-specific consumers and the default should work in the majority of cases.</p>
+            <p>
+              <i>string result_type (optional)</i> : Optional. Specifies what type of search results you would prefer to receive. The current default is "mixed." Valid values include: * mixed: Include both popular and real time results in the response. * recent: return only the most recent results in the response. * popular: return only the most popular results in the response.</p>
+            <p>
+              <i>int count (optional)</i> : The number of tweets to return per page, up to a maximum of 100. Defaults to 15.</p>
+            <p>
+              <i>string until (optional)</i> : Returns tweets generated before the given date. Date should be formatted as YYYY-MM-DD. Keep in mind that the search index may not go back as far as the date you specify here.</p>
+            <p>
+              <i>long since_id (optional)</i> : Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p>
+            <p>
+              <i>long max_id (optional)</i> : Returns results with an ID less than (that is, older than) or equal to the specified ID.</p>
+            <p>
+              <i>bool include_entities (optional)</i> : The entities node will be disincluded when set to false.</p>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">protected  <b>CoreBase</b> ()</div>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:CoreTweet.Core.CoreBase:Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:CoreTweet.Core.CoreBase:Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:CoreTweet.Core.CoreBase.Convert``1(System.Object)">Convert&lt;T&gt; Generic Method</h3>
-        <blockquote id="M:CoreTweet.Core.CoreBase.Convert``1(System.Object):member">
-          <p class="Summary">
-            この子を呼べばTに対応するConvert()を呼んでdynamic objectをstatic objectに変換してくれます
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public static <i title="To be added.">T</i> <b>Convert&lt;T&gt;</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> e)<br /> where T : <a href="../CoreTweet.Core/CoreBase.html">CoreTweet.Core.CoreBase</a></div>
-          <h4 class="Subsection">Type Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.CoreBase.Convert``1(System.Object):Type Parameters">
-            <dl>
-              <dt>
-                <i>T</i>
-              </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
-            </dl>
-          </blockquote>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a> <b>Tweets</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.CoreBase.Convert``1(System.Object):Parameters">
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Search.Tweets(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>e</i>
+                <i>parameters</i>
               </dt>
               <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+            Parameters.
+            </dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.CoreBase.Convert``1(System.Object):Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Search.Tweets(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">Statuses.</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:CoreTweet.Core.CoreBase.Convert``1(System.Object):Remarks">
+          <div class="SectionBox" id="M:CoreTweet.Core.Search.Tweets(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:CoreTweet.Core.CoreBase.Convert``1(System.Object):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:CoreTweet.Core.CoreBase.ConvertArray``1(System.Object)">ConvertArray&lt;T&gt; Generic Method</h3>
-        <blockquote id="M:CoreTweet.Core.CoreBase.ConvertArray``1(System.Object):member">
-          <p class="Summary">
-            ( ,,Ծ ‸ Ծ ).｡ｏO( 説明いるのかな )
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a> <b>ConvertArray&lt;T&gt;</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> e)<br /> where T : <a href="../CoreTweet.Core/CoreBase.html">CoreTweet.Core.CoreBase</a></div>
-          <h4 class="Subsection">Type Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.CoreBase.ConvertArray``1(System.Object):Type Parameters">
-            <dl>
-              <dt>
-                <i>T</i>
-              </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
-            </dl>
-          </blockquote>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.CoreBase.ConvertArray``1(System.Object):Parameters">
-            <dl>
-              <dt>
-                <i>e</i>
-              </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
-            </dl>
-          </blockquote>
-          <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.CoreBase.ConvertArray``1(System.Object):Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:CoreTweet.Core.CoreBase.ConvertArray``1(System.Object):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:CoreTweet.Core.CoreBase.ConvertArray``1(System.Object):Version Information">
+          <div class="SectionBox" id="M:CoreTweet.Core.Search.Tweets(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
             <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
           <hr size="1" />
         </blockquote>

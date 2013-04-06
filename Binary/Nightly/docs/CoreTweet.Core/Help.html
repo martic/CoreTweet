@@ -1,0 +1,470 @@
+<html>
+  <head>
+    <title>CoreTweet.Core.Help</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">CoreTweet</a> : <a href="index.html">CoreTweet.Core Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:CoreTweet.Core.Help">Overview</a>
+      </p>
+      <p>
+        <a href="#T:CoreTweet.Core.Help:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:CoreTweet.Core.Help:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:CoreTweet.Core.Help:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:CoreTweet.Core.Help">Help  Class</h1>
+    <p class="Summary" id="T:CoreTweet.Core.Help:Summary">GET help</p>
+    <div id="T:CoreTweet.Core.Help:Signature">
+      <h2>Syntax</h2>
+      <div class="Signature">public class  <b>Help</b> : <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a></div>
+    </div>
+    <div class="Remarks" id="T:CoreTweet.Core.Help:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:CoreTweet.Core.Help:Docs:Remarks">
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:CoreTweet.Core.Help:Docs:Version Information">
+        <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.
+							</p>
+        <h2 class="Section">Public Properties</h2>
+        <div class="SectionBox" id="Public Properties">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessToken">AccessToken</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The access token.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessTokenSecret">AccessTokenSecret</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The access token secret.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerKey">ConsumerKey</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The consumer key.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerSecret">ConsumerSecret</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The consumer secret.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Help.Configuration(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Configuration</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Configurations.html">CoreTweet.Configurations</a></nobr><blockquote><p>Returns the current configuration used by Twitter including twitter.com slugs which are not usernames, maximum photo resolutions, and t.co URL lengths.</p><p>It is recommended applications request this endpoint when they are loaded, but no more than once a day.</p><p>Avaliable parameters: Nothing.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Help.Languages(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Languages</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Language&gt;</a></nobr><blockquote><p>Returns the list of languages supported by Twitter along with their ISO 639-1 code. The ISO 639-1 code is the two letter value to use if you include lang with any of your requests.</p><p>Avaliable parameters: Nothing.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Help.Privacy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Privacy</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a></nobr><blockquote><p>Returns Twitter's Privacy Policy.</p><p>Avaliable parameters: Nothing.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Help.Tos(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Tos</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a></nobr><blockquote><p>Returns the Twitter Terms of Service in the requested format. These are not the same as the Developer Rules of the Road.</p><p>Avaliable parameters: Nothing.</p></blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:CoreTweet.Core.Help:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="M:CoreTweet.Core.Help.Configuration(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Configuration Method</h3>
+        <blockquote id="M:CoreTweet.Core.Help.Configuration(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns the current configuration used by Twitter including twitter.com slugs which are not usernames, maximum photo resolutions, and t.co URL lengths.</p>
+            <p>It is recommended applications request this endpoint when they are loaded, but no more than once a day.</p>
+            <p>Avaliable parameters: Nothing.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../CoreTweet/Configurations.html">CoreTweet.Configurations</a> <b>Configuration</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Help.Configuration(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Help.Configuration(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">Configurations.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Help.Configuration(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Help.Configuration(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Help.Languages(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Languages Method</h3>
+        <blockquote id="M:CoreTweet.Core.Help.Languages(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns the list of languages supported by Twitter along with their ISO 639-1 code. The ISO 639-1 code is the two letter value to use if you include lang with any of your requests.</p>
+            <p>Avaliable parameters: Nothing.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Language&gt;</a> <b>Languages</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Help.Languages(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Help.Languages(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">Languages.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Help.Languages(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Help.Languages(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Help.Privacy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Privacy Method</h3>
+        <blockquote id="M:CoreTweet.Core.Help.Privacy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns Twitter's Privacy Policy.</p>
+            <p>Avaliable parameters: Nothing.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>Privacy</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Help.Privacy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Help.Privacy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The sentense.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Help.Privacy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Help.Privacy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Help.Tos(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Tos Method</h3>
+        <blockquote id="M:CoreTweet.Core.Help.Tos(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns the Twitter Terms of Service in the requested format. These are not the same as the Developer Rules of the Road.</p>
+            <p>Avaliable parameters: Nothing.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>Tos</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Help.Tos(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Help.Tos(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The sentense.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Help.Tos(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Help.Tos(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

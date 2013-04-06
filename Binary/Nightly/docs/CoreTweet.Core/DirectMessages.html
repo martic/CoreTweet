@@ -1,0 +1,489 @@
+<html>
+  <head>
+    <title>CoreTweet.Core.DirectMessages</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">CoreTweet</a> : <a href="index.html">CoreTweet.Core Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:CoreTweet.Core.DirectMessages">Overview</a>
+      </p>
+      <p>
+        <a href="#T:CoreTweet.Core.DirectMessages:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:CoreTweet.Core.DirectMessages:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:CoreTweet.Core.DirectMessages:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:CoreTweet.Core.DirectMessages">DirectMessages  Class</h1>
+    <p class="Summary" id="T:CoreTweet.Core.DirectMessages:Summary">
+            GET/POST direct_messages
+            These endpoints require an access token with RWD permissions.
+            </p>
+    <div id="T:CoreTweet.Core.DirectMessages:Signature">
+      <h2>Syntax</h2>
+      <div class="Signature">public class  <b>DirectMessages</b> : <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a></div>
+    </div>
+    <div class="Remarks" id="T:CoreTweet.Core.DirectMessages:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:CoreTweet.Core.DirectMessages:Docs:Remarks">
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:CoreTweet.Core.DirectMessages:Docs:Version Information">
+        <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.
+							</p>
+        <h2 class="Section">Public Properties</h2>
+        <div class="SectionBox" id="Public Properties">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessToken">AccessToken</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The access token.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessTokenSecret">AccessTokenSecret</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The access token secret.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerKey">ConsumerKey</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The consumer key.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerSecret">ConsumerSecret</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The consumer secret.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.DirectMessages.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Destroy</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/DirectMessage.html">CoreTweet.DirectMessage</a></nobr><blockquote><p>Destroys the direct message specified in the required ID parameter. The authenticating user must be the recipient of the specified direct message.</p><p>This method requires an access token with RWD (read, write and direct message) permissions.</p><p>Avaliable parameters: </p><p><i>long id (required)</i> : The ID of the direct message to delete.</p><p><i>bool include_entities</i> : The entities node will not be included when set to false.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.DirectMessages.New(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">New</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/DirectMessage.html">CoreTweet.DirectMessage</a></nobr><blockquote><p>Sends a new direct message to the specified user from the authenticating user. Requires both the user and text parameters and must be a POST. Returns the sent message in the requested format if successful.</p><p>This method requires an access token with RWD (read, write and direct message) permissions.</p><p>Note: One of user_id or screen_name are required.</p><p>Avaliable parameters: </p><p><i>long user_id (optional)</i> : The ID of the user who should receive the direct message. Helpful for disambiguating when a valid user ID is also a valid screen name.</p><p><i>string screen_name (optional)</i> : The screen name of the user who should receive the direct message. Helpful for disambiguating when a valid screen name is also a user ID.</p><p><i>string text (required)</i> : The text of your direct message. Be sure to URL encode as necessary, and keep the message under 140 characters.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.DirectMessages.Sent(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Sent</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.DirectMessage&gt;</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.DirectMessages.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Show</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.DirectMessage&gt;</a></nobr><blockquote><p>Returns a single direct message, specified by an id parameter. Like the /1.1/direct_messages.format request, this method will include the user objects of the sender and recipient.</p><p>This method requires an access token with RWD (read, write and direct message) permissions.</p><p>Avaliable parameters: </p><p><i>long id (required)</i> : The ID of the direct message.</p></blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:CoreTweet.Core.DirectMessages:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="M:CoreTweet.Core.DirectMessages.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Destroy Method</h3>
+        <blockquote id="M:CoreTweet.Core.DirectMessages.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Destroys the direct message specified in the required ID parameter. The authenticating user must be the recipient of the specified direct message.</p>
+            <p>This method requires an access token with RWD (read, write and direct message) permissions.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long id (required)</i> : The ID of the direct message to delete.</p>
+            <p>
+              <i>bool include_entities</i> : The entities node will not be included when set to false.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../CoreTweet/DirectMessage.html">CoreTweet.DirectMessage</a> <b>Destroy</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.DirectMessages.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.DirectMessages.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The direct message.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.DirectMessages.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.DirectMessages.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.DirectMessages.New(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">New Method</h3>
+        <blockquote id="M:CoreTweet.Core.DirectMessages.New(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Sends a new direct message to the specified user from the authenticating user. Requires both the user and text parameters and must be a POST. Returns the sent message in the requested format if successful.</p>
+            <p>This method requires an access token with RWD (read, write and direct message) permissions.</p>
+            <p>Note: One of user_id or screen_name are required.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long user_id (optional)</i> : The ID of the user who should receive the direct message. Helpful for disambiguating when a valid user ID is also a valid screen name.</p>
+            <p>
+              <i>string screen_name (optional)</i> : The screen name of the user who should receive the direct message. Helpful for disambiguating when a valid screen name is also a user ID.</p>
+            <p>
+              <i>string text (required)</i> : The text of your direct message. Be sure to URL encode as necessary, and keep the message under 140 characters.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../CoreTweet/DirectMessage.html">CoreTweet.DirectMessage</a> <b>New</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.DirectMessages.New(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.DirectMessages.New(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The sent direct message.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.DirectMessages.New(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.DirectMessages.New(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.DirectMessages.Sent(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Sent Method</h3>
+        <blockquote id="M:CoreTweet.Core.DirectMessages.Sent(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.DirectMessage&gt;</a> <b>Sent</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.DirectMessages.Sent(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.DirectMessages.Sent(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.DirectMessages.Sent(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.DirectMessages.Sent(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.DirectMessages.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Show Method</h3>
+        <blockquote id="M:CoreTweet.Core.DirectMessages.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns a single direct message, specified by an id parameter. Like the /1.1/direct_messages.format request, this method will include the user objects of the sender and recipient.</p>
+            <p>This method requires an access token with RWD (read, write and direct message) permissions.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long id (required)</i> : The ID of the direct message.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.DirectMessage&gt;</a> <b>Show</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.DirectMessages.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.DirectMessages.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">Direct messages.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.DirectMessages.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.DirectMessages.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

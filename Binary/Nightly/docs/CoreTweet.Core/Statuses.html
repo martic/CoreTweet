@@ -1,0 +1,908 @@
+<html>
+  <head>
+    <title>CoreTweet.Core.Statuses</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">CoreTweet</a> : <a href="index.html">CoreTweet.Core Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:CoreTweet.Core.Statuses">Overview</a>
+      </p>
+      <p>
+        <a href="#T:CoreTweet.Core.Statuses:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:CoreTweet.Core.Statuses:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:CoreTweet.Core.Statuses:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:CoreTweet.Core.Statuses">Statuses  Class</h1>
+    <p class="Summary" id="T:CoreTweet.Core.Statuses:Summary">GET/POST statuses</p>
+    <div id="T:CoreTweet.Core.Statuses:Signature">
+      <h2>Syntax</h2>
+      <div class="Signature">public class  <b>Statuses</b> : <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a></div>
+    </div>
+    <div class="Remarks" id="T:CoreTweet.Core.Statuses:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:CoreTweet.Core.Statuses:Docs:Remarks">
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:CoreTweet.Core.Statuses:Docs:Version Information">
+        <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.
+							</p>
+        <h2 class="Section">Public Properties</h2>
+        <div class="SectionBox" id="Public Properties">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessToken">AccessToken</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The access token.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessTokenSecret">AccessTokenSecret</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The access token secret.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerKey">ConsumerKey</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The consumer key.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerSecret">ConsumerSecret</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The consumer secret.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Statuses.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Destroy</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Status.html">CoreTweet.Status</a></nobr><blockquote><p>Destroys the status specified by the required ID parameter. The authenticating user must be the author of the specified status. Returns the destroyed status if successful.</p><p>Avaliable parameters: </p><p><i>long id (required)</i> : The numerical ID of the desired status.</p><p><i>bool trim_user (optional)</i> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Statuses.Filter(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Filter</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a></nobr><blockquote><p>Returns public statuses that match one or more filter predicates. Multiple parameters may be specified which allows most clients to use a single connection to the Streaming API. Both GET and POST requests are supported, but GET requests with too many parameters may cause the request to be rejected for excessive URL length. Use a POST request to avoid long URLs.</p><a href="javascript:alert(&quot;Documentation not found.&quot;)">https://dev.twitter.com/docs/streaming-apis/parameters</a><p>Note: At least one predicate parameter (follow, locations, or track) must be specified.</p><p>Avaliable parameters: </p><p><i>string follow (see note)</i> : A comma separated list of user IDs, indicating the users to return statuses for in the stream. See the follow parameter documentation for more information.</p><p><i>string track (see note)</i> : Keywords to track. Phrases of keywords are specified by a comma-separated list. See the track parameter documentation for more information.</p><p><i>string locations (see note)</i> : Specifies a set of bounding boxes to track. See the locations parameter documentation for more information.</p><p><i>string delimited (optional)</i> : Specifies whether messages should be length-delimited. See the delimited parameter documentation for more information.</p><p><i>string stall_warnings (optional)</i> : Specifies whether stall warnings should be delivered. See the stall_warnings parameter documentation for more information.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Statuses.Firehose(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Firehose</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a></nobr><blockquote><p>Returns all public statuses. Few applications require this level of access. Creative use of a combination of other resources and various access levels can satisfy nearly every application use case.</p><p>Avaliable parameters: </p><p><i>int count (optional)</i> : The number of messages to backfill. See the count parameter documentation for more information.</p><p><i>stringg delimited (optional)</i> : Specifies whether messages should be length-delimited. See the delimited parameter documentation for more information.</p><p><i>string stall_warnings (optional)</i> : Specifies whether stall warnings should be delivered. See the stall_warnings parameter documentation for more information.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Statuses.HomeTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">HomeTimeline</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a></nobr><blockquote><p>Returns a collection of the most recent Tweets and retweets posted by the authenticating user and the users they follow. The home timeline is central to how most users interact with the Twitter service. Up to 800 Tweets are obtainable on the home timeline. It is more volatile for users that follow many users or follow users who tweet frequently.</p><p>Avaliable parameters: </p><p><i>int count (optional)</i> : Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method.</p><p><i>int since_id(optional)</i> : Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p><p><i>int max_id (optional)</i> : Returns results with an ID less than (that is, older than) or equal to the specified ID.</p><p><i>bool trim_user (optional)</i> : When set to true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p><p><i>bool contributor_details (optional)</i> : This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included.</p><p><i>bool include_entities (optional)</i> : The entities node will be disincluded when set to false.</p><p><i>bool exclude_replies (optional)</i> : This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies. This parameter is only supported for JSON and XML responses.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Statuses.MentionsTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">MentionsTimeline</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a></nobr><blockquote><p>Returns the 20 most recent mentions (tweets containing a users's @screen_name) for the authenticating user. The timeline returned is the equivalent of the one seen when you view your mentions on twitter.com. This method can only return up to 800 tweets. See Working with Timelines for instructions on traversing timelines.</p><p>Avaliable parameters: </p><p><i>int count (optional)</i> : Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method.</p><p><i>int since_id(optional)</i> : Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p><p><i>int max_id (optional)</i> : Returns results with an ID less than (that is, older than) or equal to the specified ID.</p><p><i>bool trim_user (optional)</i> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p><p><i>bool contributor_details (optional)</i> : This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included.</p><p><i>bool include_entities (optional)</i> : The entities node will be disincluded when set to false.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Statuses.Oembed(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Oembed</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Embed.html">CoreTweet.Embed</a></nobr><blockquote><p>Returns information allowing the creation of an embedded representation of a Tweet on third party sites. See the oEmbed specification for information about the response format.</p><p>While this endpoint allows a bit of customization for the final appearance of the embedded Tweet, be aware that the appearance of the rendered Tweet may change over time to be consistent with Twitter's Display Requirements. Do not rely on any class or id parameters to stay constant in the returned markup.</p><p>Avaliable parameters: </p><p><i>long id (required)</i> : The Tweet/status ID to return embed code for.</p><p><i>int maxwidth (optional)</i> : The maximum width in pixels that the embed should be rendered at. This value is constrained to be between 250 and 550 pixels. Note that Twitter does not support the oEmbed maxheight parameter. Tweets are fundamentally text, and are therefore of unpredictable height that cannot be scaled like an image or video. Relatedly, the oEmbed response will not provide a value for height. Implementations that need consistent heights for Tweets should refer to the hide_thread and hide_media parameters below.</p><p><i>bool hide_media (optional)</i> : Specifies whether the embedded Tweet should automatically expand images which were uploaded via POST statuses/update_with_media. When set to either true, t or 1 images will not be expanded. Defaults to false.</p><p><i>bool hide_thread (optional)</i> : Specifies whether the embedded Tweet should automatically show the original message in the case that the embedded Tweet is a reply. When set to either true, t or 1 the original Tweet will not be shown. Defaults to false.</p><p><i>bool omit_script (optional)</i> : Specifies whether the embedded Tweet HTML should include a "script" element pointing to widgets.js. In cases where a page already includes widgets.js, setting this value to true will prevent a redundant script element from being included. When set to either true, t or 1 the "script" element will not be included in the embed HTML, meaning that pages must include a reference to widgets.js manually. Defaults to false.</p><p><i>string align (optional)</i> : Specifies whether the embedded Tweet should be left aligned, right aligned, or centered in the page. Valid values are left, right, center, and none. Defaults to none, meaning no alignment styles are specified for the Tweet.</p><p><i>string related (optional)</i> : A value for the TWT related parameter, as described in Web Intents. This value will be forwarded to all Web Intents calls.</p><p><i>string lang (optional)</i> : Language code for the rendered embed. This will affect the text and localization of the rendered HTML.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Statuses.Retweet(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Retweet</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Status.html">CoreTweet.Status</a></nobr><blockquote><p>Retweets a tweet. Returns the original tweet with retweet details embedded.</p><p>Avaliable parameters: </p><p><i>long id (required)</i> : The numerical ID of the desired status.</p><p><i>bool trim_user (optional)</i> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Statuses.Retweets(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Retweets</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a></nobr><blockquote><p>Returns up to 100 of the first retweets of a given tweet.</p><p>Avaliable parameters: </p><p><i>long id (required)</i> : The numerical ID of the desired Tweet.</p><p><i>bool trim_user (optional)</i> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p><p><i>int count (optional)</i> : Specifies the number of records to retrieve. Must be less than or equal to 100.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Statuses.RetweetsOfMe(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">RetweetsOfMe</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a></nobr><blockquote><p>Returns the most recent tweets authored by the authenticating user that have recently been retweeted by others. This timeline is a subset of the user's GET statuses/user_timeline.</p><p>Avaliable parameters: </p><p><i>int count (optional)</i> : Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method.</p><p><i>int since_id(optional)</i> : Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p><p><i>int max_id (optional)</i> : Returns results with an ID less than (that is, older than) or equal to the specified ID.</p><p><i>bool trim_user (optional)</i> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p><p><i>bool include_entities (optional)</i> : The tweet entities node will be disincluded when set to false.</p><p><i>bool include_user_entities (optional)</i> :The user entities node will be disincluded when set to false..</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Statuses.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Show</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Status.html">CoreTweet.Status</a></nobr><blockquote><p>Returns a single Tweet, specified by the id parameter. The Tweet's author will also be embedded within the tweet.</p><p>Avaliable parameters: </p><p><i>long id (required)</i> : The numerical ID of the desired Tweet.</p><p><i>bool trim_user (optional)</i> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p><p><i>bool include_entities (optional)</i> : The entities node will be disincluded when set to false.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Statuses.Update(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Update</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Status.html">CoreTweet.Status</a></nobr><blockquote><p>Updates the authenticating user's current status, also known as tweeting. To upload an image to accompany the tweet, use POST statuses/update_with_media.</p><p>For each update attempt, the update text is compared with the authenticating user's recent tweets. Any attempt that would result in duplication will be blocked, resulting in a 403 error. Therefore, a user cannot submit the same status twice in a row.</p><p>While not rate limited by the API a user is limited in the number of tweets they can create at a time. If the number of updates posted by the user reaches the current allowed limit this method will return an HTTP 403 error.</p><p>Avaliable parameters: </p><p><i>string status (required)</i> : The text of your status update, typically up to 140 characters. URL encode as necessary. t.co link wrapping may effect character counts.</p><p><i>long in_reply_to_status_id (optional)</i> : The ID of an existing status that the update is in reply to.</p><p><i>double lat (optional)</i> : The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</p><p><i>double long (optional)</i> : The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</p><p><i>string place_id (optional)</i> : A place in the world. These IDs can be retrieved from GET geo/reverse_geocode.</p><p><i>bool display_coordinates (optional)</i> : Whether or not to put a pin on the exact coordinates a tweet has been sent from.</p><p><i>bool trim_user (optional)</i> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Statuses.UserTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">UserTimeline</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a></nobr><blockquote><p>Returns a collection of the most recent Tweets posted by the user indicated by the screen_name or user_id parameters. User timelines belonging to protected users may only be requested when the authenticated user either "owns" the timeline or is an approved follower of the owner. The timeline returned is the equivalent of the one seen when you view a user's profile on twitter.com. This method can only return up to 3,200 of a user's most recent Tweets. Native retweets of other statuses by the user is included in this total, regardless of whether include_rts is set to false when requesting this resource.</p><p>Avaliable parameters: </p><p><i>int user_id (optional)</i> : The ID of the user for whom to return results for.</p><p><i>string screen_name (optional)</i> : The screen name of the user for whom to return results for.</p><p><i>int count (optional)</i> : Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method.</p><p><i>int since_id(optional)</i> : Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p><p><i>int max_id (optional)</i> : Returns results with an ID less than (that is, older than) or equal to the specified ID.</p><p><i>bool trim_user (optional)</i> : When set to true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p><p><i>bool contributor_details (optional)</i> : This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included.</p><p><i>bool include_rts (optional)</i> : When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you're using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object.</p><p><i>bool exclude_replies (optional)</i> : This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies. This parameter is only supported for JSON and XML responses.</p></blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:CoreTweet.Core.Statuses:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="M:CoreTweet.Core.Statuses.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Destroy Method</h3>
+        <blockquote id="M:CoreTweet.Core.Statuses.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Destroys the status specified by the required ID parameter. The authenticating user must be the author of the specified status. Returns the destroyed status if successful.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long id (required)</i> : The numerical ID of the desired status.</p>
+            <p>
+              <i>bool trim_user (optional)</i> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../CoreTweet/Status.html">CoreTweet.Status</a> <b>Destroy</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The destroied status.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Statuses.Filter(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Filter Method</h3>
+        <blockquote id="M:CoreTweet.Core.Statuses.Filter(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns public statuses that match one or more filter predicates. Multiple parameters may be specified which allows most clients to use a single connection to the Streaming API. Both GET and POST requests are supported, but GET requests with too many parameters may cause the request to be rejected for excessive URL length. Use a POST request to avoid long URLs.</p>
+            <a href="javascript:alert(&quot;Documentation not found.&quot;)">https://dev.twitter.com/docs/streaming-apis/parameters</a>
+            <p>Note: At least one predicate parameter (follow, locations, or track) must be specified.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string follow (see note)</i> : A comma separated list of user IDs, indicating the users to return statuses for in the stream. See the follow parameter documentation for more information.</p>
+            <p>
+              <i>string track (see note)</i> : Keywords to track. Phrases of keywords are specified by a comma-separated list. See the track parameter documentation for more information.</p>
+            <p>
+              <i>string locations (see note)</i> : Specifies a set of bounding boxes to track. See the locations parameter documentation for more information.</p>
+            <p>
+              <i>string delimited (optional)</i> : Specifies whether messages should be length-delimited. See the delimited parameter documentation for more information.</p>
+            <p>
+              <i>string stall_warnings (optional)</i> : Specifies whether stall warnings should be delivered. See the stall_warnings parameter documentation for more information.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a> <b>Filter</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Filter(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Filter(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">Statuses.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Filter(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Filter(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Statuses.Firehose(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Firehose Method</h3>
+        <blockquote id="M:CoreTweet.Core.Statuses.Firehose(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns all public statuses. Few applications require this level of access. Creative use of a combination of other resources and various access levels can satisfy nearly every application use case.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>int count (optional)</i> : The number of messages to backfill. See the count parameter documentation for more information.</p>
+            <p>
+              <i>stringg delimited (optional)</i> : Specifies whether messages should be length-delimited. See the delimited parameter documentation for more information.</p>
+            <p>
+              <i>string stall_warnings (optional)</i> : Specifies whether stall warnings should be delivered. See the stall_warnings parameter documentation for more information.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">[System.Obsolete("This endpoint requires special permission to access. But not be obsolete.")]<br />public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a> <b>Firehose</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Firehose(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Firehose(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">Statuses.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Firehose(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Firehose(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Statuses.HomeTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">HomeTimeline Method</h3>
+        <blockquote id="M:CoreTweet.Core.Statuses.HomeTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns a collection of the most recent Tweets and retweets posted by the authenticating user and the users they follow. The home timeline is central to how most users interact with the Twitter service. Up to 800 Tweets are obtainable on the home timeline. It is more volatile for users that follow many users or follow users who tweet frequently.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>int count (optional)</i> : Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method.</p>
+            <p>
+              <i>int since_id(optional)</i> : Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p>
+            <p>
+              <i>int max_id (optional)</i> : Returns results with an ID less than (that is, older than) or equal to the specified ID.</p>
+            <p>
+              <i>bool trim_user (optional)</i> : When set to true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p>
+            <p>
+              <i>bool contributor_details (optional)</i> : This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included.</p>
+            <p>
+              <i>bool include_entities (optional)</i> : The entities node will be disincluded when set to false.</p>
+            <p>
+              <i>bool exclude_replies (optional)</i> : This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies. This parameter is only supported for JSON and XML responses.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a> <b>HomeTimeline</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.HomeTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>Parameters.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.HomeTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The statuses.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.HomeTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.HomeTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Statuses.MentionsTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">MentionsTimeline Method</h3>
+        <blockquote id="M:CoreTweet.Core.Statuses.MentionsTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns the 20 most recent mentions (tweets containing a users's @screen_name) for the authenticating user. The timeline returned is the equivalent of the one seen when you view your mentions on twitter.com. This method can only return up to 800 tweets. See Working with Timelines for instructions on traversing timelines.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>int count (optional)</i> : Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method.</p>
+            <p>
+              <i>int since_id(optional)</i> : Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p>
+            <p>
+              <i>int max_id (optional)</i> : Returns results with an ID less than (that is, older than) or equal to the specified ID.</p>
+            <p>
+              <i>bool trim_user (optional)</i> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p>
+            <p>
+              <i>bool contributor_details (optional)</i> : This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included.</p>
+            <p>
+              <i>bool include_entities (optional)</i> : The entities node will be disincluded when set to false.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a> <b>MentionsTimeline</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.MentionsTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>Parameters.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.MentionsTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The statuses.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.MentionsTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.MentionsTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Statuses.Oembed(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Oembed Method</h3>
+        <blockquote id="M:CoreTweet.Core.Statuses.Oembed(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns information allowing the creation of an embedded representation of a Tweet on third party sites. See the oEmbed specification for information about the response format.</p>
+            <p>While this endpoint allows a bit of customization for the final appearance of the embedded Tweet, be aware that the appearance of the rendered Tweet may change over time to be consistent with Twitter's Display Requirements. Do not rely on any class or id parameters to stay constant in the returned markup.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long id (required)</i> : The Tweet/status ID to return embed code for.</p>
+            <p>
+              <i>int maxwidth (optional)</i> : The maximum width in pixels that the embed should be rendered at. This value is constrained to be between 250 and 550 pixels. Note that Twitter does not support the oEmbed maxheight parameter. Tweets are fundamentally text, and are therefore of unpredictable height that cannot be scaled like an image or video. Relatedly, the oEmbed response will not provide a value for height. Implementations that need consistent heights for Tweets should refer to the hide_thread and hide_media parameters below.</p>
+            <p>
+              <i>bool hide_media (optional)</i> : Specifies whether the embedded Tweet should automatically expand images which were uploaded via POST statuses/update_with_media. When set to either true, t or 1 images will not be expanded. Defaults to false.</p>
+            <p>
+              <i>bool hide_thread (optional)</i> : Specifies whether the embedded Tweet should automatically show the original message in the case that the embedded Tweet is a reply. When set to either true, t or 1 the original Tweet will not be shown. Defaults to false.</p>
+            <p>
+              <i>bool omit_script (optional)</i> : Specifies whether the embedded Tweet HTML should include a "script" element pointing to widgets.js. In cases where a page already includes widgets.js, setting this value to true will prevent a redundant script element from being included. When set to either true, t or 1 the "script" element will not be included in the embed HTML, meaning that pages must include a reference to widgets.js manually. Defaults to false.</p>
+            <p>
+              <i>string align (optional)</i> : Specifies whether the embedded Tweet should be left aligned, right aligned, or centered in the page. Valid values are left, right, center, and none. Defaults to none, meaning no alignment styles are specified for the Tweet.</p>
+            <p>
+              <i>string related (optional)</i> : A value for the TWT related parameter, as described in Web Intents. This value will be forwarded to all Web Intents calls.</p>
+            <p>
+              <i>string lang (optional)</i> : Language code for the rendered embed. This will affect the text and localization of the rendered HTML.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../CoreTweet/Embed.html">CoreTweet.Embed</a> <b>Oembed</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Oembed(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Oembed(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The HTML code and more.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Oembed(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Oembed(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Statuses.Retweet(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Retweet Method</h3>
+        <blockquote id="M:CoreTweet.Core.Statuses.Retweet(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Retweets a tweet. Returns the original tweet with retweet details embedded.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long id (required)</i> : The numerical ID of the desired status.</p>
+            <p>
+              <i>bool trim_user (optional)</i> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../CoreTweet/Status.html">CoreTweet.Status</a> <b>Retweet</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Retweet(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Retweet(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The retweeted status.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Retweet(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Retweet(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Statuses.Retweets(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Retweets Method</h3>
+        <blockquote id="M:CoreTweet.Core.Statuses.Retweets(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns up to 100 of the first retweets of a given tweet.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long id (required)</i> : The numerical ID of the desired Tweet.</p>
+            <p>
+              <i>bool trim_user (optional)</i> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p>
+            <p>
+              <i>int count (optional)</i> : Specifies the number of records to retrieve. Must be less than or equal to 100.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a> <b>Retweets</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Retweets(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Retweets(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">Statuses.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Retweets(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Retweets(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Statuses.RetweetsOfMe(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">RetweetsOfMe Method</h3>
+        <blockquote id="M:CoreTweet.Core.Statuses.RetweetsOfMe(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns the most recent tweets authored by the authenticating user that have recently been retweeted by others. This timeline is a subset of the user's GET statuses/user_timeline.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>int count (optional)</i> : Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method.</p>
+            <p>
+              <i>int since_id(optional)</i> : Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p>
+            <p>
+              <i>int max_id (optional)</i> : Returns results with an ID less than (that is, older than) or equal to the specified ID.</p>
+            <p>
+              <i>bool trim_user (optional)</i> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p>
+            <p>
+              <i>bool include_entities (optional)</i> : The tweet entities node will be disincluded when set to false.</p>
+            <p>
+              <i>bool include_user_entities (optional)</i> :The user entities node will be disincluded when set to false..</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a> <b>RetweetsOfMe</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.RetweetsOfMe(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>Parameters.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.RetweetsOfMe(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The statuses.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.RetweetsOfMe(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.RetweetsOfMe(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Statuses.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Show Method</h3>
+        <blockquote id="M:CoreTweet.Core.Statuses.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns a single Tweet, specified by the id parameter. The Tweet's author will also be embedded within the tweet.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long id (required)</i> : The numerical ID of the desired Tweet.</p>
+            <p>
+              <i>bool trim_user (optional)</i> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p>
+            <p>
+              <i>bool include_entities (optional)</i> : The entities node will be disincluded when set to false.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../CoreTweet/Status.html">CoreTweet.Status</a> <b>Show</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The status.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Statuses.Update(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Update Method</h3>
+        <blockquote id="M:CoreTweet.Core.Statuses.Update(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Updates the authenticating user's current status, also known as tweeting. To upload an image to accompany the tweet, use POST statuses/update_with_media.</p>
+            <p>For each update attempt, the update text is compared with the authenticating user's recent tweets. Any attempt that would result in duplication will be blocked, resulting in a 403 error. Therefore, a user cannot submit the same status twice in a row.</p>
+            <p>While not rate limited by the API a user is limited in the number of tweets they can create at a time. If the number of updates posted by the user reaches the current allowed limit this method will return an HTTP 403 error.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string status (required)</i> : The text of your status update, typically up to 140 characters. URL encode as necessary. t.co link wrapping may effect character counts.</p>
+            <p>
+              <i>long in_reply_to_status_id (optional)</i> : The ID of an existing status that the update is in reply to.</p>
+            <p>
+              <i>double lat (optional)</i> : The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</p>
+            <p>
+              <i>double long (optional)</i> : The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</p>
+            <p>
+              <i>string place_id (optional)</i> : A place in the world. These IDs can be retrieved from GET geo/reverse_geocode.</p>
+            <p>
+              <i>bool display_coordinates (optional)</i> : Whether or not to put a pin on the exact coordinates a tweet has been sent from.</p>
+            <p>
+              <i>bool trim_user (optional)</i> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../CoreTweet/Status.html">CoreTweet.Status</a> <b>Update</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Update(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.Update(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The updated status.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Update(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.Update(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Statuses.UserTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">UserTimeline Method</h3>
+        <blockquote id="M:CoreTweet.Core.Statuses.UserTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns a collection of the most recent Tweets posted by the user indicated by the screen_name or user_id parameters. User timelines belonging to protected users may only be requested when the authenticated user either "owns" the timeline or is an approved follower of the owner. The timeline returned is the equivalent of the one seen when you view a user's profile on twitter.com. This method can only return up to 3,200 of a user's most recent Tweets. Native retweets of other statuses by the user is included in this total, regardless of whether include_rts is set to false when requesting this resource.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>int user_id (optional)</i> : The ID of the user for whom to return results for.</p>
+            <p>
+              <i>string screen_name (optional)</i> : The screen name of the user for whom to return results for.</p>
+            <p>
+              <i>int count (optional)</i> : Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method.</p>
+            <p>
+              <i>int since_id(optional)</i> : Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p>
+            <p>
+              <i>int max_id (optional)</i> : Returns results with an ID less than (that is, older than) or equal to the specified ID.</p>
+            <p>
+              <i>bool trim_user (optional)</i> : When set to true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</p>
+            <p>
+              <i>bool contributor_details (optional)</i> : This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included.</p>
+            <p>
+              <i>bool include_rts (optional)</i> : When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you're using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object.</p>
+            <p>
+              <i>bool exclude_replies (optional)</i> : This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies. This parameter is only supported for JSON and XML responses.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a> <b>UserTimeline</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.UserTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>Parameters.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Statuses.UserTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The statuses.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.UserTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Statuses.UserTimeline(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

@@ -220,7 +220,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:CoreTweet.GeoResult:Docs:Version Information">
-        <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
+        <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -253,6 +253,62 @@
         <div class="SectionBox" id="Public Properties">
           <div class="SubsectionBox">
             <table class="TypeMembers">
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessToken">AccessToken</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The access token.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">CoreTweet.Core._Tokens</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessTokenSecret">AccessTokenSecret</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The access token secret.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">CoreTweet.Core._Tokens</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerKey">ConsumerKey</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The consumer key.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">CoreTweet.Core._Tokens</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerSecret">ConsumerSecret</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The consumer secret.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">CoreTweet.Core._Tokens</a>.</i>)</td>
+              </tr>
               <tr valign="top">
                 <td>
                   <div>
@@ -339,7 +395,7 @@
                   <b>
                     <a href="../Alice/Extensions.html#M:Alice.Extensions.Conbinate``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})">Conbinate&lt;T1,T2&gt;</a>
                   </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T1&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T2&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;T1, T2&gt;&gt;</a></nobr><blockquote>
-            Gets all combinations of this and specified target.
+            Gets all combinations of this and the specified target.
             </blockquote></td>
               </tr>
               <tr valign="top">
@@ -348,8 +404,8 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="../CoreTweet.Ex/StatusExtension.html#M:CoreTweet.Ex.StatusExtension.DestroyAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">DestroyAll</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a>, <a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>
+                    <a href="../CoreTweet.Ex/StatusExtension.html#M:CoreTweet.Ex.StatusExtension.DestroyAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">DestroyAll</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>
             Destroy all of these tweets.
             </blockquote></td>
               </tr>
@@ -359,8 +415,8 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="../CoreTweet.Ex/StatusExtension.html#M:CoreTweet.Ex.StatusExtension.FavoriteAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">FavoriteAll</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a>, <a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>
+                    <a href="../CoreTweet.Ex/StatusExtension.html#M:CoreTweet.Ex.StatusExtension.FavoriteAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">FavoriteAll</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>
             Favorite all of these tweets.
             </blockquote></td>
               </tr>
@@ -370,8 +426,8 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="../CoreTweet.Ex/UserExtension.html#M:CoreTweet.Ex.UserExtension.FollowAll(System.Collections.Generic.IEnumerable{CoreTweet.User},CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">FollowAll</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;User&gt;</a>, <a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;User&gt;</a></nobr><blockquote>
+                    <a href="../CoreTweet.Ex/UserExtension.html#M:CoreTweet.Ex.UserExtension.FollowAll(System.Collections.Generic.IEnumerable{CoreTweet.User},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">FollowAll</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;User&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;User&gt;</a></nobr><blockquote>
             Follow all of these users.
             </blockquote></td>
               </tr>
@@ -392,8 +448,8 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="../CoreTweet.Ex/StatusExtension.html#M:CoreTweet.Ex.StatusExtension.ReplyToAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},CoreTweet.Tokens,System.Func{CoreTweet.Status,System.String},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">ReplyToAll</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a>, <a href="../CoreTweet/Tokens.html">Tokens</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;Status, string&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>
+                    <a href="../CoreTweet.Ex/StatusExtension.html#M:CoreTweet.Ex.StatusExtension.ReplyToAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},System.Func{CoreTweet.Status,System.String},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">ReplyToAll</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;Status, string&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>
             Reply to all of these tweets.
             </blockquote></td>
               </tr>
@@ -403,8 +459,8 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="../CoreTweet.Ex/StatusExtension.html#M:CoreTweet.Ex.StatusExtension.RetweetAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">RetweetAll</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a>, <a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>
+                    <a href="../CoreTweet.Ex/StatusExtension.html#M:CoreTweet.Ex.StatusExtension.RetweetAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">RetweetAll</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>
             Retweet all of these tweets.
             </blockquote></td>
               </tr>
@@ -414,8 +470,8 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="../CoreTweet.Ex/StatusExtension.html#M:CoreTweet.Ex.StatusExtension.UnfavoriteAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">UnfavoriteAll</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a>, <a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>
+                    <a href="../CoreTweet.Ex/StatusExtension.html#M:CoreTweet.Ex.StatusExtension.UnfavoriteAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">UnfavoriteAll</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>
             Un-favorite all of these tweets.
             </blockquote></td>
               </tr>
@@ -425,8 +481,8 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="../CoreTweet.Ex/UserExtension.html#M:CoreTweet.Ex.UserExtension.UnfollowAll(System.Collections.Generic.IEnumerable{CoreTweet.User},CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">UnfollowAll</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;User&gt;</a>, <a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;User&gt;</a></nobr><blockquote>
+                    <a href="../CoreTweet.Ex/UserExtension.html#M:CoreTweet.Ex.UserExtension.UnfollowAll(System.Collections.Generic.IEnumerable{CoreTweet.User},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">UnfollowAll</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;User&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;User&gt;</a></nobr><blockquote>
             Un-follow all of these users.
             </blockquote></td>
               </tr>
@@ -451,7 +507,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:CoreTweet.GeoResult:Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.GeoResult.GetEnumerator">GetEnumerator Method</h3>
@@ -471,7 +527,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.GeoResult.GetEnumerator:Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:CoreTweet.GeoResult.Places">Places Property</h3>
@@ -491,7 +547,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:CoreTweet.GeoResult.Places:Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.GeoResult.System#Collections#Generic#IEnumerable{CoreTweet#Place}#GetEnumerator">System.Collections.Generic.IEnumerable&lt;CoreTweet.Place&gt;.GetEnumerator Method</h3>
@@ -512,7 +568,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.GeoResult.System#Collections#Generic#IEnumerable{CoreTweet#Place}#GetEnumerator:Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:CoreTweet.GeoResult.Token">Token Property</h3>
@@ -532,7 +588,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:CoreTweet.GeoResult.Token:Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
           <hr size="1" />
         </blockquote>
       </div>

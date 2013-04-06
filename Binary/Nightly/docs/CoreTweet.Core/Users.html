@@ -1,0 +1,725 @@
+<html>
+  <head>
+    <title>CoreTweet.Core.Users</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">CoreTweet</a> : <a href="index.html">CoreTweet.Core Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:CoreTweet.Core.Users">Overview</a>
+      </p>
+      <p>
+        <a href="#T:CoreTweet.Core.Users:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:CoreTweet.Core.Users:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:CoreTweet.Core.Users:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:CoreTweet.Core.Users">Users  Class</h1>
+    <p class="Summary" id="T:CoreTweet.Core.Users:Summary">GET/POST users</p>
+    <div id="T:CoreTweet.Core.Users:Signature">
+      <h2>Syntax</h2>
+      <div class="Signature">public class  <b>Users</b> : <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a></div>
+    </div>
+    <div class="Remarks" id="T:CoreTweet.Core.Users:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:CoreTweet.Core.Users:Docs:Remarks">
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:CoreTweet.Core.Users:Docs:Version Information">
+        <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.
+							</p>
+        <h2 class="Section">Public Properties</h2>
+        <div class="SectionBox" id="Public Properties">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessToken">AccessToken</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The access token.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessTokenSecret">AccessTokenSecret</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The access token secret.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerKey">ConsumerKey</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The consumer key.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerSecret">ConsumerSecret</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The consumer secret.
+             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Users.Contributees(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Contributees</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.User&gt;</a></nobr><blockquote><p>Returns a collection of users that the specified user can "contribute" to.</p><p>Note: A user_id or screen_name is required.</p><p>Avaliable parameters: </p><p><i>long user_id (optional)</i> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</p><p><i>string screen_name (optional)</i> : The screen name of the user for whom to return results for.</p><p><i>bool include_entities (optional)</i> : The entities node will be disincluded when set to false.</p><p><i>bool skip_status (optional)</i> : When set to either true, t or 1 statuses will not be included in the returned user objects.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Users.Contributors(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Contributors</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.User&gt;</a></nobr><blockquote><p>Returns a collection of users who can contribute to the specified account.</p><p>Note: A user_id or screen_name is required.</p><p>Avaliable parameters: </p><p><i>long user_id (optional)</i> : The ID of the user for whom to return results for.</p><p><i>string screen_name (optional)</i> : The screen name of the user for whom to return results for.</p><p><i>bool include_entities (optional)</i> : The entities node will be disincluded when set to false.</p><p><i>bool skip_status (optional)</i> : When set to either true, t or 1 statuses will not be included in the returned user objects.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Users.Lookup(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Lookup</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.User&gt;</a></nobr><blockquote><p>Returns fully-hydrated user objects for up to 100 users per request, as specified by comma-separated values passed to the user_id and/or screen_name parameters.</p><p>This method is especially useful when used in conjunction with collections of user IDs returned from GET friends/ids and GET followers/ids.</p><p>GET users/show is used to retrieve a single user object.</p><p>Avaliable parameters: </p><p><i>string user_id (optional)</i> : A comma separated list of user IDs, up to 100 are allowed in a single request. You are strongly encouraged to use a POST for larger requests.</p><p><i>string screen_name (optional)</i> : A comma separated list of screen names, up to 100 are allowed in a single request. You are strongly encouraged to use a POST for larger (up to 100 screen names) requests.</p><p><i>bool include_entities (optional)</i> : The entities node that may appear within embedded statuses will be disincluded when set to false.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Users.ProfileBanner(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">ProfileBanner</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Size.html">CoreTweet.Size</a></nobr><blockquote><p>Returns the size of the specified user's profile banner. If the user has not uploaded a profile banner, a HTTP 404 will be served instead. This method can be used instead of string manipulation on the profile_banner_url returned in user objects as described in User Profile Images and Banners.</p><p>Note: Always specify either an user_id or screen_name when requesting this method.</p><p>Avaliable parameters: </p><p><i>long id (optional)</i> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</p><p><i>string screen_name (optional)</i> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Users.ReportSpam(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">ReportSpam</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/User.html">CoreTweet.User</a></nobr><blockquote><p>Report the specified user as a spam account to Twitter. Additionally performs the equivalent of POST blocks/create on behalf of the authenticated user.</p><p>Note: One of these parameters must be provided.</p><p>Avaliable parameters: </p><p><i>string screen_name (optional)</i> : The ID or screen_name of the user you want to report as a spammer. Helpful for disambiguating when a valid screen name is also a user ID.</p><p><i>long user_id (optional)</i> : The ID of the user you want to report as a spammer. Helpful for disambiguating when a valid user ID is also a valid screen name.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Users.Search(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Search</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.User&gt;</a></nobr><blockquote><p>Provides a simple, relevance-based search interface to public user accounts on Twitter. Try querying by topical interest, full name, company name, location, or other criteria. Exact match searches are not supported.</p><p>Only the first 1,000 matching results are available.</p><p>Avaliable parameters: </p><p><i>string q (required)</i> : The search query to run against people search.</p><p><i>int page (optional)</i> : Specifies the page of results to retrieve.</p><p><i>int count (optional)</i> : The number of potential user results to retrieve per page. This value has a maximum of 20.</p><p><i>bool include_entities (optional)</i> : The entities node will be disincluded from embedded tweet objects when set to false.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Users.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Show</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/User.html">CoreTweet.User</a></nobr><blockquote><p>Returns a variety of information about the user specified by the required user_id or screen_name parameter. The author's most recent Tweet will be returned inline when possible.</p><p>GET users/lookup is used to retrieve a bulk collection of user objects.</p><p>Avaliable parameters: </p><p><i>long user_id (required)</i> : The ID of the user for whom to return results for. Either an id or screen_name is required for this method.</p><p><i>string screen_name (required)</i> : The screen name of the user for whom to return results for. Either a id or screen_name is required for this method.</p><p><i>bool include_entities (optional)</i> : The entities node will be disincluded when set to false.</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Users.SuggestedMembers(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">SuggestedMembers</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.User&gt;</a></nobr><blockquote><p>Access the users in a given category of the Twitter suggested user list and return their most recent status if they are not a protected user.</p><p>Avaliable parameters: </p><p><i>string slug (required)</i> : The short name of list or a category</p></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:CoreTweet.Core.Users.Suggestions(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Suggestions</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Category&gt;</a></nobr><blockquote><p>Access to Twitter's suggested user list. This returns the list of suggested user categories. The category can be used in GET users/suggestions/:slug to get the users in that category.</p><p>Avaliable parameters: </p><p><i>string lang (optional)</i> : Restricts the suggested categories to the requested language. The language must be specified by the appropriate two letter ISO 639-1 representation. Currently supported languages are provided by the GET help/languages API request. Unsupported language codes will receive English (en) results. If you use lang in this request, ensure you also include it when requesting the GET users/suggestions/:slug list.</p></blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:CoreTweet.Core.Users:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="M:CoreTweet.Core.Users.Contributees(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Contributees Method</h3>
+        <blockquote id="M:CoreTweet.Core.Users.Contributees(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns a collection of users that the specified user can "contribute" to.</p>
+            <p>Note: A user_id or screen_name is required.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long user_id (optional)</i> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</p>
+            <p>
+              <i>string screen_name (optional)</i> : The screen name of the user for whom to return results for.</p>
+            <p>
+              <i>bool include_entities (optional)</i> : The entities node will be disincluded when set to false.</p>
+            <p>
+              <i>bool skip_status (optional)</i> : When set to either true, t or 1 statuses will not be included in the returned user objects.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.User&gt;</a> <b>Contributees</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.Contributees(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.Contributees(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">Users.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.Contributees(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.Contributees(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Users.Contributors(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Contributors Method</h3>
+        <blockquote id="M:CoreTweet.Core.Users.Contributors(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns a collection of users who can contribute to the specified account.</p>
+            <p>Note: A user_id or screen_name is required.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long user_id (optional)</i> : The ID of the user for whom to return results for.</p>
+            <p>
+              <i>string screen_name (optional)</i> : The screen name of the user for whom to return results for.</p>
+            <p>
+              <i>bool include_entities (optional)</i> : The entities node will be disincluded when set to false.</p>
+            <p>
+              <i>bool skip_status (optional)</i> : When set to either true, t or 1 statuses will not be included in the returned user objects.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.User&gt;</a> <b>Contributors</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.Contributors(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.Contributors(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">Users.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.Contributors(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.Contributors(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Users.Lookup(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Lookup Method</h3>
+        <blockquote id="M:CoreTweet.Core.Users.Lookup(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns fully-hydrated user objects for up to 100 users per request, as specified by comma-separated values passed to the user_id and/or screen_name parameters.</p>
+            <p>This method is especially useful when used in conjunction with collections of user IDs returned from GET friends/ids and GET followers/ids.</p>
+            <p>GET users/show is used to retrieve a single user object.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string user_id (optional)</i> : A comma separated list of user IDs, up to 100 are allowed in a single request. You are strongly encouraged to use a POST for larger requests.</p>
+            <p>
+              <i>string screen_name (optional)</i> : A comma separated list of screen names, up to 100 are allowed in a single request. You are strongly encouraged to use a POST for larger (up to 100 screen names) requests.</p>
+            <p>
+              <i>bool include_entities (optional)</i> : The entities node that may appear within embedded statuses will be disincluded when set to false.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.User&gt;</a> <b>Lookup</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.Lookup(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.Lookup(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">Users.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.Lookup(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.Lookup(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Users.ProfileBanner(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">ProfileBanner Method</h3>
+        <blockquote id="M:CoreTweet.Core.Users.ProfileBanner(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns the size of the specified user's profile banner. If the user has not uploaded a profile banner, a HTTP 404 will be served instead. This method can be used instead of string manipulation on the profile_banner_url returned in user objects as described in User Profile Images and Banners.</p>
+            <p>Note: Always specify either an user_id or screen_name when requesting this method.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long id (optional)</i> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</p>
+            <p>
+              <i>string screen_name (optional)</i> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../CoreTweet/Size.html">CoreTweet.Size</a> <b>ProfileBanner</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.ProfileBanner(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.ProfileBanner(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The size.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.ProfileBanner(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.ProfileBanner(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Users.ReportSpam(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">ReportSpam Method</h3>
+        <blockquote id="M:CoreTweet.Core.Users.ReportSpam(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Report the specified user as a spam account to Twitter. Additionally performs the equivalent of POST blocks/create on behalf of the authenticated user.</p>
+            <p>Note: One of these parameters must be provided.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string screen_name (optional)</i> : The ID or screen_name of the user you want to report as a spammer. Helpful for disambiguating when a valid screen name is also a user ID.</p>
+            <p>
+              <i>long user_id (optional)</i> : The ID of the user you want to report as a spammer. Helpful for disambiguating when a valid user ID is also a valid screen name.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../CoreTweet/User.html">CoreTweet.User</a> <b>ReportSpam</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.ReportSpam(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.ReportSpam(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The User.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.ReportSpam(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.ReportSpam(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Users.Search(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Search Method</h3>
+        <blockquote id="M:CoreTweet.Core.Users.Search(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Provides a simple, relevance-based search interface to public user accounts on Twitter. Try querying by topical interest, full name, company name, location, or other criteria. Exact match searches are not supported.</p>
+            <p>Only the first 1,000 matching results are available.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string q (required)</i> : The search query to run against people search.</p>
+            <p>
+              <i>int page (optional)</i> : Specifies the page of results to retrieve.</p>
+            <p>
+              <i>int count (optional)</i> : The number of potential user results to retrieve per page. This value has a maximum of 20.</p>
+            <p>
+              <i>bool include_entities (optional)</i> : The entities node will be disincluded from embedded tweet objects when set to false.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.User&gt;</a> <b>Search</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.Search(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.Search(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">Users.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.Search(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.Search(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Users.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Show Method</h3>
+        <blockquote id="M:CoreTweet.Core.Users.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Returns a variety of information about the user specified by the required user_id or screen_name parameter. The author's most recent Tweet will be returned inline when possible.</p>
+            <p>GET users/lookup is used to retrieve a bulk collection of user objects.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long user_id (required)</i> : The ID of the user for whom to return results for. Either an id or screen_name is required for this method.</p>
+            <p>
+              <i>string screen_name (required)</i> : The screen name of the user for whom to return results for. Either a id or screen_name is required for this method.</p>
+            <p>
+              <i>bool include_entities (optional)</i> : The entities node will be disincluded when set to false.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../CoreTweet/User.html">CoreTweet.User</a> <b>Show</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The user.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Users.SuggestedMembers(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">SuggestedMembers Method</h3>
+        <blockquote id="M:CoreTweet.Core.Users.SuggestedMembers(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Access the users in a given category of the Twitter suggested user list and return their most recent status if they are not a protected user.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string slug (required)</i> : The short name of list or a category</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.User&gt;</a> <b>SuggestedMembers</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.SuggestedMembers(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.SuggestedMembers(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">Users.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.SuggestedMembers(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.SuggestedMembers(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:CoreTweet.Core.Users.Suggestions(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Suggestions Method</h3>
+        <blockquote id="M:CoreTweet.Core.Users.Suggestions(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+          <p class="Summary">
+            <p>Access to Twitter's suggested user list. This returns the list of suggested user categories. The category can be used in GET users/suggestions/:slug to get the users in that category.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string lang (optional)</i> : Restricts the suggested categories to the requested language. The language must be specified by the appropriate two letter ISO 639-1 representation. Currently supported languages are provided by the GET help/languages API request. Unsupported language codes will receive English (en) results. If you use lang in this request, ensure you also include it when requesting the GET users/suggestions/:slug list.</p>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Category&gt;</a> <b>Suggestions</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.Suggestions(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Users.Suggestions(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">Catgories.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.Suggestions(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:CoreTweet.Core.Users.Suggestions(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>
