@@ -5,13 +5,16 @@ using System.Collections.Generic;
 using Codeplex.Data;
 using CoreTweet.Core;
 
-namespace CoreTweet
+namespace CoreTweet.Core
 {
+
+    
     /// <summary>
     ///  GET/POST saved_searches
     /// </summary>
-    public static class SavedSearches
+    public class SavedSearches : _Tokens
     {
+        internal SavedSearches() { }
         //DONE!
         //GET Methods
         
@@ -26,10 +29,10 @@ namespace CoreTweet
         /// <param name='parameters'>
         /// Parameters.
         /// </param>
-        public static IEnumerable<SearchQuery> List(Tokens tokens, params Expression<Func<string,object>>[] parameters)
+        public IEnumerable<SearchQuery> List(params Expression<Func<string,object>>[] parameters)
         {
             return CoreBase.ConvertArray<SearchQuery>(DynamicJson.Parse(
-                Request.Send(tokens, MethodType.GET, Rest.Url("saved_searches/list"), parameters)));
+                Request.Send(this, MethodType.GET, Tokens.Url("saved_searches/list"), parameters)));
         }
         
         /// <summary>
@@ -44,10 +47,10 @@ namespace CoreTweet
         /// <param name='parameters'>
         /// Parameters.
         /// </param>
-        public static SearchQuery Show(Tokens tokens, params Expression<Func<string,object>>[] parameters)
+        public SearchQuery Show(params Expression<Func<string,object>>[] parameters)
         {
             return CoreBase.Convert<SearchQuery>(DynamicJson.Parse(
-                Request.Send(tokens, MethodType.GET, Rest.Url(string.Format("saved_searches/show/{0}", 
+                Request.Send(this, MethodType.GET, Tokens.Url(string.Format("saved_searches/show/{0}", 
                     parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), 
                          parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
         }
@@ -66,10 +69,10 @@ namespace CoreTweet
         /// <param name='parameters'>
         /// Parameters.
         /// </param>
-        public static SearchQuery Create(Tokens tokens, params Expression<Func<string,object>>[] parameters)
+        public SearchQuery Create(params Expression<Func<string,object>>[] parameters)
         {
             return CoreBase.Convert<SearchQuery>(DynamicJson.Parse(
-                Request.Send(tokens, MethodType.POST, Rest.Url("saved_searches/create"), parameters)));
+                Request.Send(this, MethodType.POST, Tokens.Url("saved_searches/create"), parameters)));
         }
         
         /// <summary>
@@ -84,12 +87,12 @@ namespace CoreTweet
         /// <param name='parameters'>
         /// Parameters.
         /// </param>
-        public static SearchQuery Destroy(Tokens tokens, params Expression<Func<string,object>>[] parameters)
+        public SearchQuery Destroy(params Expression<Func<string,object>>[] parameters)
         {
             return CoreBase.Convert<SearchQuery>(DynamicJson.Parse(
-                Request.Send(tokens, MethodType.POST, Rest.Url(string.Format("saved_searches/destroy/{0}", 
+                Request.Send(this, MethodType.POST, Tokens.Url(string.Format("saved_searches/destroy/{0}", 
                     parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())),
                          parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
         }
-    }
+    }    
 }

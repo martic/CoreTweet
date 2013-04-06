@@ -1,0 +1,6 @@
+Name: CoreTweet
+Description: CoreTweet
+Version: 0.1
+
+Requires: 
+Libs: -r:/usr/local/lib/coretweet/CoreTweet.dll

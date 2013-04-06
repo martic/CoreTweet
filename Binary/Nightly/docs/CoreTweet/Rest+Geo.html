@@ -206,9 +206,7 @@
       </p>
     </div>
     <h1 class="PageTitle" id="T:CoreTweet.Rest.Geo">Rest.Geo  Class</h1>
-    <p class="Summary" id="T:CoreTweet.Rest.Geo:Summary">
-      <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-    </p>
+    <p class="Summary" id="T:CoreTweet.Rest.Geo:Summary">GET/POST geo</p>
     <div id="T:CoreTweet.Rest.Geo:Signature">
       <h2>Syntax</h2>
       <div class="Signature">public static class  <b>Rest.Geo</b></div>
@@ -220,7 +218,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:CoreTweet.Rest.Geo:Docs:Version Information">
-        <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+        <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -238,7 +236,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Geo.Id(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Id</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Place.html">Place</a></nobr><blockquote>Returns all the information about a known place.</blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Place.html">Place</a></nobr><blockquote><p>Returns all the information about a known place.</p><p>Avaliable parameters: </p><p><i>string place_id (required)</i> : A place in the world. These IDs can be retrieved from geo/reverse_geocode.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -247,7 +245,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Geo.Place(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Place</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Place.html">Place</a></nobr><blockquote><p>Creates a new place object at the given latitude and longitude.</p><p>Before creating a place you need to query GET geo/similar_places with the latitude, longitude and name of the place you wish to create. The query will return an array of places which are similar to the one you wish to create, and a token. If the place you wish to create isn't in the returned array you can use the token with this method to create a new one.</p></blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Place.html">Place</a></nobr><blockquote><p>Creates a new place object at the given latitude and longitude.</p><p>Before creating a place you need to query GET geo/similar_places with the latitude, longitude and name of the place you wish to create. The query will return an array of places which are similar to the one you wish to create, and a token. If the place you wish to create isn't in the returned array you can use the token with this method to create a new one.</p><p>Avaliable parameters: </p><p><i>string name (required)</i> : The name a place is known as.</p><p><i>string contained_within (required)</i> : The place_id within which the new place can be found. Try and be as close as possible with the containing place. For example, for a room in a building, set the contained_within as the building place_id.</p><p><i>string token (required)</i> : The token found in the response from geo/similar_places.</p><p><i>double lat (required)</i> : The latitude the place is located at. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</p><p><i>double long (required)</i> : The longitude the place is located at. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</p><p><i>attribute:street_address (optional)</i> : This parameter searches for places which have this given street address. There are other well-known, and application specific attributes available. Custom attributes are also permitted. </p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -256,7 +254,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Geo.ReverseGeocode(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">ReverseGeocode</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/GeoResult.html">GeoResult</a></nobr><blockquote><p>Given a latitude and a longitude, searches for up to 20 places that can be used as a place_id when updating a status.</p><p>This request is an informative call and will deliver generalized results about geography.</p></blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/GeoResult.html">GeoResult</a></nobr><blockquote><p>Given a latitude and a longitude, searches for up to 20 places that can be used as a place_id when updating a status.</p><p>This request is an informative call and will deliver generalized results about geography.</p><p>Avaliable parameters: </p><p><i>double lat (required)</i> : The latitude to search around. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</p><p><i>double long (required)</i> : The longitude to search around. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</p><p><i>string accuracy (optional)</i> : A hint on the "region" in which to search. If a number, then this is a radius in meters, but it can also take a string that is suffixed with ft to specify feet. If this is not passed in, then it is assumed to be 0m. If coming from a device, in practice, this value is whatever accuracy the device has measuring its location (whether it be coming from a GPS, WiFi triangulation, etc.).</p><p><i>string granularity (optional)</i> : This is the minimal granularity of place types to return and must be one of: poi, neighborhood, city, admin or country. If no granularity is provided for the request neighborhood is assumed. Setting this to city, for example, will find places which have a type of city, admin or country.</p><p><i>int max_results (optional)</i> : A hint as to the number of results to return. This does not guarantee that the number of results returned will equal max_results, but instead informs how many "nearby" results to return. Ideally, only pass in the number of places you intend to display to the user here.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -265,7 +263,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Geo.Search(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Search</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/GeoResult.html">GeoResult</a></nobr><blockquote><p>Search for places that can be attached to a statuses/update. Given a latitude and a longitude pair, an IP address, or a name, this request will return a list of all the valid places that can be used as the place_id when updating a status.</p><p>Conceptually, a query can be made from the user's location, retrieve a list of places, have the user validate the location he or she is at, and then send the ID of this location with a call to POST statuses/update.</p><p>This is the recommended method to use find places that can be attached to statuses/update. Unlike GET geo/reverse_geocode which provides raw data access, this endpoint can potentially re-order places with regards to the user who is authenticated. This approach is also preferred for interactive place matching with the user.</p></blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/GeoResult.html">GeoResult</a></nobr><blockquote><p>Search for places that can be attached to a statuses/update. Given a latitude and a longitude pair, an IP address, or a name, this request will return a list of all the valid places that can be used as the place_id when updating a status.</p><p>Conceptually, a query can be made from the user's location, retrieve a list of places, have the user validate the location he or she is at, and then send the ID of this location with a call to POST statuses/update.</p><p>This is the recommended method to use find places that can be attached to statuses/update. Unlike GET geo/reverse_geocode which provides raw data access, this endpoint can potentially re-order places with regards to the user who is authenticated. This approach is also preferred for interactive place matching with the user.</p><p>Note: At least one of the following parameters must be provided to this resource: lat, long, ip, or query</p><p>Avaliable parameters: </p><p><i>double lat (optional)</i> : The latitude to search around. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</p><p><i>double long (optional)</i> : The longitude to search around. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</p><p><i>string query (optional)</i> : Free-form text to match against while executing a geo-based query, best suited for finding nearby locations by name. Remember to URL encode the query.</p><p><i>string ip (optional)</i> : An IP address. Used when attempting to fix geolocation based off of the user's IP address.</p><p><i>string granularity (optional)</i> : This is the minimal granularity of place types to return and must be one of: poi, neighborhood, city, admin or country. If no granularity is provided for the request neighborhood is assumed. Setting this to city, for example, will find places which have a type of city, admin or country.</p><p><i>string accuracy (optional)</i> : A hint on the "region" in which to search. If a number, then this is a radius in meters, but it can also take a string that is suffixed with ft to specify feet. If this is not passed in, then it is assumed to be 0m. If coming from a device, in practice, this value is whatever accuracy the device has measuring its location (whether it be coming from a GPS, WiFi triangulation, etc.).</p><p><i>int max_results (optional)</i> : A hint as to the number of results to return. This does not guarantee that the number of results returned will equal max_results, but instead informs how many "nearby" results to return. Ideally, only pass in the number of places you intend to display to the user here.</p><p><i>string contained_within (optional)</i> : This is the place_id which you would like to restrict the search results to. Setting this value means only places within the given place_id will be found.</p><p><i>string attribute:street_address (optional)</i> : This parameter searches for places which have this given street address. There are other well-known, and application specific attributes available. Custom attributes are also permitted.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -274,7 +272,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Geo.SimilarPlaces(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">SimilarPlaces</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/GeoResult.html">GeoResult</a></nobr><blockquote><p>Locates places near the given coordinates which are similar in name.</p><p>Conceptually you would use this method to get a list of known places to choose from first. Then, if the desired place doesn't exist, make a request to POST geo/place to create a new one.</p><p>The token contained in the response is the token needed to be able to create a new place.</p></blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/GeoResult.html">GeoResult</a></nobr><blockquote><p>Locates places near the given coordinates which are similar in name.</p><p>Conceptually you would use this method to get a list of known places to choose from first. Then, if the desired place doesn't exist, make a request to POST geo/place to create a new one.</p><p>The token contained in the response is the token needed to be able to create a new place.</p><p>Avaliable parameters: </p><p><i>double lat (required)</i> : The latitude to search around. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</p><p><i>double long (required)</i> : The longitude to search around. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</p><p><i>string name (required)</i> : The name a place is known as.</p><p><i>string contained_within (optional)</i> : This is the place_id which you would like to restrict the search results to. Setting this value means only places within the given place_id will be found. Specify a place_id. For example, to scope all results to places within "San Francisco, CA USA", you would specify a place_id of "5a110d312052166f"</p><p><i>string attribute:street_address (optional)</i> : This parameter searches for places which have this given street address. There are other well-known, and application specific attributes available. Custom attributes are also permitted.</p></blockquote></td>
               </tr>
             </table>
           </div>
@@ -286,20 +284,25 @@
       <div class="SectionBox" id="_MemberDetails">
         <h3 id="M:CoreTweet.Rest.Geo.Id(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Id Method</h3>
         <blockquote id="M:CoreTweet.Rest.Geo.Id(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
-          <p class="Summary">Returns all the information about a known place.</p>
+          <p class="Summary">
+            <p>Returns all the information about a known place.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string place_id (required)</i> : A place in the world. These IDs can be retrieved from geo/reverse_geocode.</p>
+          </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/Place.html">Place</a> <b>Id</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/Place.html">Place</a> <b>Id</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Geo.Id(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -314,7 +317,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Geo.Id(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Geo.Place(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Place Method</h3>
@@ -322,20 +325,33 @@
           <p class="Summary">
             <p>Creates a new place object at the given latitude and longitude.</p>
             <p>Before creating a place you need to query GET geo/similar_places with the latitude, longitude and name of the place you wish to create. The query will return an array of places which are similar to the one you wish to create, and a token. If the place you wish to create isn't in the returned array you can use the token with this method to create a new one.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string name (required)</i> : The name a place is known as.</p>
+            <p>
+              <i>string contained_within (required)</i> : The place_id within which the new place can be found. Try and be as close as possible with the containing place. For example, for a room in a building, set the contained_within as the building place_id.</p>
+            <p>
+              <i>string token (required)</i> : The token found in the response from geo/similar_places.</p>
+            <p>
+              <i>double lat (required)</i> : The latitude the place is located at. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</p>
+            <p>
+              <i>double long (required)</i> : The longitude the place is located at. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</p>
+            <p>
+              <i>attribute:street_address (optional)</i> : This parameter searches for places which have this given street address. There are other well-known, and application specific attributes available. Custom attributes are also permitted. </p>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/Place.html">Place</a> <b>Place</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/Place.html">Place</a> <b>Place</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Geo.Place(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -350,7 +366,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Geo.Place(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Geo.ReverseGeocode(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">ReverseGeocode Method</h3>
@@ -358,20 +374,31 @@
           <p class="Summary">
             <p>Given a latitude and a longitude, searches for up to 20 places that can be used as a place_id when updating a status.</p>
             <p>This request is an informative call and will deliver generalized results about geography.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>double lat (required)</i> : The latitude to search around. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</p>
+            <p>
+              <i>double long (required)</i> : The longitude to search around. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</p>
+            <p>
+              <i>string accuracy (optional)</i> : A hint on the "region" in which to search. If a number, then this is a radius in meters, but it can also take a string that is suffixed with ft to specify feet. If this is not passed in, then it is assumed to be 0m. If coming from a device, in practice, this value is whatever accuracy the device has measuring its location (whether it be coming from a GPS, WiFi triangulation, etc.).</p>
+            <p>
+              <i>string granularity (optional)</i> : This is the minimal granularity of place types to return and must be one of: poi, neighborhood, city, admin or country. If no granularity is provided for the request neighborhood is assumed. Setting this to city, for example, will find places which have a type of city, admin or country.</p>
+            <p>
+              <i>int max_results (optional)</i> : A hint as to the number of results to return. This does not guarantee that the number of results returned will equal max_results, but instead informs how many "nearby" results to return. Ideally, only pass in the number of places you intend to display to the user here.</p>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/GeoResult.html">GeoResult</a> <b>ReverseGeocode</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/GeoResult.html">GeoResult</a> <b>ReverseGeocode</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Geo.ReverseGeocode(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -386,7 +413,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Geo.ReverseGeocode(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Geo.Search(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Search Method</h3>
@@ -395,20 +422,40 @@
             <p>Search for places that can be attached to a statuses/update. Given a latitude and a longitude pair, an IP address, or a name, this request will return a list of all the valid places that can be used as the place_id when updating a status.</p>
             <p>Conceptually, a query can be made from the user's location, retrieve a list of places, have the user validate the location he or she is at, and then send the ID of this location with a call to POST statuses/update.</p>
             <p>This is the recommended method to use find places that can be attached to statuses/update. Unlike GET geo/reverse_geocode which provides raw data access, this endpoint can potentially re-order places with regards to the user who is authenticated. This approach is also preferred for interactive place matching with the user.</p>
+            <p>Note: At least one of the following parameters must be provided to this resource: lat, long, ip, or query</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>double lat (optional)</i> : The latitude to search around. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</p>
+            <p>
+              <i>double long (optional)</i> : The longitude to search around. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</p>
+            <p>
+              <i>string query (optional)</i> : Free-form text to match against while executing a geo-based query, best suited for finding nearby locations by name. Remember to URL encode the query.</p>
+            <p>
+              <i>string ip (optional)</i> : An IP address. Used when attempting to fix geolocation based off of the user's IP address.</p>
+            <p>
+              <i>string granularity (optional)</i> : This is the minimal granularity of place types to return and must be one of: poi, neighborhood, city, admin or country. If no granularity is provided for the request neighborhood is assumed. Setting this to city, for example, will find places which have a type of city, admin or country.</p>
+            <p>
+              <i>string accuracy (optional)</i> : A hint on the "region" in which to search. If a number, then this is a radius in meters, but it can also take a string that is suffixed with ft to specify feet. If this is not passed in, then it is assumed to be 0m. If coming from a device, in practice, this value is whatever accuracy the device has measuring its location (whether it be coming from a GPS, WiFi triangulation, etc.).</p>
+            <p>
+              <i>int max_results (optional)</i> : A hint as to the number of results to return. This does not guarantee that the number of results returned will equal max_results, but instead informs how many "nearby" results to return. Ideally, only pass in the number of places you intend to display to the user here.</p>
+            <p>
+              <i>string contained_within (optional)</i> : This is the place_id which you would like to restrict the search results to. Setting this value means only places within the given place_id will be found.</p>
+            <p>
+              <i>string attribute:street_address (optional)</i> : This parameter searches for places which have this given street address. There are other well-known, and application specific attributes available. Custom attributes are also permitted.</p>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/GeoResult.html">GeoResult</a> <b>Search</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/GeoResult.html">GeoResult</a> <b>Search</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Geo.Search(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -423,7 +470,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Geo.Search(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Geo.SimilarPlaces(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">SimilarPlaces Method</h3>
@@ -432,20 +479,31 @@
             <p>Locates places near the given coordinates which are similar in name.</p>
             <p>Conceptually you would use this method to get a list of known places to choose from first. Then, if the desired place doesn't exist, make a request to POST geo/place to create a new one.</p>
             <p>The token contained in the response is the token needed to be able to create a new place.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>double lat (required)</i> : The latitude to search around. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</p>
+            <p>
+              <i>double long (required)</i> : The longitude to search around. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</p>
+            <p>
+              <i>string name (required)</i> : The name a place is known as.</p>
+            <p>
+              <i>string contained_within (optional)</i> : This is the place_id which you would like to restrict the search results to. Setting this value means only places within the given place_id will be found. Specify a place_id. For example, to scope all results to places within "San Francisco, CA USA", you would specify a place_id of "5a110d312052166f"</p>
+            <p>
+              <i>string attribute:street_address (optional)</i> : This parameter searches for places which have this given street address. There are other well-known, and application specific attributes available. Custom attributes are also permitted.</p>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/GeoResult.html">GeoResult</a> <b>SimilarPlaces</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/GeoResult.html">GeoResult</a> <b>SimilarPlaces</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Geo.SimilarPlaces(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -460,7 +518,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Geo.SimilarPlaces(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
       </div>

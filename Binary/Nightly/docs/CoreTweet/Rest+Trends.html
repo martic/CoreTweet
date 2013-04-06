@@ -206,9 +206,7 @@
       </p>
     </div>
     <h1 class="PageTitle" id="T:CoreTweet.Rest.Trends">Rest.Trends  Class</h1>
-    <p class="Summary" id="T:CoreTweet.Rest.Trends:Summary">
-      <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-    </p>
+    <p class="Summary" id="T:CoreTweet.Rest.Trends:Summary">GET trends</p>
     <div id="T:CoreTweet.Rest.Trends:Signature">
       <h2>Syntax</h2>
       <div class="Signature">public static class  <b>Rest.Trends</b></div>
@@ -220,7 +218,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:CoreTweet.Rest.Trends:Docs:Version Information">
-        <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+        <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -238,7 +236,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Trends.Avaliable(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Avaliable</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Place&gt;</a></nobr><blockquote><p>Returns the locations that Twitter has trending topic information for.</p><p>The response is an array of "locations" that encode the location's id and some other human-readable information such as a canonical name and country the location belongs in.</p><p>A id is a Yahoo! Where On Earth ID.</p></blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Place&gt;</a></nobr><blockquote><p>Returns the locations that Twitter has trending topic information for.</p><p>The response is an array of "locations" that encode the location's id and some other human-readable information such as a canonical name and country the location belongs in.</p><p>A id is a Yahoo! Where On Earth ID.</p><p>Avaliable parameters: Nothing.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -247,7 +245,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Trends.Closest(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Closest</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Place&gt;</a></nobr><blockquote><p>Returns the locations that Twitter has trending topic information for, closest to a specified location.</p><p>The response is an array of "locations" that encode the location's Id and some other human-readable information such as a canonical name and country the location belongs in.</p><p>A id is a Yahoo! Where On Earth ID.</p></blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Place&gt;</a></nobr><blockquote><p>Returns the locations that Twitter has trending topic information for, closest to a specified location.</p><p>The response is an array of "locations" that encode the location's Id and some other human-readable information such as a canonical name and country the location belongs in.</p><p>A id is a Yahoo! Where On Earth ID.</p><p>Avaliable parameters: </p><p><i>double lat (required)</i> : If provided with a long parameter the available trend locations will be sorted by distance, nearest to furthest, to the co-ordinate pair. The valid ranges for longitude is -180.0 to +180.0 (West is negative, East is positive) inclusive.</p><p><i>double long (required)</i> : If provided with a lat parameter the available trend locations will be sorted by distance, nearest to furthest, to the co-ordinate pair. The valid ranges for longitude is -180.0 to +180.0 (West is negative, East is positive) inclusive.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -256,7 +254,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Trends.Place(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Place</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/TrendsResult.html">TrendsResult</a></nobr><blockquote><p>Returns the top 10 trending topics for a specific id, if trending information is available for it.</p><p>The response is an array of "trend" objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on Twitter Search, and the Twitter Search URL.</p><p>This information is cached for 5 minutes. Requesting more frequently than that will not return any more data, and will count against your rate limit usage.</p></blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/TrendsResult.html">TrendsResult</a></nobr><blockquote><p>Returns the top 10 trending topics for a specific id, if trending information is available for it.</p><p>The response is an array of "trend" objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on Twitter Search, and the Twitter Search URL.</p><p>This information is cached for 5 minutes. Requesting more frequently than that will not return any more data, and will count against your rate limit usage.</p><p>Avaliable parameters: </p><p><i>long id (required)</i> : The Yahoo! Where On Earth ID of the location to return trending information for. Global information is available by using 1 as the WOEID.</p></blockquote></td>
               </tr>
             </table>
           </div>
@@ -272,20 +270,21 @@
             <p>Returns the locations that Twitter has trending topic information for.</p>
             <p>The response is an array of "locations" that encode the location's id and some other human-readable information such as a canonical name and country the location belongs in.</p>
             <p>A id is a Yahoo! Where On Earth ID.</p>
+            <p>Avaliable parameters: Nothing.</p>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Place&gt;</a> <b>Avaliable</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Place&gt;</a> <b>Avaliable</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Trends.Avaliable(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -300,7 +299,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Trends.Avaliable(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Trends.Closest(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Closest Method</h3>
@@ -309,20 +308,25 @@
             <p>Returns the locations that Twitter has trending topic information for, closest to a specified location.</p>
             <p>The response is an array of "locations" that encode the location's Id and some other human-readable information such as a canonical name and country the location belongs in.</p>
             <p>A id is a Yahoo! Where On Earth ID.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>double lat (required)</i> : If provided with a long parameter the available trend locations will be sorted by distance, nearest to furthest, to the co-ordinate pair. The valid ranges for longitude is -180.0 to +180.0 (West is negative, East is positive) inclusive.</p>
+            <p>
+              <i>double long (required)</i> : If provided with a lat parameter the available trend locations will be sorted by distance, nearest to furthest, to the co-ordinate pair. The valid ranges for longitude is -180.0 to +180.0 (West is negative, East is positive) inclusive.</p>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Place&gt;</a> <b>Closest</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Place&gt;</a> <b>Closest</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Trends.Closest(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -337,7 +341,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Trends.Closest(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Trends.Place(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Place Method</h3>
@@ -346,20 +350,23 @@
             <p>Returns the top 10 trending topics for a specific id, if trending information is available for it.</p>
             <p>The response is an array of "trend" objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on Twitter Search, and the Twitter Search URL.</p>
             <p>This information is cached for 5 minutes. Requesting more frequently than that will not return any more data, and will count against your rate limit usage.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long id (required)</i> : The Yahoo! Where On Earth ID of the location to return trending information for. Global information is available by using 1 as the WOEID.</p>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/TrendsResult.html">TrendsResult</a> <b>Place</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/TrendsResult.html">TrendsResult</a> <b>Place</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Trends.Place(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -374,7 +381,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Trends.Place(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
       </div>

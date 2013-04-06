@@ -25,10 +25,10 @@ namespace CoreTweet.Ex
         /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool follow (optional)"/> : Enable notifications for the target user.</para>
         /// 
-        public static User Follow(this User e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        public static User Follow(this User e, params Expression<Func<string,object>>[] parameters)
         {
-            return Rest.Friendships.Create(Tokens,
-                               (Parameters as IEnumerable<Expression<Func<string,object>>>)
+            return e._.Friendships.Create(
+                               (parameters as IEnumerable<Expression<Func<string,object>>>)
                                    .Union(new Expression<Func<string,object>>[]{user_id => e.Id})
                                        .ToArray());
         }
@@ -44,10 +44,10 @@ namespace CoreTweet.Ex
         /// </param>
         /// <para>Avaliable parameters: Nothing.</para><para> </para>
         /// 
-        public static User Unfollow(this User e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        public static User Unfollow(this User e, params Expression<Func<string,object>>[] parameters)
         {
-            return Rest.Friendships.Destroy(Tokens,
-                               (Parameters as IEnumerable<Expression<Func<string,object>>>)
+            return e._.Friendships.Destroy(
+                               (parameters as IEnumerable<Expression<Func<string,object>>>)
                                    .Union(new Expression<Func<string,object>>[]{user_id => e .Id})
                                        .ToArray());
         }
@@ -64,9 +64,9 @@ namespace CoreTweet.Ex
         /// 
         /// <para>Avaliable parameters: Nothing.</para><para> </para>
         /// 
-        public static IEnumerable<User> FollowAll(this IEnumerable<User> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        public static IEnumerable<User> FollowAll(this IEnumerable<User> e, params Expression<Func<string,object>>[] parameters)
         {
-            e.ForEach(x => x.Follow(Tokens, Parameters));
+            e.ForEach(x => x.Follow(parameters));
             return e;
         }
         
@@ -80,9 +80,9 @@ namespace CoreTweet.Ex
         /// Parameters.
         /// </param>
         /// <para>Avaliable parameters: Nothing.</para><para> </para>
-        public static IEnumerable<User> UnfollowAll(this IEnumerable<User> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        public static IEnumerable<User> UnfollowAll(this IEnumerable<User> e, params Expression<Func<string,object>>[] parameters)
         {
-            e.ForEach(x => x.Follow(Tokens, Parameters));
+            e.ForEach(x => x.Follow(parameters));
             return e;
         }
     }

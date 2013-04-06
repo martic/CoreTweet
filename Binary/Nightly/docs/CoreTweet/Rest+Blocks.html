@@ -206,9 +206,7 @@
       </p>
     </div>
     <h1 class="PageTitle" id="T:CoreTweet.Rest.Blocks">Rest.Blocks  Class</h1>
-    <p class="Summary" id="T:CoreTweet.Rest.Blocks:Summary">
-      <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-    </p>
+    <p class="Summary" id="T:CoreTweet.Rest.Blocks:Summary">GET/POST blocks</p>
     <div id="T:CoreTweet.Rest.Blocks:Signature">
       <h2>Syntax</h2>
       <div class="Signature">public static class  <b>Rest.Blocks</b></div>
@@ -220,7 +218,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:CoreTweet.Rest.Blocks:Docs:Version Information">
-        <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+        <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -238,7 +236,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Blocks.Create(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Create</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/User.html">User</a></nobr><blockquote>Blocks the specified user from following the authenticating user. In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user). If a follow or friend relationship exists it is destroyed.</blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/User.html">User</a></nobr><blockquote><p>Blocks the specified user from following the authenticating user. In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user). If a follow or friend relationship exists it is destroyed.</p><p>Note: Either screen_name or user_id must be provided.</p><p>Avaliable parameters: </p><p><i>string screen_name (optional)</i> : The screen name of the potentially blocked user. Helpful for disambiguating when a valid screen name is also a user ID.</p><p><i>long user_id (optional)</i> : The ID of the potentially blocked user. Helpful for disambiguating when a valid user ID is also a valid screen name.</p><p><i>bool include_entities (optional)</i> : The entities node will not be included when set to false.</p><p><i>bool skip_status (optional)</i> : When set to true, statuses will not be included in the returned user objects.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -247,7 +245,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Blocks.Destroy(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Destroy</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/User.html">User</a></nobr><blockquote>Un-blocks the user specified in the ID parameter for the authenticating user. Returns the un-blocked user in the requested format when successful. If relationships existed before the block was instated, they will not be restored.</blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/User.html">User</a></nobr><blockquote><p>Un-blocks the user specified in the ID parameter for the authenticating user. Returns the un-blocked user in the requested format when successful. If relationships existed before the block was instated, they will not be restored.</p><p>Note: Either screen_name or user_id must be provided.</p><p>Avaliable parameters: </p><p><i>string screen_name (optional)</i> : The screen name of the potentially blocked user. Helpful for disambiguating when a valid screen name is also a user ID.</p><p><i>long user_id (optional)</i> : The ID of the potentially blocked user. Helpful for disambiguating when a valid user ID is also a valid screen name.</p><p><i>bool include_entities (optional)</i> : The entities node will not be included when set to false.</p><p><i>bool skip_status (optional)</i> : When set to either true, t or 1 statuses will not be included in the returned user objects.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -256,7 +254,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Blocks.Ids(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Ids</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Cursored`1.html">Cursored&lt;long&gt;</a></nobr><blockquote>Returns an array of numeric user ids the authenticating user is blocking.</blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Cursored`1.html">Cursored&lt;long&gt;</a></nobr><blockquote><p>Returns an array of numeric user ids the authenticating user is blocking.</p><p>Avaliable parameters: </p><p><i>long cursor (semi-optional)</i> : Causes the list of IDs to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first "page." The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -265,7 +263,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Blocks.List(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">List</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Cursored`1.html">Cursored&lt;User&gt;</a></nobr><blockquote>Returns a collection of user objects that the authenticating user is blocking.</blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Cursored`1.html">Cursored&lt;User&gt;</a></nobr><blockquote><p>Returns a collection of user objects that the authenticating user is blocking.</p><p>Avaliable parameters: </p><p><i>bool include_entities (optional)</i> : The entities node will not be included when set to false.</p><p><i>bool skip_status (optional)</i> : When set to true, statuses will not be included in the returned user objects.</p><p><i>long cursor (semi-optional)</i> : Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first "page." The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</p></blockquote></td>
               </tr>
             </table>
           </div>
@@ -277,20 +275,32 @@
       <div class="SectionBox" id="_MemberDetails">
         <h3 id="M:CoreTweet.Rest.Blocks.Create(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Create Method</h3>
         <blockquote id="M:CoreTweet.Rest.Blocks.Create(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
-          <p class="Summary">Blocks the specified user from following the authenticating user. In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user). If a follow or friend relationship exists it is destroyed.</p>
+          <p class="Summary">
+            <p>Blocks the specified user from following the authenticating user. In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user). If a follow or friend relationship exists it is destroyed.</p>
+            <p>Note: Either screen_name or user_id must be provided.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string screen_name (optional)</i> : The screen name of the potentially blocked user. Helpful for disambiguating when a valid screen name is also a user ID.</p>
+            <p>
+              <i>long user_id (optional)</i> : The ID of the potentially blocked user. Helpful for disambiguating when a valid user ID is also a valid screen name.</p>
+            <p>
+              <i>bool include_entities (optional)</i> : The entities node will not be included when set to false.</p>
+            <p>
+              <i>bool skip_status (optional)</i> : When set to true, statuses will not be included in the returned user objects.</p>
+          </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/User.html">User</a> <b>Create</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/User.html">User</a> <b>Create</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Blocks.Create(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -305,25 +315,37 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Blocks.Create(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Blocks.Destroy(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Destroy Method</h3>
         <blockquote id="M:CoreTweet.Rest.Blocks.Destroy(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
-          <p class="Summary">Un-blocks the user specified in the ID parameter for the authenticating user. Returns the un-blocked user in the requested format when successful. If relationships existed before the block was instated, they will not be restored.</p>
+          <p class="Summary">
+            <p>Un-blocks the user specified in the ID parameter for the authenticating user. Returns the un-blocked user in the requested format when successful. If relationships existed before the block was instated, they will not be restored.</p>
+            <p>Note: Either screen_name or user_id must be provided.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string screen_name (optional)</i> : The screen name of the potentially blocked user. Helpful for disambiguating when a valid screen name is also a user ID.</p>
+            <p>
+              <i>long user_id (optional)</i> : The ID of the potentially blocked user. Helpful for disambiguating when a valid user ID is also a valid screen name.</p>
+            <p>
+              <i>bool include_entities (optional)</i> : The entities node will not be included when set to false.</p>
+            <p>
+              <i>bool skip_status (optional)</i> : When set to either true, t or 1 statuses will not be included in the returned user objects.</p>
+          </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/User.html">User</a> <b>Destroy</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/User.html">User</a> <b>Destroy</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Blocks.Destroy(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -338,25 +360,30 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Blocks.Destroy(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Blocks.Ids(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Ids Method</h3>
         <blockquote id="M:CoreTweet.Rest.Blocks.Ids(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
-          <p class="Summary">Returns an array of numeric user ids the authenticating user is blocking.</p>
+          <p class="Summary">
+            <p>Returns an array of numeric user ids the authenticating user is blocking.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long cursor (semi-optional)</i> : Causes the list of IDs to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first "page." The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</p>
+          </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/Cursored`1.html">Cursored&lt;long&gt;</a> <b>Ids</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/Cursored`1.html">Cursored&lt;long&gt;</a> <b>Ids</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Blocks.Ids(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -371,25 +398,34 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Blocks.Ids(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Blocks.List(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">List Method</h3>
         <blockquote id="M:CoreTweet.Rest.Blocks.List(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
-          <p class="Summary">Returns a collection of user objects that the authenticating user is blocking.</p>
+          <p class="Summary">
+            <p>Returns a collection of user objects that the authenticating user is blocking.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>bool include_entities (optional)</i> : The entities node will not be included when set to false.</p>
+            <p>
+              <i>bool skip_status (optional)</i> : When set to true, statuses will not be included in the returned user objects.</p>
+            <p>
+              <i>long cursor (semi-optional)</i> : Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first "page." The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</p>
+          </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/Cursored`1.html">Cursored&lt;User&gt;</a> <b>List</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/Cursored`1.html">Cursored&lt;User&gt;</a> <b>List</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Blocks.List(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -404,7 +440,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Blocks.List(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
       </div>

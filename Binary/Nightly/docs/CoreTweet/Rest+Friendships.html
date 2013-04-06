@@ -206,9 +206,7 @@
       </p>
     </div>
     <h1 class="PageTitle" id="T:CoreTweet.Rest.Friendships">Rest.Friendships  Class</h1>
-    <p class="Summary" id="T:CoreTweet.Rest.Friendships:Summary">
-      <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-    </p>
+    <p class="Summary" id="T:CoreTweet.Rest.Friendships:Summary">GET/POST Friendships</p>
     <div id="T:CoreTweet.Rest.Friendships:Signature">
       <h2>Syntax</h2>
       <div class="Signature">public static class  <b>Rest.Friendships</b></div>
@@ -220,7 +218,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:CoreTweet.Rest.Friendships:Docs:Version Information">
-        <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+        <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -238,7 +236,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Friendships.Create(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Create</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/User.html">User</a></nobr><blockquote><p>Allows the authenticating users to follow the user specified in the ID parameter.</p><p>Returns the befriended user in the requested format when successful. Returns a string describing the failure condition when unsuccessful. If you are already friends with the user a HTTP 403 may be returned, though for performance reasons you may get a 200 OK message even if the friendship already exists.</p><p>Actions taken in this method are asynchronous and changes will be eventually consistent.</p></blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/User.html">User</a></nobr><blockquote><p>Allows the authenticating users to follow the user specified in the ID parameter.</p><p>Returns the befriended user in the requested format when successful. Returns a string describing the failure condition when unsuccessful. If you are already friends with the user a HTTP 403 may be returned, though for performance reasons you may get a 200 OK message even if the friendship already exists.</p><p>Actions taken in this method are asynchronous and changes will be eventually consistent.</p><p>Note: Providing either screen_name or user_id is required.</p><p>Avaliable parameters: </p><p><i>string screen_name (optional)</i> : The screen name of the user for whom to befriend.</p><p><i>long user_id (optional)</i> : The ID of the user for whom to befriend.</p><p><i>bool follow (optional)</i> : Enable notifications for the target user.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -247,7 +245,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Friendships.Destroy(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Destroy</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/User.html">User</a></nobr><blockquote><p>Allows the authenticating user to unfollow the user specified in the ID parameter.</p><p>Returns the unfollowed user in the requested format when successful. Returns a string describing the failure condition when unsuccessful.</p><p>Actions taken in this method are asynchronous and changes will be eventually consistent.</p></blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/User.html">User</a></nobr><blockquote><p>Allows the authenticating user to unfollow the user specified in the ID parameter.</p><p>Returns the unfollowed user in the requested format when successful. Returns a string describing the failure condition when unsuccessful.</p><p>Actions taken in this method are asynchronous and changes will be eventually consistent.</p><p>Note: Providing either screen_name or user_id is required.</p><p>Avaliable parameters: </p><p><i>string screen_name (optional)</i> : The screen name of the user for whom to unfollow.</p><p><i>long user_id (optional)</i> : The ID of the user for whom to unfollow.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -256,7 +254,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Friendships.Incoming(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Incoming</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Cursored`1.html">Cursored&lt;long&gt;</a></nobr><blockquote>Returns a collection of numeric IDs for every user who has a pending request to follow the authenticating user.</blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Cursored`1.html">Cursored&lt;long&gt;</a></nobr><blockquote><p>Returns a collection of numeric IDs for every user who has a pending request to follow the authenticating user.</p><p>Avaliable parameters: </p><p><i>long cursor (semi-optional)</i> : Causes the list of connections to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first "page." The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -265,7 +263,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Friendships.Lookup(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Lookup</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Friendship&gt;</a></nobr><blockquote>Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or user_ids provided. Values for connections can be: following, following_requested, followed_by, none.</blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Friendship&gt;</a></nobr><blockquote><p>Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or user_ids provided. Values for connections can be: following, following_requested, followed_by, none.</p><p>Avaliable parameters: </p><p><i>string screen_name (optional)</i> : A comma separated list of screen names, up to 100 are allowed in a single request.</p><p><i>string user_id (ooptional)</i> : A comma separated list of user IDs, up to 100 are allowed in a single request.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -274,7 +272,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Friendships.NoRetweetsIds(CoreTweet.Tokens)">NoRetweetsIds</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;long&gt;</a></nobr><blockquote><p>Returns a collection of user_ids that the currently authenticated user does not want to receive retweets from.</p><p>Use POST friendships/update to set the "no retweets" status for a given user account on behalf of the current user.</p></blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;long&gt;</a></nobr><blockquote><p>Returns a collection of user_ids that the currently authenticated user does not want to receive retweets from.</p><p>Use POST friendships/update to set the "no retweets" status for a given user account on behalf of the current user.</p><p>Avaliable parameters: Nothing.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -283,7 +281,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Friendships.Outgoing(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Outgoing</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Cursored`1.html">Cursored&lt;long&gt;</a></nobr><blockquote>Returns a collection of numeric IDs for every protected user for whom the authenticating user has a pending follow request.</blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Cursored`1.html">Cursored&lt;long&gt;</a></nobr><blockquote><p>Returns a collection of numeric IDs for every protected user for whom the authenticating user has a pending follow request.</p><p>Avaliable parameters: </p><p><i>long cursor (semi-optional)</i> : Causes the list of connections to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first "page."The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -292,7 +290,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Friendships.Show(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Show</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/RelationShip.html">RelationShip</a></nobr><blockquote>Returns detailed information about the relationship between two arbitrary users.</blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/RelationShip.html">RelationShip</a></nobr><blockquote><p>Returns detailed information about the relationship between two arbitrary users.</p><p>Note: At least one source and one target, whether specified by IDs or screen_names, should be provided to this method.</p><p>Avaliable parameters: </p><p><i>long source_id (optional)</i> : The user_id of the subject user.</p><p><i>string source_screen_name (optional)</i> : The screen_name of the subject user.</p><p><i>long target_id (optional)</i> : The user_id of the target user.</p><p><i>string target_screen_name (optional)</i> : The screen_name of the target user.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -301,7 +299,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Friendships.Update(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Update</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/RelationShip.html">RelationShip</a></nobr><blockquote>Allows one to enable or disable retweets and device notifications from the specified user.</blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/RelationShip.html">RelationShip</a></nobr><blockquote><p>Allows one to enable or disable retweets and device notifications from the specified user.</p><p>Note: Providing either screen_name or user_id is required.</p><p>Avaliable parameters: </p><p><i>string screen_name (optional)</i> : The screen name of the user for whom to befriend.</p><p><i>long user_id (optional)</i> : The ID of the user for whom to befriend.</p>/// <p><i></i> :</p><p><i>bool device (optional)</i> : Enable/disable device notifications from the target user.</p><p><i>bool retweets (optional)</i> : Enable/disable retweets from the target user.</p></blockquote></td>
               </tr>
             </table>
           </div>
@@ -317,20 +315,28 @@
             <p>Allows the authenticating users to follow the user specified in the ID parameter.</p>
             <p>Returns the befriended user in the requested format when successful. Returns a string describing the failure condition when unsuccessful. If you are already friends with the user a HTTP 403 may be returned, though for performance reasons you may get a 200 OK message even if the friendship already exists.</p>
             <p>Actions taken in this method are asynchronous and changes will be eventually consistent.</p>
+            <p>Note: Providing either screen_name or user_id is required.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string screen_name (optional)</i> : The screen name of the user for whom to befriend.</p>
+            <p>
+              <i>long user_id (optional)</i> : The ID of the user for whom to befriend.</p>
+            <p>
+              <i>bool follow (optional)</i> : Enable notifications for the target user.</p>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/User.html">User</a> <b>Create</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/User.html">User</a> <b>Create</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Friendships.Create(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -345,7 +351,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Friendships.Create(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Friendships.Destroy(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Destroy Method</h3>
@@ -354,20 +360,26 @@
             <p>Allows the authenticating user to unfollow the user specified in the ID parameter.</p>
             <p>Returns the unfollowed user in the requested format when successful. Returns a string describing the failure condition when unsuccessful.</p>
             <p>Actions taken in this method are asynchronous and changes will be eventually consistent.</p>
+            <p>Note: Providing either screen_name or user_id is required.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string screen_name (optional)</i> : The screen name of the user for whom to unfollow.</p>
+            <p>
+              <i>long user_id (optional)</i> : The ID of the user for whom to unfollow.</p>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/User.html">User</a> <b>Destroy</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/User.html">User</a> <b>Destroy</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Friendships.Destroy(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -382,25 +394,30 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Friendships.Destroy(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Friendships.Incoming(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Incoming Method</h3>
         <blockquote id="M:CoreTweet.Rest.Friendships.Incoming(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
-          <p class="Summary">Returns a collection of numeric IDs for every user who has a pending request to follow the authenticating user.</p>
+          <p class="Summary">
+            <p>Returns a collection of numeric IDs for every user who has a pending request to follow the authenticating user.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long cursor (semi-optional)</i> : Causes the list of connections to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first "page." The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</p>
+          </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/Cursored`1.html">Cursored&lt;long&gt;</a> <b>Incoming</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/Cursored`1.html">Cursored&lt;long&gt;</a> <b>Incoming</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Friendships.Incoming(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -415,25 +432,32 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Friendships.Incoming(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Friendships.Lookup(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Lookup Method</h3>
         <blockquote id="M:CoreTweet.Rest.Friendships.Lookup(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
-          <p class="Summary">Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or user_ids provided. Values for connections can be: following, following_requested, followed_by, none.</p>
+          <p class="Summary">
+            <p>Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or user_ids provided. Values for connections can be: following, following_requested, followed_by, none.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string screen_name (optional)</i> : A comma separated list of screen names, up to 100 are allowed in a single request.</p>
+            <p>
+              <i>string user_id (ooptional)</i> : A comma separated list of user IDs, up to 100 are allowed in a single request.</p>
+          </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Friendship&gt;</a> <b>Lookup</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Friendship&gt;</a> <b>Lookup</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Friendships.Lookup(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -448,7 +472,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Friendships.Lookup(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Friendships.NoRetweetsIds(CoreTweet.Tokens)">NoRetweetsIds Method</h3>
@@ -456,14 +480,15 @@
           <p class="Summary">
             <p>Returns a collection of user_ids that the currently authenticated user does not want to receive retweets from.</p>
             <p>Use POST friendships/update to set the "no retweets" status for a given user account on behalf of the current user.</p>
+            <p>Avaliable parameters: Nothing.</p>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;long&gt;</a> <b>NoRetweetsIds</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens)</div>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;long&gt;</a> <b>NoRetweetsIds</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Friendships.NoRetweetsIds(CoreTweet.Tokens):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             OAuth Tokens.
@@ -480,25 +505,30 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Friendships.NoRetweetsIds(CoreTweet.Tokens):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Friendships.Outgoing(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Outgoing Method</h3>
         <blockquote id="M:CoreTweet.Rest.Friendships.Outgoing(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
-          <p class="Summary">Returns a collection of numeric IDs for every protected user for whom the authenticating user has a pending follow request.</p>
+          <p class="Summary">
+            <p>Returns a collection of numeric IDs for every protected user for whom the authenticating user has a pending follow request.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long cursor (semi-optional)</i> : Causes the list of connections to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first "page."The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</p>
+          </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/Cursored`1.html">Cursored&lt;long&gt;</a> <b>Outgoing</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/Cursored`1.html">Cursored&lt;long&gt;</a> <b>Outgoing</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Friendships.Outgoing(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Oauth Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -513,25 +543,37 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Friendships.Outgoing(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Friendships.Show(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Show Method</h3>
         <blockquote id="M:CoreTweet.Rest.Friendships.Show(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
-          <p class="Summary">Returns detailed information about the relationship between two arbitrary users.</p>
+          <p class="Summary">
+            <p>Returns detailed information about the relationship between two arbitrary users.</p>
+            <p>Note: At least one source and one target, whether specified by IDs or screen_names, should be provided to this method.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long source_id (optional)</i> : The user_id of the subject user.</p>
+            <p>
+              <i>string source_screen_name (optional)</i> : The screen_name of the subject user.</p>
+            <p>
+              <i>long target_id (optional)</i> : The user_id of the target user.</p>
+            <p>
+              <i>string target_screen_name (optional)</i> : The screen_name of the target user.</p>
+          </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/RelationShip.html">RelationShip</a> <b>Show</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/RelationShip.html">RelationShip</a> <b>Show</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Friendships.Show(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -546,25 +588,32 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Friendships.Show(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Friendships.Update(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Update Method</h3>
         <blockquote id="M:CoreTweet.Rest.Friendships.Update(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
-          <p class="Summary">Allows one to enable or disable retweets and device notifications from the specified user.</p>
+          <p class="Summary">
+            <p>Allows one to enable or disable retweets and device notifications from the specified user.</p>
+            <p>Note: Providing either screen_name or user_id is required.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>string screen_name (optional)</i> : The screen name of the user for whom to befriend.</p>
+            <p>
+              <i>long user_id (optional)</i> : The ID of the user for whom to befriend.</p>/// <p><i></i> :</p><p><i>bool device (optional)</i> : Enable/disable device notifications from the target user.</p><p><i>bool retweets (optional)</i> : Enable/disable retweets from the target user.</p></p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/RelationShip.html">RelationShip</a> <b>Update</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/RelationShip.html">RelationShip</a> <b>Update</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Friendships.Update(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -579,7 +628,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Friendships.Update(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
       </div>

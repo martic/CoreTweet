@@ -206,9 +206,7 @@
       </p>
     </div>
     <h1 class="PageTitle" id="T:CoreTweet.Rest.Favorites">Rest.Favorites  Class</h1>
-    <p class="Summary" id="T:CoreTweet.Rest.Favorites:Summary">
-      <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-    </p>
+    <p class="Summary" id="T:CoreTweet.Rest.Favorites:Summary">GET/POST favorites</p>
     <div id="T:CoreTweet.Rest.Favorites:Signature">
       <h2>Syntax</h2>
       <div class="Signature">public static class  <b>Rest.Favorites</b></div>
@@ -220,7 +218,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:CoreTweet.Rest.Favorites:Docs:Version Information">
-        <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+        <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -238,7 +236,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Favorites.Create(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Create</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Status.html">Status</a></nobr><blockquote>Favorites the status specified in the ID parameter as the authenticating user. Returns the favorite status when successful.</blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Status.html">Status</a></nobr><blockquote><p>Favorites the status specified in the ID parameter as the authenticating user. Returns the favorite status when successful.</p><p>Avaliable parameters: </p><p><i>long id (required)</i> : The numerical ID of the desired status.</p><p><i>bool include_entities (optional)</i> : The entities node will be omitted when set to false.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -247,7 +245,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Favorites.Destroy(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Destroy</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Status.html">Status</a></nobr><blockquote><p>Un-favorites the status specified in the ID parameter as the authenticating user. Returns the un-favorited status in the requested format when successful.</p><p>This process invoked by this method is asynchronous. The immediately returned status may not indicate the resultant favorited status of the tweet. A 200 OK response from this method will indicate whether the intended action was successful or not.</p></blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Status.html">Status</a></nobr><blockquote><p>Un-favorites the status specified in the ID parameter as the authenticating user. Returns the un-favorited status in the requested format when successful.</p><p>This process invoked by this method is asynchronous. The immediately returned status may not indicate the resultant favorited status of the tweet. A 200 OK response from this method will indicate whether the intended action was successful or not.</p><p>Avaliable parameters: </p><p><i>long id (required)</i> : The numerical ID of the desired status.</p><p><i>bool include_entities (ooptional)</i> : The entities node will be omitted when set to false.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -256,7 +254,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:CoreTweet.Rest.Favorites.List(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">List</a>
-                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>Returns the 20 most recent Tweets favorited by the authenticating or specified user.</blockquote></td>
+                  </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote><p>Returns the 20 most recent Tweets favorited by the authenticating or specified user.</p><p>Avaliable parameters: </p><p><i>long id (optional)</i> : The ID of the user for whom to return results for.</p><p><i>string screen_name (optonal)</i> : The screen name of the user for whom to return results for.</p><p><i>int count (optional)</i> : Specifies the number of records to retrieve. Must be less than or equal to 200. Defaults to 20.</p><p><i>int since_id (optional)</i> : Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p><p><i>int max_id (optional)</i> : Returns results with an ID less than (that is, older than) or equal to the specified ID.</p><p><i>bool include_entities (optional)</i> : The entities node will be omitted when set to false.</p></blockquote></td>
               </tr>
             </table>
           </div>
@@ -268,20 +266,27 @@
       <div class="SectionBox" id="_MemberDetails">
         <h3 id="M:CoreTweet.Rest.Favorites.Create(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Create Method</h3>
         <blockquote id="M:CoreTweet.Rest.Favorites.Create(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
-          <p class="Summary">Favorites the status specified in the ID parameter as the authenticating user. Returns the favorite status when successful.</p>
+          <p class="Summary">
+            <p>Favorites the status specified in the ID parameter as the authenticating user. Returns the favorite status when successful.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long id (required)</i> : The numerical ID of the desired status.</p>
+            <p>
+              <i>bool include_entities (optional)</i> : The entities node will be omitted when set to false.</p>
+          </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/Status.html">Status</a> <b>Create</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/Status.html">Status</a> <b>Create</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Favorites.Create(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -296,7 +301,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Favorites.Create(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Favorites.Destroy(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Destroy Method</h3>
@@ -304,20 +309,25 @@
           <p class="Summary">
             <p>Un-favorites the status specified in the ID parameter as the authenticating user. Returns the un-favorited status in the requested format when successful.</p>
             <p>This process invoked by this method is asynchronous. The immediately returned status may not indicate the resultant favorited status of the tweet. A 200 OK response from this method will indicate whether the intended action was successful or not.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long id (required)</i> : The numerical ID of the desired status.</p>
+            <p>
+              <i>bool include_entities (ooptional)</i> : The entities node will be omitted when set to false.</p>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="../CoreTweet/Status.html">Status</a> <b>Destroy</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="../CoreTweet/Status.html">Status</a> <b>Destroy</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Favorites.Destroy(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -332,25 +342,40 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Favorites.Destroy(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Rest.Favorites.List(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">List Method</h3>
         <blockquote id="M:CoreTweet.Rest.Favorites.List(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
-          <p class="Summary">Returns the 20 most recent Tweets favorited by the authenticating or specified user.</p>
+          <p class="Summary">
+            <p>Returns the 20 most recent Tweets favorited by the authenticating or specified user.</p>
+            <p>Avaliable parameters: </p>
+            <p>
+              <i>long id (optional)</i> : The ID of the user for whom to return results for.</p>
+            <p>
+              <i>string screen_name (optonal)</i> : The screen name of the user for whom to return results for.</p>
+            <p>
+              <i>int count (optional)</i> : Specifies the number of records to retrieve. Must be less than or equal to 200. Defaults to 20.</p>
+            <p>
+              <i>int since_id (optional)</i> : Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p>
+            <p>
+              <i>int max_id (optional)</i> : Returns results with an ID less than (that is, older than) or equal to the specified ID.</p>
+            <p>
+              <i>bool include_entities (optional)</i> : The entities node will be omitted when set to false.</p>
+          </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a> <b>List</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> Tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] Parameters)</div>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a> <b>List</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:CoreTweet.Rest.Favorites.List(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
             <dl>
               <dt>
-                <i>Tokens</i>
+                <i>tokens</i>
               </dt>
               <dd>
             Tokens.
             </dd>
               <dt>
-                <i>Parameters</i>
+                <i>parameters</i>
               </dt>
               <dd>
             Parameters.
@@ -365,7 +390,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Rest.Favorites.List(CoreTweet.Tokens,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
       </div>

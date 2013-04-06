@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using CoreTweet.Core;
 
 namespace CoreTweet
 {   
@@ -142,7 +143,8 @@ namespace CoreTweet
         /// <returns>
         /// Response.
         /// </returns>
-        public static string Send(Tokens token, MethodType type, string url, params Expression<Func<string, object>>[] prms)
+        public static string Send<T>(T token, MethodType type, string url, params Expression<Func<string, object>>[] prms)
+            where T : _Tokens
         {
             return Send(token, type, url, prms.ToDictionary(e => e.Parameters[0].Name, e => e.Compile()("")));
         }
@@ -165,7 +167,8 @@ namespace CoreTweet
         /// <returns>
         /// Response.
         /// </returns>
-        public static string Send(Tokens token, MethodType type, string url, IDictionary<string, object> prms)
+        public static string Send<T>(T token, MethodType type, string url, IDictionary<string, object> prms)
+            where T : _Tokens
         {
             var prm = GenerateParameters(token.ConsumerKey, token.AccessToken);
             foreach(var p in prms)
@@ -191,8 +194,8 @@ namespace CoreTweet
                 string.Join("&", prm.Select(x => x.Key + "=" + x.Value))
             );
             var res = req.GetResponse();
-            using (var stream = res.GetResponseStream())
-            using (var reader = new StreamReader(stream))
+            using(var stream = res.GetResponseStream())
+            using(var reader = new StreamReader(stream))
                 return reader.ReadToEnd();
 
         }
@@ -214,10 +217,10 @@ namespace CoreTweet
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded";
             req.ContentLength = data.Length;
-            using (var reqstr = req.GetRequestStream())
+            using(var reqstr = req.GetRequestStream())
                 reqstr.Write(data, 0, data.Length);
-            using (var resstr = req.GetResponse().GetResponseStream())
-            using (var reader = new StreamReader(resstr, Encoding.UTF8))
+            using(var resstr = req.GetResponse().GetResponseStream())
+            using(var reader = new StreamReader(resstr, Encoding.UTF8))
                 return reader.ReadToEnd();
         }
 
@@ -229,20 +232,17 @@ namespace CoreTweet
         /// <param name="httpMethod">The http method.</param>
         /// <param name="url">the URL.</param>
         /// <param name="prm">Parameters.</param>
-        internal static string GenerateSignature(Tokens t, string httpMethod, string url, SortedDictionary<string, string> prm)
+        internal static string GenerateSignature(_Tokens t, string httpMethod, string url, SortedDictionary<string, string> prm)
         {
-            using (var hs1 = new HMACSHA1())
+            using(var hs1 = new HMACSHA1())
             {
                 hs1.Key = Encoding.UTF8.GetBytes(
                     string.Format("{0}&{1}", UrlEncode(t.ConsumerSecret),
-                        t.AccessTokenSecret == null ? "" : UrlEncode(t.AccessTokenSecret))
-                );
+                        t.AccessTokenSecret == null ? "" : UrlEncode(t.AccessTokenSecret)));
                 var hash = hs1.ComputeHash(
                     System.Text.Encoding.UTF8.GetBytes(
                         string.Format("{0}&{1}&{2}", httpMethod, UrlEncode(url),
-                            UrlEncode(string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value)))))
-                )
-                );
+                            UrlEncode(string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value)))))));
                 return Convert.ToBase64String(hash);
             }
         }
@@ -297,7 +297,7 @@ namespace CoreTweet
         /// <summary>
         /// The version of CoreTweet.
         /// </summary>
-        public static readonly string CoreTweetVersion = "0.1";
+        public static readonly string Version = "0.1";
         /// <summary>
         /// The authors.
         /// </summary>
@@ -331,21 +331,6 @@ A “contributor” is any person that distributes its contribution under this l
         /// The URL you can get helps about CoreTweet.
         /// </summary>
         public static readonly string HelpUrl = "https://twitter.com/a1cn";
-    }
-
-    /// <summary>
-    /// Methods for the REST API.
-    /// </summary>
-    public static partial class Rest
-    {
-        /// <summary>
-        /// Gets the url of the specified api's name.
-        /// </summary>
-        /// <returns>The url.</returns>
-        public static string Url(string ApiName)
-        {
-            return string.Format("https://api.twitter.com/{0}/{1}.json", Property.ApiVersion, ApiName);
-        }
     }
 }
 

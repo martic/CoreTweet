@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CoreTweet.Core
 {
-    public abstract class CoreBase
+    public abstract class CoreBase : _Tokens
     {
         /// <summary>
         ///     この子を呼べばTに対応するConvert()を呼んでdynamic objectをstatic objectに変換してくれます

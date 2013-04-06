@@ -220,7 +220,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:Alice.Extensions:Docs:Version Information">
-        <b>Namespace: </b>Alice<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+        <b>Namespace: </b>Alice<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -238,7 +238,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:Alice.Extensions.Conbinate``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})">Conbinate&lt;T1,T2&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T1&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T2&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Pair&lt;T1, T2&gt;&gt;</a></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T1&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T2&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;T1, T2&gt;&gt;</a></nobr><blockquote>
             Gets all combinations of this and specified target.
             </blockquote></td>
               </tr>
@@ -267,7 +267,7 @@
             Gets all combinations of this and specified target.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Pair&lt;T1, T2&gt;&gt;</a> <b>Conbinate&lt;T1, T2&gt;</b> (<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T1&gt;</a> e, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T2&gt;</a> Target)</div>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;T1, T2&gt;&gt;</a> <b>Conbinate&lt;T1, T2&gt;</b> (<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T1&gt;</a> e, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T2&gt;</a> target)</div>
           <h4 class="Subsection">Type Parameters</h4>
           <blockquote class="SubsectionBox" id="M:Alice.Extensions.Conbinate``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1}):Type Parameters">
             <dl>
@@ -289,22 +289,26 @@
               </dt>
               <dd>The enumerable object.</dd>
               <dt>
-                <i>Target</i>
+                <i>target</i>
               </dt>
-              <dd>The enumerable object.</dd>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:Alice.Extensions.Conbinate``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1}):Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="M:Alice.Extensions.Conbinate``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1}):Returns">Tuples of conbinated objects.</blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:Alice.Extensions.Conbinate``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1}):Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
+          <h2 class="Section">Example</h2>
+          <div class="SectionBox" id="M:Alice.Extensions.Conbinate``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1}):Example:1">
+            new []{0,1,2}.Conbinate(new []{"a","b"}) -&gt; {0,"a"},{0,"b"},{1,"a"},{1,"b"},{2,"a"},{2,"b"}
+            </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Alice.Extensions.Conbinate``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1}):Version Information">
-            <b>Namespace: </b>Alice<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>Alice<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:Alice.Extensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">ForEach&lt;T&gt; Generic Method</h3>
@@ -313,7 +317,7 @@
             Performs the specified action on each element on the enumerable object.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>ForEach&lt;T&gt;</b> (<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a> e, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Action`1">Action&lt;T&gt;</a> Action)</div>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>ForEach&lt;T&gt;</b> (<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a> e, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Action`1">Action&lt;T&gt;</a> action)</div>
           <h4 class="Subsection">Type Parameters</h4>
           <blockquote class="SubsectionBox" id="M:Alice.Extensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0}):Type Parameters">
             <dl>
@@ -331,9 +335,11 @@
               </dt>
               <dd>The enumerable object.</dd>
               <dt>
-                <i>Action</i>
+                <i>action</i>
               </dt>
-              <dd>Action.</dd>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
             </dl>
           </blockquote>
           <h2 class="Section">Remarks</h2>
@@ -342,7 +348,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Alice.Extensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0}):Version Information">
-            <b>Namespace: </b>Alice<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4824.22419</div>
+            <b>Namespace: </b>Alice<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4833.24827</div>
           <hr size="1" />
         </blockquote>
       </div>

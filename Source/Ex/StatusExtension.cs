@@ -28,10 +28,10 @@ namespace CoreTweet.Ex
         /// <param name='Parameters'>
         /// Parameters.
         /// </param>
-        public static Status ReplyToThis(this Status e, Tokens Tokens, Func<Status,string> Text, params Expression<Func<string,object>>[] Parameters)
+        public static Status ReplyToThis(this Status e, Func<Status,string> Text, params Expression<Func<string,object>>[] parameters)
         {
-            return Rest.Statuses.Update(Tokens,
-                               (Parameters as IEnumerable<Expression<Func<string,object>>>)
+            return e._.Statuses.Update(
+                               (parameters as IEnumerable<Expression<Func<string,object>>>)
                                    .Union(new Expression<Func<string,object>>[]
                                        {status => Text(e), in_reply_to_status_id => e.InReplyToStatusId})
                                            .ToArray());
@@ -48,10 +48,10 @@ namespace CoreTweet.Ex
         /// </param>
         /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
-        public static Status Retweet(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        public static Status Retweet(this Status e, params Expression<Func<string,object>>[] parameters)
         {
-            return Rest.Statuses.Retweet(Tokens, 
-                       (Parameters as IEnumerable<Expression<Func<string,object>>>)
+            return e._.Statuses.Retweet(
+                       (parameters as IEnumerable<Expression<Func<string,object>>>)
                            .Union(new Expression<Func<string,object>>[]{id => e.Id})
                                .ToArray());
         }
@@ -67,10 +67,10 @@ namespace CoreTweet.Ex
         /// </param>
         /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
-        public static Status Destroy(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        public static Status Destroy(this Status e, params Expression<Func<string,object>>[] parameters)
         {
-            return Rest.Statuses.Destroy(Tokens, 
-                       (Parameters as IEnumerable<Expression<Func<string,object>>>)
+            return e._.Statuses.Destroy(
+                       (parameters as IEnumerable<Expression<Func<string,object>>>)
                            .Union(new Expression<Func<string,object>>[]{id => e.Id})
                                .ToArray());
         }
@@ -86,10 +86,10 @@ namespace CoreTweet.Ex
         /// </param>
         /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
-        public static Status Favorite(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        public static Status Favorite(this Status e, params Expression<Func<string,object>>[] parameters)
         {
-            return Rest.Favorites.Create(Tokens, 
-                       (Parameters as IEnumerable<Expression<Func<string,object>>>)
+            return e._.Favorites.Create(
+                       (parameters as IEnumerable<Expression<Func<string,object>>>)
                            .Union(new Expression<Func<string,object>>[]{id => e.Id})
                                .ToArray());
             
@@ -106,10 +106,10 @@ namespace CoreTweet.Ex
         /// </param>
         /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
-        public static Status Unfavorite(this Status e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        public static Status Unfavorite(this Status e, params Expression<Func<string,object>>[] parameters)
         {
-            return Rest.Favorites.Destroy(Tokens, 
-                       (Parameters as IEnumerable<Expression<Func<string,object>>>)
+            return e._.Favorites.Destroy(
+                       (parameters as IEnumerable<Expression<Func<string,object>>>)
                            .Union(new Expression<Func<string,object>>[]{id => e.Id})
                                .ToArray());
         }
@@ -129,9 +129,9 @@ namespace CoreTweet.Ex
         /// <param name='Parameters'>
         /// Parameters.
         /// </param>
-        public static IEnumerable<Status> ReplyToAll(this IEnumerable<Status> e, Tokens Tokens, Func<Status,string> Text, params Expression<Func<string,object>>[] Parameters)
+        public static IEnumerable<Status> ReplyToAll(this IEnumerable<Status> e, Func<Status,string> Text, params Expression<Func<string,object>>[] parameters)
         {
-            e.ForEach(x => x.ReplyToThis(Tokens, Text, Parameters));
+            e.ForEach(x => x.ReplyToThis(Text, parameters));
             return e;
         }
         
@@ -146,9 +146,9 @@ namespace CoreTweet.Ex
         /// </param>
         /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
-        public static IEnumerable<Status> RetweetAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        public static IEnumerable<Status> RetweetAll(this IEnumerable<Status> e, params Expression<Func<string,object>>[] parameters)
         {
-            e.ForEach(x => x.Retweet(Tokens, Parameters));
+            e.ForEach(x => x.Retweet(parameters));
             return e;
         }
         
@@ -163,9 +163,9 @@ namespace CoreTweet.Ex
         /// </param>
         /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
-        public static IEnumerable<Status> DestroyAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        public static IEnumerable<Status> DestroyAll(this IEnumerable<Status> e, params Expression<Func<string,object>>[] parameters)
         {
-            e.ForEach(x => x.Destroy(Tokens, Parameters));
+            e.ForEach(x => x.Destroy(parameters));
             return e;
         }
         
@@ -180,9 +180,9 @@ namespace CoreTweet.Ex
         /// </param>
         /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
-        public static IEnumerable<Status> FavoriteAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        public static IEnumerable<Status> FavoriteAll(this IEnumerable<Status> e, params Expression<Func<string,object>>[] parameters)
         {
-            e.ForEach(x => x.Favorite(Tokens, Parameters));
+            e.ForEach(x => x.Favorite(parameters));
             return e;
         }
         
@@ -197,9 +197,9 @@ namespace CoreTweet.Ex
         /// </param>
         /// <para>Avaliable parameters: </para>
         /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
-        public static IEnumerable<Status> UnfavoriteAll(this IEnumerable<Status> e, Tokens Tokens, params Expression<Func<string,object>>[] Parameters)
+        public static IEnumerable<Status> UnfavoriteAll(this IEnumerable<Status> e, params Expression<Func<string,object>>[] parameters)
         {
-            e.ForEach(x => x.Unfavorite(Tokens, Parameters));
+            e.ForEach(x => x.Unfavorite(parameters));
             return e;
         }
     }

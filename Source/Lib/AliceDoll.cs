@@ -23,7 +23,7 @@ namespace Alice
         }
 
         /// <summary>
-        /// Gets all combinations of this and specified target.
+        /// Gets all combinations of this and the specified target.
         /// </summary>
         /// <example>
         /// new []{0,1,2}.Conbinate(new []{"a","b"}) -> {0,"a"},{0,"b"},{1,"a"},{1,"b"},{2,"a"},{2,"b"}
