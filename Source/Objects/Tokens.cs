@@ -5,24 +5,35 @@ namespace CoreTweet.Core
 {
     public class _Tokens
     {
-        internal Tokens _ { get { return Tokens.Create(ConsumerKey, ConsumerSecret, AccessToken, AccessTokenSecret); } }
-        
         /// <summary>
         /// The consumer key.
         /// </summary>
-        public string ConsumerKey { get; internal set; }
+        internal string _ConsumerKey  { get; set; }
         /// <summary>
         /// The consumer secret.
         /// </summary>
-        public string ConsumerSecret { get; internal set; }
+        internal string _ConsumerSecret { get; set; }
         /// <summary>
         /// The access token.
         /// </summary>
-        public string AccessToken { get; internal set; }
+        internal string _AccessToken { get; set; }
         /// <summary>
         /// The access token secret.
         /// </summary> 
-        public string AccessTokenSecret { get; internal set; }
+        internal string _AccessTokenSecret { get; set; }
+        /// <summary>
+        /// Generates the instance of "Tokens" from this.
+        /// </summary>
+        
+        public _Tokens() { }
+        
+        public _Tokens(_Tokens e) : this()
+        {
+            _ConsumerKey = e._ConsumerKey;
+            _ConsumerSecret = e._ConsumerSecret;
+            _AccessToken = e._AccessToken;
+            _AccessTokenSecret = e._AccessTokenSecret;
+        }
     }
 }
 
@@ -33,35 +44,70 @@ namespace CoreTweet
     /// </summary>
     public class Tokens : _Tokens
     {
+        /// <summary>
+        /// The consumer key.
+        /// </summary>
+        public string ConsumerKey  
+        {
+            get { return _ConsumerKey; } 
+            internal set { _ConsumerKey = value; }
+        }
+        /// <summary>
+        /// The consumer secret.
+        /// </summary>
+        public string ConsumerSecret         
+        {
+            get { return _ConsumerSecret; } 
+            internal set { _ConsumerSecret = value; }
+        }
+        /// <summary>
+        /// The access token.
+        /// </summary>
+        public string AccessToken 
+        {
+            get { return _AccessToken; }
+            internal set { _AccessToken = value; }
+        }
+        /// <summary>
+        /// The access token secret.
+        /// </summary> 
+        public string AccessTokenSecret
+        {
+            get { return _AccessTokenSecret; }
+            internal set { _AccessTokenSecret = value; }
+        }
+        
+        public Account Account { get { return new Account(this); } }
+        
+        public Blocks Blocks { get { return new Blocks(this); } }
+        
+        public DirectMessages DirectMessages { get { return new DirectMessages(this); } }
+        
+        public Favorites Favorites { get { return new Favorites(this); } }
+        
+        public Friends Friends { get { return new Friends(this); } }
+        
+        public Friendships Friendships { get { return new Friendships(this); } }
+        
+        public Geo Geo { get { return new Geo(this); } }
+        
+        public Help Help { get { return new Help(this); } }
+        
+        public Search Search { get { return new Search(this); } }
+        
+        public SavedSearches SavedSearches { get { return new SavedSearches(this); } }
+        
+        public Statuses Statuses { get { return new Statuses(this); } }
+        
+        public Trends Trends { get { return new Trends(this); } }
+
+        public Users Users { get { return new Users(this); } }
+
+        public Lists Lists { get { return new Lists(this); } }
+        
         internal Tokens() { }
         
-        public Account Account { get { return (this as _Tokens) as Account; } }
-        
-        public Blocks Blocks { get { return (this as _Tokens) as Blocks; } }
-        
-        public DirectMessages DirectMessages { get { return (this as _Tokens) as DirectMessages; } }
-        
-        public Favorites Favorites { get { return (this as _Tokens) as Favorites; } }
-        
-        public Friends Friends { get { return (this as _Tokens) as Friends; } }
-        
-        public Friendships Friendships { get { return (this as _Tokens) as Friendships; } }
-        
-        public Geo Geo { get { return (this as _Tokens) as Geo; } }
-        
-        public Help Help { get { return (this as _Tokens) as Help; } }
-        
-        public Search Search { get { return (this as _Tokens) as Search; } }
-        
-        public SavedSearches SavedSearches { get { return (this as _Tokens) as SavedSearches; } }
-        
-        public Statuses Statuses { get { return (this as _Tokens) as Statuses; } }
-        
-        public Trends Trends { get { return (this as _Tokens) as Trends; } }
-
-        public Users Users { get { return (this as _Tokens) as Users; } }
-
-        public Lists Lists { get { return (this as _Tokens) as Lists; } }
+        internal Tokens(_Tokens e) : base(e) { }
         
         /// <summary>
         /// Make an instance of Tokens.
@@ -82,7 +128,7 @@ namespace CoreTweet
         {
             return new Tokens()
             {
-                ConsumerKey = consumerKey,
+                ConsumerKey  = consumerKey,
                 ConsumerSecret = consumerSecret,
                 AccessToken = accessToken,
                 AccessTokenSecret = accessSecret

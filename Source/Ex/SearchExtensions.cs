@@ -15,14 +15,14 @@ namespace CoreTweet.Ex
     {
         public static IEnumerable<Status> SearchTweets(this SearchQuery e, params Expression<Func<string,object>>[] parameters)
         {
-            return e._.Search.Tweets((parameters as IEnumerable<Expression<Func<string,object>>>)
+            return new Tokens(e).Search.Tweets((parameters as IEnumerable<Expression<Func<string,object>>>)
                                    .Union(new Expression<Func<string,object>>[]{q => e.Query})
                                        .ToArray());
         }
         
         public static IEnumerable<User> SearchUsers(this SearchQuery e, Tokens Tokens, params Expression<Func<string,object>>[] parameters)
         {
-            return e._.Users.Search((parameters as IEnumerable<Expression<Func<string,object>>>)
+            return new Tokens(e).Users.Search((parameters as IEnumerable<Expression<Func<string,object>>>)
                                    .Union(new Expression<Func<string,object>>[]{q => e.Query})
                                        .ToArray());
         }

@@ -11,7 +11,7 @@ namespace CoreTweet.Core
     /// <summary>GET/POST geo</summary>
     public class Geo : _Tokens
     {
-        internal Geo() { }
+        internal Geo(_Tokens e) : base(e) { }
         //FIXME: Don't know about a format of "attribute:street_address". Needed to check the format by "OAuth tool".
             
         //GET Methods

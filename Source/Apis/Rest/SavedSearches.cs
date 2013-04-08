@@ -14,7 +14,7 @@ namespace CoreTweet.Core
     /// </summary>
     public class SavedSearches : _Tokens
     {
-        internal SavedSearches() { }
+        internal SavedSearches(_Tokens e) : base(e) { }
         //DONE!
         //GET Methods
         

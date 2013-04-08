@@ -10,7 +10,7 @@ namespace CoreTweet.Core
     /// <summary>GET help</summary>
     public class Help : _Tokens
     {
-        internal Help() { }
+        internal Help(_Tokens e) : base(e) { }
         //DONE!
             
         //GET Methods

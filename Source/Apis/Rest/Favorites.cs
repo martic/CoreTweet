@@ -10,7 +10,7 @@ namespace CoreTweet.Core
     ///<summary>GET/POST favorites</summary>
     public class Favorites : _Tokens
     {
-        internal Favorites() { }
+        internal Favorites(_Tokens e) : base(e) { }
         //DONE!
             
         //GET Method

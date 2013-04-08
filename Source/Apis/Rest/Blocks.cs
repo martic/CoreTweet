@@ -9,7 +9,7 @@ namespace CoreTweet.Core
     ///<summary>GET/POST blocks</summary>
     public class Blocks : _Tokens
     {
-        internal Blocks() { }
+        internal Blocks(_Tokens e) : base(e) { }
         //DONE!
             
         //GET Methods

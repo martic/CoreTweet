@@ -10,7 +10,7 @@ namespace CoreTweet.Core
     /// <summary>GET/POST Friendships</summary>
     public class Friendships : _Tokens
     {
-        internal Friendships() { }
+        internal Friendships(_Tokens e) : base(e) { }
         //DONE!
             
         //GET Methods

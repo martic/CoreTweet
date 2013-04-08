@@ -11,7 +11,7 @@ namespace CoreTweet.Core
     /// <summary>GET/POST lists</summary>
     public class Lists : _Tokens
     {
-        internal Lists() { }
+        internal Lists(_Tokens e) : base(e) { }
             
         //GET Methods
             

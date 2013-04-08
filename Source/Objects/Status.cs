@@ -147,7 +147,7 @@ namespace CoreTweet
             InReplyToScreenName = e.in_reply_to_screen_name;
             InReplyToStatusId = (long?)e.in_reply_to_status_id;
             InReplyToUserId = (long?)e.in_reply_to_user_id;
-            Place = CoreBase.Convert<Place>(e.place);
+            Place = e.place != null ? CoreBase.Convert<Place>(e.place) : null;
             PossiblySensitive = e.IsDefined("possibly_sensitive") ? e.possibly_sensitive : null;
             //UNDONE: Scopes.
             RetweetCount = (int)e.retweet_count;

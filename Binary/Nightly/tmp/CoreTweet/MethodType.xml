@@ -1,0 +1,67 @@
+<Type Name="MethodType" FullName="CoreTweet.MethodType">
+  <TypeSignature Language="C#" Value="public enum MethodType" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed MethodType extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>CoreTweet</AssemblyName>
+    <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>
+            The type of the HTTP method.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="GET">
+      <MemberSignature Language="C#" Value="GET" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype CoreTweet.MethodType GET = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.MethodType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            GET method.
+            </summary>
+      </Docs>
+    </Member>
+    <Member MemberName="POST">
+      <MemberSignature Language="C#" Value="POST" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype CoreTweet.MethodType POST = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.MethodType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            POST method.
+            </summary>
+      </Docs>
+    </Member>
+    <Member MemberName="POST_NORESPONSE">
+      <MemberSignature Language="C#" Value="POST_NORESPONSE" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype CoreTweet.MethodType POST_NORESPONSE = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.MethodType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            POST method without any response.
+            </summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

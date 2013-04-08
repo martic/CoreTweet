@@ -1,0 +1,150 @@
+<Type Name="SavedSearches" FullName="CoreTweet.Core.SavedSearches">
+  <TypeSignature Language="C#" Value="public class SavedSearches : CoreTweet.Core._Tokens" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SavedSearches extends CoreTweet.Core._Tokens" />
+  <AssemblyInfo>
+    <AssemblyName>CoreTweet</AssemblyName>
+    <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>CoreTweet.Core._Tokens</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            GET/POST saved_searches
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Create">
+      <MemberSignature Language="C#" Value="public CoreTweet.SearchQuery Create (System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class CoreTweet.SearchQuery Create(class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.SearchQuery</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Create a new saved search for the authenticated user. A user may only have 25 saved searches.</para>
+          <para>Avaliable parameters: </para>
+          <para>
+            <paramref name="string query (required)" /> : The query of the search the user would like to save.</para>
+        </summary>
+        <returns>The saved search.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Destroy">
+      <MemberSignature Language="C#" Value="public CoreTweet.SearchQuery Destroy (System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class CoreTweet.SearchQuery Destroy(class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.SearchQuery</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Destroys a saved search for the authenticating user. The authenticating user must be the owner of saved search id being destroyed.</para>
+          <para>Avaliable parameters: </para>
+          <para>
+            <paramref name="long id (required)" /> : The ID of the saved search.</para>
+        </summary>
+        <returns>The saved search.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="List">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IEnumerable&lt;CoreTweet.SearchQuery&gt; List (System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class System.Collections.Generic.IEnumerable`1&lt;class CoreTweet.SearchQuery&gt; List(class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;CoreTweet.SearchQuery&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Returns the authenticated user's saved search queries.</para>
+          <para>Avaliable parameters: Nothing. </para>
+        </summary>
+        <returns>Saved searches.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Show">
+      <MemberSignature Language="C#" Value="public CoreTweet.SearchQuery Show (System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class CoreTweet.SearchQuery Show(class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.SearchQuery</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="parameters">
+            Parameters.
+            </param>
+        <summary>
+          <para>Retrieve the information for the saved search represented by the given id. The authenticating user must be the owner of saved search ID being requested.</para>
+          <para>Avaliable parameters: </para>
+          <para>
+            <paramref name="long id (required)" /> : The ID of the saved search.</para>
+        </summary>
+        <returns>The saved search.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

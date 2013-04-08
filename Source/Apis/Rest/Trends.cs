@@ -11,7 +11,7 @@ namespace CoreTweet.Core
     /// <summary>GET trends</summary>
     public class Trends : _Tokens
     {
-        internal Trends() { }
+        public Trends(_Tokens e) : base(e) { }
         //DONE!
         //GET Methods
             

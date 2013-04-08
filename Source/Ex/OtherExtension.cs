@@ -51,7 +51,7 @@ namespace CoreTweet.Ex.Develop
         /// <param name="e">The camelCase text.</param>
         public static string ToSnakeCase(this string e)
         {
-            return string.Join("", e.Select(x => char.IsUpper(x) ? "_" + x.ToString().ToLower() : x.ToString()));
+            return string.Concat(e.Select(x => char.IsUpper(x) ? "_" + x.ToString().ToLower() : x.ToString()));
         }
     }
 }

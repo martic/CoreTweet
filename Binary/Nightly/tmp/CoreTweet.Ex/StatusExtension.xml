@@ -1,0 +1,370 @@
+<Type Name="StatusExtension" FullName="CoreTweet.Ex.StatusExtension">
+  <TypeSignature Language="C#" Value="public static class StatusExtension" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit StatusExtension extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>CoreTweet</AssemblyName>
+    <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Extensions for Status object.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Destroy">
+      <MemberSignature Language="C#" Value="public static CoreTweet.Status Destroy (this CoreTweet.Status e, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.Status Destroy(class CoreTweet.Status e, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.Status</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="e" Type="CoreTweet.Status" RefType="this" />
+        <Parameter Name="parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="e">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <summary>
+            Destroy this tweet.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: </para>
+        <para>
+          <paramref name="bool trim_user (optional)" /> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
+      </Docs>
+    </Member>
+    <Member MemberName="DestroyAll">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt; DestroyAll (this System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt; e, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class CoreTweet.Status&gt; DestroyAll(class System.Collections.Generic.IEnumerable`1&lt;class CoreTweet.Status&gt; e, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="e" Type="System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt;" RefType="this" />
+        <Parameter Name="parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="e">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <summary>
+            Destroy all of these tweets.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: </para>
+        <para>
+          <paramref name="bool trim_user (optional)" /> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
+      </Docs>
+    </Member>
+    <Member MemberName="Favorite">
+      <MemberSignature Language="C#" Value="public static CoreTweet.Status Favorite (this CoreTweet.Status e, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.Status Favorite(class CoreTweet.Status e, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.Status</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="e" Type="CoreTweet.Status" RefType="this" />
+        <Parameter Name="parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="e">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <summary>
+            Favorite this tweet.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: </para>
+        <para>
+          <paramref name="bool include_entities (optional)" /> : The entities node will be omitted when set to false.</para>
+      </Docs>
+    </Member>
+    <Member MemberName="FavoriteAll">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt; FavoriteAll (this System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt; e, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class CoreTweet.Status&gt; FavoriteAll(class System.Collections.Generic.IEnumerable`1&lt;class CoreTweet.Status&gt; e, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="e" Type="System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt;" RefType="this" />
+        <Parameter Name="parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="e">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <summary>
+            Favorite all of these tweets.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: </para>
+        <para>
+          <paramref name="bool include_entities (optional)" /> : The entities node will be omitted when set to false.</para>
+      </Docs>
+    </Member>
+    <Member MemberName="ReplyToAll">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt; ReplyToAll (this System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt; e, Func&lt;CoreTweet.Status,string&gt; Text, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class CoreTweet.Status&gt; ReplyToAll(class System.Collections.Generic.IEnumerable`1&lt;class CoreTweet.Status&gt; e, class System.Func`2&lt;class CoreTweet.Status, string&gt; Text, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="e" Type="System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt;" RefType="this" />
+        <Parameter Name="Text" Type="System.Func&lt;CoreTweet.Status,System.String&gt;" />
+        <Parameter Name="parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="e">To be added.</param>
+        <param name="Text">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <summary>
+            Reply to all of these tweets.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: </para>
+        <para>
+          <paramref name="double lat (optional)" /> : The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</para>
+        <para>
+          <paramref name="double long (optional)" /> : The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</para>
+        <para>
+          <paramref name="string place_id (optional)" /> : A place in the world. These IDs can be retrieved from GET geo/reverse_geocode.</para>
+        <para>
+          <paramref name="bool display_coordinates (optional)" /> : Whether or not to put a pin on the exact coordinates a tweet has been sent from.</para>
+        <para>
+          <paramref name="bool trim_user (optional)" /> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
+      </Docs>
+    </Member>
+    <Member MemberName="ReplyToThis">
+      <MemberSignature Language="C#" Value="public static CoreTweet.Status ReplyToThis (this CoreTweet.Status e, Func&lt;CoreTweet.Status,string&gt; Text, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.Status ReplyToThis(class CoreTweet.Status e, class System.Func`2&lt;class CoreTweet.Status, string&gt; Text, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.Status</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="e" Type="CoreTweet.Status" RefType="this" />
+        <Parameter Name="Text" Type="System.Func&lt;CoreTweet.Status,System.String&gt;" />
+        <Parameter Name="parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="e">To be added.</param>
+        <param name="Text">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <summary>
+            Reply to this tweet.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: </para>
+        <para>
+          <paramref name="double lat (optional)" /> : The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</para>
+        <para>
+          <paramref name="double long (optional)" /> : The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</para>
+        <para>
+          <paramref name="string place_id (optional)" /> : A place in the world. These IDs can be retrieved from GET geo/reverse_geocode.</para>
+        <para>
+          <paramref name="bool display_coordinates (optional)" /> : Whether or not to put a pin on the exact coordinates a tweet has been sent from.</para>
+        <para>
+          <paramref name="bool trim_user (optional)" /> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
+      </Docs>
+    </Member>
+    <Member MemberName="Retweet">
+      <MemberSignature Language="C#" Value="public static CoreTweet.Status Retweet (this CoreTweet.Status e, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.Status Retweet(class CoreTweet.Status e, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.Status</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="e" Type="CoreTweet.Status" RefType="this" />
+        <Parameter Name="parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="e">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <summary>
+            Retweet this tweet.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: </para>
+        <para>
+          <paramref name="bool trim_user (optional)" /> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
+      </Docs>
+    </Member>
+    <Member MemberName="RetweetAll">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt; RetweetAll (this System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt; e, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class CoreTweet.Status&gt; RetweetAll(class System.Collections.Generic.IEnumerable`1&lt;class CoreTweet.Status&gt; e, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="e" Type="System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt;" RefType="this" />
+        <Parameter Name="parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="e">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <summary>
+            Retweet all of these tweets.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: </para>
+        <para>
+          <paramref name="bool trim_user (optional)" /> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
+      </Docs>
+    </Member>
+    <Member MemberName="Unfavorite">
+      <MemberSignature Language="C#" Value="public static CoreTweet.Status Unfavorite (this CoreTweet.Status e, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class CoreTweet.Status Unfavorite(class CoreTweet.Status e, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>CoreTweet.Status</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="e" Type="CoreTweet.Status" RefType="this" />
+        <Parameter Name="parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="e">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <summary>
+            Un-favorite this tweet.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: </para>
+        <para>
+          <paramref name="bool include_entities (optional)" /> : The entities node will be omitted when set to false.</para>
+      </Docs>
+    </Member>
+    <Member MemberName="UnfavoriteAll">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt; UnfavoriteAll (this System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt; e, System.Linq.Expressions.Expression&lt;Func&lt;string,object&gt;&gt;[] parameters);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class CoreTweet.Status&gt; UnfavoriteAll(class System.Collections.Generic.IEnumerable`1&lt;class CoreTweet.Status&gt; e, class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;string, object&gt;&gt;[] parameters) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="e" Type="System.Collections.Generic.IEnumerable&lt;CoreTweet.Status&gt;" RefType="this" />
+        <Parameter Name="parameters" Type="System.Linq.Expressions.Expression&lt;System.Func&lt;System.String,System.Object&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="e">To be added.</param>
+        <param name="parameters">To be added.</param>
+        <summary>
+            Un-favorite all of these tweets.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <para>Avaliable parameters: </para>
+        <para>
+          <paramref name="bool include_entities (optional)" /> : The entities node will be omitted when set to false.</para>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

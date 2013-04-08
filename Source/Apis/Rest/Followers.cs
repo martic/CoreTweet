@@ -9,7 +9,7 @@ namespace CoreTweet.Core
     ///<summary>GET followers</summary>
     public class Followers : _Tokens
     {
-        internal Followers() { }
+        internal Followers(_Tokens e) : base(e) { }
         //DONE!
 
         //GET Methods

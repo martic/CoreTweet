@@ -13,7 +13,7 @@ namespace CoreTweet.Core
     /// </summary>
     public class DirectMessages : _Tokens
     {
-        internal DirectMessages() { }
+        internal DirectMessages(_Tokens e) : base(e) { }
         //DONE!
             
         //GET Methods

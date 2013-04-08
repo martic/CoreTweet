@@ -11,7 +11,7 @@ namespace CoreTweet.Core
     /// <summary>GET/POST users</summary>
     public class Users : _Tokens
     {
-        internal Users() { }
+        internal Users(_Tokens e) : base(e) { }
         //DONE!
         //GET Methods
             

@@ -10,7 +10,7 @@ namespace CoreTweet.Core
     /// <summary>GET/POST account</summary>
     public class Account : _Tokens
     {
-        internal Account() { }
+        internal Account(_Tokens e) : base(e) { }
         //DONE!
        
         //GET Methods
@@ -35,9 +35,9 @@ namespace CoreTweet.Core
         /// Parameters.
         /// </param>
         public User VerifyCredentials(params Expression<Func<string,object>>[] parameters)
-            {
+        {
             return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(this, MethodType.GET, Tokens.Url("account/verify_credentials"), parameters)));
-            }
+        }
         
         //GET & POST Methods
         
@@ -58,9 +58,9 @@ namespace CoreTweet.Core
         /// Parameters.
         /// </param>
         public Setting Settings(params Expression<Func<string,object>>[] parameters)
-            {
+        {
             return CoreBase.Convert<Setting>(DynamicJson.Parse(Request.Send(this, (parameters.Length == 0 ? MethodType.GET : MethodType.POST), Tokens.Url("account/settings"), parameters)));
-            }
+        }
         
         //POST Methods
         
@@ -74,9 +74,9 @@ namespace CoreTweet.Core
         /// Parameters.
         /// </param>
         public void UpdateDeliveryService(params Expression<Func<string,object>>[] parameters)
-            {
+        {
             Request.Send(this, MethodType.POST_NORESPONSE, Tokens.Url("account/update_delivery_service"), parameters);
-            }
+        }
         
         /// <summary>
         /// <para>Sets values that users are able to set under the "Account" tab of their settings page. Only the parameters specified will be updated.</para>
@@ -95,9 +95,9 @@ namespace CoreTweet.Core
         /// Parameters.
         /// </param>
         public User UpdateProfile(params Expression<Func<string,object>>[] parameters)
-            {
+        {
             return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(this, MethodType.POST, Tokens.Url("account/update_profile"), parameters)));
-            }
+        }
         
         /// <summary>
         /// <para>Updates the authenticating user's profile background image. This method can also be used to enable or disable the profile background image.</para>
@@ -114,9 +114,9 @@ namespace CoreTweet.Core
         /// Parameters.
         /// </param>
         public User UpdateProfileBackgroundImage(params Expression<Func<string,object>>[] parameters)
-            {
+        {
             return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(this, MethodType.POST, Tokens.Url("account/update_profile_background_image"), parameters)));
-            }
+        }
         
         /// <summary>
         /// <para>Uploads a profile banner on behalf of the authenticating user. For best results, upload an image that is exactly 1252px by 626px and smaller than 5MB. Images will be resized for a number of display options. Users with an uploaded profile banner will have a profile_banner_url node in their Users objects. More information about sizing variations can be found in User Profile Images and Banners and GET users/profile_banner.</para>
@@ -133,9 +133,9 @@ namespace CoreTweet.Core
         /// Parameters.
         /// </param>
         public void UpdateProfileBanner(params Expression<Func<string,object>>[] parameters)
-            {
+        {
             Request.Send(this, MethodType.POST_NORESPONSE, Tokens.Url("account/update_profile_banner"), parameters);
-            }
+        }
         
         /// <summary>
         /// <para>Sets one or more hex values that control the color scheme of the authenticating user's profile page on twitter.com. Each parameter's value must be a valid hexidecimal value, and may be either three or six characters (ex: #fff or #ffffff).</para>
@@ -153,9 +153,9 @@ namespace CoreTweet.Core
         /// Parameters.
         /// </param>
         public User UpdateProfileColors(params Expression<Func<string,object>>[] parameters)
-            {
+        {
             return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(this, MethodType.POST, Tokens.Url("account/update_profile_colors"), parameters)));
-            }
+        }
         
         /// <summary>
         /// <para>Updates the authenticating user's profile image. Note that this method expects raw multipart data, not a URL to an image.</para>
@@ -170,9 +170,9 @@ namespace CoreTweet.Core
         /// Parameters.
         /// </param>
         public User UpdateProfileImage(params Expression<Func<string,object>>[] parameters)
-            {
+        {
             return CoreBase.Convert<User>(DynamicJson.Parse(Request.Send(this, MethodType.POST, Tokens.Url("account/update_profile_image"), parameters)));
-            }
+        }
     }
         
 }

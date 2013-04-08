@@ -1,0 +1,86 @@
+<Type Name="DevelopersExtention" FullName="CoreTweet.Ex.Develop.DevelopersExtention">
+  <TypeSignature Language="C#" Value="public static class DevelopersExtention" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit DevelopersExtention extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>CoreTweet</AssemblyName>
+    <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Extentions for developer.
+            </summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="ReplaceBadCharactor">
+      <MemberSignature Language="C#" Value="public static string ReplaceBadCharactor (this string json);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string ReplaceBadCharactor(string json) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="json" Type="System.String" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="json">Json.</param>
+        <summary>
+            Replaces the bad charactor on the specified JSON.
+            </summary>
+        <returns>The 'good' JSON.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToDictionary">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IDictionary&lt;string,object&gt; ToDictionary (Codeplex.Data.DynamicJson e);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IDictionary`2&lt;string, object&gt; ToDictionary(class Codeplex.Data.DynamicJson e) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IDictionary&lt;System.String,System.Object&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="e" Type="Codeplex.Data.DynamicJson" />
+      </Parameters>
+      <Docs>
+        <param name="e">The dynamic object.</param>
+        <summary>
+            Converts the specified dynamic object to dictionary.
+            </summary>
+        <returns>The dictionary.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToSnakeCase">
+      <MemberSignature Language="C#" Value="public static string ToSnakeCase (this string e);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string ToSnakeCase(string e) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.4845.5780</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="e" Type="System.String" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="e">The camelCase text.</param>
+        <summary>
+            Converts camelCase text to snake_case.
+            </summary>
+        <returns>The snake_case text.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

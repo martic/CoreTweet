@@ -11,7 +11,7 @@ namespace CoreTweet.Core
     /// <summary>GET/POST statuses</summary>
     public class Statuses : _Tokens
     {
-        internal Statuses() { }
+        internal Statuses(_Tokens e) : base(e) { }
         //UNDONE: update_with_media haven't been implemented.
         //FIXME: filter shouldn't works well.It needs some tests.
                 

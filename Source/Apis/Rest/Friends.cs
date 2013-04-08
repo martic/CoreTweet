@@ -9,7 +9,7 @@ namespace CoreTweet.Core
     ///<summary>GET firends</summary>
     public class Friends : _Tokens
     {
-        internal Friends() { }
+        internal Friends(_Tokens e) : base(e) { }
         //DONE!
 
         //GET Methods

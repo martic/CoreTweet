@@ -19,7 +19,7 @@ namespace CoreTweet
         /// <summary>
         /// The access token URL.
         /// </summary>
-        static readonly string AccessTokenUrl = "https://twitter.com/oauth/access_token";
+        static readonly string _AccessTokenUrl = "https://twitter.com/oauth/access_token";
         /// <summary>
         /// The authorize URL.
         /// </summary>
@@ -45,10 +45,10 @@ namespace CoreTweet
         public static string GenerateAuthUri(string consumerKey, string consumerSecret)
         {
             var prm = Request.GenerateParameters(consumerKey, null);
-            var sgn = Request.GenerateSignature(new Tokens()
+            var sgn = Request.GenerateSignature(new _Tokens()
             {
-                ConsumerSecret = consumerSecret,
-                AccessTokenSecret = null
+                _ConsumerSecret = consumerSecret,
+                _AccessTokenSecret = null
             }, "GET", RequestTokenUrl, prm);
             prm.Add("oauth_signature", Request.UrlEncode(sgn));
             var dic = Request.HttpGet(RequestTokenUrl, prm)
@@ -79,12 +79,12 @@ namespace CoreTweet
                 throw new ArgumentNullException("req_token", "\"GenerateAuthUri\" haven't been called.");
             var prm = Request.GenerateParameters(cKey, reqToken);
             prm.Add("oauth_verifier", pin);
-            prm.Add("oauth_signature", Request.GenerateSignature(new Tokens()
+            prm.Add("oauth_signature", Request.GenerateSignature(new _Tokens()
             {
-                ConsumerSecret = reqSecret,
-                AccessTokenSecret = null
-            }, "GET", AccessTokenUrl, prm));
-            var dic = Request.HttpGet(AccessTokenUrl, prm)
+                _ConsumerSecret = reqSecret,
+                _AccessTokenSecret = null
+            }, "GET", _AccessTokenUrl, prm));
+            var dic = Request.HttpGet(_AccessTokenUrl, prm)
                 .Split('&')
                 .Where(x => x.Contains('='))
                 .Select(x => x.Split('='))
@@ -170,7 +170,7 @@ namespace CoreTweet
         public static string Send<T>(T token, MethodType type, string url, IDictionary<string, object> prms)
             where T : _Tokens
         {
-            var prm = GenerateParameters(token.ConsumerKey, token.AccessToken);
+            var prm = GenerateParameters(token._ConsumerKey, token._AccessToken);
             foreach(var p in prms)
                 prm.Add(p.Key, UrlEncode(p.Value.ToString()));
             var sgn = GenerateSignature(token,
@@ -237,8 +237,8 @@ namespace CoreTweet
             using(var hs1 = new HMACSHA1())
             {
                 hs1.Key = Encoding.UTF8.GetBytes(
-                    string.Format("{0}&{1}", UrlEncode(t.ConsumerSecret),
-                        t.AccessTokenSecret == null ? "" : UrlEncode(t.AccessTokenSecret)));
+                    string.Format("{0}&{1}", UrlEncode(t._ConsumerSecret),
+                        t._AccessTokenSecret == null ? "" : UrlEncode(t._AccessTokenSecret)));
                 var hash = hs1.ComputeHash(
                     System.Text.Encoding.UTF8.GetBytes(
                         string.Format("{0}&{1}&{2}", httpMethod, UrlEncode(url),
@@ -251,7 +251,7 @@ namespace CoreTweet
         /// Generates the parameters.
         /// </summary>
         /// <returns>The parameters.</returns>
-        /// <param name="ConsumerKey">Consumer key.</param>
+        /// <param name="_ConsumerKey ">Consumer key.</param>
         /// <param name="token">Token.</param>
         internal static SortedDictionary<string, string> GenerateParameters(string consumerKey, string token)
         {
