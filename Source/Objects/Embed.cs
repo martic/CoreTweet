@@ -5,7 +5,7 @@ using CoreTweet.Core;
 namespace CoreTweet
 {
     public class Embed : CoreBase
-    {
+    {   
         public string Html { get; set; }
 
         public string AuthorName { get; set; }
@@ -27,6 +27,8 @@ namespace CoreTweet
         public int? Width{ get; set; }
         
         public string CacheAge{ get; set; }
+        
+        internal Embed(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {

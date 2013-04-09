@@ -9,9 +9,9 @@ namespace CoreTweet.Core
 {
 
     /// <summary>GET/POST geo</summary>
-    public class Geo : _Tokens
+    public class Geo : TokenIncluded
     {
-        internal Geo(_Tokens e) : base(e) { }
+        internal Geo(Tokens e) : base(e) { }
         //FIXME: Don't know about a format of "attribute:street_address". Needed to check the format by "OAuth tool".
             
         //GET Methods
@@ -27,8 +27,8 @@ namespace CoreTweet.Core
         /// </param>
         public Place Id(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Place>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.POST, Tokens.Url(
+            return CoreBase.Convert<Place>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.POST, Tokens.Url(
                     string.Format("geo/id/{0}", parameters.First(x => x.Parameters[0].Name == "place_id")
                               .Compile()("").ToString())), parameters.Where(x => x.Parameters[0].Name != "place_id").ToArray()).ReplaceBadCharactor()));
         }
@@ -50,8 +50,8 @@ namespace CoreTweet.Core
         /// </param>
         public GeoResult SimilarPlaces(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<GeoResult>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("geo/similar_places"), parameters).ReplaceBadCharactor()));
+            return CoreBase.Convert<GeoResult>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("geo/similar_places"), parameters).ReplaceBadCharactor()));
         }
             
         /// <summary>
@@ -76,8 +76,8 @@ namespace CoreTweet.Core
         /// </param>
         public GeoResult Search(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<GeoResult>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("geo/search"), parameters).ReplaceBadCharactor()));
+            return CoreBase.Convert<GeoResult>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("geo/search"), parameters).ReplaceBadCharactor()));
         }
             
         /// <summary>
@@ -96,8 +96,8 @@ namespace CoreTweet.Core
         /// </param>
         public GeoResult ReverseGeocode(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<GeoResult>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("geo/reverse_geocode"), parameters).ReplaceBadCharactor()));
+            return CoreBase.Convert<GeoResult>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("geo/reverse_geocode"), parameters).ReplaceBadCharactor()));
         }
             
         //POST Method
@@ -120,8 +120,8 @@ namespace CoreTweet.Core
         /// <see cref="https://dev.twitter.com/docs/finding-tweets-about-places"/>
         public Place Place(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Place>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("geo/reverse_geocode"), parameters).ReplaceBadCharactor()));
+            return CoreBase.Convert<Place>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("geo/reverse_geocode"), parameters).ReplaceBadCharactor()));
         }
             
             

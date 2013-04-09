@@ -30,7 +30,7 @@ namespace CoreTweet.Ex
         /// </param>
         public static Status ReplyToThis(this Status e, Func<Status,string> Text, params Expression<Func<string,object>>[] parameters)
         {
-            return new Tokens(e).Statuses.Update(
+            return e.Tokens.Statuses.Update(
                                (parameters as IEnumerable<Expression<Func<string,object>>>)
                                    .Union(new Expression<Func<string,object>>[]
                                        {status => Text(e), in_reply_to_status_id => e.InReplyToStatusId})
@@ -50,7 +50,7 @@ namespace CoreTweet.Ex
         /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
         public static Status Retweet(this Status e, params Expression<Func<string,object>>[] parameters)
         {
-            return new Tokens(e).Statuses.Retweet(
+            return e.Tokens.Statuses.Retweet(
                        (parameters as IEnumerable<Expression<Func<string,object>>>)
                            .Union(new Expression<Func<string,object>>[]{id => e.Id})
                                .ToArray());
@@ -69,7 +69,7 @@ namespace CoreTweet.Ex
         /// <para><paramref name="bool trim_user (optional)"/> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
         public static Status Destroy(this Status e, params Expression<Func<string,object>>[] parameters)
         {
-            return new Tokens(e).Statuses.Destroy(
+            return e.Tokens.Statuses.Destroy(
                        (parameters as IEnumerable<Expression<Func<string,object>>>)
                            .Union(new Expression<Func<string,object>>[]{id => e.Id})
                                .ToArray());
@@ -88,7 +88,7 @@ namespace CoreTweet.Ex
         /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
         public static Status Favorite(this Status e, params Expression<Func<string,object>>[] parameters)
         {
-            return new Tokens(e).Favorites.Create(
+            return e.Tokens.Favorites.Create(
                        (parameters as IEnumerable<Expression<Func<string,object>>>)
                            .Union(new Expression<Func<string,object>>[]{id => e.Id})
                                .ToArray());
@@ -108,7 +108,7 @@ namespace CoreTweet.Ex
         /// <para><paramref name="bool include_entities (optional)"/> : The entities node will be omitted when set to false.</para>
         public static Status Unfavorite(this Status e, params Expression<Func<string,object>>[] parameters)
         {
-            return new Tokens(e).Favorites.Destroy(
+            return e.Tokens.Favorites.Destroy(
                        (parameters as IEnumerable<Expression<Func<string,object>>>)
                            .Union(new Expression<Func<string,object>>[]{id => e.Id})
                                .ToArray());

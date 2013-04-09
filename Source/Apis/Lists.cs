@@ -9,9 +9,9 @@ namespace CoreTweet.Core
 {
 
     /// <summary>GET/POST lists</summary>
-    public class Lists : _Tokens
+    public class Lists : TokenIncluded
     {
-        internal Lists(_Tokens e) : base(e) { }
+        internal Lists(Tokens e) : base(e) { }
             
         //GET Methods
             
@@ -28,8 +28,8 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<CoreTweet.List> List(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<CoreTweet.List>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("lists/list"), parameters)));
+            return CoreBase.ConvertArray<CoreTweet.List>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/list"), parameters)));
         }
             
         /// <summary>
@@ -50,8 +50,8 @@ namespace CoreTweet.Core
         /// </param>
         public Cursored<User> Members(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Cursored<User>>(DynamicJson.Parse(
-                     Request.Send(this, MethodType.GET, Tokens.Url("lists/members"), parameters)));
+            return CoreBase.Convert<Cursored<User>>(this.Tokens, DynamicJson.Parse(
+                     Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/members"), parameters)));
         }
             
         /// <summary>
@@ -69,8 +69,8 @@ namespace CoreTweet.Core
         /// </param>
         public Cursored<User> Memberships(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Cursored<User>>(DynamicJson.Parse(
-                     Request.Send(this, MethodType.GET, Tokens.Url("lists/memberships"), parameters)));
+            return CoreBase.Convert<Cursored<User>>(this.Tokens, DynamicJson.Parse(
+                     Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/memberships"), parameters)));
         }
             
         /// <summary>
@@ -88,8 +88,8 @@ namespace CoreTweet.Core
         /// </param>
         public CoreTweet.List Show(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<CoreTweet.List>(DynamicJson.Parse(
-                     Request.Send(this, MethodType.GET, Tokens.Url("lists/show"), parameters)));
+            return CoreBase.Convert<CoreTweet.List>(this.Tokens, DynamicJson.Parse(
+                     Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/show"), parameters)));
         }
             
         /// <summary>
@@ -112,8 +112,8 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<Status> Statuses(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<Status>(DynamicJson.Parse(
-                     Request.Send(this, MethodType.GET, Tokens.Url("lists/statuses"), parameters)));
+            return CoreBase.ConvertArray<Status>(this.Tokens, DynamicJson.Parse(
+                     Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/statuses"), parameters)));
         }
             
         /// <summary>
@@ -131,8 +131,8 @@ namespace CoreTweet.Core
         /// </param>
         public Cursored<CoreTweet.List> Subscriptions(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Cursored<CoreTweet.List>>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("lists/subscriptions"), parameters)));
+            return CoreBase.Convert<Cursored<CoreTweet.List>>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/subscriptions"), parameters)));
         }
             
         /// <summary>
@@ -152,8 +152,8 @@ namespace CoreTweet.Core
         /// </param>
         public User MembersShow(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<User>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("lists/members/show"), parameters)));
+            return CoreBase.Convert<User>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/members/show"), parameters)));
         }
             
         /// <summary>
@@ -175,8 +175,8 @@ namespace CoreTweet.Core
         /// </pasram>
         public User SubscribersShow(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<User>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("lists/subscribers/show"), parameters)));
+            return CoreBase.Convert<User>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/subscribers/show"), parameters)));
         }
             
         // POST Methods
@@ -194,8 +194,8 @@ namespace CoreTweet.Core
         /// </param>
         public CoreTweet.List Create(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<CoreTweet.List>(DynamicJson.Parse(
-                     Request.Send(this, MethodType.POST, Tokens.Url("lists/create"), parameters)));
+            return CoreBase.Convert<CoreTweet.List>(this.Tokens, DynamicJson.Parse(
+                     Request.Send(this.Tokens, MethodType.POST, Tokens.Url("lists/create"), parameters)));
         }
             
         /// <summary>
@@ -210,8 +210,8 @@ namespace CoreTweet.Core
         /// </param>
         public CoreTweet.List Destroy(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<CoreTweet.List>(DynamicJson.Parse(
-                     Request.Send(this, MethodType.POST, Tokens.Url("lists/destroy"), parameters)));
+            return CoreBase.Convert<CoreTweet.List>(this.Tokens, DynamicJson.Parse(
+                     Request.Send(this.Tokens, MethodType.POST, Tokens.Url("lists/destroy"), parameters)));
         }
 
         //FIXME: The format of the response is not known.
@@ -228,8 +228,8 @@ namespace CoreTweet.Core
         /// </param>
         public CoreTweet.List Update(Expression<Func<string,object>> parameters)
         {
-            return CoreBase.Convert<CoreTweet.List>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.POST, Tokens.Url("lists/update"), parameters)));
+            return CoreBase.Convert<CoreTweet.List>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.POST, Tokens.Url("lists/update"), parameters)));
         }
 
     }

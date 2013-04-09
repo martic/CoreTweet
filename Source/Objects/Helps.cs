@@ -21,6 +21,8 @@ namespace CoreTweet
         
         public Sizes PhotoSizes{ get; set; }
         
+        internal Configurations(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
             CharactersReservedPerMedia = e.characters_reserved_per_media;
@@ -29,7 +31,7 @@ namespace CoreTweet
             PhotoSizeLimit = e.photo_size_limit;
             ShortUrlLength = e.short_url_length;
             ShortUrlLengthHttps = e.short_url_length_https;
-            PhotoSizes = CoreBase.Convert<Sizes>(e.photo_sizes);
+            PhotoSizes = CoreBase.Convert<Sizes>(this.Tokens, e.photo_sizes);
         }
     }
     
@@ -40,6 +42,8 @@ namespace CoreTweet
         public string Name{ get; set; }
 
         public string Status{ get; set; }
+        
+        internal Language(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {

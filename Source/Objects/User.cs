@@ -205,6 +205,8 @@ namespace CoreTweet
         /// </summary>
         public string WithheldScope { get; set; }
         
+        internal User(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
             IsContributorsEnabled = (bool)e.contributors_enabled;
@@ -214,7 +216,7 @@ namespace CoreTweet
             IsDefaultProfile = (bool)e.default_profile;
             IsDefaultProfileImage = (bool)e.default_profile_image;
             Description = (string)e.description;
-            Entities = e.IsDefined("entities") ? CoreBase.Convert<Entity>(e.entities) : null;
+            Entities = e.IsDefined("entities") ? CoreBase.Convert<Entity>(this.Tokens, e.entities) : null;
             FavouritesCount = (int)e.favourites_count;
             IsFollowRequestSent = (bool?)e.follow_request_sent;
             FollowersCount = (int)e.followers_count;
@@ -240,7 +242,7 @@ namespace CoreTweet
             IsProtected = (bool)e.@protected;
             ScreenNane = (string)e.screen_name;
             IsShowAllInlineMedia = e.IsDefined("show_all_inline_media") ? (bool?)e.show_all_inline_media : null;
-            Status = e.IsDefined("status") ? CoreBase.Convert<Status>(e.status) : null;
+            Status = e.IsDefined("status") ? CoreBase.Convert<Status>(this.Tokens, e.status) : null;
             StatusesCount = (int)e.statuses_count;
             TimeZone = (string)e.time_zone;
             Url = e.url == null ? null : new Uri((string)e.url);
@@ -256,11 +258,13 @@ namespace CoreTweet
         public Friendship Target{ get; set; }
 
         public Friendship Source{ get; set; }
-
+  
+        internal RelationShip(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
-            Target = CoreBase.Convert<Friendship>(e.target);
-            Source = CoreBase.Convert<Friendship>(e.source);
+            Target = CoreBase.Convert<Friendship>(this.Tokens, e.target);
+            Source = CoreBase.Convert<Friendship>(this.Tokens, e.source);
         }
     }
     
@@ -288,6 +292,8 @@ namespace CoreTweet
         
         public string[] Connections{ get; set; }
         
+        internal Friendship(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
             Id = (long)e.id;
@@ -314,6 +320,8 @@ namespace CoreTweet
         public string Slug{ get; set; }
 
         public int Size{ get; set; }
+        
+        internal Category(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {

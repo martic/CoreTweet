@@ -27,7 +27,7 @@ namespace CoreTweet.Ex
         /// 
         public static User Follow(this User e, params Expression<Func<string,object>>[] parameters)
         {
-            return new Tokens(e).Friendships.Create(
+            return e.Tokens.Friendships.Create(
                                (parameters as IEnumerable<Expression<Func<string,object>>>)
                                    .Union(new Expression<Func<string,object>>[]{user_id => e.Id})
                                        .ToArray());
@@ -46,7 +46,7 @@ namespace CoreTweet.Ex
         /// 
         public static User Unfollow(this User e, params Expression<Func<string,object>>[] parameters)
         {
-            return new Tokens(e).Friendships.Destroy(
+            return e.Tokens.Friendships.Destroy(
                                (parameters as IEnumerable<Expression<Func<string,object>>>)
                                    .Union(new Expression<Func<string,object>>[]{user_id => e .Id})
                                        .ToArray());

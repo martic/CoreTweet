@@ -132,22 +132,24 @@ namespace CoreTweet
         /// </summary>
         /// <see cref="https://dev.twitter.com/blog/new-withheld-content-fields-api-responses" />
         public string WithheldScope { get; set; }
-
+  
+        internal Status(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
             Id = (long)e.id;
-            Contributors = e.IsDefined("contributors") ? CoreBase.ConvertArray<Contributors>(e.contributors) : null;
-            Coordinates = e.IsDefined("coordinates") ? CoreBase.Convert<Coordinates>(e.coordinates) : null;
+            Contributors = e.IsDefined("contributors") ? CoreBase.ConvertArray<Contributors>(this.Tokens, e.contributors) : null;
+            Coordinates = e.IsDefined("coordinates") ? CoreBase.Convert<Coordinates>(this.Tokens, e.coordinates) : null;
             //FIXME: DateTimeOffset.ParseExact Doesn't work.
             //CreatedAt = DateTimeOffset.ParseExact(e.created_at, "ddd MMM dd HH:mm:ss K yyyy",
             //                                      System.Globalization.DateTimeFormatInfo.InvariantInfo);
             CurrentUserRetweet = e.IsDefined("current_user_retweet") ? e.current_user_retweet.id : -1;
-            Entities = e.IsDefined("entities") ? CoreBase.ConvertArray<Entity>(e.entities) : null;
+            Entities = e.IsDefined("entities") ? CoreBase.ConvertArray<Entity>(this.Tokens, e.entities) : null;
             IsFavorited = e.IsDefined("favorited") ? e.favorited : null;
             InReplyToScreenName = e.in_reply_to_screen_name;
             InReplyToStatusId = (long?)e.in_reply_to_status_id;
             InReplyToUserId = (long?)e.in_reply_to_user_id;
-            Place = e.place != null ? CoreBase.Convert<Place>(e.place) : null;
+            Place = e.place != null ? CoreBase.Convert<Place>(this.Tokens, e.place) : null;
             PossiblySensitive = e.IsDefined("possibly_sensitive") ? e.possibly_sensitive : null;
             //UNDONE: Scopes.
             RetweetCount = (int)e.retweet_count;
@@ -155,7 +157,7 @@ namespace CoreTweet
             Source = e.source;
             Text = e.text;
             Truncated = e.IsDefined("truncated") ? e.truncated : null;
-            User = e.IsDefined("user") ? CoreBase.Convert<User>(e.user) : null;
+            User = e.IsDefined("user") ? CoreBase.Convert<User>(this.Tokens, e.user) : null;
             WithheldCopyright = e.IsDefined("withheld_copyright") ? (bool?)e.withheld_copyright : null;
             WithheldInCountries = e.IsDefined("withheld_in_countries") ? e.withheld_in_countries : null;
             WithheldScope = e.IsDefined("withheld_scope") ? e.withheld_scope : null;
@@ -173,7 +175,9 @@ namespace CoreTweet
         ///     The screen name of the user who contributed to this Tweet.
         /// </summary>
         public string ScreenName { get; set; }
-
+  
+        internal Contributors(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
             Id = (long)e.id;
@@ -197,7 +201,9 @@ namespace CoreTweet
         ///     The type of data encoded in the coordinates property. This will be "Point" for Tweet coordinates fields.
         /// </summary>
         public string Type { get; set; }
-
+  
+        internal Coordinates(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
             if(e != null)
@@ -231,14 +237,16 @@ namespace CoreTweet
         /// </summary>
         public Entity Entities{ get; set; }
         
+        internal DirectMessage(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
-            Sender = CoreBase.Convert<User>(e.sender);
-            Recipient = CoreBase.Convert<User>(e.recipient);
+            Sender = CoreBase.Convert<User>(this.Tokens, e.sender);
+            Recipient = CoreBase.Convert<User>(this.Tokens, e.recipient);
             //FIXME: DateTimeOffset.ParseExact Doesn't work.
             //CreatedAt = DateTimeOffset.ParseExact(e.created_at, "ddd MMM dd HH:mm:ss K yyyy",
             //                                      System.Globalization.DateTimeFormatInfo.InvariantInfo);
-            Entities = CoreBase.Convert<Entity>(e.entities);
+            Entities = CoreBase.Convert<Entity>(this.Tokens, e.entities);
         }
     }
     

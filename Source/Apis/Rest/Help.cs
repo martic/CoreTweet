@@ -8,9 +8,9 @@ namespace CoreTweet.Core
 {
 
     /// <summary>GET help</summary>
-    public class Help : _Tokens
+    public class Help : TokenIncluded
     {
-        internal Help(_Tokens e) : base(e) { }
+        internal Help(Tokens e) : base(e) { }
         //DONE!
             
         //GET Methods
@@ -26,8 +26,8 @@ namespace CoreTweet.Core
         /// </param>
         public Configurations Configuration(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Configurations>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("help/configuation"), parameters)));
+            return CoreBase.Convert<Configurations>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("help/configuation"), parameters)));
         }
             
         /// <summary>
@@ -40,8 +40,8 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<Language> Languages(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<Language>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("help/languages"), parameters)));
+            return CoreBase.ConvertArray<Language>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("help/languages"), parameters)));
         }
             
         /// <summary>
@@ -55,7 +55,7 @@ namespace CoreTweet.Core
         public string Privacy(params Expression<Func<string,object>>[] parameters)
         {
             return DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("help/privacy"), parameters)).privacy;
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("help/privacy"), parameters)).privacy;
         }
             
         /// <summary>
@@ -69,7 +69,7 @@ namespace CoreTweet.Core
         public string Tos(params Expression<Func<string,object>>[] parameters)
         {
             return DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("help/tos"), parameters)).tos;
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("help/tos"), parameters)).tos;
         }
             
     }

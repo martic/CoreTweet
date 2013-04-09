@@ -13,21 +13,23 @@ namespace CoreTweet
 
         public long PreviousCursor{ get; set; }
         
+        internal Cursored(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
-            Result = ParamByType<T>(e);
+            Result = ParamByType<T>(this.Tokens, e);
             NextCursor = (long)e.next_cursor;
             PreviousCursor = (long)e.previous_cursor;
         }
 
-        internal static T2[] ParamByType<T2>(dynamic e)
+        internal static T2[] ParamByType<T2>(Tokens tokens, dynamic e)
         {
             if(typeof(T2) == typeof(long))
                 return e.ids;
             else if(typeof(T2) == typeof(User))
-                return CoreBase.ConvertArray<User>(e.users) ;
+                return CoreBase.ConvertArray<User>(tokens, e.users) ;
             else if(typeof(T2) == typeof(CoreTweet.List))
-                return CoreBase.ConvertArray<CoreTweet.List>(e.lists);
+                return CoreBase.ConvertArray<CoreTweet.List>(tokens, e.lists);
             else
                 throw new InvalidOperationException("This type can't be cursored.");
         }

@@ -8,9 +8,9 @@ namespace CoreTweet.Core
 {
 
     ///<summary>GET search</summary>
-    public class Search : _Tokens
+    public class Search : TokenIncluded
     {
-        public Search(_Tokens e) : base(e) { }
+        internal Search(Tokens e) : base(e) { }
             
         //DONE!
         //GET Method
@@ -37,8 +37,8 @@ namespace CoreTweet.Core
         /// </param>
         internal IEnumerable<Status> Tweets(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<Status>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("search/tweets"), parameters)).statuses);
+            return CoreBase.ConvertArray<Status>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("search/tweets"), parameters)).statuses);
         }
     }
 }

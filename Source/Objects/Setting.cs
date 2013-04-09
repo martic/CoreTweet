@@ -75,6 +75,8 @@ namespace CoreTweet
         
         public bool UseCookiePersonalization { get; set; }
         
+        internal Setting(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
             AlwaysUseHttps = e.always_use_https;

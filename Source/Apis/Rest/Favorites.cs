@@ -8,9 +8,9 @@ namespace CoreTweet.Core
 {
 
     ///<summary>GET/POST favorites</summary>
-    public class Favorites : _Tokens
+    public class Favorites : TokenIncluded
     {
-        internal Favorites(_Tokens e) : base(e) { }
+        internal Favorites(Tokens e) : base(e) { }
         //DONE!
             
         //GET Method
@@ -31,8 +31,8 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<Status> List(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<Status>(DynamicJson.Parse(
-                         Request.Send(this, MethodType.GET, Tokens.Url("favorites/list"), parameters))
+            return CoreBase.ConvertArray<Status>(this.Tokens, DynamicJson.Parse(
+                         Request.Send(this.Tokens, MethodType.GET, Tokens.Url("favorites/list"), parameters))
                 );
         }  
             
@@ -50,8 +50,8 @@ namespace CoreTweet.Core
         /// </param>
         public Status Create(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Status>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.POST, Tokens.Url("favorites/create"), parameters))
+            return CoreBase.Convert<Status>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.POST, Tokens.Url("favorites/create"), parameters))
                 );
         }
             
@@ -69,8 +69,8 @@ namespace CoreTweet.Core
         /// </param>
         public Status Destroy(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Status>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.POST, Tokens.Url("favorites/destroy"), parameters))
+            return CoreBase.Convert<Status>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.POST, Tokens.Url("favorites/destroy"), parameters))
                 );
         }
     }

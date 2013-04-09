@@ -31,6 +31,8 @@ namespace CoreTweet
 
         public bool Following{ get; set; }
         
+        internal List(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
             Slug = e.slug;
@@ -45,7 +47,7 @@ namespace CoreTweet
             Mode = e.mode;
             FullName = e.full_name;
             Description = e.description;
-            User = CoreBase.Convert<User>(e.user);
+            User = CoreBase.Convert<User>(this.Tokens, e.user);
             Following = e.following;
         }
     }

@@ -7,9 +7,9 @@ namespace CoreTweet.Core
 {
 
     ///<summary>GET firends</summary>
-    public class Friends : _Tokens
+    public class Friends : TokenIncluded
     {
-        internal Friends(_Tokens e) : base(e) { }
+        internal Friends(Tokens e) : base(e) { }
         //DONE!
 
         //GET Methods
@@ -29,7 +29,7 @@ namespace CoreTweet.Core
         /// <see cref="https://dev.twitter.com/docs/misc/cursoring"/>
         public Cursored<long> Ids(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Cursored<long>>(DynamicJson.Parse(Request.Send(this, MethodType.GET, Tokens.Url("friends/ids"), parameters)));
+            return CoreBase.Convert<Cursored<long>>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.GET, Tokens.Url("friends/ids"), parameters)));
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace CoreTweet.Core
         /// <see cref="https://dev.twitter.com/docs/misc/cursoring"/>
         public Cursored<User> List(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Cursored<User>>(DynamicJson.Parse(Request.Send(this, MethodType.GET, Tokens.Url("friends/list"), parameters)));
+            return CoreBase.Convert<Cursored<User>>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.GET, Tokens.Url("friends/list"), parameters)));
         }
     }
 }

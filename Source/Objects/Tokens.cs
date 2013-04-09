@@ -1,39 +1,17 @@
 using System;
+using System.Collections.Generic;
 using CoreTweet.Core;
 
 namespace CoreTweet.Core
 {
-    public class _Tokens
+    public abstract class TokenIncluded
     {
-        /// <summary>
-        /// The consumer key.
-        /// </summary>
-        internal string _ConsumerKey  { get; set; }
-        /// <summary>
-        /// The consumer secret.
-        /// </summary>
-        internal string _ConsumerSecret { get; set; }
-        /// <summary>
-        /// The access token.
-        /// </summary>
-        internal string _AccessToken { get; set; }
-        /// <summary>
-        /// The access token secret.
-        /// </summary> 
-        internal string _AccessTokenSecret { get; set; }
-        /// <summary>
-        /// Generates the instance of "Tokens" from this.
-        /// </summary>
-        
-        public _Tokens() { }
-        
-        public _Tokens(_Tokens e) : this()
+        internal TokenIncluded(Tokens tokens)
         {
-            _ConsumerKey = e._ConsumerKey;
-            _ConsumerSecret = e._ConsumerSecret;
-            _AccessToken = e._AccessToken;
-            _AccessTokenSecret = e._AccessTokenSecret;
+            Tokens = tokens;
         }
+        
+        internal Tokens Tokens { get; set; }
     }
 }
 
@@ -42,40 +20,24 @@ namespace CoreTweet
     /// <summary>
     /// The OAuth tokens.
     /// </summary>
-    public class Tokens : _Tokens
+    public class Tokens
     {
         /// <summary>
         /// The consumer key.
         /// </summary>
-        public string ConsumerKey  
-        {
-            get { return _ConsumerKey; } 
-            internal set { _ConsumerKey = value; }
-        }
+        public string ConsumerKey { get; set; }
         /// <summary>
         /// The consumer secret.
         /// </summary>
-        public string ConsumerSecret         
-        {
-            get { return _ConsumerSecret; } 
-            internal set { _ConsumerSecret = value; }
-        }
+        public string ConsumerSecret { get; set; }
         /// <summary>
         /// The access token.
         /// </summary>
-        public string AccessToken 
-        {
-            get { return _AccessToken; }
-            internal set { _AccessToken = value; }
-        }
+        public string AccessToken { get; set; }
         /// <summary>
         /// The access token secret.
         /// </summary> 
-        public string AccessTokenSecret
-        {
-            get { return _AccessTokenSecret; }
-            internal set { _AccessTokenSecret = value; }
-        }
+        public string AccessTokenSecret { get; set; }
         
         public Account Account { get { return new Account(this); } }
         
@@ -107,7 +69,13 @@ namespace CoreTweet
         
         internal Tokens() { }
         
-        internal Tokens(_Tokens e) : base(e) { }
+        internal Tokens(Tokens e) : this()
+        {
+            this.ConsumerKey = e.ConsumerKey;
+            this.ConsumerSecret = e.ConsumerSecret;
+            this.AccessToken = e.AccessToken;
+            this.AccessTokenSecret = e.AccessTokenSecret;
+        }
         
         /// <summary>
         /// Make an instance of Tokens.

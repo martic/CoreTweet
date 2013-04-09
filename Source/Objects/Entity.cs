@@ -5,7 +5,7 @@ using CoreTweet.Core;
 namespace CoreTweet
 {
     public class Entity : CoreBase
-    {
+    {     
         /// <summary>
         ///     Represents hashtags which have been parsed out of the Tweet text.
         /// </summary>
@@ -25,13 +25,15 @@ namespace CoreTweet
         ///     Represents other Twitter users mentioned in the text of the Tweet.
         /// </summary>
         public UserMention[] UserMentions { get; set; }
-
+  
+        internal Entity(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
-            HashTags = e.IsDefined("hashtags") ? CoreBase.ConvertArray<HashTag>(e.hashtags) : null;
-            Media = e.IsDefined("media") ? CoreBase.Convert<Media>(e.media) : null;
-            Urls = e.IsDefined("urls") ? CoreBase.ConvertArray<Url>(e.urls) : null;
-            UserMentions = e.IsDefined("user_memtions") ? CoreBase.ConvertArray<UserMention>(e.user_mentions) : null;
+            HashTags = e.IsDefined("hashtags") ? CoreBase.ConvertArray<HashTag>(this.Tokens, e.hashtags) : null;
+            Media = e.IsDefined("media") ? CoreBase.Convert<Media>(this.Tokens, e.media) : null;
+            Urls = e.IsDefined("urls") ? CoreBase.ConvertArray<Url>(this.Tokens, e.urls) : null;
+            UserMentions = e.IsDefined("user_memtions") ? CoreBase.ConvertArray<UserMention>(this.Tokens, e.user_mentions) : null;
         }
     }
 
@@ -46,7 +48,9 @@ namespace CoreTweet
         ///     An array of integers indicating the offsets within the Tweet text where the hashtag begins and ends. The first integer represents the location of the # character in the Tweet text string. The second integer represents the location of the first character after the hashtag. Therefore the difference between the two numbers will be the length of the hashtag name plus one (for the '#' character).
         /// </summary>
         public int[] Indices { get; set; }
-
+  
+        internal HashTag(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
             Indices = new[] { (int)e.indices[0], (int)e.indices[1] };
@@ -105,7 +109,9 @@ namespace CoreTweet
         ///     Wrapped URL for the media link. This corresponds with the URL embedded directly into the raw Tweet text, and the values for the indices parameter.
         /// </summary>
         public Uri Url { get; set; }
-
+  
+        internal Media(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
             DisplayUrl = e.display_url;
@@ -114,7 +120,7 @@ namespace CoreTweet
             Indices = new int[]{e.indices[0],e.indices[1]};
             MediaUrl = new Uri(e.media_url);
             MediaUrlHttps = new Uri(e.media_url_https);
-            Sizes = CoreBase.Convert<Sizes>(e.sizes);
+            Sizes = CoreBase.Convert<Sizes>(this.Tokens, e.sizes);
             SourceStatusId = e.source_status_id;
             Type = e.type;
             Url = new Uri(e.url);
@@ -137,7 +143,9 @@ namespace CoreTweet
         ///     Width in pixels of this size.
         /// </summary>
         public int Width { get; set; }
-
+  
+        internal Size(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
             Height = e.IsDefined("height") ? e.height : e.h;
@@ -168,12 +176,14 @@ namespace CoreTweet
         /// </summary>
         public Size Thumb { get; set; }
 
+        internal Sizes(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
-            Large = CoreBase.Convert<Size>(e.large);
-            Medium = CoreBase.Convert<Size>(e.medium);
-            Small = CoreBase.Convert<Size>(e.small);
-            Thumb = CoreBase.Convert<Size>(e.thumb);
+            Large = CoreBase.Convert<Size>(this.Tokens, e.large);
+            Medium = CoreBase.Convert<Size>(this.Tokens, e.medium);
+            Small = CoreBase.Convert<Size>(this.Tokens, e.small);
+            Thumb = CoreBase.Convert<Size>(this.Tokens, e.thumb);
         }
     }
 
@@ -198,7 +208,9 @@ namespace CoreTweet
         ///     Wrapped URL, corresponding to the value embedded directly into the raw Tweet text, and the values for the indices parameter.
         /// </summary>
         public Uri Uri { get; set; }
-
+  
+        internal Url(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
             DisplayUrl = e.display_url;
@@ -229,7 +241,9 @@ namespace CoreTweet
         ///     Screen name of the referenced user.
         /// </summary>
         public string ScreenName { get; set; }
-
+  
+        internal UserMention(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
             Id = e.id;

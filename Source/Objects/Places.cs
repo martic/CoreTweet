@@ -64,11 +64,13 @@ namespace CoreTweet
         /// </summary>
         public Uri Url { get; set; }
         
+        internal Place(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
             Attributes = e.IsDefined("attributes") ? DevelopersExtention.ToDictionary(e.attributes) : null;
-            BoundingBox = e.IsDefined("bounding_box") ? CoreBase.Convert<BoundingBox>(e.bounding_box) : null;
-            ContainedWithin = e.IsDefined("contained_within") ? CoreBase.ConvertArray<Place>(e.contained_within) : null;
+            BoundingBox = e.IsDefined("bounding_box") ? CoreBase.Convert<BoundingBox>(this.Tokens, e.bounding_box) : null;
+            ContainedWithin = e.IsDefined("contained_within") ? CoreBase.ConvertArray<Place>(this.Tokens, e.contained_within) : null;
             Country = e.country;
             CountryCode = e.IsDefined("countryCode") ? e.countryCode : e.country_code;
             FullName = e.IsDefined("full_name") ? e.full_name : null;
@@ -93,6 +95,8 @@ namespace CoreTweet
         /// The type of data encoded in the coordinates property. This will be "Polygon" for bounding boxes.
         /// </summary>
         public string Type { get; set; }
+        
+        internal BoundingBox(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -119,9 +123,11 @@ namespace CoreTweet
         /// </summary>
         public string Token { get; set; }
         
+        internal GeoResult(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
-            Places = CoreBase.ConvertArray<Place>(e.places);
+            Places = CoreBase.ConvertArray<Place>(this.Tokens, e.places);
             Token = e.IsDefined("token") ? e.token : null;
         }
         
@@ -148,6 +154,8 @@ namespace CoreTweet
         
         public SearchQuery[] Trends{ get; set; }
         
+        internal TrendsResult(Tokens tokens) : base(tokens) { }
+        
         internal override void ConvertBase(dynamic e)
         {
             //FIXME: DateTimeOffset.ParseExact Doesn't work.
@@ -158,7 +166,7 @@ namespace CoreTweet
             //                                      System.Globalization.DateTimeFormatInfo.InvariantInfo);
             Locations = (e.locations as dynamic[]).Select(x => (string)x.name).ToArray();
             LocationIds = (e.locations as dynamic[]).Select(x => (long)x.woeid).ToArray();
-            Trends = CoreBase.ConvertArray<SearchQuery>(e.trends);
+            Trends = CoreBase.ConvertArray<SearchQuery>(this.Tokens, e.trends);
         }
         
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()

@@ -7,9 +7,9 @@ namespace CoreTweet.Core
 {
 
     ///<summary>GET/POST blocks</summary>
-    public class Blocks : _Tokens
+    public class Blocks : TokenIncluded
     {
-        internal Blocks(_Tokens e) : base(e) { }
+        internal Blocks(Tokens e) : base(e) { }
         //DONE!
             
         //GET Methods
@@ -26,8 +26,8 @@ namespace CoreTweet.Core
         /// <see cref="https://dev.twitter.com/docs/misc/cursoring"/>
         public Cursored<long> Ids(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Cursored<long>>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("blocks/ids"), parameters)));
+            return CoreBase.Convert<Cursored<long>>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("blocks/ids"), parameters)));
         }
             
         /// <summary>
@@ -44,8 +44,8 @@ namespace CoreTweet.Core
         /// <see cref="https://dev.twitter.com/docs/misc/cursoring"/>
         public Cursored<User> List(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Cursored<User>>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("blocks/list"), parameters)));
+            return CoreBase.Convert<Cursored<User>>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("blocks/list"), parameters)));
         }
             
         //POST Methods
@@ -65,8 +65,8 @@ namespace CoreTweet.Core
         /// </param>
         public User Create(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<User>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.POST, Tokens.Url("blocks/create"), parameters)));
+            return CoreBase.Convert<User>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.POST, Tokens.Url("blocks/create"), parameters)));
         }
             
         /// <summary>
@@ -84,8 +84,8 @@ namespace CoreTweet.Core
         /// </param>
         public User Destroy(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<User>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.POST, Tokens.Url("blocks/destroy"), parameters)));
+            return CoreBase.Convert<User>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.POST, Tokens.Url("blocks/destroy"), parameters)));
         }
     }
 }

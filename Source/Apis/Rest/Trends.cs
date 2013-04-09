@@ -9,9 +9,9 @@ namespace CoreTweet.Core
 {
 
     /// <summary>GET trends</summary>
-    public class Trends : _Tokens
+    public class Trends : TokenIncluded
     {
-        public Trends(_Tokens e) : base(e) { }
+        internal Trends(Tokens e) : base(e) { }
         //DONE!
         //GET Methods
             
@@ -28,8 +28,8 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<Place> Avaliable(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<Place>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("trends/avaliable"), parameters)));
+            return CoreBase.ConvertArray<Place>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("trends/avaliable"), parameters)));
         }
             
         /// <summary>
@@ -47,8 +47,8 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<Place> Closest(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<Place>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("trends/closest"), parameters)));
+            return CoreBase.ConvertArray<Place>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("trends/closest"), parameters)));
         }
             
         /// <summary>
@@ -64,8 +64,8 @@ namespace CoreTweet.Core
         /// </param>
         public TrendsResult Place(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<TrendsResult>(DynamicJson.Parse(
-                    Request.Send(this, MethodType.GET, Tokens.Url("trends/place"), parameters)));
+            return CoreBase.Convert<TrendsResult>(this.Tokens, DynamicJson.Parse(
+                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("trends/place"), parameters)));
         }
     }
 }
