@@ -31,9 +31,7 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<Status> List(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<Status>(this.Tokens, DynamicJson.Parse(
-                         Request.Send(this.Tokens, MethodType.GET, Tokens.Url("favorites/list"), parameters))
-                );
+            return this.Tokens.AccessApiArray<Status>(MethodType.Get, "favorites/list", parameters);
         }  
             
         //POST Methods
@@ -50,9 +48,7 @@ namespace CoreTweet.Core
         /// </param>
         public Status Create(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Status>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.POST, Tokens.Url("favorites/create"), parameters))
-                );
+            return this.Tokens.AccessApi<Status>(MethodType.Post, "favorites/create", parameters);
         }
             
         /// <summary>
@@ -69,9 +65,7 @@ namespace CoreTweet.Core
         /// </param>
         public Status Destroy(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Status>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.POST, Tokens.Url("favorites/destroy"), parameters))
-                );
+            return this.Tokens.AccessApi<Status>(MethodType.Post, "favorites/destroy", parameters);
         }
     }
 }

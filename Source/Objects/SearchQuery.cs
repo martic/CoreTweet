@@ -14,7 +14,7 @@ namespace CoreTweet
 
         public string Query{ get; set; }
         
-        internal SearchQuery(Tokens tokens) : base(tokens) { }
+        public SearchQuery(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {

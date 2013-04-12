@@ -205,7 +205,7 @@ namespace CoreTweet
         /// </summary>
         public string WithheldScope { get; set; }
         
-        internal User(Tokens tokens) : base(tokens) { }
+        public User(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -259,7 +259,7 @@ namespace CoreTweet
 
         public Friendship Source{ get; set; }
   
-        internal RelationShip(Tokens tokens) : base(tokens) { }
+        public RelationShip(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -292,7 +292,7 @@ namespace CoreTweet
         
         public string[] Connections{ get; set; }
         
-        internal Friendship(Tokens tokens) : base(tokens) { }
+        public Friendship(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -321,7 +321,7 @@ namespace CoreTweet
 
         public int Size{ get; set; }
         
-        internal Category(Tokens tokens) : base(tokens) { }
+        public Category(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {

@@ -18,7 +18,7 @@ namespace TinyTweet
         /// <value>
         /// The consumer key.
         /// </value>
-        public string _ConsumerKey 
+        public string ConsumerKey 
         {
             get;
             set;
@@ -29,7 +29,7 @@ namespace TinyTweet
         /// <value>
         /// The consumer secret.
         /// </value>
-        public string _ConsumerSecret
+        public string ConsumerSecret
         {
             get;
             set;
@@ -40,7 +40,7 @@ namespace TinyTweet
         /// <value>
         /// The access token.
         /// </value>
-        public string _AccessToken
+        public string AccessToken
         {
             get;
             set;
@@ -51,7 +51,7 @@ namespace TinyTweet
         /// <value>
         /// The access token secret.
         /// </value>
-        public string __AccessTokenSecret
+        public string AccessTokenSecret
         {
             get;
             set;
@@ -60,14 +60,14 @@ namespace TinyTweet
 
     public enum MethodType
     {
-        GET,
-        POST
+        Get,
+        Post
     }
 
     public class OAuthClient
     {
         static readonly string RequestTokenUrl = "https://twitter.com/oauth/request_token";
-        static readonly string _AccessTokenUrl = "https://twitter.com/oauth/access_token";
+        static readonly string AccessTokenUrl = "https://twitter.com/oauth/access_token";
         static readonly string AuthorizeUrl = "https://twitter.com/oauth/authorize";
         string reqToken, reqSecret;
         Tokens token;
@@ -80,10 +80,10 @@ namespace TinyTweet
         public OAuthClient(string consumerKey, string consumerSecret, string accessToken, string accessSecret)
             : this(new Tokens()
               {
-                  _ConsumerKey  = consumerKey,
-                  _ConsumerSecret = consumerSecret,
-                  _AccessToken = accessToken,
-                  __AccessTokenSecret = accessSecret,
+                  ConsumerKey  = consumerKey,
+                  ConsumerSecret = consumerSecret,
+                  AccessToken = accessToken,
+                  AccessTokenSecret = accessSecret,
               })
         {
         }
@@ -111,8 +111,8 @@ namespace TinyTweet
             var prm = GenerateParameters(consumerKey, null);
             var sgn = GenerateSignature(new Tokens()
             {
-                _ConsumerSecret = consumerSecret,
-                __AccessTokenSecret = null
+                ConsumerSecret = consumerSecret,
+                AccessTokenSecret = null
             }, "GET", RequestTokenUrl, prm);
             prm.Add("oauth_signature", UrlEncode(sgn));
             var dic = HttpGet(RequestTokenUrl, prm)
@@ -122,8 +122,8 @@ namespace TinyTweet
                 .ToDictionary(x => x[0], y => y[1]);
             reqToken = dic["oauth_token"];
             reqSecret = dic["oauth_token_secret"];
-            token._ConsumerKey  = consumerKey;
-            token._ConsumerSecret = consumerSecret;
+            token.ConsumerKey = consumerKey;
+            token.ConsumerSecret = consumerSecret;
             return AuthorizeUrl + "?oauth_token=" + reqToken;
         }
 
@@ -141,24 +141,24 @@ namespace TinyTweet
         {
             if(reqToken == null)
                 throw new ArgumentNullException("req_token", "\"GenerateAuthUri\" haven't been called.");
-            var prm = GenerateParameters(token._ConsumerKey , reqToken);
+            var prm = GenerateParameters(token.ConsumerKey, reqToken);
             prm.Add("oauth_verifier", pin);
             prm.Add("oauth_signature", GenerateSignature(new Tokens()
             {
-                _ConsumerSecret = reqSecret,
-                __AccessTokenSecret = null
-            }, "GET", _AccessTokenUrl, prm));
-            var dic = HttpGet(_AccessTokenUrl, prm)
+                ConsumerSecret = reqSecret,
+                AccessTokenSecret = null
+            }, "GET", AccessTokenUrl, prm));
+            var dic = HttpGet(AccessTokenUrl, prm)
                 .Split('&')
                 .Where(x => x.Contains('='))
                 .Select(x => x.Split('='))
                 .ToDictionary(x => x[0], y => y[1]);
             token = new Tokens()
             {
-                _ConsumerKey  = token._ConsumerKey ,
-                _ConsumerSecret = token._ConsumerSecret,
-                _AccessToken = dic["oauth_token"],
-                __AccessTokenSecret = dic["oauth_token_secret"],
+                ConsumerKey  = token.ConsumerKey ,
+                ConsumerSecret = token.ConsumerSecret,
+                AccessToken = dic["oauth_token"],
+                AccessTokenSecret = dic["oauth_token_secret"],
             };
         }
 
@@ -180,7 +180,7 @@ namespace TinyTweet
         /// See the example.
         /// </param>
         /// <example>
-        /// Request (tokens, MethodType.POST, "https://hoge.com/piyo.xml", prm1 => "hoge", prm2 => "piyo");
+        /// Request (tokens, MethodType.Post, "https://hoge.com/piyo.xml", prm1 => "hoge", prm2 => "piyo");
         /// </example>
         /// <returns>
         /// Response.
@@ -192,13 +192,13 @@ namespace TinyTweet
 
         public string Request(MethodType type, string url, IDictionary<string, string> prms)
         {
-            var prm = GenerateParameters(token._ConsumerKey , token._AccessToken);
+            var prm = GenerateParameters(token.ConsumerKey, token.AccessToken);
             foreach(var p in prms)
                 prm.Add(p.Key, UrlEncode(p.Value));
             var sgn = GenerateSignature(token,
-                type == MethodType.GET ? "GET" : "POST", url, prm);
+                type == MethodType.Get ? "GET" : "POST", url, prm);
             prm.Add("oauth_signature", UrlEncode(sgn));
-            return type == MethodType.GET ? HttpGet(url, prm) : HttpPost(url, prm);
+            return type == MethodType.Get ? HttpGet(url, prm) : HttpPost(url, prm);
         }
 
         static string HttpGet(string url, IDictionary<string, string> prm)
@@ -239,8 +239,8 @@ namespace TinyTweet
             using(var hs1 = new HMACSHA1())
             {
                 hs1.Key = Encoding.UTF8.GetBytes(
-                    string.Format("{0}&{1}", UrlEncode(t._ConsumerSecret),
-                        t.__AccessTokenSecret == null ? "" : UrlEncode(t.__AccessTokenSecret))
+                    string.Format("{0}&{1}", UrlEncode(t.ConsumerSecret),
+                        t.AccessTokenSecret == null ? "" : UrlEncode(t.AccessTokenSecret))
                 );
                 var hash = hs1.ComputeHash(
                     System.Text.Encoding.UTF8.GetBytes(
@@ -297,9 +297,9 @@ namespace TinyTweet
             Console.Write("Input PIN: ");
             cnt.GetTokens(Console.ReadLine());
             // Get your Timeline. You can use a JSON library such as DynamicJson to parse this.
-            Console.WriteLine(cnt.Request(MethodType.GET, Api.Url("statuses/home_timeline"), count => "20", page => "1"));
+            Console.WriteLine(cnt.Request(MethodType.Get, Api.Url("statuses/home_timeline"), count => "20", page => "1"));
             // Your first tweet from TinyTweet!
-            cnt.Request(MethodType.POST, Api.Url("statuses/update"), status => "Hello,Twitter!");
+            cnt.Request(MethodType.Post, Api.Url("statuses/update"), status => "Hello,Twitter!");
         }
     }
 }

@@ -13,7 +13,7 @@ namespace CoreTweet
 
         public long PreviousCursor{ get; set; }
         
-        internal Cursored(Tokens tokens) : base(tokens) { }
+        public Cursored(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -22,7 +22,7 @@ namespace CoreTweet
             PreviousCursor = (long)e.previous_cursor;
         }
 
-        internal static T2[] ParamByType<T2>(Tokens tokens, dynamic e)
+        public static T2[] ParamByType<T2>(Tokens tokens, dynamic e)
         {
             if(typeof(T2) == typeof(long))
                 return e.ids;

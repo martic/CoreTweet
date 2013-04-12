@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using CoreTweet.Core;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -26,9 +27,9 @@ namespace CoreTweet.Core
         /// <param name='parameters'>
         /// Parameters.
         /// </param>
-        public IEnumerable<long> NoRetweetsIds()
+        public IEnumerable<long> NoRetweetsIds(params Expression<Func<string,object>>[] parameters)
         {
-            return ((long[])DynamicJson.Parse(Request.Send(this.Tokens, MethodType.GET, Tokens.Url("friendships/no_retweets/ids"), new Expression<Func<string,object>>[0])));
+            return ((dynamic[])DynamicJson.Parse(this.Tokens.SendRequest(MethodType.Get, "friendships/no_retweets/ids", parameters))).Cast<long>();
         }
 
         /// <summary>
@@ -43,7 +44,7 @@ namespace CoreTweet.Core
         /// <see cref="https://dev.twitter.com/docs/misc/cursoring"/>
         public Cursored<long> Incoming(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Cursored<long>>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.GET, Tokens.Url("friendships/incoming"), parameters)));
+            return this.Tokens.AccessApi<Cursored<long>>(MethodType.Get, "friendships/incoming", parameters);
         }
 
         /// <summary>
@@ -58,7 +59,7 @@ namespace CoreTweet.Core
         /// <see cref="https://dev.twitter.com/docs/misc/cursoring"/>
         public Cursored<long> Outgoing(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Cursored<long>>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.GET, Tokens.Url("friendships/outgoing"), parameters)));
+            return this.Tokens.AccessApi<Cursored<long>>(MethodType.Get, "friendships/outgoing", parameters);
         }
    
         /// <summary>
@@ -73,7 +74,7 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<Friendship> Lookup(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<Friendship>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.GET, Tokens.Url("friendships/lookup"), parameters)));
+            return this.Tokens.AccessApiArray<Friendship>(MethodType.Get, "friendships/lookup", parameters);
         }
             
         /// <summary>
@@ -91,7 +92,7 @@ namespace CoreTweet.Core
         /// </param>
         public RelationShip Show(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<RelationShip>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.GET, Tokens.Url("friendships/show"), parameters)));
+            return this.Tokens.AccessApi<RelationShip>(MethodType.Get, "friendships/show", parameters);
         }
             
         //POST Methods
@@ -112,7 +113,7 @@ namespace CoreTweet.Core
         /// </param>
         public User Create(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<User>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.POST, Tokens.Url("friendships/create"), parameters)));
+            return this.Tokens.AccessApi<User>(MethodType.Post, "friendships/create", parameters);
         }
             
         /// <summary>
@@ -130,7 +131,7 @@ namespace CoreTweet.Core
         /// </param>
         public User Destroy(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<User>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.POST, Tokens.Url("friendships/destroy"), parameters)));
+            return this.Tokens.AccessApi<User>(MethodType.Post, "friendships/destroy", parameters);
         }
             
             
@@ -149,7 +150,7 @@ namespace CoreTweet.Core
         /// </param>
         public RelationShip Update(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<RelationShip>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.POST, Tokens.Url("friendships/update"), parameters)));
+            return this.Tokens.AccessApi<RelationShip>(MethodType.Post, "friendships/update", parameters);
         }
 
     }

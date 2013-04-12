@@ -30,7 +30,7 @@ namespace CoreTweet.Core
         /// <see cref="https://dev.twitter.com/docs/misc/cursoring"/>
         public Cursored<long> Ids(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Cursored<long>>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.GET, Tokens.Url("followers/ids"), parameters)));
+            return this.Tokens.AccessApi<Cursored<long>>(MethodType.Get, "followers/ids", parameters);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace CoreTweet.Core
         /// <see cref="https://dev.twitter.com/docs/misc/cursoring"/>
         public Cursored<User> List(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Cursored<User>>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.GET, Tokens.Url("followers/list"), parameters)));
+            return this.Tokens.AccessApi<Cursored<User>>(MethodType.Get, "followers/list", parameters);
         }
     }
    

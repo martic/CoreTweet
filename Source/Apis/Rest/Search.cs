@@ -38,7 +38,7 @@ namespace CoreTweet.Core
         internal IEnumerable<Status> Tweets(params Expression<Func<string,object>>[] parameters)
         {
             return CoreBase.ConvertArray<Status>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("search/tweets"), parameters)).statuses);
+                this.Tokens.SendRequest(MethodType.Get, "search/tweets", parameters)).statuses);
         }
     }
 }

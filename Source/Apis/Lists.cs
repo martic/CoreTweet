@@ -12,7 +12,11 @@ namespace CoreTweet.Core
     public class Lists : TokenIncluded
     {
         internal Lists(Tokens e) : base(e) { }
-            
+        
+        public Members Members { get { return new Members(this.Tokens); } }
+        
+        public Subscribers Subscribers { get { return new Subscribers(this.Tokens); } }
+        
         //GET Methods
             
         /// <summary>
@@ -28,30 +32,7 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<CoreTweet.List> List(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<CoreTweet.List>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/list"), parameters)));
-        }
-            
-        /// <summary>
-        /// <para>Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.</para>
-        /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
-        /// <para>The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</para>
-        /// <see cref="https://dev.twitter.com/docs/misc/cursoring"/>
-        /// <para>Avaliable parameters: </para>
-        /// <para><paramref name="long list_id (required)"/> : The numerical id of the list.</para>
-        /// <para><paramref name="string slug (required)"/> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
-        /// <para><paramref name="string owner_sereen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
-        /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
-        /// <para><paramref name="long cursor (semi-optional)"/> : Causes the collection of list members to be broken into "pages" of somewhat consistent size. If no cursor is provided, a value of -1 will be assumed, which is the first "page".</para>
-        /// </summary>
-        /// <returns>Users.</returns>
-        /// <param name='parameters'>
-        /// Parameters.
-        /// </param>
-        public Cursored<User> Members(params Expression<Func<string,object>>[] parameters)
-        {
-            return CoreBase.Convert<Cursored<User>>(this.Tokens, DynamicJson.Parse(
-                     Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/members"), parameters)));
+            return this.Tokens.AccessApiArray<CoreTweet.List>(MethodType.Get, "lists/list", parameters);
         }
             
         /// <summary>
@@ -69,8 +50,7 @@ namespace CoreTweet.Core
         /// </param>
         public Cursored<User> Memberships(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Cursored<User>>(this.Tokens, DynamicJson.Parse(
-                     Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/memberships"), parameters)));
+            return this.Tokens.AccessApi<Cursored<User>>(MethodType.Get, "lists/memberships", parameters);
         }
             
         /// <summary>
@@ -88,8 +68,25 @@ namespace CoreTweet.Core
         /// </param>
         public CoreTweet.List Show(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<CoreTweet.List>(this.Tokens, DynamicJson.Parse(
-                     Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/show"), parameters)));
+            return this.Tokens.AccessApi<CoreTweet.List>(MethodType.Get, "lists/show", parameters);
+        }
+        
+        /// <summary>
+        /// <para>Obtain a collection of the lists the specified user is subscribed to, 20 lists per page by default. Does not include the user's own lists.</para>
+        /// <para>Note: A user_id or screen_name must be provided.</para>
+        /// <para>Avaliable parameters: </para>
+        /// <para><paramref name="long user_id (optional)"/> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</para>
+        /// <para><paramref name="string screen_name (optional)"/> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</para>
+        /// <para><paramref name="int count (optional)"/> : The amount of results to return per page. Defaults to 20. Maximum of 1,000 when using cursors.</para>
+        /// <para><paramref name="long cursor (optional)"/> : Breaks the results into pages. A single page contains 20 lists. Provide a value of -1 to begin paging. Provide values as returned in the response body's next_cursor and previous_cursor attributes to page back and forth in the list. It is recommended to always use cursors when the method supports them.</para>
+        /// </summary>
+        /// <returns>Lists.</returns>
+        /// <param name='parameters'>
+        /// Parameters.
+        /// </param>
+        public Cursored<CoreTweet.List> Subscriptions(params Expression<Func<string,object>>[] parameters)
+        {
+            return this.Tokens.AccessApi<Cursored<CoreTweet.List>>(MethodType.Get, "lists/subscriptions", parameters);
         }
             
         /// <summary>
@@ -112,71 +109,7 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<Status> Statuses(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<Status>(this.Tokens, DynamicJson.Parse(
-                     Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/statuses"), parameters)));
-        }
-            
-        /// <summary>
-        /// <para>Obtain a collection of the lists the specified user is subscribed to, 20 lists per page by default. Does not include the user's own lists.</para>
-        /// <para>Note: A user_id or screen_name must be provided.</para>
-        /// <para>Avaliable parameters: </para>
-        /// <para><paramref name="long user_id (optional)"/> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</para>
-        /// <para><paramref name="string screen_name (optional)"/> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</para>
-        /// <para><paramref name="int count (optional)"/> : The amount of results to return per page. Defaults to 20. Maximum of 1,000 when using cursors.</para>
-        /// <para><paramref name="long cursor (optional)"/> : Breaks the results into pages. A single page contains 20 lists. Provide a value of -1 to begin paging. Provide values as returned in the response body's next_cursor and previous_cursor attributes to page back and forth in the list. It is recommended to always use cursors when the method supports them.</para>
-        /// </summary>
-        /// <returns>Lists.</returns>
-        /// <param name='parameters'>
-        /// Parameters.
-        /// </param>
-        public Cursored<CoreTweet.List> Subscriptions(params Expression<Func<string,object>>[] parameters)
-        {
-            return CoreBase.Convert<Cursored<CoreTweet.List>>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/subscriptions"), parameters)));
-        }
-            
-        /// <summary>
-        /// <para>Check if the specified user is a member of the specified list.</para>
-        /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
-        /// <para>Avaliable parameters: </para>
-        /// <para><paramref name="long list_id (required)"/> : The numerical id of the list.</para>
-        /// <para><paramref name="string slug (required)"/> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
-        /// <para><paramref name="string sereen_name (required)"/> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</para>
-        /// <para><paramref name="long user_id (required)"/> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</para>
-        /// <para><paramref name="string owner_screen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
-        /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
-        /// </summary>
-        /// <returns>The user.</returns>
-        /// <param name='parameters'>
-        /// Parameters.
-        /// </param>
-        public User MembersShow(params Expression<Func<string,object>>[] parameters)
-        {
-            return CoreBase.Convert<User>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/members/show"), parameters)));
-        }
-            
-        /// <summary>
-        /// <para>Check if the specified user is a subscriber of the specified list. Returns the user if they are subscriber.</para>
-        /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
-        /// <para>Avaliable parameters: </para>
-        /// <para><paramref name="string owner_screen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
-        /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
-        /// <para><paramref name="long list_id (required)"/> : The numerical id of the list.</para>
-        /// <para><paramref name="string slug (required)"/> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
-        /// <para><paramref name="long user_id (required)"/> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</para>
-        /// <para><paramref name="string screen_name (required)"/> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</para>
-        /// <para><paramref name="bool include_entities"/> : When set to true, each tweet will include a node called "entities". This node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags. While entities are opt-in on timelines at present, they will be made a default component of output in the future. See Tweet Entities for more details.</para>
-        /// <para><paramref name="bool skip_status"/> : When set to true, statuses will not be included in the returned user objects.</para>
-        /// </summary>
-        /// <returns>The user.</returns>
-        /// <param name='parameters'>
-        /// Parameters.
-        /// </pasram>
-        public User SubscribersShow(params Expression<Func<string,object>>[] parameters)
-        {
-            return CoreBase.Convert<User>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("lists/subscribers/show"), parameters)));
+            return this.Tokens.AccessApiArray<Status>(MethodType.Get, "lists/statuses", parameters);
         }
             
         // POST Methods
@@ -194,8 +127,7 @@ namespace CoreTweet.Core
         /// </param>
         public CoreTweet.List Create(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<CoreTweet.List>(this.Tokens, DynamicJson.Parse(
-                     Request.Send(this.Tokens, MethodType.POST, Tokens.Url("lists/create"), parameters)));
+            return this.Tokens.AccessApi<CoreTweet.List>(MethodType.Post, "lists/create", parameters);
         }
             
         /// <summary>
@@ -210,8 +142,7 @@ namespace CoreTweet.Core
         /// </param>
         public CoreTweet.List Destroy(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<CoreTweet.List>(this.Tokens, DynamicJson.Parse(
-                     Request.Send(this.Tokens, MethodType.POST, Tokens.Url("lists/destroy"), parameters)));
+            return this.Tokens.AccessApi<CoreTweet.List>(MethodType.Post, "lists/destroy", parameters);
         }
 
         //FIXME: The format of the response is not known.
@@ -228,9 +159,108 @@ namespace CoreTweet.Core
         /// </param>
         public CoreTweet.List Update(Expression<Func<string,object>> parameters)
         {
-            return CoreBase.Convert<CoreTweet.List>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.POST, Tokens.Url("lists/update"), parameters)));
+            return this.Tokens.AccessApi<CoreTweet.List>(MethodType.Post, "lists/update", parameters);
         }
+    }
 
+    public class Members : TokenIncluded
+    {
+        internal Members(Tokens tokens): base(tokens) { }
+       
+        //GET Methods
+        
+        /// <summary>
+        /// <para>Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.</para>
+        /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
+        /// <para>The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</para>
+        /// <see cref="https://dev.twitter.com/docs/misc/cursoring"/>
+        /// <para>Avaliable parameters: </para>
+        /// <para><paramref name="long list_id (required)"/> : The numerical id of the list.</para>
+        /// <para><paramref name="string slug (required)"/> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
+        /// <para><paramref name="string owner_sereen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
+        /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
+        /// <para><paramref name="long cursor (semi-optional)"/> : Causes the collection of list members to be broken into "pages" of somewhat consistent size. If no cursor is provided, a value of -1 will be assumed, which is the first "page".</para>
+        /// </summary>
+        /// <returns>Users.</returns>
+        /// <param name='parameters'>
+        /// Parameters.
+        /// </param>
+        public Cursored<User> This(params Expression<Func<string,object>>[] parameters)
+        {
+            return this.Tokens.AccessApi<Cursored<User>>(MethodType.Get, "lists/members", parameters);
+        }
+            
+        /// <summary>
+        /// <para>Check if the specified user is a member of the specified list.</para>
+        /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
+        /// <para>Avaliable parameters: </para>
+        /// <para><paramref name="long list_id (required)"/> : The numerical id of the list.</para>
+        /// <para><paramref name="string slug (required)"/> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
+        /// <para><paramref name="string sereen_name (required)"/> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</para>
+        /// <para><paramref name="long user_id (required)"/> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</para>
+        /// <para><paramref name="string owner_screen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
+        /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
+        /// </summary>
+        /// <returns>The user.</returns>
+        /// <param name='parameters'>
+        /// Parameters.
+        /// </param>
+        public User Show(params Expression<Func<string,object>>[] parameters)
+        {
+            return this.Tokens.AccessApi<User>(MethodType.Get, "lists/members/show", parameters);
+        }
+        
+        //POST Methods
+        
+        /// <summary>
+        /// <para>Add a member to a list. The authenticated user must own the list to be able to add members to it. Note that lists can't have more than 500 members.</para>
+        /// </summary>
+        /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
+        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para><paramref name="long list_id (required)"/> : The numerical id of the list.</para>
+        /// <para><paramref name="string slug (required)"/> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
+        /// <para><paramref name="long user_id (required)"/> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</para>
+        /// <para><paramref name="string screen_name (required)"/> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</para>
+        /// <para><paramref name="string owner_screen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
+        /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
+        /// <returns>Users.</returns>
+        /// <param name='Parameters'>
+        /// Parameters.
+        /// </param>
+        public IEnumerable<User> Create(params Expression<Func<string,object>>[] parameters)
+        {
+            return this.Tokens.AccessApiArray<User>(MethodType.Post, "lists/members/create", parameters);
+        }
+        
+        
+    }
+        
+    public class Subscribers : TokenIncluded
+    {
+        internal Subscribers(Tokens tokens): base(tokens) { }
+        
+        //GET Method
+        
+        /// <summary>
+        /// <para>Check if the specified user is a subscriber of the specified list. Returns the user if they are subscriber.</para>
+        /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
+        /// <para>Avaliable parameters: </para>
+        /// <para><paramref name="string owner_screen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
+        /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
+        /// <para><paramref name="long list_id (required)"/> : The numerical id of the list.</para>
+        /// <para><paramref name="string slug (required)"/> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
+        /// <para><paramref name="long user_id (required)"/> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</para>
+        /// <para><paramref name="string screen_name (required)"/> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</para>
+        /// <para><paramref name="bool include_entities"/> : When set to true, each tweet will include a node called "entities". This node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags. While entities are opt-in on timelines at present, they will be made a default component of output in the future. See Tweet Entities for more details.</para>
+        /// <para><paramref name="bool skip_status"/> : When set to true, statuses will not be included in the returned user objects.</para>
+        /// </summary>
+        /// <returns>The user.</returns>
+        /// <param name='parameters'>
+        /// Parameters.
+        /// </pasram>
+        public User Show(params Expression<Func<string,object>>[] parameters)
+        {
+            return this.Tokens.AccessApi<User>(MethodType.Get, "lists/subscribers/show", parameters);
+        }
     }
 }

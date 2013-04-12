@@ -64,7 +64,7 @@ namespace CoreTweet
         /// </summary>
         public Uri Url { get; set; }
         
-        internal Place(Tokens tokens) : base(tokens) { }
+        public Place(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -96,7 +96,7 @@ namespace CoreTweet
         /// </summary>
         public string Type { get; set; }
         
-        internal BoundingBox(Tokens tokens) : base(tokens) { }
+        public BoundingBox(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -123,7 +123,7 @@ namespace CoreTweet
         /// </summary>
         public string Token { get; set; }
         
-        internal GeoResult(Tokens tokens) : base(tokens) { }
+        public GeoResult(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -154,7 +154,7 @@ namespace CoreTweet
         
         public SearchQuery[] Trends{ get; set; }
         
-        internal TrendsResult(Tokens tokens) : base(tokens) { }
+        public TrendsResult(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {

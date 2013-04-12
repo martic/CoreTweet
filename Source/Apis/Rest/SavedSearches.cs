@@ -31,8 +31,7 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<SearchQuery> List(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<SearchQuery>(this.Tokens, DynamicJson.Parse(
-                Request.Send(this.Tokens, MethodType.GET, Tokens.Url("saved_searches/list"), parameters)));
+            return this.Tokens.AccessApiArray<SearchQuery>(MethodType.Get, "saved_searches/list", parameters);
         }
         
         /// <summary>
@@ -49,10 +48,9 @@ namespace CoreTweet.Core
         /// </param>
         public SearchQuery Show(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<SearchQuery>(this.Tokens, DynamicJson.Parse(
-                Request.Send(this.Tokens, MethodType.GET, Tokens.Url(string.Format("saved_searches/show/{0}", 
-                    parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())), 
-                         parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
+            return this.Tokens.AccessApi<SearchQuery>(MethodType.Get, string.Format("saved_searches/show/{0}", 
+                    parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString()), 
+                         parameters.Where(x => x.Parameters[0].Name != "id").ToArray());
         }
         
         //POST Methods
@@ -71,8 +69,7 @@ namespace CoreTweet.Core
         /// </param>
         public SearchQuery Create(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<SearchQuery>(this.Tokens, DynamicJson.Parse(
-                Request.Send(this.Tokens, MethodType.POST, Tokens.Url("saved_searches/create"), parameters)));
+            return this.Tokens.AccessApi<SearchQuery>(MethodType.Post, "saved_searches/create", parameters);
         }
         
         /// <summary>
@@ -89,10 +86,9 @@ namespace CoreTweet.Core
         /// </param>
         public SearchQuery Destroy(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<SearchQuery>(this.Tokens, DynamicJson.Parse(
-                Request.Send(this.Tokens, MethodType.POST, Tokens.Url(string.Format("saved_searches/destroy/{0}", 
-                    parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString())),
-                         parameters.Where(x => x.Parameters[0].Name != "id").ToArray())));
+            return this.Tokens.AccessApi<SearchQuery>(MethodType.Post, string.Format("saved_searches/destroy/{0}", 
+                    parameters.First(x => x.Parameters[0].Name == "id").Compile()("").ToString()),
+                         parameters.Where(x => x.Parameters[0].Name != "id").ToArray());
         }
     }    
 }

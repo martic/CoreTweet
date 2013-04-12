@@ -209,7 +209,7 @@
     <p class="Summary" id="T:CoreTweet.Core.Lists:Summary">GET/POST lists</p>
     <div id="T:CoreTweet.Core.Lists:Signature">
       <h2>Syntax</h2>
-      <div class="Signature">public class  <b>Lists</b> : <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a></div>
+      <div class="Signature">public class  <b>Lists</b> : <a href="../CoreTweet.Core/TokenIncluded.html">TokenIncluded</a></div>
     </div>
     <div class="Remarks" id="T:CoreTweet.Core.Lists:Docs">
       <h2 class="Section">Remarks</h2>
@@ -218,12 +218,12 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:CoreTweet.Core.Lists:Docs:Version Information">
-        <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+        <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
 								See Also: Inherited members from
-								<a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.
+								<a href="../CoreTweet.Core/TokenIncluded.html">TokenIncluded</a>.
 							</p>
         <h2 class="Section">Public Properties</h2>
         <div class="SectionBox" id="Public Properties">
@@ -233,57 +233,25 @@
                 <td>[read-only]<div></div></td>
                 <td>
                   <b>
-                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessToken">AccessToken</a>
+                    <a href="#P:CoreTweet.Core.Lists.Members">Members</a>
                   </b>
                 </td>
                 <td>
                   <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
-                  </i>. 
-            The access token.
-             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+                    <a href="../CoreTweet.Core/Members.html">Members</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
               </tr>
               <tr valign="top">
                 <td>[read-only]<div></div></td>
                 <td>
                   <b>
-                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessTokenSecret">AccessTokenSecret</a>
+                    <a href="#P:CoreTweet.Core.Lists.Subscribers">Subscribers</a>
                   </b>
                 </td>
                 <td>
                   <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
-                  </i>. 
-            The access token secret.
-             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
-              </tr>
-              <tr valign="top">
-                <td>[read-only]<div></div></td>
-                <td>
-                  <b>
-                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerKey">ConsumerKey</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
-                  </i>. 
-            The consumer key.
-             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
-              </tr>
-              <tr valign="top">
-                <td>[read-only]<div></div></td>
-                <td>
-                  <b>
-                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerSecret">ConsumerSecret</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
-                  </i>. 
-            The consumer secret.
-             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
+                    <a href="../CoreTweet.Core/Subscribers.html">Subscribers</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
               </tr>
             </table>
           </div>
@@ -329,28 +297,8 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="#M:CoreTweet.Core.Lists.Members(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Members</a>
-                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Cursored`1.html">CoreTweet.Cursored&lt;CoreTweet.User&gt;</a></nobr><blockquote><p>Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.</p><p>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</p><p>The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</p><a href="javascript:alert(&quot;Documentation not found.&quot;)">https://dev.twitter.com/docs/misc/cursoring</a><p>Avaliable parameters: </p><p><i>long list_id (required)</i> : The numerical id of the list.</p><p><i>string slug (required)</i> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</p><p><i>string owner_sereen_name (optional)</i> : The screen name of the user who owns the list being requested by a slug.</p><p><i>long owner_id (optional)</i> : The user ID of the user who owns the list being requested by a slug.</p><p><i>long cursor (semi-optional)</i> : Causes the collection of list members to be broken into "pages" of somewhat consistent size. If no cursor is provided, a value of -1 will be assumed, which is the first "page".</p></blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
                     <a href="#M:CoreTweet.Core.Lists.Memberships(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Memberships</a>
                   </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/Cursored`1.html">CoreTweet.Cursored&lt;CoreTweet.User&gt;</a></nobr><blockquote><p>Returns the lists the specified user has been added to. If user_id or screen_name are not provided the memberships for the authenticating user are returned.</p><a href="javascript:alert(&quot;Documentation not found.&quot;)">https://dev.twitter.com/docs/misc/cursoring</a><p>Avaliable parameters: </p><p><i>string sereen_name (optional)</i> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</p><p><i>long user_id (optional)</i> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</p><p><i>long cursor (semi-optional)</i> : Breaks the results into pages. A single page contains 20 lists. Provide a value of -1 to begin paging. Provide values as returned in the response body's next_cursor and previous_cursor attributes to page back and forth in the list.</p><p><i>bool filter_to_owned_lists (optional)</i> : When set to true, will return just lists the authenticating user owns, and the user represented by user_id or screen_name is a member of.</p></blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="#M:CoreTweet.Core.Lists.MembersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">MembersShow</a>
-                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/User.html">CoreTweet.User</a></nobr><blockquote><p>Check if the specified user is a member of the specified list.</p><p>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</p><p>Avaliable parameters: </p><p><i>long list_id (required)</i> : The numerical id of the list.</p><p><i>string slug (required)</i> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</p><p><i>string sereen_name (required)</i> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</p><p><i>long user_id (required)</i> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</p><p><i>string owner_screen_name (optional)</i> : The screen name of the user who owns the list being requested by a slug.</p><p><i>long owner_id (optional)</i> : The user ID of the user who owns the list being requested by a slug.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -371,16 +319,6 @@
                   <b>
                     <a href="#M:CoreTweet.Core.Lists.Statuses(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Statuses</a>
                   </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;CoreTweet.Status&gt;</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="#M:CoreTweet.Core.Lists.SubscribersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">SubscribersShow</a>
-                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="../CoreTweet/User.html">CoreTweet.User</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -443,7 +381,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Core.Lists.Create(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Core.Lists.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Destroy Method</h3>
@@ -476,7 +414,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Core.Lists.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Core.Lists.List(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">List Method</h3>
@@ -511,50 +449,27 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Core.Lists.List(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
-        <h3 id="M:CoreTweet.Core.Lists.Members(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Members Method</h3>
-        <blockquote id="M:CoreTweet.Core.Lists.Members(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+        <h3 id="P:CoreTweet.Core.Lists.Members">Members Property</h3>
+        <blockquote id="P:CoreTweet.Core.Lists.Members:member">
           <p class="Summary">
-            <p>Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.</p>
-            <p>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</p>
-            <p>The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</p>
-            <a href="javascript:alert(&quot;Documentation not found.&quot;)">https://dev.twitter.com/docs/misc/cursoring</a>
-            <p>Avaliable parameters: </p>
-            <p>
-              <i>long list_id (required)</i> : The numerical id of the list.</p>
-            <p>
-              <i>string slug (required)</i> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</p>
-            <p>
-              <i>string owner_sereen_name (optional)</i> : The screen name of the user who owns the list being requested by a slug.</p>
-            <p>
-              <i>long owner_id (optional)</i> : The user ID of the user who owns the list being requested by a slug.</p>
-            <p>
-              <i>long cursor (semi-optional)</i> : Causes the collection of list members to be broken into "pages" of somewhat consistent size. If no cursor is provided, a value of -1 will be assumed, which is the first "page".</p>
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">public <a href="../CoreTweet/Cursored`1.html">CoreTweet.Cursored&lt;CoreTweet.User&gt;</a> <b>Members</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Lists.Members(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
-            <dl>
-              <dt>
-                <i>parameters</i>
-              </dt>
-              <dd>
-            Parameters.
-            </dd>
-            </dl>
+          <div class="Signature">public <a href="../CoreTweet.Core/Members.html">Members</a> <b>Members</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.Core.Lists.Members:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </blockquote>
-          <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Lists.Members(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">Users.</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:CoreTweet.Core.Lists.Members(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+          <div class="SectionBox" id="P:CoreTweet.Core.Lists.Members:Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:CoreTweet.Core.Lists.Members(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <div class="SectionBox" id="P:CoreTweet.Core.Lists.Members:Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Core.Lists.Memberships(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Memberships Method</h3>
@@ -593,50 +508,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Core.Lists.Memberships(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:CoreTweet.Core.Lists.MembersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">MembersShow Method</h3>
-        <blockquote id="M:CoreTweet.Core.Lists.MembersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
-          <p class="Summary">
-            <p>Check if the specified user is a member of the specified list.</p>
-            <p>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</p>
-            <p>Avaliable parameters: </p>
-            <p>
-              <i>long list_id (required)</i> : The numerical id of the list.</p>
-            <p>
-              <i>string slug (required)</i> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</p>
-            <p>
-              <i>string sereen_name (required)</i> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</p>
-            <p>
-              <i>long user_id (required)</i> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</p>
-            <p>
-              <i>string owner_screen_name (optional)</i> : The screen name of the user who owns the list being requested by a slug.</p>
-            <p>
-              <i>long owner_id (optional)</i> : The user ID of the user who owns the list being requested by a slug.</p>
-          </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public <a href="../CoreTweet/User.html">CoreTweet.User</a> <b>MembersShow</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Lists.MembersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
-            <dl>
-              <dt>
-                <i>parameters</i>
-              </dt>
-              <dd>
-            Parameters.
-            </dd>
-            </dl>
-          </blockquote>
-          <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Lists.MembersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">The user.</blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:CoreTweet.Core.Lists.MembersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:CoreTweet.Core.Lists.MembersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Core.Lists.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Show Method</h3>
@@ -675,7 +547,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Core.Lists.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Core.Lists.Statuses(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Statuses Method</h3>
@@ -706,38 +578,27 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Core.Lists.Statuses(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
-        <h3 id="M:CoreTweet.Core.Lists.SubscribersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">SubscribersShow Method</h3>
-        <blockquote id="M:CoreTweet.Core.Lists.SubscribersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
+        <h3 id="P:CoreTweet.Core.Lists.Subscribers">Subscribers Property</h3>
+        <blockquote id="P:CoreTweet.Core.Lists.Subscribers:member">
           <p class="Summary">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">public <a href="../CoreTweet/User.html">CoreTweet.User</a> <b>SubscribersShow</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Lists.SubscribersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
-            <dl>
-              <dt>
-                <i>parameters</i>
-              </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
-            </dl>
-          </blockquote>
-          <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Lists.SubscribersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">
+          <div class="Signature">public <a href="../CoreTweet.Core/Subscribers.html">Subscribers</a> <b>Subscribers</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:CoreTweet.Core.Lists.Subscribers:Value">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:CoreTweet.Core.Lists.SubscribersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
+          <div class="SectionBox" id="P:CoreTweet.Core.Lists.Subscribers:Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:CoreTweet.Core.Lists.SubscribersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <div class="SectionBox" id="P:CoreTweet.Core.Lists.Subscribers:Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Core.Lists.Subscriptions(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Subscriptions Method</h3>
@@ -776,7 +637,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Core.Lists.Subscriptions(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Core.Lists.Update(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}})">Update Method</h3>
@@ -807,7 +668,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Core.Lists.Update(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
       </div>

@@ -51,40 +51,6 @@ namespace CoreTweet.Ex
                                    .Union(new Expression<Func<string,object>>[]{user_id => e .Id})
                                        .ToArray());
         }
-        
-        /// <summary>
-        /// Follow all of these users.
-        /// </summary>
-        /// <param name='Tokens'>
-        /// Tokens.
-        /// </param>
-        /// <param name='Parameters'>
-        /// Parameters.
-        /// </param>
-        /// 
-        /// <para>Avaliable parameters: Nothing.</para><para> </para>
-        /// 
-        public static IEnumerable<User> FollowAll(this IEnumerable<User> e, params Expression<Func<string,object>>[] parameters)
-        {
-            e.ForEach(x => x.Follow(parameters));
-            return e;
-        }
-        
-        /// <summary>
-        /// Un-follow all of these users.
-        /// </summary>
-        /// <param name='Tokens'>
-        /// Tokens.
-        /// </param>
-        /// <param name='Parameters'>
-        /// Parameters.
-        /// </param>
-        /// <para>Avaliable parameters: Nothing.</para><para> </para>
-        public static IEnumerable<User> UnfollowAll(this IEnumerable<User> e, params Expression<Func<string,object>>[] parameters)
-        {
-            e.ForEach(x => x.Follow(parameters));
-            return e;
-        }
     }
 }
 

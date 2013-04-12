@@ -31,7 +31,7 @@ namespace CoreTweet
 
         public bool Following{ get; set; }
         
-        internal List(Tokens tokens) : base(tokens) { }
+        public List(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {

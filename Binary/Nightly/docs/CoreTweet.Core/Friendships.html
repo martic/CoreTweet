@@ -209,7 +209,7 @@
     <p class="Summary" id="T:CoreTweet.Core.Friendships:Summary">GET/POST Friendships</p>
     <div id="T:CoreTweet.Core.Friendships:Signature">
       <h2>Syntax</h2>
-      <div class="Signature">public class  <b>Friendships</b> : <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a></div>
+      <div class="Signature">public class  <b>Friendships</b> : <a href="../CoreTweet.Core/TokenIncluded.html">TokenIncluded</a></div>
     </div>
     <div class="Remarks" id="T:CoreTweet.Core.Friendships:Docs">
       <h2 class="Section">Remarks</h2>
@@ -218,76 +218,13 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:CoreTweet.Core.Friendships:Docs:Version Information">
-        <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+        <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
 								See Also: Inherited members from
-								<a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.
+								<a href="../CoreTweet.Core/TokenIncluded.html">TokenIncluded</a>.
 							</p>
-        <h2 class="Section">Public Properties</h2>
-        <div class="SectionBox" id="Public Properties">
-          <div class="SubsectionBox">
-            <table class="TypeMembers">
-              <tr valign="top">
-                <td>[read-only]<div></div></td>
-                <td>
-                  <b>
-                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessToken">AccessToken</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
-                  </i>. 
-            The access token.
-             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
-              </tr>
-              <tr valign="top">
-                <td>[read-only]<div></div></td>
-                <td>
-                  <b>
-                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessTokenSecret">AccessTokenSecret</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
-                  </i>. 
-            The access token secret.
-             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
-              </tr>
-              <tr valign="top">
-                <td>[read-only]<div></div></td>
-                <td>
-                  <b>
-                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerKey">ConsumerKey</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
-                  </i>. 
-            The consumer key.
-             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
-              </tr>
-              <tr valign="top">
-                <td>[read-only]<div></div></td>
-                <td>
-                  <b>
-                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerSecret">ConsumerSecret</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
-                  </i>. 
-            The consumer secret.
-             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">_Tokens</a>.</i>)</td>
-              </tr>
-            </table>
-          </div>
-        </div>
         <h2 class="Section">Public Methods</h2>
         <div class="SectionBox" id="Public Methods">
           <div class="SubsectionBox">
@@ -339,8 +276,8 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="#M:CoreTweet.Core.Friendships.NoRetweetsIds">NoRetweetsIds</a>
-                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;long&gt;</a></nobr><blockquote><p>Returns a collection of user_ids that the currently authenticated user does not want to receive retweets from.</p><p>Use POST friendships/update to set the "no retweets" status for a given user account on behalf of the current user.</p><p>Avaliable parameters: Nothing.</p></blockquote></td>
+                    <a href="#M:CoreTweet.Core.Friendships.NoRetweetsIds(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">NoRetweetsIds</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;long&gt;</a></nobr><blockquote><p>Returns a collection of user_ids that the currently authenticated user does not want to receive retweets from.</p><p>Use POST friendships/update to set the "no retweets" status for a given user account on behalf of the current user.</p><p>Avaliable parameters: Nothing.</p></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -416,7 +353,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Core.Friendships.Create(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Core.Friendships.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Destroy Method</h3>
@@ -453,7 +390,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Core.Friendships.Destroy(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Core.Friendships.Incoming(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Incoming Method</h3>
@@ -485,7 +422,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Core.Friendships.Incoming(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Core.Friendships.Lookup(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Lookup Method</h3>
@@ -519,29 +456,40 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Core.Friendships.Lookup(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
-        <h3 id="M:CoreTweet.Core.Friendships.NoRetweetsIds">NoRetweetsIds Method</h3>
-        <blockquote id="M:CoreTweet.Core.Friendships.NoRetweetsIds:member">
+        <h3 id="M:CoreTweet.Core.Friendships.NoRetweetsIds(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">NoRetweetsIds Method</h3>
+        <blockquote id="M:CoreTweet.Core.Friendships.NoRetweetsIds(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):member">
           <p class="Summary">
             <p>Returns a collection of user_ids that the currently authenticated user does not want to receive retweets from.</p>
             <p>Use POST friendships/update to set the "no retweets" status for a given user account on behalf of the current user.</p>
             <p>Avaliable parameters: Nothing.</p>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;long&gt;</a> <b>NoRetweetsIds</b> ()</div>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;long&gt;</a> <b>NoRetweetsIds</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Friendships.NoRetweetsIds(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>
+            Parameters.
+            </dd>
+            </dl>
+          </blockquote>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Friendships.NoRetweetsIds:Returns">
+          <blockquote class="SubsectionBox" id="M:CoreTweet.Core.Friendships.NoRetweetsIds(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Returns">
             Ids.
             </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:CoreTweet.Core.Friendships.NoRetweetsIds:Remarks">
+          <div class="SectionBox" id="M:CoreTweet.Core.Friendships.NoRetweetsIds(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:CoreTweet.Core.Friendships.NoRetweetsIds:Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <div class="SectionBox" id="M:CoreTweet.Core.Friendships.NoRetweetsIds(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Core.Friendships.Outgoing(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Outgoing Method</h3>
@@ -573,7 +521,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Core.Friendships.Outgoing(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Core.Friendships.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Show Method</h3>
@@ -612,7 +560,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Core.Friendships.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.Core.Friendships.Update(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">Update Method</h3>
@@ -646,7 +594,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.Core.Friendships.Update(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[]):Version Information">
-            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet.Core<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
       </div>

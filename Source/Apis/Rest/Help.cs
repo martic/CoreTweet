@@ -26,8 +26,7 @@ namespace CoreTweet.Core
         /// </param>
         public Configurations Configuration(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Configurations>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("help/configuation"), parameters)));
+            return this.Tokens.AccessApi<Configurations>(MethodType.Get, "help/configuation", parameters);
         }
             
         /// <summary>
@@ -40,8 +39,7 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<Language> Languages(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<Language>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("help/languages"), parameters)));
+            return this.Tokens.AccessApiArray<Language>(MethodType.Get, "help/languages", parameters);
         }
             
         /// <summary>
@@ -54,8 +52,8 @@ namespace CoreTweet.Core
         /// </param>
         public string Privacy(params Expression<Func<string,object>>[] parameters)
         {
-            return DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("help/privacy"), parameters)).privacy;
+            return (string)DynamicJson.Parse(
+                    this.Tokens.SendRequest(MethodType.Get, "help/privacy", parameters)).privacy;
         }
             
         /// <summary>
@@ -68,8 +66,8 @@ namespace CoreTweet.Core
         /// </param>
         public string Tos(params Expression<Func<string,object>>[] parameters)
         {
-            return DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("help/tos"), parameters)).tos;
+            return (string)DynamicJson.Parse(
+                    this.Tokens.SendRequest(MethodType.Get, "help/tos", parameters)).tos;
         }
             
     }

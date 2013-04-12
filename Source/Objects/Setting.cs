@@ -75,7 +75,7 @@ namespace CoreTweet
         
         public bool UseCookiePersonalization { get; set; }
         
-        internal Setting(Tokens tokens) : base(tokens) { }
+        public Setting(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {

@@ -26,7 +26,7 @@ namespace CoreTweet
         /// </summary>
         public UserMention[] UserMentions { get; set; }
   
-        internal Entity(Tokens tokens) : base(tokens) { }
+        public Entity(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -49,7 +49,7 @@ namespace CoreTweet
         /// </summary>
         public int[] Indices { get; set; }
   
-        internal HashTag(Tokens tokens) : base(tokens) { }
+        public HashTag(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -110,7 +110,7 @@ namespace CoreTweet
         /// </summary>
         public Uri Url { get; set; }
   
-        internal Media(Tokens tokens) : base(tokens) { }
+        public Media(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -144,7 +144,7 @@ namespace CoreTweet
         /// </summary>
         public int Width { get; set; }
   
-        internal Size(Tokens tokens) : base(tokens) { }
+        public Size(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -176,7 +176,7 @@ namespace CoreTweet
         /// </summary>
         public Size Thumb { get; set; }
 
-        internal Sizes(Tokens tokens) : base(tokens) { }
+        public Sizes(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -209,7 +209,7 @@ namespace CoreTweet
         /// </summary>
         public Uri Uri { get; set; }
   
-        internal Url(Tokens tokens) : base(tokens) { }
+        public Url(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -242,7 +242,7 @@ namespace CoreTweet
         /// </summary>
         public string ScreenName { get; set; }
   
-        internal UserMention(Tokens tokens) : base(tokens) { }
+        public UserMention(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {

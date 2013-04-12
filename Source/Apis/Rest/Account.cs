@@ -36,7 +36,7 @@ namespace CoreTweet.Core
         /// </param>
         public User VerifyCredentials(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<User>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.GET, Tokens.Url("account/verify_credentials"), parameters)));
+            return this.Tokens.AccessApi<User>(MethodType.Get, "account/verify_credentials", parameters);
         }
         
         //GET & POST Methods
@@ -59,7 +59,7 @@ namespace CoreTweet.Core
         /// </param>
         public Setting Settings(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<Setting>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, (parameters.Length == 0 ? MethodType.GET : MethodType.POST), Tokens.Url("account/settings"), parameters)));
+            return this.Tokens.AccessApi<Setting>(parameters.Length == 0 ? MethodType.Get : MethodType.Post, "account/settings", parameters);
         }
         
         //POST Methods
@@ -75,7 +75,7 @@ namespace CoreTweet.Core
         /// </param>
         public void UpdateDeliveryService(params Expression<Func<string,object>>[] parameters)
         {
-            Request.Send(this.Tokens, MethodType.POST_NORESPONSE, Tokens.Url("account/update_delivery_service"), parameters);
+            this.Tokens.SendRequest(MethodType.PostNoResponse, "account/update_delivery_service", parameters);
         }
         
         /// <summary>
@@ -96,7 +96,7 @@ namespace CoreTweet.Core
         /// </param>
         public User UpdateProfile(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<User>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.POST, Tokens.Url("account/update_profile"), parameters)));
+            return this.Tokens.AccessApi<User>(MethodType.Post, "account/update_profile", parameters);
         }
         
         /// <summary>
@@ -115,7 +115,7 @@ namespace CoreTweet.Core
         /// </param>
         public User UpdateProfileBackgroundImage(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<User>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.POST, Tokens.Url("account/update_profile_background_image"), parameters)));
+            return this.Tokens.AccessApi<User>(MethodType.Post, "account/update_profile_background_image", parameters);
         }
         
         /// <summary>
@@ -128,13 +128,12 @@ namespace CoreTweet.Core
         /// <para><paramref name="string offset_left (optional)"/> : The number of pixels by which to offset the uploaded image from the left. Use with height, width, and offset_top to select the desired region of the image to use.</para>
         /// <para><paramref name="string offset_top (optional)"/> : The number of pixels by which to offset the uploaded image from the top. Use with height, width, and offset_left to select the desired region of the image to use.</para>
         /// </summary>
-
         /// <param name='parameters'>
         /// Parameters.
         /// </param>
         public void UpdateProfileBanner(params Expression<Func<string,object>>[] parameters)
         {
-            Request.Send(this.Tokens, MethodType.POST_NORESPONSE, Tokens.Url("account/update_profile_banner"), parameters);
+            this.Tokens.SendRequest(MethodType.PostNoResponse, "account/update_profile_banner", parameters);
         }
         
         /// <summary>
@@ -154,7 +153,7 @@ namespace CoreTweet.Core
         /// </param>
         public User UpdateProfileColors(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<User>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.POST, Tokens.Url("account/update_profile_colors"), parameters)));
+            return this.Tokens.AccessApi<User>(MethodType.Post, "account/update_profile_colors", parameters);
         }
         
         /// <summary>
@@ -171,7 +170,7 @@ namespace CoreTweet.Core
         /// </param>
         public User UpdateProfileImage(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<User>(this.Tokens, DynamicJson.Parse(Request.Send(this.Tokens, MethodType.POST, Tokens.Url("account/update_profile_image"), parameters)));
+            return this.Tokens.AccessApi<User>(MethodType.Post, "account/update_profile_image", parameters);
         }
     }
         

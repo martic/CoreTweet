@@ -28,7 +28,7 @@ namespace CoreTweet
         
         public string CacheAge{ get; set; }
         
-        internal Embed(Tokens tokens) : base(tokens) { }
+        public Embed(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {

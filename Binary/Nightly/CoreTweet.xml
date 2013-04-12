@@ -4,12 +4,12 @@
         <name>/home/alice/git/CoreTweet/Binary/Nightly/CoreTweet</name>
     </assembly>
     <members>
-        <member name="M:CoreTweet.Core.CoreBase.Convert``1(System.Object)">
+        <member name="M:CoreTweet.Core.CoreBase.Convert``1(CoreTweet.Tokens,System.Object)">
             <summary>
             この子を呼べばTに対応するConvert()を呼んでdynamic objectをstatic objectに変換してくれます
             </summary>
         </member>
-        <member name="M:CoreTweet.Core.CoreBase.ConvertArray``1(System.Object)">
+        <member name="M:CoreTweet.Core.CoreBase.ConvertArray``1(CoreTweet.Tokens,System.Object)">
             <summary>
             ( ,,Ծ ‸ Ծ ).｡ｏO( 説明いるのかな )
             </summary>
@@ -606,29 +606,29 @@
             When present, indicates whether the content being withheld is the "status" or a "user."
             </summary>
         </member>
-        <member name="P:CoreTweet.Core._Tokens.ConsumerKey">
+        <member name="T:CoreTweet.Tokens">
+            <summary>
+            The OAuth tokens.
+            </summary>
+        </member>
+        <member name="P:CoreTweet.Tokens.ConsumerKey">
             <summary>
             The consumer key.
             </summary>
         </member>
-        <member name="P:CoreTweet.Core._Tokens.ConsumerSecret">
+        <member name="P:CoreTweet.Tokens.ConsumerSecret">
             <summary>
             The consumer secret.
             </summary>
         </member>
-        <member name="P:CoreTweet.Core._Tokens.AccessToken">
+        <member name="P:CoreTweet.Tokens.AccessToken">
             <summary>
             The access token.
             </summary>
         </member>
-        <member name="P:CoreTweet.Core._Tokens.AccessTokenSecret">
+        <member name="P:CoreTweet.Tokens.AccessTokenSecret">
             <summary>
             The access token secret.
-            </summary>
-        </member>
-        <member name="T:CoreTweet.Tokens">
-            <summary>
-            The OAuth tokens.
             </summary>
         </member>
         <member name="M:CoreTweet.Tokens.Create(System.String,System.String,System.String,System.String)">
@@ -768,7 +768,7 @@
             See the example.
             </param>
             <example>
-            Request (tokens, MethodType.POST, "https://hoge.com/piyo.xml", prm1 =&gt; "hoge", prm2 =&gt; "piyo");
+            Request (tokens, MethodType.Post, "https://hoge.com/piyo.xml", prm1 =&gt; "hoge", prm2 =&gt; "piyo");
             </example>
             <returns>
             Response.
@@ -859,29 +859,6 @@
             Parameters.
             </param>
         </member>
-        <member name="M:CoreTweet.Core.Lists.Members(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
-            <summary>
-                <para>Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.</para>
-                <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
-                <para>The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</para>
-                <see cref="!:https://dev.twitter.com/docs/misc/cursoring" />
-                <para>Avaliable parameters: </para>
-                <para>
-                    <paramref name="long list_id (required)" /> : The numerical id of the list.</para>
-                <para>
-                    <paramref name="string slug (required)" /> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
-                <para>
-                    <paramref name="string owner_sereen_name (optional)" /> : The screen name of the user who owns the list being requested by a slug.</para>
-                <para>
-                    <paramref name="long owner_id (optional)" /> : The user ID of the user who owns the list being requested by a slug.</para>
-                <para>
-                    <paramref name="long cursor (semi-optional)" /> : Causes the collection of list members to be broken into "pages" of somewhat consistent size. If no cursor is provided, a value of -1 will be assumed, which is the first "page".</para>
-            </summary>
-            <returns>Users.</returns>
-            <param name="parameters">
-            Parameters.
-            </param>
-        </member>
         <member name="M:CoreTweet.Core.Lists.Memberships(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
             <summary>
                 <para>Returns the lists the specified user has been added to. If user_id or screen_name are not provided the memberships for the authenticating user are returned.</para>
@@ -920,7 +897,6 @@
             Parameters.
             </param>
         </member>
-        <!--FIXME: Invalid documentation markup was found for member M:CoreTweet.Core.Lists.Statuses(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])-->
         <member name="M:CoreTweet.Core.Lists.Subscriptions(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
             <summary>
                 <para>Obtain a collection of the lists the specified user is subscribed to, 20 lists per page by default. Does not include the user's own lists.</para>
@@ -940,30 +916,7 @@
             Parameters.
             </param>
         </member>
-        <member name="M:CoreTweet.Core.Lists.MembersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
-            <summary>
-                <para>Check if the specified user is a member of the specified list.</para>
-                <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
-                <para>Avaliable parameters: </para>
-                <para>
-                    <paramref name="long list_id (required)" /> : The numerical id of the list.</para>
-                <para>
-                    <paramref name="string slug (required)" /> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
-                <para>
-                    <paramref name="string sereen_name (required)" /> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</para>
-                <para>
-                    <paramref name="long user_id (required)" /> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</para>
-                <para>
-                    <paramref name="string owner_screen_name (optional)" /> : The screen name of the user who owns the list being requested by a slug.</para>
-                <para>
-                    <paramref name="long owner_id (optional)" /> : The user ID of the user who owns the list being requested by a slug.</para>
-            </summary>
-            <returns>The user.</returns>
-            <param name="parameters">
-            Parameters.
-            </param>
-        </member>
-        <!--FIXME: Invalid documentation markup was found for member M:CoreTweet.Core.Lists.SubscribersShow(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])-->
+        <!--FIXME: Invalid documentation markup was found for member M:CoreTweet.Core.Lists.Statuses(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])-->
         <member name="M:CoreTweet.Core.Lists.Create(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
             <summary>
                 <para>Creates a new list for the authenticated user. Note that you can't create more than 20 lists per account.</para>
@@ -1007,6 +960,78 @@
             Parameters.
             </param>
         </member>
+        <member name="M:CoreTweet.Core.Members.This(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
+            <summary>
+                <para>Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.</para>
+                <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
+                <para>The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.</para>
+                <see cref="!:https://dev.twitter.com/docs/misc/cursoring" />
+                <para>Avaliable parameters: </para>
+                <para>
+                    <paramref name="long list_id (required)" /> : The numerical id of the list.</para>
+                <para>
+                    <paramref name="string slug (required)" /> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
+                <para>
+                    <paramref name="string owner_sereen_name (optional)" /> : The screen name of the user who owns the list being requested by a slug.</para>
+                <para>
+                    <paramref name="long owner_id (optional)" /> : The user ID of the user who owns the list being requested by a slug.</para>
+                <para>
+                    <paramref name="long cursor (semi-optional)" /> : Causes the collection of list members to be broken into "pages" of somewhat consistent size. If no cursor is provided, a value of -1 will be assumed, which is the first "page".</para>
+            </summary>
+            <returns>Users.</returns>
+            <param name="parameters">
+            Parameters.
+            </param>
+        </member>
+        <member name="M:CoreTweet.Core.Members.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
+            <summary>
+                <para>Check if the specified user is a member of the specified list.</para>
+                <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
+                <para>Avaliable parameters: </para>
+                <para>
+                    <paramref name="long list_id (required)" /> : The numerical id of the list.</para>
+                <para>
+                    <paramref name="string slug (required)" /> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
+                <para>
+                    <paramref name="string sereen_name (required)" /> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</para>
+                <para>
+                    <paramref name="long user_id (required)" /> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</para>
+                <para>
+                    <paramref name="string owner_screen_name (optional)" /> : The screen name of the user who owns the list being requested by a slug.</para>
+                <para>
+                    <paramref name="long owner_id (optional)" /> : The user ID of the user who owns the list being requested by a slug.</para>
+            </summary>
+            <returns>The user.</returns>
+            <param name="parameters">
+            Parameters.
+            </param>
+        </member>
+        <member name="M:CoreTweet.Core.Members.Create(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
+            <summary>
+                <para>Add a member to a list. The authenticated user must own the list to be able to add members to it. Note that lists can't have more than 500 members.</para>
+            </summary>
+            <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
+            <para>Avaliable parameters: </para>
+            <para>
+            </para>
+            <para>
+                <paramref name="long list_id (required)" /> : The numerical id of the list.</para>
+            <para>
+                <paramref name="string slug (required)" /> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
+            <para>
+                <paramref name="long user_id (required)" /> : The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.</para>
+            <para>
+                <paramref name="string screen_name (required)" /> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</para>
+            <para>
+                <paramref name="string owner_screen_name (optional)" /> : The screen name of the user who owns the list being requested by a slug.</para>
+            <para>
+                <paramref name="long owner_id (optional)" /> : The user ID of the user who owns the list being requested by a slug.</para>
+            <returns>Users.</returns>
+            <param name="Parameters">
+            Parameters.
+            </param>
+        </member>
+        <!--FIXME: Invalid documentation markup was found for member M:CoreTweet.Core.Subscribers.Show(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])-->
         <member name="T:CoreTweet.Core.Account">
             <summary>GET/POST account</summary>
         </member>
@@ -1439,7 +1464,7 @@
         <member name="T:CoreTweet.Core.Friendships">
             <summary>GET/POST Friendships</summary>
         </member>
-        <member name="M:CoreTweet.Core.Friendships.NoRetweetsIds">
+        <member name="M:CoreTweet.Core.Friendships.NoRetweetsIds(System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
             <summary>
                 <para>Returns a collection of user_ids that the currently authenticated user does not want to receive retweets from.</para>
                 <para>Use POST friendships/update to set the "no retweets" status for a given user account on behalf of the current user.</para>
@@ -2019,17 +2044,17 @@
             The type of the HTTP method.
             </summary>
         </member>
-        <member name="F:CoreTweet.MethodType.GET">
+        <member name="F:CoreTweet.MethodType.Get">
             <summary>
             GET method.
             </summary>
         </member>
-        <member name="F:CoreTweet.MethodType.POST">
+        <member name="F:CoreTweet.MethodType.Post">
             <summary>
             POST method.
             </summary>
         </member>
-        <member name="F:CoreTweet.MethodType.POST_NORESPONSE">
+        <member name="F:CoreTweet.MethodType.PostNoResponse">
             <summary>
             POST method without any response.
             </summary>
@@ -2038,51 +2063,6 @@
             <summary>
             Sends a request to Twitter and some other web services.
             </summary>
-        </member>
-        <member name="M:CoreTweet.Request.Send``1(``0,CoreTweet.MethodType,System.String,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
-            <summary>
-            Send a request to Twitter.
-            </summary>
-            <param name="tokens">
-            OAuth Tokens.
-            </param>
-            <param name="type">
-            GET or POST.
-            </param>
-            <param name="url">
-            An URL of API.
-            </param>
-            <param name="prms">
-            Parameters.
-            You can pass the parameters easily by writing lambda expressions.
-            See the example.
-            </param>
-            <example>
-            Request (tokens, MethodType.POST, "https://hoge.com/piyo.xml", prm1 =&gt; "hoge", prm2 =&gt; "piyo");
-            </example>
-            <returns>
-            Response.
-            </returns>
-        </member>
-        <member name="M:CoreTweet.Request.Send``1(``0,CoreTweet.MethodType,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Send a request to Twitter.
-            </summary>
-            <param name="tokens">
-            OAuth Tokens.
-            </param>
-            <param name="type">
-            GET or POST.
-            </param>
-            <param name="url">
-            An URL of API.
-            </param>
-            <param name="prms">
-            Parameters.
-            </param>
-            <returns>
-            Response.
-            </returns>
         </member>
         <member name="M:CoreTweet.Request.HttpGet(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
             <summary>
@@ -2100,7 +2080,7 @@
             <param name="url">URL.</param>
             <param name="prm">Parameters.</param>
         </member>
-        <member name="M:CoreTweet.Request.GenerateSignature(CoreTweet.Core._Tokens,System.String,System.String,System.Collections.Generic.SortedDictionary{System.String,System.String})">
+        <member name="M:CoreTweet.Request.GenerateSignature(CoreTweet.Tokens,System.String,System.String,System.Collections.Generic.SortedDictionary{System.String,System.String})">
             <summary>
             Generates the signature.
             </summary>
@@ -2115,7 +2095,7 @@
             Generates the parameters.
             </summary>
             <returns>The parameters.</returns>
-            <param name="ConsumerKey">Consumer key.</param>
+            <param name="ConsumerKey ">Consumer key.</param>
             <param name="token">Token.</param>
         </member>
         <member name="M:CoreTweet.Request.UrlEncode(System.String)">
@@ -2491,84 +2471,6 @@
             <para>
                 <paramref name="bool include_entities (optional)" /> : The entities node will be omitted when set to false.</para>
         </member>
-        <member name="M:CoreTweet.Ex.StatusExtension.ReplyToAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},System.Func{CoreTweet.Status,System.String},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
-            <summary>
-            Reply to all of these tweets.
-            </summary>
-            <para>Avaliable parameters: </para>
-            <para>
-                <paramref name="double lat (optional)" /> : The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.</para>
-            <para>
-                <paramref name="double long (optional)" /> : The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.</para>
-            <para>
-                <paramref name="string place_id (optional)" /> : A place in the world. These IDs can be retrieved from GET geo/reverse_geocode.</para>
-            <para>
-                <paramref name="bool display_coordinates (optional)" /> : Whether or not to put a pin on the exact coordinates a tweet has been sent from.</para>
-            <para>
-                <paramref name="bool trim_user (optional)" /> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
-            <param name="Tokens">
-            Tokens.
-            </param>
-            <param name="Parameters">
-            Parameters.
-            </param>
-        </member>
-        <member name="M:CoreTweet.Ex.StatusExtension.RetweetAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
-            <summary>
-            Retweet all of these tweets.
-            </summary>
-            <param name="Tokens">
-            Tokens.
-            </param>
-            <param name="Parameters">
-            Parameters.
-            </param>
-            <para>Avaliable parameters: </para>
-            <para>
-                <paramref name="bool trim_user (optional)" /> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
-        </member>
-        <member name="M:CoreTweet.Ex.StatusExtension.DestroyAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
-            <summary>
-            Destroy all of these tweets.
-            </summary>
-            <param name="Tokens">
-            Tokens.
-            </param>
-            <param name="Parameters">
-            Parameters.
-            </param>
-            <para>Avaliable parameters: </para>
-            <para>
-                <paramref name="bool trim_user (optional)" /> : When set to true, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.</para>
-        </member>
-        <member name="M:CoreTweet.Ex.StatusExtension.FavoriteAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
-            <summary>
-            Favorite all of these tweets.
-            </summary>
-            <param name="Tokens">
-            Tokens.
-            </param>
-            <param name="Parameters">
-            Parameters.
-            </param>
-            <para>Avaliable parameters: </para>
-            <para>
-                <paramref name="bool include_entities (optional)" /> : The entities node will be omitted when set to false.</para>
-        </member>
-        <member name="M:CoreTweet.Ex.StatusExtension.UnfavoriteAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
-            <summary>
-            Un-favorite all of these tweets.
-            </summary>
-            <param name="Tokens">
-            Tokens.
-            </param>
-            <param name="Parameters">
-            Parameters.
-            </param>
-            <para>Avaliable parameters: </para>
-            <para>
-                <paramref name="bool include_entities (optional)" /> : The entities node will be omitted when set to false.</para>
-        </member>
         <member name="T:CoreTweet.Ex.UserExtension">
             <summary>
             Extensions for User object.
@@ -2591,34 +2493,6 @@
         <member name="M:CoreTweet.Ex.UserExtension.Unfollow(CoreTweet.User,System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
             <summary>
             Un-follow this user.
-            </summary>
-            <param name="Tokens">
-            Tokens.
-            </param>
-            <param name="Parameters">
-            Parameters.
-            </param>
-            <para>Avaliable parameters: Nothing.</para>
-            <para>
-            </para>
-        </member>
-        <member name="M:CoreTweet.Ex.UserExtension.FollowAll(System.Collections.Generic.IEnumerable{CoreTweet.User},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
-            <summary>
-            Follow all of these users.
-            </summary>
-            <param name="Tokens">
-            Tokens.
-            </param>
-            <param name="Parameters">
-            Parameters.
-            </param>
-            <para>Avaliable parameters: Nothing.</para>
-            <para>
-            </para>
-        </member>
-        <member name="M:CoreTweet.Ex.UserExtension.UnfollowAll(System.Collections.Generic.IEnumerable{CoreTweet.User},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">
-            <summary>
-            Un-follow all of these users.
             </summary>
             <param name="Tokens">
             Tokens.

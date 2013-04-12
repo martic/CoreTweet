@@ -37,8 +37,7 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<DirectMessage> Sent(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<DirectMessage>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("direct_messages/sent"), parameters)));
+            return this.Tokens.AccessApiArray<DirectMessage>(MethodType.Get, "direct_messages/sent", parameters);
         }
             
         /// <summary>
@@ -56,8 +55,7 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<DirectMessage> Show(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<DirectMessage>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("direct_messages/show"), parameters)));
+            return this.Tokens.AccessApiArray<DirectMessage>(MethodType.Get, "direct_messages/show", parameters);
         }
             
         //POST Methods
@@ -80,8 +78,7 @@ namespace CoreTweet.Core
         /// </param>
         public DirectMessage New(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<DirectMessage>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.POST, Tokens.Url("direct_messages/new"), parameters)));
+            return this.Tokens.AccessApi<DirectMessage>(MethodType.Post, "direct_messages/new", parameters);
         }
             
         /// <summary>
@@ -100,8 +97,7 @@ namespace CoreTweet.Core
         /// </param>
         public DirectMessage Destroy(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<DirectMessage>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.POST, Tokens.Url("direct_messages/destroy"), parameters)));
+            return this.Tokens.AccessApi<DirectMessage>(MethodType.Post, "direct_messages/destroy", parameters);
         }
     }
 }

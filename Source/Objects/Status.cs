@@ -133,7 +133,10 @@ namespace CoreTweet
         /// <see cref="https://dev.twitter.com/blog/new-withheld-content-fields-api-responses" />
         public string WithheldScope { get; set; }
   
-        internal Status(Tokens tokens) : base(tokens) { }
+        public Status(Tokens tokens) : base(tokens)
+        {
+            Tokens = tokens;
+        }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -176,7 +179,7 @@ namespace CoreTweet
         /// </summary>
         public string ScreenName { get; set; }
   
-        internal Contributors(Tokens tokens) : base(tokens) { }
+        public Contributors(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -202,7 +205,7 @@ namespace CoreTweet
         /// </summary>
         public string Type { get; set; }
   
-        internal Coordinates(Tokens tokens) : base(tokens) { }
+        public Coordinates(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -237,7 +240,7 @@ namespace CoreTweet
         /// </summary>
         public Entity Entities{ get; set; }
         
-        internal DirectMessage(Tokens tokens) : base(tokens) { }
+        public DirectMessage(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {

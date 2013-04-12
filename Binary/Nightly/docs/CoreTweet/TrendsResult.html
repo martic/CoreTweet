@@ -220,7 +220,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:CoreTweet.TrendsResult:Docs:Version Information">
-        <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+        <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -239,8 +239,8 @@
                 <td>
                   <div>
                     <b>
-                      <a href="#C:CoreTweet.TrendsResult">TrendsResult</a>
-                    </b>()</div>
+                      <a href="#C:CoreTweet.TrendsResult(CoreTweet.Tokens)">TrendsResult</a>
+                    </b>(<a href="../CoreTweet/Tokens.html">Tokens</a>)</div>
                 </td>
                 <td>
                   <span class="NotEntered">Documentation for this section has not yet been entered.</span>
@@ -253,34 +253,6 @@
         <div class="SectionBox" id="Public Properties">
           <div class="SubsectionBox">
             <table class="TypeMembers">
-              <tr valign="top">
-                <td>[read-only]<div></div></td>
-                <td>
-                  <b>
-                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessToken">AccessToken</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
-                  </i>. 
-            The access token.
-             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">CoreTweet.Core._Tokens</a>.</i>)</td>
-              </tr>
-              <tr valign="top">
-                <td>[read-only]<div></div></td>
-                <td>
-                  <b>
-                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.AccessTokenSecret">AccessTokenSecret</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
-                  </i>. 
-            The access token secret.
-             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">CoreTweet.Core._Tokens</a>.</i>)</td>
-              </tr>
               <tr valign="top">
                 <td>
                   <div>
@@ -295,34 +267,6 @@
                   <i>
                     <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.DateTimeOffset">DateTimeOffset</a>
                   </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
-              </tr>
-              <tr valign="top">
-                <td>[read-only]<div></div></td>
-                <td>
-                  <b>
-                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerKey">ConsumerKey</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
-                  </i>. 
-            The consumer key.
-             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">CoreTweet.Core._Tokens</a>.</i>)</td>
-              </tr>
-              <tr valign="top">
-                <td>[read-only]<div></div></td>
-                <td>
-                  <b>
-                    <a href="../CoreTweet.Core/_Tokens.html#P:CoreTweet.Core._Tokens.ConsumerSecret">ConsumerSecret</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
-                  </i>. 
-            The consumer secret.
-             (<i>Inherited from <a href="../CoreTweet.Core/_Tokens.html">CoreTweet.Core._Tokens</a>.</i>)</td>
               </tr>
               <tr valign="top">
                 <td>
@@ -443,86 +387,9 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="../CoreTweet.Ex/StatusExtension.html#M:CoreTweet.Ex.StatusExtension.DestroyAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">DestroyAll</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>
-            Destroy all of these tweets.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>static </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../CoreTweet.Ex/StatusExtension.html#M:CoreTweet.Ex.StatusExtension.FavoriteAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">FavoriteAll</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>
-            Favorite all of these tweets.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>static </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../CoreTweet.Ex/UserExtension.html#M:CoreTweet.Ex.UserExtension.FollowAll(System.Collections.Generic.IEnumerable{CoreTweet.User},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">FollowAll</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;User&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;User&gt;</a></nobr><blockquote>
-            Follow all of these users.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>static </div>
-                </td>
-                <td colspan="2">
-                  <b>
                     <a href="../Alice/Extensions.html#M:Alice.Extensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">ForEach&lt;T&gt;</a>
                   </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Action`1">Action&lt;T&gt;</a>)<blockquote>
             Performs the specified action on each element on the enumerable object.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>static </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../CoreTweet.Ex/StatusExtension.html#M:CoreTweet.Ex.StatusExtension.ReplyToAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},System.Func{CoreTweet.Status,System.String},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">ReplyToAll</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;Status, string&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>
-            Reply to all of these tweets.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>static </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../CoreTweet.Ex/StatusExtension.html#M:CoreTweet.Ex.StatusExtension.RetweetAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">RetweetAll</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>
-            Retweet all of these tweets.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>static </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../CoreTweet.Ex/StatusExtension.html#M:CoreTweet.Ex.StatusExtension.UnfavoriteAll(System.Collections.Generic.IEnumerable{CoreTweet.Status},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">UnfavoriteAll</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Status&gt;</a></nobr><blockquote>
-            Un-favorite all of these tweets.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>static </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../CoreTweet.Ex/UserExtension.html#M:CoreTweet.Ex.UserExtension.UnfollowAll(System.Collections.Generic.IEnumerable{CoreTweet.User},System.Linq.Expressions.Expression{System.Func{System.String,System.Object}}[])">UnfollowAll</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;User&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Linq.Expressions.Expression`1">System.Linq.Expressions.Expression&lt;Func&lt;string, object&gt;&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;User&gt;</a></nobr><blockquote>
-            Un-follow all of these users.
             </blockquote></td>
               </tr>
             </table>
@@ -533,20 +400,31 @@
     <div class="Members" id="T:CoreTweet.TrendsResult:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
-        <h3 id="C:CoreTweet.TrendsResult">TrendsResult Constructor</h3>
-        <blockquote id="C:CoreTweet.TrendsResult:member">
+        <h3 id="C:CoreTweet.TrendsResult(CoreTweet.Tokens)">TrendsResult Constructor</h3>
+        <blockquote id="C:CoreTweet.TrendsResult(CoreTweet.Tokens):member">
           <p class="Summary">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </p>
           <h2>Syntax</h2>
-          <div class="Signature">public  <b>TrendsResult</b> ()</div>
+          <div class="Signature">public  <b>TrendsResult</b> (<a href="../CoreTweet/Tokens.html">Tokens</a> tokens)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:CoreTweet.TrendsResult(CoreTweet.Tokens):Parameters">
+            <dl>
+              <dt>
+                <i>tokens</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:CoreTweet.TrendsResult:Remarks">
+          <div class="SectionBox" id="C:CoreTweet.TrendsResult(CoreTweet.Tokens):Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:CoreTweet.TrendsResult:Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+          <div class="SectionBox" id="C:CoreTweet.TrendsResult(CoreTweet.Tokens):Version Information">
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:CoreTweet.TrendsResult.AsOf">AsOf Property</h3>
@@ -566,7 +444,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:CoreTweet.TrendsResult.AsOf:Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:CoreTweet.TrendsResult.CreatedAt">CreatedAt Property</h3>
@@ -586,7 +464,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:CoreTweet.TrendsResult.CreatedAt:Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.TrendsResult.GetEnumerator">GetEnumerator Method</h3>
@@ -606,7 +484,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.TrendsResult.GetEnumerator:Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:CoreTweet.TrendsResult.LocationIds">LocationIds Property</h3>
@@ -626,7 +504,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:CoreTweet.TrendsResult.LocationIds:Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:CoreTweet.TrendsResult.Locations">Locations Property</h3>
@@ -646,7 +524,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:CoreTweet.TrendsResult.Locations:Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:CoreTweet.TrendsResult.System#Collections#IEnumerable#GetEnumerator">System.Collections.IEnumerable.GetEnumerator Method</h3>
@@ -667,7 +545,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:CoreTweet.TrendsResult.System#Collections#IEnumerable#GetEnumerator:Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:CoreTweet.TrendsResult.Trends">Trends Property</h3>
@@ -687,7 +565,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:CoreTweet.TrendsResult.Trends:Version Information">
-            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4845.4075</div>
+            <b>Namespace: </b>CoreTweet<br /><b>Assembly: </b>CoreTweet (in CoreTweet.dll)<br /><b>Assembly Versions: </b>1.0.4850.14626</div>
           <hr size="1" />
         </blockquote>
       </div>

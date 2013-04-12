@@ -28,8 +28,7 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<Place> Avaliable(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<Place>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("trends/avaliable"), parameters)));
+            return this.Tokens.AccessApiArray<Place>(MethodType.Get, "trends/avaliable", parameters);
         }
             
         /// <summary>
@@ -47,8 +46,7 @@ namespace CoreTweet.Core
         /// </param>
         public IEnumerable<Place> Closest(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.ConvertArray<Place>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("trends/closest"), parameters)));
+            return this.Tokens.AccessApiArray<Place>(MethodType.Get, "trends/closest", parameters);
         }
             
         /// <summary>
@@ -64,8 +62,7 @@ namespace CoreTweet.Core
         /// </param>
         public TrendsResult Place(params Expression<Func<string,object>>[] parameters)
         {
-            return CoreBase.Convert<TrendsResult>(this.Tokens, DynamicJson.Parse(
-                    Request.Send(this.Tokens, MethodType.GET, Tokens.Url("trends/place"), parameters)));
+            return this.Tokens.AccessApi<TrendsResult>(MethodType.Get, "trends/place", parameters);
         }
     }
 }

@@ -6,7 +6,9 @@ namespace CoreTweet.Core
 {
     public abstract class CoreBase : TokenIncluded
     {
-        internal CoreBase(Tokens tokens) : base(tokens) { }
+        public CoreBase() : base() { }
+        
+        public CoreBase(Tokens tokens) : base(tokens) { }
         
         /// <summary>
         ///     この子を呼べばTに対応するConvert()を呼んでdynamic objectをstatic objectに変換してくれます
@@ -14,7 +16,7 @@ namespace CoreTweet.Core
         public static T Convert<T>(Tokens tokens, dynamic e)
             where T : CoreBase
         {
-            var i = Activator.CreateInstance(typeof(T), tokens) as T;
+            var i = (T)typeof(T).InvokeMember(null, System.Reflection.BindingFlags.CreateInstance, null, null, new []{tokens});
             i.ConvertBase(e);
             return i;
         }

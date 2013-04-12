@@ -21,7 +21,7 @@ namespace CoreTweet
         
         public Sizes PhotoSizes{ get; set; }
         
-        internal Configurations(Tokens tokens) : base(tokens) { }
+        public Configurations(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {
@@ -43,7 +43,7 @@ namespace CoreTweet
 
         public string Status{ get; set; }
         
-        internal Language(Tokens tokens) : base(tokens) { }
+        public Language(Tokens tokens) : base(tokens) { }
         
         internal override void ConvertBase(dynamic e)
         {

@@ -51,7 +51,10 @@ namespace CoreTweet
                 AccessTokenSecret = null
             }, "GET", RequestTokenUrl, prm);
             prm.Add("oauth_signature", Request.UrlEncode(sgn));
-            var dic = Request.HttpGet(RequestTokenUrl, prm)
+            Dictionary<string,string> dic;
+            using(var str = Request.HttpGet(RequestTokenUrl, prm))
+            using(var reader = new StreamReader(str))
+                dic = reader.ReadToEnd()
                 .Split('&')
                 .Where(x => x.Contains('='))
                 .Select(x => x.Split('='))
@@ -76,20 +79,19 @@ namespace CoreTweet
         public static Tokens GetTokens(string pin)
         {
             if(reqToken == null)
-                throw new ArgumentNullException("req_token", "\"GenerateAuthUri\" haven't been called.");
+                throw new ArgumentNullException("reqToken", "\"GenerateAuthUri\" haven't been called.");
             var prm = Request.GenerateParameters(cKey, reqToken);
             prm.Add("oauth_verifier", pin);
-            prm.Add("oauth_signature", Request.GenerateSignature(new Tokens()
-            {
-                ConsumerSecret = reqSecret,
-                AccessTokenSecret = null
-            }, "GET", AccessTokenUrl, prm));
-            var dic = Request.HttpGet(AccessTokenUrl, prm)
+            prm.Add("oauth_signature", Request.GenerateSignature(
+                Tokens.Create(null, cSecret, null, null), "GET", AccessTokenUrl, prm));
+            var dic = new Dictionary<string,string>();
+            using(var str = Request.HttpGet(AccessTokenUrl, prm))
+            using(var reader = new StreamReader(str))      
+                dic = reader.ReadToEnd()
                 .Split('&')
                 .Where(x => x.Contains('='))
                 .Select(x => x.Split('='))
                 .ToDictionary(x => x[0], y => y[1]);
-            reqToken = reqSecret = null;
             return Tokens.Create(cKey, cSecret, dic["oauth_token"], dic["oauth_token_secret"]);
         }
 
@@ -103,87 +105,29 @@ namespace CoreTweet
         /// <summary>
         /// GET method.
         /// </summary>
-        GET,
+        Get,
         /// <summary>
         /// POST method.
         /// </summary>
-        POST,
+        Post,
         /// <summary>
         /// POST method without any response.
         /// </summary>
-        POST_NORESPONSE
+        PostNoResponse
     }
 
     /// <summary>
     /// Sends a request to Twitter and some other web services.
     /// </summary>
-    public static class Request
-    {
-             
-        /// <summary>
-        /// Send a request to Twitter.
-        /// </summary>
-        /// <param name='tokens'>
-        /// OAuth Tokens.
-        /// </param>
-        /// <param name='type'>
-        /// GET or POST.
-        /// </param>
-        /// <param name='url'>
-        /// An URL of API.
-        /// </param>
-        /// <param name='prms'>
-        /// Parameters.
-        /// You can pass the parameters easily by writing lambda expressions.
-        /// See the example.
-        /// </param>
-        /// <example>
-        /// Request (tokens, MethodType.POST, "https://hoge.com/piyo.xml", prm1 => "hoge", prm2 => "piyo");
-        /// </example>
-        /// <returns>
-        /// Response.
-        /// </returns>
-        public static string Send(Tokens token, MethodType type, string url, params Expression<Func<string, object>>[] prms)
-        {
-            return Send(token, type, url, prms.ToDictionary(e => e.Parameters[0].Name, e => e.Compile()("")));
-        }
-
-        /// <summary>
-        /// Send a request to Twitter.
-        /// </summary>
-        /// <param name='tokens'>
-        /// OAuth Tokens.
-        /// </param>
-        /// <param name='type'>
-        /// GET or POST.
-        /// </param>
-        /// <param name='url'>
-        /// An URL of API.
-        /// </param>
-        /// <param name='prms'>
-        /// Parameters.
-        /// </param>
-        /// <returns>
-        /// Response.
-        /// </returns>
-        public static string Send(Tokens token, MethodType type, string url, IDictionary<string, object> prms)
-        {
-            var prm = GenerateParameters(token.ConsumerKey, token.AccessToken);
-            foreach(var p in prms)
-                prm.Add(p.Key, UrlEncode(p.Value.ToString()));
-            var sgn = GenerateSignature(token,
-                type == MethodType.GET ? "GET" : "POST", url, prm);
-            prm.Add("oauth_signature", UrlEncode(sgn));
-            return type == MethodType.GET ? HttpGet(url, prm) : HttpPost(url, prm);
-        }
-       
+    internal static class Request
+    {  
         /// <summary>
         /// Sends a GET request.
         /// </summary>
         /// <returns>The response.</returns>
         /// <param name="url">URL.</param>
         /// <param name="prm">Parameters.</param>
-        internal static string HttpGet(string url, IDictionary<string, string> prm)
+        internal static Stream HttpGet(string url, IDictionary<string, string> prm)
         {
             ServicePointManager.Expect100Continue = false;
             ServicePointManager.ServerCertificateValidationCallback
@@ -192,10 +136,7 @@ namespace CoreTweet
                 string.Join("&", prm.Select(x => x.Key + "=" + x.Value))
             );
             var res = req.GetResponse();
-            using(var stream = res.GetResponseStream())
-            using(var reader = new StreamReader(stream))
-                return reader.ReadToEnd();
-
+            return res.GetResponseStream();
         }
 
         /// <summary>
@@ -204,7 +145,7 @@ namespace CoreTweet
         /// <returns>The response.</returns>
         /// <param name="url">URL.</param>
         /// <param name="prm">Parameters.</param>
-        internal static string HttpPost(string url, IDictionary<string, string> prm)
+        internal static Stream HttpPost(string url, IDictionary<string, string> prm)
         {
             var data = Encoding.UTF8.GetBytes(
                 string.Join("&", prm.Select(x => x.Key + "=" + x.Value)));
@@ -217,9 +158,7 @@ namespace CoreTweet
             req.ContentLength = data.Length;
             using(var reqstr = req.GetRequestStream())
                 reqstr.Write(data, 0, data.Length);
-            using(var resstr = req.GetResponse().GetResponseStream())
-            using(var reader = new StreamReader(resstr, Encoding.UTF8))
-                return reader.ReadToEnd();
+            return req.GetResponse().GetResponseStream();
         }
 
         /// <summary>
