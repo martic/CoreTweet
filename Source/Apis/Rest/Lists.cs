@@ -5,12 +5,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using CoreTweet.Core;
 
-namespace CoreTweet.Core
+namespace CoreTweet.Rest
 {
 
     /// <summary>GET/POST lists</summary>
     public class Lists : TokenIncluded
     {
+        //DONE! 
+        
         internal Lists(Tokens e) : base(e) { }
         
         public Members Members { get { return new Members(this.Tokens); } }
@@ -214,7 +216,6 @@ namespace CoreTweet.Core
         
         /// <summary>
         /// <para>Add a member to a list. The authenticated user must own the list to be able to add members to it. Note that lists can't have more than 500 members.</para>
-        /// </summary>
         /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
         /// <para>Avaliable parameters: </para><para> </para>
         /// <para><paramref name="long list_id (required)"/> : The numerical id of the list.</para>
@@ -223,15 +224,77 @@ namespace CoreTweet.Core
         /// <para><paramref name="string screen_name (required)"/> : The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.</para>
         /// <para><paramref name="string owner_screen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
         /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
-        /// <returns>Users.</returns>
+        /// </summary>
+        /// <returns>The list.</returns>
         /// <param name='Parameters'>
         /// Parameters.
         /// </param>
-        public IEnumerable<User> Create(params Expression<Func<string,object>>[] parameters)
+        public List Create(params Expression<Func<string,object>>[] parameters)
         {
-            return this.Tokens.AccessApiArray<User>(MethodType.Post, "lists/members/create", parameters);
+            return this.Tokens.AccessApi<List>(MethodType.Post, "lists/members/create", parameters);
         }
         
+        /// <summary>
+        /// <para>Adds multiple members to a list, by specifying a comma-separated list of member ids or screen names. The authenticated user must own the list to be able to add members to it. Note that lists can't have more than 500 members, and you are limited to adding up to 100 members to a list at a time with this method.</para>
+        /// <para>Please note that there can be issues with lists that rapidly remove and add memberships. Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.</para>
+        /// </summary>
+        /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
+        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para><paramref name="long list_id (required)"/> : The numerical id of the list.</para>
+        /// <para><paramref name="string slug (required)"/> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
+        /// <para><paramref name="string user_id (optional)"/> : A comma separated list of user IDs, up to 100 are allowed in a single request.</para>
+        /// <para><paramref name="string screen_name (optional)"/> : A comma separated list of screen names, up to 100 are allowed in a single request.</para>
+        /// <para><paramref name="string owner_screen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
+        /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
+        /// <returns>The list.</returns>
+        /// <param name='Parameters'>
+        /// Parameters.
+        /// </param>
+        public List CreateAll(params Expression<Func<string,object>>[] parameters)
+        {
+            return this.Tokens.AccessApi<List>(MethodType.Post, "list/members/create_all", parameters);
+        }
+        
+        /// <summary>
+        /// <para>Removes the specified member from the list. The authenticated user must be the list's owner to remove members from the list.</para>
+        /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
+        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para><paramref name="long list_id (required)"/> : The numerical id of the list.</para>
+        /// <para><paramref name="string slug (required)"/> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
+        /// <para><paramref name="long user_id (required)"/> : The ID of the user to remove from the list. Helpful for disambiguating when a valid user ID is also a valid screen name.</para>
+        /// <para><paramref name="string screen_name (required)"/> : The screen name of the user for whom to remove from the list. Helpful for disambiguating when a valid screen name is also a user ID.</para>
+        /// <para><paramref name="string owner_screen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
+        /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
+        /// </summary>
+        /// <returns>The list.</returns>
+        /// <param name='Parameters'>
+        /// Parameters.
+        /// </param>
+        public List Delete(params Expression<Func<string,object>>[] parameters)
+        {
+            return this.Tokens.AccessApi<List>(MethodType.Post, "lists/members/delete", parameters);
+        }
+        
+        /// <summary>
+        /// <para>Removes multiple members from a list, by specifying a comma-separated list of member ids or screen names. The authenticated user must own the list to be able to remove members from it. Note that lists can't have more than 500 members, and you are limited to removing up to 100 members to a list at a time with this method.</para>
+        /// <para>Please note that there can be issues with lists that rapidly remove and add memberships. Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.</para>
+        /// </summary>
+        /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
+        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para><paramref name="long list_id (required)"/> : The numerical id of the list.</para>
+        /// <para><paramref name="string slug (required)"/> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
+        /// <para><paramref name="string user_id (optional)"/> : A comma separated list of user IDs, up to 100 are allowed in a single request.</para>
+        /// <para><paramref name="string screen_name (optional)"/> : A comma separated list of screen names, up to 100 are allowed in a single request.</para>
+        /// <para><paramref name="string owner_screen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
+        /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
+        /// <returns>The list.</returns>
+        /// <param name='Parameters'>
+        /// Parameters.
+        /// </param>
+        public List DeleteAll(params Expression<Func<string,object>>[] parameters)
+        {
+            return this.Tokens.AccessApi<List>(MethodType.Post, "list/members/delete_all", parameters);
+        }
         
     }
         
@@ -261,6 +324,44 @@ namespace CoreTweet.Core
         public User Show(params Expression<Func<string,object>>[] parameters)
         {
             return this.Tokens.AccessApi<User>(MethodType.Get, "lists/subscribers/show", parameters);
+        }
+        
+        //POST Method
+        
+        /// <summary>
+        /// <para>Subscribes the authenticated user to the specified list.</para>
+        /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
+        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para><paramref name="long list_id (required)"/> : The numerical id of the list.</para>
+        /// <para><paramref name="string slug (required)"/> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
+        /// <para><paramref name="string owner_screen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
+        /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
+        /// </summary>
+        /// <returns>The list.</returns>
+        /// <param name='Parameters'>
+        /// Parameters.
+        /// </param>
+        public List Create(params Expression<Func<string,object>>[] parameters)
+        {
+            return this.Tokens.AccessApi<List>(MethodType.Post, "lists/subscribers/create", parameters);
+        }
+        
+        /// <summary>
+        /// <paraUnsubscribes the authenticated user from the specified list.</para>
+        /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
+        /// <para>Avaliable parameters: </para><para> </para>
+        /// <para><paramref name="long list_id (required)"/> : The numerical id of the list.</para>
+        /// <para><paramref name="string slug (required)"/> : You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters.</para>
+        /// <para><paramref name="string owner_screen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
+        /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
+        /// </summary>
+        /// <returns>The list.</returns>
+        /// <param name='Parameters'>
+        /// Parameters.
+        /// </param>
+        public List Delete(params Expression<Func<string,object>>[] parameters)
+        {
+            return this.Tokens.AccessApi<List>(MethodType.Post, "lists/subscribers/delete", parameters);
         }
     }
 }

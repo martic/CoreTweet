@@ -10,6 +10,25 @@ using CoreTweet.Core;
 
 namespace CoreTweet
 {   
+    /// <summary>
+    /// The type of the HTTP method.
+    /// </summary>
+    public enum MethodType
+    {
+        /// <summary>
+        /// GET method.
+        /// </summary>
+        Get,
+        /// <summary>
+        /// POST method.
+        /// </summary>
+        Post,
+        /// <summary>
+        /// POST method without any response.
+        /// </summary>
+        PostNoResponse
+    }
+    
     public static class OAuth
     {
         /// <summary>
@@ -98,25 +117,6 @@ namespace CoreTweet
     }
 
     /// <summary>
-    /// The type of the HTTP method.
-    /// </summary>
-    public enum MethodType
-    {
-        /// <summary>
-        /// GET method.
-        /// </summary>
-        Get,
-        /// <summary>
-        /// POST method.
-        /// </summary>
-        Post,
-        /// <summary>
-        /// POST method without any response.
-        /// </summary>
-        PostNoResponse
-    }
-
-    /// <summary>
     /// Sends a request to Twitter and some other web services.
     /// </summary>
     internal static class Request
@@ -145,7 +145,8 @@ namespace CoreTweet
         /// <returns>The response.</returns>
         /// <param name="url">URL.</param>
         /// <param name="prm">Parameters.</param>
-        internal static Stream HttpPost(string url, IDictionary<string, string> prm)
+        /// <param name="response">If it set false, won't try to get any responses and will return null.</param>
+        internal static Stream HttpPost(string url, IDictionary<string, string> prm, bool response)
         {
             var data = Encoding.UTF8.GetBytes(
                 string.Join("&", prm.Select(x => x.Key + "=" + x.Value)));
@@ -158,8 +159,9 @@ namespace CoreTweet
             req.ContentLength = data.Length;
             using(var reqstr = req.GetRequestStream())
                 reqstr.Write(data, 0, data.Length);
-            return req.GetResponse().GetResponseStream();
+            return response ? req.GetResponse().GetResponseStream() : null;
         }
+        
 
         /// <summary>
         /// Generates the signature.
@@ -211,7 +213,7 @@ namespace CoreTweet
         /// </summary>
         /// <returns>The encoded text.</returns>
         /// <param name="text">Text.</param>
-        public static string UrlEncode(string text)
+        internal static string UrlEncode(string text)
         {
             if(string.IsNullOrEmpty(text))
                 return "";
@@ -219,55 +221,6 @@ namespace CoreTweet
                 .Select(x => x < 0x80 && "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~".Contains((char)x) ?
                      ((char)x).ToString() : ('%' + x.ToString("X2"))));
         }
-    }
-
-    /// <summary>
-    /// Properties of CoreTweet.
-    /// </summary>
-    public class Property
-    {
-        /// <summary>
-        /// The version of the Twitter API.
-        /// To change this value is not recommended. 
-        /// </summary>
-        public static string ApiVersion = "1.1";
-        /// <summary>
-        /// The version of CoreTweet.
-        /// </summary>
-        public static readonly string Version = "0.1";
-        /// <summary>
-        /// The authors.
-        /// </summary>
-        public static readonly string[] Authors = {"canno", "karno"};
-        /// <summary>
-        /// The license of CoreTweet.
-        /// </summary>
-        public static readonly string License = "Microsoft Public License (Ms-PL)";
-        /// <summary>
-        /// The license text.
-        /// </summary>
-        public static readonly string LicenseText = 
-@"Microsoft Public License (Ms-PL)
-Published: October 12, 2006
-This license governs use of the accompanying software. If you use the software, you accept this license. If you do not accept the license, do not use the software.
-1. Definitions
-The terms “reproduce,” “reproduction,” “derivative works,” and “distribution” have the same meaning here as under U.S. copyright law.
-A “contribution” is the original software, or any additions or changes to the software.
-A “contributor” is any person that distributes its contribution under this license.
-“Licensed patents” are a contributor’s patent claims that read directly on its contribution.
-2. Grant of Rights
-(A) Copyright Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, each contributor grants you a non-exclusive, worldwide, royalty-free copyright license to reproduce its contribution, prepare derivative works of its contribution, and distribute its contribution or any derivative works that you create.
-(B) Patent Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, each contributor grants you a non-exclusive, worldwide, royalty-free license under its licensed patents to make, have made, use, sell, offer for sale, import, and/or otherwise dispose of its contribution in the software or derivative works of the contribution in the software.
-3. Conditions and Limitations
-(A) No Trademark License- This license does not grant you rights to use any contributors’ name, logo, or trademarks.
-(B) If you bring a patent claim against any contributor over patents that you claim are infringed by the software, your patent license from such contributor to the software ends automatically.
-(C) If you distribute any portion of the software, you must retain all copyright, patent, trademark, and attribution notices that are present in the software.
-(D) If you distribute any portion of the software in source code form, you may do so only under this license by including a complete copy of this license with your distribution. If you distribute any portion of the software in compiled or object code form, you may only do so under a license that complies with this license.
-(E) The software is licensed “as-is.” You bear the risk of using it. The contributors give no express warranties, guarantees or conditions. You may have additional consumer rights under your local laws which this license cannot change. To the extent permitted under your local laws, the contributors exclude the implied warranties of merchantability, fitness for a particular purpose and non-infringement.";
-        /// <summary>
-        /// The URL you can get helps about CoreTweet.
-        /// </summary>
-        public static readonly string HelpUrl = "https://twitter.com/a1cn";
     }
 }
 

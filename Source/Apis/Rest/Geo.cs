@@ -5,7 +5,7 @@ using CoreTweet.Core;
 using CoreTweet.Ex.Develop;
 using Codeplex.Data;
 
-namespace CoreTweet.Core
+namespace CoreTweet.Rest
 {
 
     /// <summary>GET/POST geo</summary>

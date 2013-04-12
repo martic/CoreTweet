@@ -5,30 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using Codeplex.Data;
 using CoreTweet.Core;
-
-namespace CoreTweet.Core
-{
-    /// <summary>
-    /// The token included class.
-    /// </summary>
-    public abstract class TokenIncluded
-    {
-        /// <summary>
-        /// Gets or sets the oauth tokens.
-        /// </summary>
-        /// <value>
-        /// The tokens.
-        /// </value>
-        internal Tokens Tokens { get; set; }
-        
-        public TokenIncluded() : this(null) { }
-        
-        public TokenIncluded(Tokens tokens)
-        {
-            Tokens = tokens;
-        }
-    }
-}
+using CoreTweet.Rest;
 
 namespace CoreTweet
 {
@@ -53,6 +30,8 @@ namespace CoreTweet
         /// The access token secret.
         /// </summary> 
         public string AccessTokenSecret { get; set; }
+        
+        #region Endpoints for Twitter Rest API
         /// <summary>
         /// Rest/Account
         /// </summary>
@@ -109,6 +88,7 @@ namespace CoreTweet
         /// Rest/Users.
         /// </summary>
         public Users Users { get { return new Users(this); } }
+        #endregion
         
         public Tokens() { }
         
@@ -163,7 +143,8 @@ namespace CoreTweet
             var sgn = Request.GenerateSignature(this,
                 type == MethodType.Get ? "GET" : "POST", url, prms);
             prms.Add("oauth_signature", Request.UrlEncode(sgn));
-            return type == MethodType.Get ? Request.HttpGet(url, prms) : Request.HttpPost(url, prms);
+            return type == MethodType.Get ? Request.HttpGet(url, prms) : 
+                type == MethodType.Post ? Request.HttpPost(url, prms, true) : Request.HttpPost(url, prms, false);
         }
         
         internal T AccessApi<T>(MethodType type, string url, params Expression<Func<string,object>>[] parameters)
@@ -175,11 +156,9 @@ namespace CoreTweet
         internal T AccessApi<T>(MethodType type, string url, IDictionary<string,object> parameters)
             where T : CoreBase
         {
-            dynamic d;
             using(var s = this.SendRequest(type, Url(url), parameters))
             using(var sr = new StreamReader(s))
-                d = DynamicJson.Parse(sr.ReadToEnd());
-            return CoreBase.Convert<T>(this, d);
+                return CoreBase.Convert<T>(this, DynamicJson.Parse(sr.ReadToEnd()));
         }
         
         internal IEnumerable<T> AccessApiArray<T>(MethodType type, string url, params Expression<Func<string,object>>[] parameters)
@@ -191,11 +170,9 @@ namespace CoreTweet
         internal IEnumerable<T> AccessApiArray<T>(MethodType type, string url, IDictionary<string,object> parameters)
             where T : CoreBase
         {
-            dynamic d;
             using(var s = this.SendRequest(type, Url(url), parameters))
             using(var sr = new StreamReader(s))
-                d = DynamicJson.Parse(sr.ReadToEnd());
-            return CoreBase.ConvertArray<T>(this, d);
+                return CoreBase.ConvertArray<T>(this, DynamicJson.Parse(sr.ReadToEnd()));
         }
         
         /// <summary>

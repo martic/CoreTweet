@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 using Codeplex.Data;
 using CoreTweet.Core;
 
-namespace CoreTweet.Core
+namespace CoreTweet.Rest
 {
 
     ///<summary>GET firends</summary>

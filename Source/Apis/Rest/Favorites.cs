@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using Codeplex.Data;
 
-namespace CoreTweet.Core
+namespace CoreTweet.Rest
 {
 
     ///<summary>GET/POST favorites</summary>

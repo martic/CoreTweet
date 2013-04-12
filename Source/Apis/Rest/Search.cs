@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Codeplex.Data;
 using CoreTweet.Core;
 
-namespace CoreTweet.Core
+namespace CoreTweet.Rest
 {
 
     ///<summary>GET search</summary>

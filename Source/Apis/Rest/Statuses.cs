@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using CoreTweet.Core;
 
-namespace CoreTweet.Core
+namespace CoreTweet.Rest
 {
 
     /// <summary>GET/POST statuses</summary>

@@ -11,8 +11,17 @@ namespace CoreTweet.Core
         public CoreBase(Tokens tokens) : base(tokens) { }
         
         /// <summary>
-        ///     この子を呼べばTに対応するConvert()を呼んでdynamic objectをstatic objectに変換してくれます
+        /// Convert dynamic object to specified type.
         /// </summary>
+        /// <param name='tokens'>
+        /// OAuth tokens.
+        /// </param>
+        /// <param name='e'>
+        /// Dynamic object.
+        /// </param>
+        /// <typeparam name='T'>
+        /// The 1st type parameter.
+        /// </typeparam>
         public static T Convert<T>(Tokens tokens, dynamic e)
             where T : CoreBase
         {
@@ -22,8 +31,17 @@ namespace CoreTweet.Core
         }
         
         /// <summary>
-        ///     ( ,,Ծ ‸ Ծ ).｡ｏO( 説明いるのかな )
+        /// Convert dynamic object to an array of specified type.
         /// </summary>
+        /// <param name='tokens'>
+        /// OAuth tokens.
+        /// </param>
+        /// <param name='e'>
+        /// Dynamic object.
+        /// </param>
+        /// <typeparam name='T'>
+        /// The 1st type parameter.
+        /// </typeparam>
         public static IEnumerable<T> ConvertArray<T>(Tokens tokens, dynamic e)
             where T : CoreBase
         {
@@ -36,8 +54,29 @@ namespace CoreTweet.Core
         }
 
         /// <summary>
-        ///     この子をそれぞれのクラスに実装して具体的な変換を行います
+        /// Implementation for CoreBase.Convert.
         /// </summary>
         internal abstract void ConvertBase(dynamic e);
+    }
+    
+    /// <summary>
+    /// The token included class.
+    /// </summary>
+    public abstract class TokenIncluded
+    {
+        /// <summary>
+        /// Gets or sets the oauth tokens.
+        /// </summary>
+        /// <value>
+        /// The tokens.
+        /// </value>
+        internal Tokens Tokens { get; set; }
+        
+        public TokenIncluded() : this(null) { }
+        
+        public TokenIncluded(Tokens tokens)
+        {
+            Tokens = tokens;
+        }
     }
 }

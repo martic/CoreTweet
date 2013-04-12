@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using CoreTweet.Core;
+using CoreTweet.Ex.Develop;
 
-namespace CoreTweet.Core
+namespace CoreTweet.Rest
 {       
     /// <summary>GET/POST account</summary>
     public class Account : TokenIncluded
@@ -37,6 +38,11 @@ namespace CoreTweet.Core
         public User VerifyCredentials(params Expression<Func<string,object>>[] parameters)
         {
             return this.Tokens.AccessApi<User>(MethodType.Get, "account/verify_credentials", parameters);
+        }
+        
+        public IDictionary<string,IDictionary<string,RateLimit>> RateLimitStatus(params Expression<Func<string,object>> parameters)
+        {
+            
         }
         
         //GET & POST Methods
@@ -75,7 +81,7 @@ namespace CoreTweet.Core
         /// </param>
         public void UpdateDeliveryService(params Expression<Func<string,object>>[] parameters)
         {
-            this.Tokens.SendRequest(MethodType.PostNoResponse, "account/update_delivery_service", parameters);
+            this.Tokens.SendRequest(MethodType.PostNoResponse, "account/update_delivery_service", parameters).Dispose();
         }
         
         /// <summary>
@@ -133,7 +139,7 @@ namespace CoreTweet.Core
         /// </param>
         public void UpdateProfileBanner(params Expression<Func<string,object>>[] parameters)
         {
-            this.Tokens.SendRequest(MethodType.PostNoResponse, "account/update_profile_banner", parameters);
+            this.Tokens.SendRequest(MethodType.PostNoResponse, "account/update_profile_banner", parameters).Dispose();
         }
         
         /// <summary>
