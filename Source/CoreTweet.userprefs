@@ -1,13 +1,14 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Lib/AliceDoll.cs">
     <Files>
-      <File FileName="Lib/AliceDoll.cs" Line="22" Column="57" />
+      <File FileName="Lib/AliceDoll.cs" Line="27" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="CoreTweet" expanded="True" selected="True" />
+          <Node name="CoreTweet" expanded="True" />
+          <Node name="CoreTweet.Streaming.Rx" expanded="True" selected="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">

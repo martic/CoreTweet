@@ -83,7 +83,7 @@
     <Compile Include="Apis\Rest\Lists.cs" />
     <Compile Include="Property.cs" />
     <Compile Include="Objects\RateLimit.cs" />
-    <Compile Include="Apis\Streaming\User.cs" />
+    <Compile Include="Apis\Streaming\Stream.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="makedoc" />

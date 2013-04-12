@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Alice
 {
@@ -9,6 +10,12 @@ namespace Alice
     /// </summary>
     public static class Extensions
     {
+    
+        public static IEnumerable<string> EnumerateLines(this StreamReader streamReader)
+        {
+            while(!streamReader.EndOfStream)
+                yield return streamReader.ReadLine();
+        }
 
         /// <summary>
         /// Performs the specified action on each element on the enumerable object.
