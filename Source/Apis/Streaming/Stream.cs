@@ -6,19 +6,43 @@ using System.Linq.Expressions;
 using System.Net;
 using CoreTweet;
 using CoreTweet.Core;
+using Alice;
 
 namespace CoreTweet.Streaming
 {
-    public class Streaming : TokenIncluded
+    public class StreamingApi : TokenIncluded
     {
-        internal Streaming(Tokens tokens) : base(tokens) { }
+        protected internal StreamingApi(Tokens tokens) : base(tokens) { }
         
-        public void User()
+        protected internal IEnumerable<string> Connect(StreamingParameters parameters, MethodType type)
         {
+            using(var str = this.Tokens.SendRequest(type, Tokens.Url("user"), parameters.Parameters))
+            using(var reader = new StreamReader(str))
+            {
+                var jsons = reader
+                    .EnumerateLines()
+                    .Where(x => !string.IsNullOrEmpty(x));
+                foreach(var s in jsons)
+                    yield return s;
+            }
+        }
+        
+        public void StartUserStream(StreamingParameters parameters)
+        {
+            using(var cntr = this.Connect(parameters,MethodType.Get))
+            using(var reader = new StreamReader(cntr))
+            {
+                while(true)
+                {
+                    reader.ReadLine();
+                }
+            }
             
         }
         
-        
+        public void StartUserStream()
+        {
+        }
         
     }
     
@@ -27,7 +51,7 @@ namespace CoreTweet.Streaming
     /// </summary>
     public class StreamingParameters
     {
-        IDictionary<string,object> prms;
+        internal IDictionary<string,object> Parameters { get; set; }
         
         /// <summary>
         /// <para>Initializes a new instance of the <see cref="CoreTweet.Streaming.StreamingParameters"/> class.</para>
@@ -54,7 +78,7 @@ namespace CoreTweet.Streaming
         /// </param>
         public StreamingParameters(IDictionary<string,object> streamingParameters)
         {
-            prms = streamingParameters;
+            Parameters = streamingParameters;
         }
     }
 }

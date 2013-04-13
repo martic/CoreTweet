@@ -70,7 +70,7 @@ namespace CoreTweet.Core
         /// <value>
         /// The tokens.
         /// </value>
-        internal Tokens Tokens { get; set; }
+        protected internal Tokens Tokens { get; set; }
         
         public TokenIncluded() : this(null) { }
         

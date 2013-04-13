@@ -6,6 +6,7 @@ using System.IO;
 using Codeplex.Data;
 using CoreTweet.Core;
 using CoreTweet.Rest;
+using CoreTweet.Streaming;
 
 namespace CoreTweet
 {
@@ -31,7 +32,8 @@ namespace CoreTweet
         /// </summary> 
         public string AccessTokenSecret { get; set; }
         
-        #region Endpoints for Twitter Rest API
+        #region Endpoints for Twitter API
+        
         /// <summary>
         /// Rest/Account
         /// </summary>
@@ -88,6 +90,11 @@ namespace CoreTweet
         /// Rest/Users.
         /// </summary>
         public Users Users { get { return new Users(this); } }
+        /// <summary>
+        /// Streaming API.
+        /// </summary>
+        public StreamingApi Streaming{ get { return new StreamingApi(this); } }
+        
         #endregion
         
         public Tokens() { }
