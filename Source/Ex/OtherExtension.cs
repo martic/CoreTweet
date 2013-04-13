@@ -44,15 +44,7 @@ namespace CoreTweet.Ex.Develop
                 return f;});
         }
 
-        /// <summary>
-        /// Converts camelCase text to snake_case.
-        /// </summary>
-        /// <returns>The snake_case text.</returns>
-        /// <param name="e">The camelCase text.</param>
-        public static string ToSnakeCase(this string e)
-        {
-            return string.Concat(e.Select(x => char.IsUpper(x) ? "_" + x.ToString().ToLower() : x.ToString()));
-        }
+
     }
 }
 

@@ -47,6 +47,17 @@ namespace Alice
                 from y in target
                 select Tuple.Create(x, y);
         }
+
+		/// <summary>
+		/// Converts camelCase text to snake_case.
+		/// </summary>
+		/// <returns>The snake_case text.</returns>
+		/// <param name="e">The camelCase text.</param>
+		public static string ToSnakeCase(this string e)
+		{
+			return string.Concat(e.Select(x => char.IsUpper(x) ? "_" + x.ToString().ToLower() : x.ToString()));
+		}
+
     }
 }
 

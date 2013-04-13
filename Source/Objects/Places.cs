@@ -79,7 +79,7 @@ namespace CoreTweet
             Name = e.name;
             PlaceType = e.IsDefines("placeType") ? e.placeType.name : e.place_type;
             PlaceTypeCode = e.IsDefines("placeType") ? e.placeType.code : null;
-            Polylines = e.IsDefined("polylines") ? (e.polylines as dynamic[]).Select(x => x.ToString()).ToArray() : null;
+            Polylines = e.IsDefined("polylines") ? (e.polylines as dynamic[]).Cast<string>().ToArray() : null;
             Url = new Uri(e.url);
         }
     }

@@ -25,8 +25,8 @@ namespace CoreTweet.Streaming.Rx
         
         public new IObservable<string> StartUserStream(StreamingParameters parameters)
         {
-            var cntr = this.Connect(new StreamingParameters(stall_warnings => true), MethodType.Get)
-                .ToObservable(Scheduler.ThreadPool)
+			var cntr = this.Connect(new StreamingParameters(stall_warnings => true),MethodType.Get,"https://userstream.twitter.com/1.1/user.json")
+                .ToObservable()
                 .Publish();
             cntr.Connect();
             return cntr;
