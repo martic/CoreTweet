@@ -11,24 +11,24 @@
     <AssemblyName>CoreTweet</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>True</DebugSymbols>
+    <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>True</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
-    <ConsolePause>False</ConsolePause>
-    <GenerateDocumentation>True</GenerateDocumentation>
+    <ConsolePause>false</ConsolePause>
+    <GenerateDocumentation>true</GenerateDocumentation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
-    <Optimize>True</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>..\Binary\Nightly</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
-    <ConsolePause>False</ConsolePause>
-    <GenerateDocumentation>True</GenerateDocumentation>
+    <ConsolePause>false</ConsolePause>
+    <GenerateDocumentation>true</GenerateDocumentation>
     <CustomCommands>
       <CustomCommands>
         <Command type="AfterBuild" command="./makedoc" workingdir="${TargetDir}" />
@@ -85,6 +85,7 @@
     <Compile Include="Objects\RateLimit.cs" />
     <Compile Include="Apis\Streaming\Stream.cs" />
     <Compile Include="Apis\Streaming\Messages.cs" />
+    <Compile Include="Ex\ListExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="makedoc" />

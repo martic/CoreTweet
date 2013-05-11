@@ -107,6 +107,35 @@ namespace CoreTweet
             this.AccessTokenSecret = e.AccessTokenSecret;
         }
         
+        internal T AccessApi<T>(MethodType type, string url, params Expression<Func<string,object>>[] parameters)
+            where T : CoreBase
+        {
+            return this.AccessApi<T>(type, url, parameters.ToDictionary(e => e.Parameters[0].Name, e => e.Compile()("")));
+        }
+        
+        internal T AccessApi<T>(MethodType type, string url, IDictionary<string,object> parameters)
+            where T : CoreBase
+        {
+            using(var s = this.SendRequest(type, Url(url), parameters))
+            using(var sr = new StreamReader(s))
+                return CoreBase.Convert<T>(this, DynamicJson.Parse(sr.ReadToEnd()));
+        }
+        
+        internal IEnumerable<T> AccessApiArray<T>(MethodType type, string url, params Expression<Func<string,object>>[] parameters)
+            where T : CoreBase
+        {
+            return this.AccessApiArray<T>(type, url, parameters.ToDictionary(e => e.Parameters[0].Name, e => e.Compile()("")));
+        }
+        
+        internal IEnumerable<T> AccessApiArray<T>(MethodType type, string url, IDictionary<string,object> parameters)
+            where T : CoreBase
+        {
+            using(var s = this.SendRequest(type, Url(url), parameters))
+            using(var sr = new StreamReader(s))
+                return CoreBase.ConvertArray<T>(this, DynamicJson.Parse(sr.ReadToEnd()));
+        }
+        
+                
         /// <summary>
         /// Sends a request to the specified url with the specified parameters.
         /// </summary>
@@ -154,32 +183,16 @@ namespace CoreTweet
                 type == MethodType.Post ? Request.HttpPost(url, prms, true) : Request.HttpPost(url, prms, false);
         }
         
-        internal T AccessApi<T>(MethodType type, string url, params Expression<Func<string,object>>[] parameters)
-            where T : CoreBase
+        /// <summary>
+        /// Returns a <see cref="System.String"/> that represents the current <see cref="CoreTweet.Tokens"/>.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String"/> that represents the current <see cref="CoreTweet.Tokens"/>.
+        /// </returns>
+        public override string ToString()
         {
-            return this.AccessApi<T>(type, url, parameters.ToDictionary(e => e.Parameters[0].Name, e => e.Compile()("")));
-        }
-        
-        internal T AccessApi<T>(MethodType type, string url, IDictionary<string,object> parameters)
-            where T : CoreBase
-        {
-            using(var s = this.SendRequest(type, Url(url), parameters))
-            using(var sr = new StreamReader(s))
-                return CoreBase.Convert<T>(this, DynamicJson.Parse(sr.ReadToEnd()));
-        }
-        
-        internal IEnumerable<T> AccessApiArray<T>(MethodType type, string url, params Expression<Func<string,object>>[] parameters)
-            where T : CoreBase
-        {
-            return this.AccessApiArray<T>(type, url, parameters.ToDictionary(e => e.Parameters[0].Name, e => e.Compile()("")));
-        }
-        
-        internal IEnumerable<T> AccessApiArray<T>(MethodType type, string url, IDictionary<string,object> parameters)
-            where T : CoreBase
-        {
-            using(var s = this.SendRequest(type, Url(url), parameters))
-            using(var sr = new StreamReader(s))
-                return CoreBase.ConvertArray<T>(this, DynamicJson.Parse(sr.ReadToEnd()));
+            return string.Format("oauth_token={0}&oauth_token_secret={1}&oauth_consumer_key={2}&oauth_consumer_secet={3}", 
+                                 this.AccessToken, this.AccessTokenSecret, this.ConsumerKey, this.ConsumerSecret);
         }
         
         /// <summary>

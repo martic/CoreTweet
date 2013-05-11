@@ -25,7 +25,7 @@ namespace CoreTweet.Ex
         /// <param name='Tokens'>
         /// Tokens.
         /// </param>
-        /// <param name='Parameters'>
+        /// <param name='parameters'>
         /// Parameters.
         /// </param>
         public static Status ReplyToThis(this Status e, Func<Status,string> Text, params Expression<Func<string,object>>[] parameters)
@@ -43,7 +43,7 @@ namespace CoreTweet.Ex
         /// <param name='Tokens'>
         /// Tokens.
         /// </param>
-        /// <param name='Parameters'>
+        /// <param name='parameters'>
         /// Parameters.
         /// </param>
         /// <para>Avaliable parameters: </para>
@@ -62,7 +62,7 @@ namespace CoreTweet.Ex
         /// <param name='Tokens'>
         /// Tokens.
         /// </param>
-        /// <param name='Parameters'>
+        /// <param name='parameters'>
         /// Parameters.
         /// </param>
         /// <para>Avaliable parameters: </para>
@@ -81,7 +81,7 @@ namespace CoreTweet.Ex
         /// <param name='Tokens'>
         /// Tokens.
         /// </param>
-        /// <param name='Parameters'>
+        /// <param name='parameters'>
         /// Parameters.
         /// </param>
         /// <para>Avaliable parameters: </para>
@@ -101,7 +101,7 @@ namespace CoreTweet.Ex
         /// <param name='Tokens'>
         /// Tokens.
         /// </param>
-        /// <param name='Parameters'>
+        /// <param name='parameters'>
         /// Parameters.
         /// </param>
         /// <para>Avaliable parameters: </para>

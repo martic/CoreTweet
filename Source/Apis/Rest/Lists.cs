@@ -226,7 +226,7 @@ namespace CoreTweet.Rest
         /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
         /// </summary>
         /// <returns>The list.</returns>
-        /// <param name='Parameters'>
+        /// <param name='parameters'>
         /// Parameters.
         /// </param>
         public List Create(params Expression<Func<string,object>>[] parameters)
@@ -237,7 +237,6 @@ namespace CoreTweet.Rest
         /// <summary>
         /// <para>Adds multiple members to a list, by specifying a comma-separated list of member ids or screen names. The authenticated user must own the list to be able to add members to it. Note that lists can't have more than 500 members, and you are limited to adding up to 100 members to a list at a time with this method.</para>
         /// <para>Please note that there can be issues with lists that rapidly remove and add memberships. Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.</para>
-        /// </summary>
         /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
         /// <para>Avaliable parameters: </para><para> </para>
         /// <para><paramref name="long list_id (required)"/> : The numerical id of the list.</para>
@@ -246,8 +245,9 @@ namespace CoreTweet.Rest
         /// <para><paramref name="string screen_name (optional)"/> : A comma separated list of screen names, up to 100 are allowed in a single request.</para>
         /// <para><paramref name="string owner_screen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
         /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
+        /// </summary>
         /// <returns>The list.</returns>
-        /// <param name='Parameters'>
+        /// <param name='parameters'>
         /// Parameters.
         /// </param>
         public List CreateAll(params Expression<Func<string,object>>[] parameters)
@@ -267,7 +267,7 @@ namespace CoreTweet.Rest
         /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
         /// </summary>
         /// <returns>The list.</returns>
-        /// <param name='Parameters'>
+        /// <param name='parameters'>
         /// Parameters.
         /// </param>
         public List Delete(params Expression<Func<string,object>>[] parameters)
@@ -278,7 +278,6 @@ namespace CoreTweet.Rest
         /// <summary>
         /// <para>Removes multiple members from a list, by specifying a comma-separated list of member ids or screen names. The authenticated user must own the list to be able to remove members from it. Note that lists can't have more than 500 members, and you are limited to removing up to 100 members to a list at a time with this method.</para>
         /// <para>Please note that there can be issues with lists that rapidly remove and add memberships. Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.</para>
-        /// </summary>
         /// <para>Note: Either a list_id or a slug is required. If providing a list_slug, an owner_screen_name or owner_id is also required.</para>
         /// <para>Avaliable parameters: </para><para> </para>
         /// <para><paramref name="long list_id (required)"/> : The numerical id of the list.</para>
@@ -287,8 +286,9 @@ namespace CoreTweet.Rest
         /// <para><paramref name="string screen_name (optional)"/> : A comma separated list of screen names, up to 100 are allowed in a single request.</para>
         /// <para><paramref name="string owner_screen_name (optional)"/> : The screen name of the user who owns the list being requested by a slug.</para>
         /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
+        /// </summary>
         /// <returns>The list.</returns>
-        /// <param name='Parameters'>
+        /// <param name='parameters'>
         /// Parameters.
         /// </param>
         public List DeleteAll(params Expression<Func<string,object>>[] parameters)
@@ -338,7 +338,7 @@ namespace CoreTweet.Rest
         /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
         /// </summary>
         /// <returns>The list.</returns>
-        /// <param name='Parameters'>
+        /// <param name='parameters'>
         /// Parameters.
         /// </param>
         public List Create(params Expression<Func<string,object>>[] parameters)
@@ -356,7 +356,7 @@ namespace CoreTweet.Rest
         /// <para><paramref name="long owner_id (optional)"/> : The user ID of the user who owns the list being requested by a slug.</para>
         /// </summary>
         /// <returns>The list.</returns>
-        /// <param name='Parameters'>
+        /// <param name='parameters'>
         /// Parameters.
         /// </param>
         public List Delete(params Expression<Func<string,object>>[] parameters)

@@ -11,7 +11,7 @@ namespace CoreTweet
         ///     The integer representation of the unique identifier for this Tweet.
         /// </summary>
         /// <seealso cref="https://dev.twitter.com/docs/twitter-ids-json-and-snowflake" />
-        public long Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         ///     Nullable. An collection of brief user objects (usually only one) indicating users who contributed to the authorship of the tweet, on behalf of the official tweet author.
@@ -140,7 +140,7 @@ namespace CoreTweet
         
         internal override void ConvertBase(dynamic e)
         {
-            Id = (long)e.id;
+            Id = e.IsDefined("id") ? (long?)e.id : null;
             Contributors = e.IsDefined("contributors") ? CoreBase.ConvertArray<Contributors>(this.Tokens, e.contributors) : null;
             Coordinates = e.IsDefined("coordinates") ? CoreBase.Convert<Coordinates>(this.Tokens, e.coordinates) : null;
             //FIXME: DateTimeOffset.ParseExact Doesn't work.
@@ -149,7 +149,7 @@ namespace CoreTweet
             CurrentUserRetweet = e.IsDefined("current_user_retweet") ? e.current_user_retweet.id : -1;
             Entities = e.IsDefined("entities") ? CoreBase.ConvertArray<Entity>(this.Tokens, e.entities) : null;
             IsFavorited = e.IsDefined("favorited") ? e.favorited : null;
-            InReplyToScreenName = e.in_reply_to_screen_name;
+			InReplyToScreenName = e.IsDefined("in_reply_to_screen_name") ? e.in_reply_to_screen_name : null;
             InReplyToStatusId = (long?)e.in_reply_to_status_id;
             InReplyToUserId = (long?)e.in_reply_to_user_id;
             Place = e.place != null ? CoreBase.Convert<Place>(this.Tokens, e.place) : null;

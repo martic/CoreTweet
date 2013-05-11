@@ -7,6 +7,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using CoreTweet.Core;
+using Alice;
 
 namespace CoreTweet
 {   
@@ -34,15 +35,15 @@ namespace CoreTweet
         /// <summary>
         /// The request token URL.
         /// </summary>
-        static readonly string RequestTokenUrl = "https://twitter.com/oauth/request_token";
+        static readonly string RequestTokenUrl = "https://api.twitter.com/oauth/request_token";
         /// <summary>
         /// The access token URL.
         /// </summary>
-        static readonly string AccessTokenUrl = "https://twitter.com/oauth/access_token";
+        static readonly string AccessTokenUrl = "https://api.twitter.com/oauth/access_token";
         /// <summary>
         /// The authorize URL.
         /// </summary>
-        static readonly string AuthorizeUrl = "https://twitter.com/oauth/authorize";
+        static readonly string AuthorizeUrl = "https://api.twitter.com/oauth/authorize";
         /// <summary>
         /// The tmp values.
         /// </summary>
@@ -135,8 +136,7 @@ namespace CoreTweet
             var req = WebRequest.Create(url + '?' +
                 string.Join("&", prm.Select(x => x.Key + "=" + x.Value))
             );
-            var res = req.GetResponse();
-            return res.GetResponseStream();
+            return req.GetResponse().GetResponseStream();
         }
 
         /// <summary>
@@ -177,11 +177,12 @@ namespace CoreTweet
             {
                 hs1.Key = Encoding.UTF8.GetBytes(
                     string.Format("{0}&{1}", UrlEncode(t.ConsumerSecret),
-                        t.AccessTokenSecret == null ? "" : UrlEncode(t.AccessTokenSecret)));
+                        UrlEncode(t.AccessTokenSecret) ?? ""));
                 var hash = hs1.ComputeHash(
                     System.Text.Encoding.UTF8.GetBytes(
                         string.Format("{0}&{1}&{2}", httpMethod, UrlEncode(url),
-                            UrlEncode(string.Join("&", prm.Select(x => string.Format("{0}={1}", x.Key, x.Value)))))));
+                            UrlEncode(prm.Select(x => string.Format("{0}={1}", x.Key, x.Value))
+                                         .JoinToString("&")))));
                 return Convert.ToBase64String(hash);
             }
         }
@@ -216,10 +217,11 @@ namespace CoreTweet
         internal static string UrlEncode(string text)
         {
             if(string.IsNullOrEmpty(text))
-                return "";
-            return string.Concat(Encoding.UTF8.GetBytes(text)
-                .Select(x => x < 0x80 && "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~".Contains((char)x) ?
-                     ((char)x).ToString() : ('%' + x.ToString("X2"))));
+                return null;
+            return Encoding.UTF8.GetBytes(text)
+                .Select(x => x < 0x80 && "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~"
+                        .Contains((char)x) ? ((char)x).ToString() : ('%' + x.ToString("X2")))
+                .JoinToString();
         }
     }
 }
