@@ -38,9 +38,10 @@ namespace CoreTweet
             Slug = e.slug;
             Name = e.name;
             //FIXME: DateTimeOffset.ParseExact Doesn't work.
-            //CreatedAt = DateTimeOffset.ParseExact(e.created_at, "ddd MMM dd HH:mm:ss K yyyy",
-            //                                      System.Globalization.DateTimeFormatInfo.InvariantInfo);
-            Uri = new Uri(e.uri);
+			CreatedAt = DateTimeOffset.ParseExact(e.created_at, "ddd MMM dd HH:mm:ss K yyyy",
+			                                      System.Globalization.DateTimeFormatInfo.InvariantInfo, 
+			                                      System.Globalization.DateTimeStyles.AllowWhiteSpaces);
+			Uri = new Uri(e.uri);
             SubscriberCount = e.subsuriber_count;
             MemberCount = e.member_count;
             Id = (long)e.id;

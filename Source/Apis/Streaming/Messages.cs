@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using CoreTweet;
 using CoreTweet.Core;
-using Alice;
+using Alice.Extensions;
 
 namespace CoreTweet.Streaming
 {

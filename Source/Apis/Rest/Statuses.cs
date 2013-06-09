@@ -12,8 +12,8 @@ namespace CoreTweet.Rest
     public class Statuses : TokenIncluded
     {
         internal Statuses(Tokens e) : base(e) { }
-        //UNDONE: update_with_media haven't been implemented.
-        //FIXME: filter shouldn't works well.It needs some tests.
+        //UNDONE: Implement update_with_media
+        //FIXME: Filter shouldn't works well.It needs some tests.
                 
         //GET Methods
 

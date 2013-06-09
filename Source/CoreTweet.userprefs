@@ -1,14 +1,16 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Lib/AliceDoll.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Lib\AliceDoll.cs">
     <Files>
-      <File FileName="Lib/AliceDoll.cs" Line="27" Column="10" />
+      <File FileName="Lib\AliceDoll.cs" Line="43" Column="69" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="CoreTweet" expanded="True" />
-          <Node name="CoreTweet.Streaming.Rx" expanded="True" selected="True" />
+          <Node name="CoreTweet" expanded="True">
+            <Node name="makedoc" selected="True" />
+          </Node>
+          <Node name="CoreTweet.Streaming.Rx" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
@@ -23,6 +25,6 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
-    <Watch file="Ex/OtherExtension.cs" line="48" offsetX="646" offsetY="480" expression="m" liveUpdate="False" />
+    <Watch file="Ex\OtherExtension.cs" line="48" offsetX="646" offsetY="480" expression="m" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

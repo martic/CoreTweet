@@ -40,10 +40,12 @@ namespace CoreTweet.Rest
             return this.Tokens.AccessApi<User>(MethodType.Get, "account/verify_credentials", parameters);
         }
         
-        public IDictionary<string,IDictionary<string,RateLimit>> RateLimitStatus(params Expression<Func<string,object>>[] parameters)
+
+		//UNDONE: Implement Account.RateLimitStatus
+        /*public IDictionary<string,IDictionary<string,RateLimit>> RateLimitStatus(params Expression<Func<string,object>>[] parameters)
         {
             return null;
-        }
+        }*/
         
         //GET & POST Methods
         

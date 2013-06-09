@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 using Codeplex.Data;
 using CoreTweet;
 using CoreTweet.Core;
-using Alice;
+using Alice.Extensions;
+using Alice.Functional.Monads;
 
 namespace CoreTweet.Streaming
 {
@@ -22,8 +23,8 @@ namespace CoreTweet.Streaming
     public partial class StreamingApi : TokenIncluded
     {
         protected internal StreamingApi(Tokens tokens) : base(tokens) { }
-        
-        protected internal IEnumerable<string> Connect(StreamingParameters parameters, MethodType type, string url)
+
+        IEnumerable<string> Connect(StreamingParameters parameters, MethodType type, string url)
         {
             using(var str = this.Tokens.SendRequest(type, url, parameters.Parameters))
             using(var reader = new StreamReader(str))
@@ -89,30 +90,38 @@ namespace CoreTweet.Streaming
                                 params Expression<Func<string,Action<StreamingMessage>>>[] streamingActions)
         {
             //new Task(() => 
-            {
-                var url = type == StreamingType.User ? "https://userstream.twitter.com/1.1/user.json" : 
-                          type == StreamingType.Site ? " https://sitestream.twitter.com/1.1/site.json " :
-                          type == StreamingType.Public ? "https://stream.twitter.com/1.1/statuses/filter.json" : "";
-                
-                var str = this.Connect(parameters, type == StreamingType.Public ? MethodType.Post : MethodType.Get, url)
-                          .Where(x => !string.IsNullOrEmpty(x));
+			{
     
                 var actions = streamingActions.ToDictionary(e => (MessageType)Enum.Parse(typeof(MessageType), e.Parameters[0].Name),
                                                             e => e.Compile()(""));
-                
-                if(actions.ContainsKey(MessageType.RawJson))
-                    str.ForEach(x => actions[MessageType.RawJson](CoreBase.Convert<RawJsonMessage>(this.Tokens, x)));
-            
-                str.Select(x => DynamicJson.Parse(x)).ForEach(x => 
+                this.StartStream(parameters,type).ForEach(x => 
                 {
-                    StreamingMessage mes = StreamingMessage.Parse(this.Tokens, x);
-                    actions.Where(y => y.Key != MessageType.RawJson)
-                           .First(y => y.Key == mes.MessageType)
-                           .Value(mes);
+                    var err = new Error<Action<StreamingMessage>>(
+						() => actions.First(y => y.Key == x.MessageType).Value);
+
+					if(!err.IsError)
+						err.Value(x);
                 });
             }//).Start();
             
         }
+
+		public IEnumerable<StreamingMessage> StartStream(StreamingParameters parameters, StreamingType type)
+		{
+			var url = type == StreamingType.User ? "https://userstream.twitter.com/1.1/user.json" : 
+				type == StreamingType.Site ? " https://sitestream.twitter.com/1.1/site.json " :
+					type == StreamingType.Public ? "https://stream.twitter.com/1.1/statuses/filter.json" : "";
+			
+			var str = this.Connect(parameters, type == StreamingType.Public ? MethodType.Post : MethodType.Get, url)
+				.Where(x => !string.IsNullOrEmpty(x));
+			
+			foreach(var s in str)
+			{
+				yield return CoreBase.Convert<RawJsonMessage>(this.Tokens, s);
+				yield return StreamingMessage.Parse(this.Tokens, DynamicJson.Parse(s));
+			}
+		}
+
          
         
         
@@ -123,7 +132,7 @@ namespace CoreTweet.Streaming
     /// </summary>
     public class StreamingParameters
     {
-        internal IDictionary<string,object> Parameters { get; set; }
+        public IDictionary<string,object> Parameters { get; private set; }
         
         /// <summary>
         /// <para>Initializes a new instance of the <see cref="CoreTweet.Streaming.StreamingParameters"/> class.</para>

@@ -2,13 +2,14 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 
-namespace Alice
+namespace Alice.Extensions
 {
     /// <summary>
     /// Alice's extension methods.
     /// </summary>
-    public static class IEnumerableExtensions
+    public static class Extensions
     {
         /// <summary>
         /// Gets an enumerable object whose element is included in both of enumerable objects.
@@ -64,7 +65,7 @@ namespace Alice
             while(!streamReader.EndOfStream)
                 yield return streamReader.ReadLine();
         }
- 
+        
         /// <summary>
         /// Performs the specified action on each element on the enumerable object.
         /// </summary>
@@ -286,6 +287,46 @@ namespace Alice
         }
         
         /// <summary>
+        /// Split the specified text by the regexes.
+        /// </summary>
+        /// <param name='e'>
+        /// The text.
+        /// </param>
+        /// <param name='separator'>
+        /// Regex separators.
+        /// </param>
+        public static IEnumerable<string> Split(this string e, params Regex[] separator)
+        {
+            return Split(e, separator, StringSplitOptions.None);
+        }
+        
+        /// <summary>
+        /// Split the specified text by the regexes.
+        /// </summary>
+        /// <param name='e'>
+        /// The text.
+        /// </param>
+        /// <param name='separator'>
+        /// Regex separators.
+        /// </param>
+        /// <param name='options'>
+        /// Options.
+        /// </param>
+        public static IEnumerable<string> Split(this string e, IEnumerable<Regex> separator, StringSplitOptions options)
+        {
+            return 
+                from x in separator
+                from y in ToEnumerable(x.Matches(e))
+                select y.Value;
+        }
+        
+        static IEnumerable<Match> ToEnumerable(this MatchCollection e)
+        {
+            foreach(var x in e)
+                yield return (Match)x;
+        }
+        
+        /// <summary>
         /// Performs "Exclusive OR" to the elements in both of this and specified enumerable object.
         /// </summary>
         /// <param name='e'>
@@ -305,14 +346,14 @@ namespace Alice
         
         /* 
         /// <summary>
-		/// Converts camelCase text to snake_case.
-		/// </summary>
-		/// <returns>The snake_case text.</returns>
-		/// <param name="e">The camelCase text.</param>
-		public static string ToSnakeCase(this string e)
-		{
-			return e.Select(x => char.IsUpper(x) ? "_" + x.ToString().ToLower() : x.ToString()).JoinToString();
-		}*/
+     /// Converts camelCase text to snake_case.
+     /// </summary>
+     /// <returns>The snake_case text.</returns>
+     /// <param name="e">The camelCase text.</param>
+     public static string ToSnakeCase(this string e)
+     {
+         return e.Select(x => char.IsUpper(x) ? "_" + x.ToString().ToLower() : x.ToString()).JoinToString();
+     }*/
 
     }
 }

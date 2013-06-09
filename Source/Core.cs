@@ -7,7 +7,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using CoreTweet.Core;
-using Alice;
+using Alice.Extensions;
 
 namespace CoreTweet
 {   
