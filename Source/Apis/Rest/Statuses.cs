@@ -13,7 +13,6 @@ namespace CoreTweet.Rest
     {
         internal Statuses(Tokens e) : base(e) { }
         //UNDONE: Implement update_with_media
-        //FIXME: Filter shouldn't works well.It needs some tests.
                 
         //GET Methods
 
@@ -166,7 +165,7 @@ namespace CoreTweet.Rest
         /// <param name='parameters'>
         /// Parameters.
         /// </param>
-        [Obsolete("This endpoint requires special permission to access. But not be obsolete.")]
+        [Obsolete("This endpoint requires special permission to access. (not be obsolete)")]
         public IEnumerable<Status> Firehose(params Expression<Func<string,object>>[] parameters)
         {
             return this.Tokens.AccessApiArray<Status>(MethodType.Get, "statuses/firehose", parameters);
@@ -194,27 +193,6 @@ namespace CoreTweet.Rest
         public Status Update(params Expression<Func<string,object>>[] parameters)
         {
             return this.Tokens.AccessApi<Status>(MethodType.Post, "statuses/update", parameters);
-        }
-            
-            
-        /// <summary>
-        /// <para>Returns public statuses that match one or more filter predicates. Multiple parameters may be specified which allows most clients to use a single connection to the Streaming API. Both GET and POST requests are supported, but GET requests with too many parameters may cause the request to be rejected for excessive URL length. Use a POST request to avoid long URLs.</para>
-        /// <see cref="https://dev.twitter.com/docs/streaming-apis/parameters"/>
-        /// <para>Note: At least one predicate parameter (follow, locations, or track) must be specified.</para>
-        /// <para>Avaliable parameters: </para>
-        /// <para><paramref name="string follow (see note)"/> : A comma separated list of user IDs, indicating the users to return statuses for in the stream. See the follow parameter documentation for more information.</para>
-        /// <para><paramref name="string track (see note)"/> : Keywords to track. Phrases of keywords are specified by a comma-separated list. See the track parameter documentation for more information.</para>
-        /// <para><paramref name="string locations (see note)"/> : Specifies a set of bounding boxes to track. See the locations parameter documentation for more information.</para>
-        /// <para><paramref name="string delimited (optional)"/> : Specifies whether messages should be length-delimited. See the delimited parameter documentation for more information.</para>
-        /// <para><paramref name="string stall_warnings (optional)"/> : Specifies whether stall warnings should be delivered. See the stall_warnings parameter documentation for more information.</para>
-        /// </summary>
-        /// <returns>Statuses.</returns>
-        /// <param name='parameters'>
-        /// Parameters.
-        /// </param>
-        public IEnumerable<Status> Filter(params Expression<Func<string,object>>[] parameters)
-        {
-            return this.Tokens.AccessApiArray<Status>(MethodType.Get, "statuses/filter", parameters);
         }
             
         /// <summary>

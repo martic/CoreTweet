@@ -86,7 +86,7 @@
     <Compile Include="Apis\Streaming\Messages.cs" />
     <Compile Include="Ex\ListExtension.cs" />
     <Compile Include="Lib\Alice.Extensions.cs" />
-    <Compile Include="Lib\Error.cs" />
+    <Compile Include="Apis\Streaming\Error.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="makedoc" />

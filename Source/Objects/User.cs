@@ -209,11 +209,11 @@ namespace CoreTweet
         
         internal override void ConvertBase(dynamic e)
         {
-            IsContributorsEnabled = (bool)e.contributors_enabled;
-            //FIXME: DateTimeOffset.ParseExact Doesn't work.
-            //CreatedAt = DateTimeOffset.ParseExact(e.created_at, "ddd MMM dd HH:mm:ss K yyyy",
-            //                                      System.Globalization.DateTimeFormatInfo.InvariantInfo);
-            IsDefaultProfile = (bool)e.default_profile;
+			IsContributorsEnabled = (bool)e.contributors_enabled;
+			CreatedAt = DateTimeOffset.ParseExact(e.created_at, "ddd MMM dd HH:mm:ss K yyyy",
+			                                      System.Globalization.DateTimeFormatInfo.InvariantInfo, 
+			                                      System.Globalization.DateTimeStyles.AllowWhiteSpaces);
+			IsDefaultProfile = (bool)e.default_profile;
             IsDefaultProfileImage = (bool)e.default_profile_image;
             Description = (string)e.description;
             Entities = e.IsDefined("entities") ? CoreBase.Convert<Entity>(this.Tokens, e.entities) : null;
@@ -246,7 +246,7 @@ namespace CoreTweet
             StatusesCount = (int)e.statuses_count;
             TimeZone = (string)e.time_zone;
             Url = e.url == null ? null : new Uri((string)e.url);
-            //UtcOffset = DateTimeOffset.FromFileTime((long)e.utc_offset);
+            UtcOffset = DateTimeOffset.FromFileTime((long)e.utc_offset);
             IsVerified = (bool)e.verified;
             WithheldInCountries = e.IsDefined("withheld_in_countries") ? e.withheld_in_countries : null;
             WithheldScope = e.IsDefined("withheld_scope") ? e.withheld_scope : null;
@@ -300,14 +300,12 @@ namespace CoreTweet
             ScreenName = e.screen_name;
             Following = (bool?)e.following;
             FollowedBy = (bool?)e.followed_by;
-            
             CanDm = e.IsDefined("can_dm") ? (bool?)e.can_dm : null;
             AllReplies = e.IsDefined("all_replies") ? (bool?)e.all_replies : null;
             WantRetweets = e.IsDefined("want_retweets") ? (bool?)e.want_retweets : null;
             Blocking = e.IsDefined("blocking") ? (bool?)e.blocking : null;
             MarkedSpam = e.IsDefined("marked_spam") ? (bool?)e.marked_spam : null;
             NotificationsEnabled = e.IsDefined("notifications_enabled") ? (bool?)e.notifications_enabled : null;
-            
             Connections = e.IsDefined("connections") ? (string[])e.connections : null;
         }
         

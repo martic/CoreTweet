@@ -142,8 +142,7 @@ namespace CoreTweet
         {
             Id = e.IsDefined("id") ? (long?)e.id : null;
             Contributors = e.IsDefined("contributors") ? CoreBase.ConvertArray<Contributors>(this.Tokens, e.contributors) : null;
-            Coordinates = e.IsDefined("coordinates") ? CoreBase.Convert<Coordinates>(this.Tokens, e.coordinates) : null;
-            //FIXME: DateTimeOffset.ParseExact Doesn't work.
+			Coordinates = e.IsDefined ("coordinates") ? CoreBase.Convert<Coordinates> (this.Tokens, e.coordinates) : null;
             CreatedAt = DateTimeOffset.ParseExact(e.created_at, "ddd MMM dd HH:mm:ss K yyyy",
                                                   System.Globalization.DateTimeFormatInfo.InvariantInfo, 
 			                                      System.Globalization.DateTimeStyles.AllowWhiteSpaces);
@@ -247,7 +246,6 @@ namespace CoreTweet
         {
             Sender = CoreBase.Convert<User>(this.Tokens, e.sender);
             Recipient = CoreBase.Convert<User>(this.Tokens, e.recipient);
-            //FIXME: DateTimeOffset.ParseExact Doesn't work.
 			CreatedAt = DateTimeOffset.ParseExact(e.created_at, "ddd MMM dd HH:mm:ss K yyyy",
 			                                      System.Globalization.DateTimeFormatInfo.InvariantInfo, 
 			                                      System.Globalization.DateTimeStyles.AllowWhiteSpaces);

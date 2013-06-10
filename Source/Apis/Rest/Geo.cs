@@ -12,7 +12,7 @@ namespace CoreTweet.Rest
     public class Geo : TokenIncluded
     {
         internal Geo(Tokens e) : base(e) { }
-        //FIXME: Don't know about a format of "attribute:street_address". Needed to check the format by "OAuth tool".
+        //FIXME: The format of "attribute:street_address" isn't known. Needed to check the format by "OAuth tool".
             
         //GET Methods
             

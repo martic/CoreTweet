@@ -148,6 +148,7 @@ namespace CoreTweet.Rest
         }
 
         //FIXME: The format of the response is not known.
+		//UNDONE: Write a document comment in this endpoint 
         /// <summary>
         /// <para></para>
         /// <para>Avaliable parameters: </para>

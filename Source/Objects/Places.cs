@@ -158,7 +158,6 @@ namespace CoreTweet
         
         internal override void ConvertBase(dynamic e)
         {
-            //FIXME: DateTimeOffset.ParseExact Doesn't work.
 			AsOf = DateTimeOffset.ParseExact(e.as_of, "ddd MMM dd HH:mm:ss K yyyy",
 			                                      System.Globalization.DateTimeFormatInfo.InvariantInfo, 
 			                                      System.Globalization.DateTimeStyles.AllowWhiteSpaces);

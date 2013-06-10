@@ -42,10 +42,10 @@ namespace CoreTweet.Rest
         
 
 		//UNDONE: Implement Account.RateLimitStatus
-        /*public IDictionary<string,IDictionary<string,RateLimit>> RateLimitStatus(params Expression<Func<string,object>>[] parameters)
+        public IDictionary<string,IDictionary<string,RateLimit>> RateLimitStatus(params Expression<Func<string,object>>[] parameters)
         {
-            return null;
-        }*/
+			throw new NotImplementedException ("Sorry, this API must be implemented before stable release...");
+        }
         
         //GET & POST Methods
         
